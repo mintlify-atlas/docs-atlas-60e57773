@@ -1,0 +1,204 @@
+---
+title: Skeleton
+description: Animated loading placeholders for content that is being loaded
+---
+
+Skeleton loaders provide visual feedback while content is loading, improving perceived performance and user experience.
+
+## Basic Usage
+
+The `.is-skeleton` modifier can be applied to any element to turn it into a pulsating skeleton placeholder.
+
+```html
+<div class="box is-skeleton">
+  This text will be invisible with a pulsating background
+</div>
+```
+
+## Skeleton Classes
+
+### is-skeleton
+
+Apply to any element to make it a skeleton placeholder with pulsating animation.
+
+```html
+<button class="button is-skeleton">Loading button</button>
+<div class="notification is-skeleton">Loading notification</div>
+<input class="input is-skeleton" placeholder="Loading...">
+```
+
+### skeleton-block
+
+A dedicated skeleton block element for content placeholders.
+
+```html
+<div class="skeleton-block"></div>
+```
+
+The skeleton block has a minimum height of 4.5em and includes the pulsating animation.
+
+### skeleton-lines
+
+Create multi-line skeleton placeholders that mimic text content.
+
+```html
+<div class="skeleton-lines">
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+```
+
+The last line automatically renders at 30% width to simulate typical paragraph endings.
+
+### has-skeleton
+
+Apply to a container to add a skeleton overlay using a pseudo-element.
+
+```html
+<div class="has-skeleton">
+  Content being loaded
+</div>
+```
+
+## Common Use Cases
+
+### Loading Card
+
+```html
+<div class="card">
+  <div class="card-content">
+    <div class="media">
+      <div class="media-left">
+        <figure class="image is-48x48 is-skeleton">
+          <img src="placeholder.jpg" alt="Loading">
+        </figure>
+      </div>
+      <div class="media-content">
+        <p class="title is-skeleton">Title Loading</p>
+        <p class="subtitle is-skeleton">Subtitle Loading</p>
+      </div>
+    </div>
+    <div class="content">
+      <div class="skeleton-lines">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+### Loading List
+
+```html
+<div class="box">
+  <div class="skeleton-block"></div>
+  <div class="skeleton-block"></div>
+  <div class="skeleton-block"></div>
+</div>
+```
+
+### Loading Form
+
+```html
+<div class="field">
+  <label class="label is-skeleton">Label</label>
+  <div class="control">
+    <input class="input is-skeleton" type="text" placeholder="Loading">
+  </div>
+</div>
+
+<div class="field">
+  <label class="label is-skeleton">Another field</label>
+  <div class="control">
+    <textarea class="textarea is-skeleton" placeholder="Loading"></textarea>
+  </div>
+</div>
+
+<div class="field">
+  <div class="control">
+    <button class="button is-skeleton">Loading button</button>
+  </div>
+</div>
+```
+
+## Animation
+
+Skeleton loaders use a pulsating animation with the following properties:
+
+- Duration: 2 seconds
+- Iteration: Infinite
+- Timing: Cubic bezier (0.4, 0, 0.6, 1)
+- Effect: Pulsating background color
+
+## CSS Variables
+
+Customize skeleton loaders using CSS variables:
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `--bulma-skeleton-background` | `var(--bulma-border)` | Background color |
+| `--bulma-skeleton-radius` | `var(--bulma-radius-small)` | Border radius |
+| `--bulma-skeleton-block-min-height` | `4.5em` | Minimum height for blocks |
+| `--bulma-skeleton-lines-gap` | `0.75em` | Gap between lines |
+| `--bulma-skeleton-line-height` | `0.75em` | Height of each line |
+
+### Customization Example
+
+```css
+:root {
+  --bulma-skeleton-background: rgba(0, 0, 0, 0.1);
+  --bulma-skeleton-radius: 8px;
+}
+
+/* Dark mode */
+.dark-mode {
+  --bulma-skeleton-background: rgba(255, 255, 255, 0.1);
+}
+```
+
+## JavaScript Toggle
+
+Toggle skeleton state dynamically:
+
+```javascript
+const card = document.querySelector('.card');
+const button = document.querySelector('#load-button');
+
+button.addEventListener('click', () => {
+  card.classList.add('is-skeleton');
+  
+  // Simulate loading
+  setTimeout(() => {
+    card.classList.remove('is-skeleton');
+  }, 2000);
+});
+```
+
+## Best Practices
+
+<Accordion title="Match content structure">
+Design skeleton loaders to match the structure and dimensions of the actual content for a smooth transition.
+</Accordion>
+
+<Accordion title="Use appropriate skeleton type">
+- Use `.is-skeleton` for existing elements (buttons, inputs)
+- Use `.skeleton-block` for large content areas
+- Use `.skeleton-lines` for text content
+</Accordion>
+
+<Accordion title="Keep loading time reasonable">
+Skeleton loaders work best for short loading periods (1-3 seconds). For longer loads, consider progress indicators.
+</Accordion>
+
+<Accordion title="Test with screen readers">
+Ensure skeleton loaders don't confuse screen reader users. Consider adding `aria-busy="true"` to the loading container.
+</Accordion>
+
+## Related Components
+
+- [Loader](/elements/loader) - Spinner animation for loading states
+- [Progress](/elements/progress) - Progress bars for tracking completion
+- [Box](/elements/box) - Container element often used with skeletons
