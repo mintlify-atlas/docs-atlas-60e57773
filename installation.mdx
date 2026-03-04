@@ -1,0 +1,278 @@
+---
+title: Installation
+description: Install Bulma using npm, yarn, pnpm, or CDN and learn how to import it into your project
+---
+
+There are multiple ways to install and use Bulma in your project. Choose the method that best fits your workflow.
+
+## Package managers
+
+Install Bulma as a dependency in your project using your preferred package manager.
+
+<CodeGroup>
+
+```bash npm
+npm install bulma
+```
+
+```bash yarn
+yarn add bulma
+```
+
+```bash pnpm
+pnpm add bulma
+```
+
+</CodeGroup>
+
+After installation, Bulma will be available in your `node_modules/bulma` directory.
+
+## CDN
+
+For quick prototyping or simple projects, use a CDN to include Bulma directly in your HTML.
+
+### jsDelivr (recommended)
+
+```html
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css"
+/>
+```
+
+<Tip>
+jsDelivr is a fast, reliable CDN that automatically serves the latest version if you remove the version number from the URL.
+</Tip>
+
+### unpkg
+
+```html
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/bulma@1.0.4/css/bulma.min.css"
+/>
+```
+
+## Importing Bulma
+
+How you import Bulma depends on your build setup and whether you want to use the compiled CSS or customize it with Sass.
+
+### Import compiled CSS
+
+If you just want to use Bulma's default styles, import the pre-built CSS file.
+
+<CodeGroup>
+
+```javascript JavaScript/TypeScript
+import 'bulma/css/bulma.css';
+```
+
+```css CSS
+@import 'bulma/css/bulma.css';
+```
+
+```html HTML
+<link rel="stylesheet" href="node_modules/bulma/css/bulma.css">
+```
+
+</CodeGroup>
+
+### Import Sass for customization
+
+To customize Bulma, import the Sass source files. This requires a Sass compiler in your build process.
+
+```scss
+@use "bulma";
+```
+
+The main entry point `bulma.scss` imports all Bulma modules:
+
+```scss title="node_modules/bulma/bulma.scss"
+@charset "utf-8";
+
+/*! bulma.io v1.0.4 | MIT License | github.com/jgthms/bulma */
+@use "sass";
+```
+
+<Note>
+Bulma v1.0+ uses the modern Sass `@use` syntax instead of `@import`. Make sure your Sass compiler supports this syntax.
+</Note>
+
+### Import specific modules
+
+You can import only the Bulma modules you need to reduce bundle size:
+
+```scss
+// Import only utilities and base
+@use "bulma/sass/utilities";
+@use "bulma/sass/base";
+
+// Import specific components
+@use "bulma/sass/elements/button";
+@use "bulma/sass/elements/title";
+@use "bulma/sass/components/card";
+@use "bulma/sass/components/navbar";
+```
+
+Bulma's module structure:
+
+- `utilities/` - Functions, mixins, and variables
+- `themes/` - Light and dark theme definitions
+- `base/` - Generic styles and reset
+- `elements/` - Basic UI elements
+- `form/` - Form controls and inputs
+- `components/` - Complex multi-part components
+- `grid/` - Columns layout system
+- `layout/` - Container, hero, section, footer
+- `helpers/` - Utility classes
+
+## Build versions
+
+Bulma provides several pre-built versions for different use cases. These are available in the `css/versions/` directory.
+
+### Standard version
+
+The default build includes all features:
+
+```
+css/bulma.css         (unminified, with source maps)
+css/bulma.min.css     (minified for production)
+```
+
+### Specialized versions
+
+<AccordionGroup>
+  <Accordion title="bulma-no-dark-mode.css">
+    Excludes dark mode styles if you don't need theme switching. Results in a smaller file size.
+    
+    ```html
+    <link rel="stylesheet" href="node_modules/bulma/css/versions/bulma-no-dark-mode.min.css">
+    ```
+  </Accordion>
+  
+  <Accordion title="bulma-no-helpers.css">
+    Excludes helper classes (spacing, colors, typography utilities) if you're using your own utility system.
+    
+    ```html
+    <link rel="stylesheet" href="node_modules/bulma/css/versions/bulma-no-helpers.min.css">
+    ```
+  </Accordion>
+  
+  <Accordion title="bulma-prefixed.css">
+    All classes are prefixed with `bulma-` to avoid naming conflicts with other frameworks.
+    
+    ```html
+    <link rel="stylesheet" href="node_modules/bulma/css/versions/bulma-prefixed.min.css">
+    
+    <!-- Use classes like bulma-button, bulma-card, etc. -->
+    <button class="bulma-button bulma-is-primary">Click me</button>
+    ```
+  </Accordion>
+  
+  <Accordion title="bulma-no-helpers-prefixed.css">
+    Combines both: no helpers and prefixed class names.
+    
+    ```html
+    <link rel="stylesheet" href="node_modules/bulma/css/versions/bulma-no-helpers-prefixed.min.css">
+    ```
+  </Accordion>
+</AccordionGroup>
+
+## Setting up a Sass build
+
+If you're customizing Bulma with Sass, you'll need a build process. Here's a basic setup using the Sass CLI.
+
+<Steps>
+  <Step title="Install Sass">
+    Install the Sass compiler as a dev dependency:
+    
+    ```bash
+    npm install --save-dev sass
+    ```
+  </Step>
+  
+  <Step title="Create your Sass file">
+    Create a main Sass file that imports Bulma:
+    
+    ```scss title="src/styles/main.scss"
+    // Your variable overrides
+    @use "bulma/sass/utilities" with (
+      $primary: #8e44ad,
+      $family-sans-serif: ('Roboto', sans-serif)
+    );
+    
+    // Import all of Bulma
+    @use "bulma";
+    
+    // Your custom styles
+    .my-custom-class {
+      color: $primary;
+    }
+    ```
+  </Step>
+  
+  <Step title="Add build script">
+    Add a build script to your `package.json`:
+    
+    ```json title="package.json"
+    {
+      "scripts": {
+        "build:css": "sass src/styles/main.scss dist/styles.css",
+        "watch:css": "sass --watch src/styles/main.scss dist/styles.css"
+      }
+    }
+    ```
+  </Step>
+  
+  <Step title="Build your CSS">
+    Run the build script:
+    
+    ```bash
+    npm run build:css
+    ```
+    
+    For development with automatic rebuilds:
+    
+    ```bash
+    npm run watch:css
+    ```
+  </Step>
+</Steps>
+
+## Verification
+
+To verify Bulma is working, create a simple HTML file:
+
+```html title="index.html"
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bulma Test</title>
+  <link rel="stylesheet" href="path/to/bulma.css">
+</head>
+<body>
+  <section class="section">
+    <div class="container">
+      <h1 class="title">Hello Bulma!</h1>
+      <p class="subtitle">If you can see styled text, Bulma is working.</p>
+      <button class="button is-primary">Primary Button</button>
+    </div>
+  </section>
+</body>
+</html>
+```
+
+If the button appears styled with a purple/blue background, Bulma is successfully installed.
+
+## Next steps
+
+<CardGroup cols={2}>
+  <Card title="Quickstart guide" icon="rocket" href="/quickstart">
+    Build your first component with Bulma
+  </Card>
+  <Card title="Customization" icon="palette" href="/customization">
+    Learn how to customize Bulma's variables and themes
+  </Card>
+</CardGroup>

@@ -1,0 +1,298 @@
+---
+title: Sass Variables
+description: Complete reference of all Sass variables in Bulma, including colors, typography, spacing, and responsive breakpoints
+---
+
+Bulma provides a comprehensive set of Sass variables that you can customize to match your design system. Variables are organized into two files: **initial variables** (base values) and **derived variables** (computed from initial values).
+
+## Overview
+
+To customize Bulma, override any variable **before** importing Bulma:
+
+```scss
+// Your custom variables
+$primary: hsl(171, 100%, 41%);
+$family-sans-serif: "Inter", sans-serif;
+$radius: 0.5rem;
+
+// Import Bulma
+@import "bulma/bulma.scss";
+```
+
+## Initial Variables
+
+These are the foundational variables defined in `sass/utilities/initial-variables.scss`.
+
+### Scheme Colors
+
+Base hue and saturation for the color scheme:
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `$scheme-h` | `221` | Base hue for the color scheme |
+| `$scheme-s` | `14%` | Base saturation for the color scheme |
+| `$dark-l` | `20%` | Lightness for dark colors |
+| `$light-l` | `90%` | Lightness for light colors |
+
+### Grayscale Colors
+
+Monochrome color palette:
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `$black` | `hsl(221, 14%, 4%)` | Darkest shade |
+| `$black-bis` | `hsl(221, 14%, 9%)` | Slightly lighter than black |
+| `$black-ter` | `hsl(221, 14%, 14%)` | Third black shade |
+| `$grey-darker` | `hsl(221, 14%, 21%)` | Darkest grey |
+| `$grey-dark` | `hsl(221, 14%, 29%)` | Dark grey |
+| `$grey` | `hsl(221, 14%, 48%)` | Base grey |
+| `$grey-light` | `hsl(221, 14%, 71%)` | Light grey |
+| `$grey-lighter` | `hsl(221, 14%, 86%)` | Lighter grey |
+| `$grey-lightest` | `hsl(221, 14%, 93%)` | Lightest grey |
+| `$white-ter` | `hsl(221, 14%, 96%)` | Third white shade |
+| `$white-bis` | `hsl(221, 14%, 98%)` | Slightly darker than white |
+| `$white` | `hsl(221, 14%, 100%)` | Pure white |
+
+### Brand Colors
+
+Core color palette:
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `$orange` | `hsl(14, 100%, 53%)` | Orange accent |
+| `$yellow` | `hsl(42, 100%, 53%)` | Yellow accent |
+| `$green` | `hsl(153, 53%, 53%)` | Green accent |
+| `$turquoise` | `hsl(171, 100%, 41%)` | Turquoise accent |
+| `$cyan` | `hsl(198, 100%, 70%)` | Cyan accent |
+| `$blue` | `hsl(233, 100%, 63%)` | Blue accent |
+| `$purple` | `hsl(271, 100%, 71%)` | Purple accent |
+| `$red` | `hsl(348, 100%, 70%)` | Red accent |
+
+<Tip>
+All colors use HSL format for easy customization. Adjust hue, saturation, or lightness to create your brand palette.
+</Tip>
+
+### Typography
+
+Font families and sizes:
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `$family-sans-serif` | `"Inter", "SF Pro", "Segoe UI", ...` | Sans-serif font stack |
+| `$family-monospace` | `"Inconsolata", "Hack", "SF Mono", ...` | Monospace font stack |
+| `$render-mode` | `optimizeLegibility` | Font rendering mode |
+
+#### Font Sizes
+
+| Variable | Default | Usage |
+|----------|---------|-------|
+| `$size-1` | `3rem` | Largest heading |
+| `$size-2` | `2.5rem` | Large heading |
+| `$size-3` | `2rem` | Medium heading |
+| `$size-4` | `1.5rem` | Small heading |
+| `$size-5` | `1.25rem` | Subtitle |
+| `$size-6` | `1rem` | Base size |
+| `$size-7` | `0.75rem` | Small text |
+
+#### Font Weights
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `$weight-light` | `300` | Light weight |
+| `$weight-normal` | `400` | Normal weight |
+| `$weight-medium` | `500` | Medium weight |
+| `$weight-semibold` | `600` | Semibold weight |
+| `$weight-bold` | `700` | Bold weight |
+| `$weight-extrabold` | `800` | Extra bold weight |
+
+### Spacing
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `$block-spacing` | `1.5rem` | Vertical spacing between block elements |
+
+### Responsive Breakpoints
+
+Breakpoint values for responsive design:
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `$gap` | `32px` | Container horizontal gap |
+| `$tablet` | `769px` | Tablet breakpoint |
+| `$desktop` | `1024px` | Desktop breakpoint (960px + 2 * $gap) |
+| `$widescreen` | `1216px` | Widescreen breakpoint (1152px + 2 * $gap) |
+| `$fullhd` | `1408px` | Full HD breakpoint (1344px + 2 * $gap) |
+| `$widescreen-enabled` | `true` | Enable widescreen breakpoint |
+| `$fullhd-enabled` | `true` | Enable Full HD breakpoint |
+
+### Miscellaneous
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `$duration` | `294ms` | Standard animation duration |
+| `$easing` | `ease-out` | Standard easing function |
+| `$radius-small` | `0.25rem` | Small border radius |
+| `$radius` | `0.375rem` | Standard border radius |
+| `$radius-medium` | `0.5em` | Medium border radius |
+| `$radius-large` | `0.75rem` | Large border radius |
+| `$radius-rounded` | `9999px` | Fully rounded borders |
+| `$speed` | `86ms` | Fast animation speed |
+
+### Configuration Flags
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `$variable-columns` | `true` | Enable variable width columns |
+| `$rtl` | `false` | Enable right-to-left support |
+| `$class-prefix` | `""` | Prefix for CSS classes |
+| `$cssvars-prefix` | `"bulma-"` | Prefix for CSS variables |
+| `$helpers-prefix` | `"is-"` | Prefix for helper classes |
+| `$helpers-has-prefix` | `"has-"` | Prefix for state classes |
+
+## Derived Variables
+
+These variables are computed from initial variables in `sass/utilities/derived-variables.scss`.
+
+### Scheme Colors
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `$scheme-main` | `$white` | Main background color |
+| `$scheme-main-bis` | `$white-bis` | Alternative background |
+| `$scheme-main-ter` | `$white-ter` | Tertiary background |
+| `$scheme-invert` | `$black` | Inverted color |
+| `$scheme-invert-bis` | `$black-bis` | Alternative inverted |
+| `$scheme-invert-ter` | `$black-ter` | Tertiary inverted |
+
+### Text Colors
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `$text` | `$grey-dark` | Primary text color |
+| `$text-invert` | Computed | Inverted text color |
+| `$text-weak` | `$grey` | Weak text color |
+| `$text-strong` | `$grey-darker` | Strong text color |
+
+### Status Colors
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `$primary` | `$turquoise` | Primary brand color |
+| `$info` | `$cyan` | Informational color |
+| `$success` | `$green` | Success state color |
+| `$warning` | `$yellow` | Warning state color |
+| `$danger` | `$red` | Danger/error color |
+| `$light` | `$white-ter` | Light theme color |
+| `$dark` | `$grey-darker` | Dark theme color |
+
+### Link Colors
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `$link` | `$blue` | Link color |
+
+### Decorative Colors
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `$background` | `$white-ter` | Page background |
+| `$border` | `$grey-lighter` | Border color |
+| `$border-weak` | `$grey-lightest` | Weak border color |
+
+### Code Colors
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `$code` | `$red` | Inline code text color |
+| `$code-background` | `$background` | Inline code background |
+| `$pre` | `$text` | Pre block text color |
+| `$pre-background` | `$background` | Pre block background |
+
+### Typography
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `$family-primary` | `$family-sans-serif` | Primary font family |
+| `$family-secondary` | `$family-sans-serif` | Secondary font family |
+| `$family-code` | `$family-monospace` | Code font family |
+| `$size-small` | `$size-7` | Small size |
+| `$size-normal` | `$size-6` | Normal size |
+| `$size-medium` | `$size-5` | Medium size |
+| `$size-large` | `$size-4` | Large size |
+
+## Customization Examples
+
+### Custom Color Scheme
+
+```scss
+// Override brand colors
+$primary: hsl(204, 86%, 53%);  // Custom blue
+$info: hsl(207, 61%, 53%);
+$success: hsl(141, 71%, 48%);
+$warning: hsl(48, 100%, 67%);
+$danger: hsl(348, 100%, 61%);
+
+@import "bulma/bulma.scss";
+```
+
+### Custom Typography
+
+```scss
+// Override font families
+$family-sans-serif: "Poppins", sans-serif;
+$family-monospace: "Fira Code", monospace;
+
+// Adjust sizes
+$size-1: 3.5rem;
+$size-2: 2.75rem;
+$size-6: 1.125rem;  // Larger base size
+
+@import "bulma/bulma.scss";
+```
+
+### Custom Breakpoints
+
+```scss
+// Adjust responsive breakpoints
+$tablet: 640px;
+$desktop: 1024px;
+$widescreen: 1280px;
+$fullhd: 1536px;
+
+@import "bulma/bulma.scss";
+```
+
+### Custom Spacing
+
+```scss
+// Tighter spacing
+$block-spacing: 1rem;
+$gap: 16px;
+
+// Rounded corners
+$radius: 0.5rem;
+$radius-large: 1rem;
+
+@import "bulma/bulma.scss";
+```
+
+## Custom Color Maps
+
+You can add custom colors to Bulma's color system:
+
+```scss
+// Define custom colors
+$custom-colors: (
+  "orange": ($orange, $white),
+  "purple": ($purple, $white),
+  "brand": (hsl(180, 50%, 50%), $white)
+);
+
+@import "bulma/bulma.scss";
+```
+
+This generates all color variants (light, dark, text) and modifier classes (`.is-orange`, `.has-background-purple`, etc.).
+
+<Note>
+All variables use the `!default` flag, which means they are only set if not already defined. Always define your custom values before importing Bulma.
+</Note>

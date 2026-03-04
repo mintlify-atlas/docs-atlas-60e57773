@@ -1,0 +1,270 @@
+---
+title: Menu
+description: A vertical navigation menu with labels, nested lists, and active states
+---
+
+The **menu** component is a vertical navigation list with support for labels, nested items, and active states.
+
+## Basic Menu
+
+A simple menu with a label and list:
+
+```html
+<aside class="menu">
+  <p class="menu-label">
+    General
+  </p>
+  <ul class="menu-list">
+    <li><a>Dashboard</a></li>
+    <li><a>Customers</a></li>
+  </ul>
+  <p class="menu-label">
+    Administration
+  </p>
+  <ul class="menu-list">
+    <li><a>Team Settings</a></li>
+    <li><a class="is-active">Manage Your Team</a></li>
+    <li><a>Invitations</a></li>
+    <li><a>Authentication</a></li>
+  </ul>
+</aside>
+```
+
+## Structure
+
+The menu component consists of:
+
+- `menu` - Main container
+  - `menu-label` - Section labels (optional)
+  - `menu-list` - List of menu items
+    - `a` or `button` - Menu items (can be active with `is-active`)
+
+## Complete Example
+
+A comprehensive menu with multiple sections:
+
+```html
+<aside class="menu">
+  <p class="menu-label">
+    General
+  </p>
+  <ul class="menu-list">
+    <li><a>Dashboard</a></li>
+    <li><a>Customers</a></li>
+  </ul>
+  
+  <p class="menu-label">
+    Administration
+  </p>
+  <ul class="menu-list">
+    <li><a>Team Settings</a></li>
+    <li>
+      <a class="is-active">Manage Your Team</a>
+      <ul>
+        <li><a>Members</a></li>
+        <li><a>Plugins</a></li>
+        <li><a>Add a member</a></li>
+      </ul>
+    </li>
+    <li><a>Invitations</a></li>
+    <li><a>Cloud Storage Environment Settings</a></li>
+    <li><a>Authentication</a></li>
+  </ul>
+  
+  <p class="menu-label">
+    Transactions
+  </p>
+  <ul class="menu-list">
+    <li><a>Payments</a></li>
+    <li><a>Transfers</a></li>
+    <li><a>Balance</a></li>
+  </ul>
+</aside>
+```
+
+## Menu Labels
+
+Labels are uppercase section headers:
+
+```html
+<aside class="menu">
+  <p class="menu-label">
+    Main Navigation
+  </p>
+  <ul class="menu-list">
+    <li><a>Home</a></li>
+    <li><a>About</a></li>
+  </ul>
+</aside>
+```
+
+## Active Items
+
+Mark the current page with `is-active`:
+
+```html
+<ul class="menu-list">
+  <li><a>Dashboard</a></li>
+  <li><a class="is-active">Settings</a></li>
+  <li><a>Profile</a></li>
+</ul>
+```
+
+## Nested Lists
+
+Create hierarchical menus with nested lists:
+
+```html
+<aside class="menu">
+  <ul class="menu-list">
+    <li>
+      <a>Parent Item</a>
+      <ul>
+        <li><a>Child Item 1</a></li>
+        <li><a>Child Item 2</a></li>
+        <li><a>Child Item 3</a></li>
+      </ul>
+    </li>
+  </ul>
+</aside>
+```
+
+<Note>
+  Nested lists are automatically indented and have a left border for visual hierarchy.
+</Note>
+
+## Using Buttons
+
+Menu items can be buttons instead of links:
+
+```html
+<aside class="menu">
+  <p class="menu-label">
+    Actions
+  </p>
+  <ul class="menu-list">
+    <li><button class="menu-item">Create New</button></li>
+    <li><button class="menu-item is-active">Edit</button></li>
+    <li><button class="menu-item">Delete</button></li>
+  </ul>
+</aside>
+```
+
+## Sizes
+
+The menu supports different sizes:
+
+```html
+<!-- Small -->
+<aside class="menu is-small">
+  <p class="menu-label">Small Menu</p>
+  <ul class="menu-list">
+    <li><a>Item</a></li>
+  </ul>
+</aside>
+
+<!-- Medium -->
+<aside class="menu is-medium">
+  <p class="menu-label">Medium Menu</p>
+  <ul class="menu-list">
+    <li><a>Item</a></li>
+  </ul>
+</aside>
+
+<!-- Large -->
+<aside class="menu is-large">
+  <p class="menu-label">Large Menu</p>
+  <ul class="menu-list">
+    <li><a>Item</a></li>
+  </ul>
+</aside>
+```
+
+## In Sidebar Layout
+
+Menus work great in sidebar layouts:
+
+```html
+<div class="columns">
+  <div class="column is-one-quarter">
+    <aside class="menu">
+      <p class="menu-label">Navigation</p>
+      <ul class="menu-list">
+        <li><a class="is-active">Home</a></li>
+        <li><a>Products</a></li>
+        <li><a>Services</a></li>
+      </ul>
+    </aside>
+  </div>
+  <div class="column">
+    <div class="content">
+      <h1>Main Content</h1>
+      <p>Your page content goes here.</p>
+    </div>
+  </div>
+</div>
+```
+
+## Multiple Sections
+
+Organize menu items into logical groups:
+
+```html
+<aside class="menu">
+  <p class="menu-label">Content</p>
+  <ul class="menu-list">
+    <li><a>Posts</a></li>
+    <li><a>Pages</a></li>
+    <li><a>Media</a></li>
+  </ul>
+
+  <p class="menu-label">Settings</p>
+  <ul class="menu-list">
+    <li><a>General</a></li>
+    <li><a>Appearance</a></li>
+    <li><a>Plugins</a></li>
+  </ul>
+
+  <p class="menu-label">Account</p>
+  <ul class="menu-list">
+    <li><a>Profile</a></li>
+    <li><a>Billing</a></li>
+    <li><a>Logout</a></li>
+  </ul>
+</aside>
+```
+
+## CSS Variables
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `--bulma-menu-item-radius` | Small radius | Border radius of items |
+| `--bulma-menu-list-line-height` | 1.25 | Line height of menu items |
+| `--bulma-menu-list-link-padding` | 0.5em 0.75em | Padding of menu items |
+| `--bulma-menu-label-font-size` | 0.75em | Font size of labels |
+| `--bulma-menu-label-letter-spacing` | 0.1em | Letter spacing of labels |
+| `--bulma-menu-label-spacing` | 1em | Spacing around labels |
+| `--bulma-menu-nested-list-margin` | 0.75em | Margin of nested lists |
+| `--bulma-menu-nested-list-padding-left` | 0.75em | Left padding of nested lists |
+
+## Modifiers
+
+| Class | Description |
+|-------|-------------|
+| `is-small` | Smaller menu text |
+| `is-medium` | Medium menu text |
+| `is-large` | Larger menu text |
+| `is-active` | Highlights the active menu item |
+| `is-selected` | Alternative to `is-active` |
+
+## Styling States
+
+Menu items automatically show hover and active states:
+
+- **Hover**: Background color changes on hover
+- **Active**: Item with `is-active` class is highlighted
+- **Focus**: Focused items show interactive state
+
+<Note>
+  The menu component is purely CSS-based and doesn't require JavaScript unless you need dynamic behavior like toggling nested lists.
+</Note>

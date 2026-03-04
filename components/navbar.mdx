@@ -1,0 +1,377 @@
+---
+title: Navbar
+description: A responsive horizontal navigation bar with support for branding, menus, and dropdowns
+---
+
+The **navbar** component is a responsive horizontal navigation bar that can contain logos, links, buttons, and dropdown menus.
+
+## Basic Navbar
+
+A simple navbar with brand and menu items:
+
+```html
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="#">
+      <img src="logo.png" alt="Logo">
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasic">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasic" class="navbar-menu">
+    <div class="navbar-start">
+      <a class="navbar-item">Home</a>
+      <a class="navbar-item">Documentation</a>
+    </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <a class="button is-primary">
+            <strong>Sign up</strong>
+          </a>
+          <a class="button is-light">Log in</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+```
+
+## Structure
+
+The navbar consists of several components:
+
+- `navbar` - Main container
+  - `navbar-brand` - Left side, always visible
+    - `navbar-burger` - Hamburger menu for mobile
+  - `navbar-menu` - Collapsible menu (mobile)
+    - `navbar-start` - Left-aligned menu items
+    - `navbar-end` - Right-aligned menu items
+      - `navbar-item` - Individual menu items
+      - `navbar-link` - Link with dropdown
+      - `navbar-dropdown` - Dropdown container
+
+## Complete Example
+
+```html
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="#">
+      <img src="logo.png" width="112" height="28" alt="Logo">
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div class="navbar-menu">
+    <div class="navbar-start">
+      <a class="navbar-item">Home</a>
+      
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">More</a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item">About</a>
+          <a class="navbar-item">Jobs</a>
+          <a class="navbar-item">Contact</a>
+          <hr class="navbar-divider">
+          <a class="navbar-item">Report an issue</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <a class="button is-primary"><strong>Sign up</strong></a>
+          <a class="button is-light">Log in</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+```
+
+## Navbar Brand
+
+The brand section is always visible and contains your logo:
+
+```html
+<div class="navbar-brand">
+  <a class="navbar-item" href="#">
+    <img src="logo.png" alt="Site Logo">
+  </a>
+</div>
+```
+
+## Navbar Burger
+
+The hamburger menu for mobile navigation:
+
+```html
+<a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarMenu">
+  <span aria-hidden="true"></span>
+  <span aria-hidden="true"></span>
+  <span aria-hidden="true"></span>
+  <span aria-hidden="true"></span>
+</a>
+```
+
+<Note>
+  The burger requires JavaScript to toggle the `is-active` class on both the burger and the navbar-menu.
+</Note>
+
+## Navbar Dropdown
+
+Add dropdown menus to navbar items:
+
+```html
+<div class="navbar-item has-dropdown is-hoverable">
+  <a class="navbar-link">Products</a>
+  <div class="navbar-dropdown">
+    <a class="navbar-item">Product A</a>
+    <a class="navbar-item">Product B</a>
+    <a class="navbar-item">Product C</a>
+  </div>
+</div>
+```
+
+### Dropdown Modifiers
+
+```html
+<!-- Hoverable (shows on hover) -->
+<div class="navbar-item has-dropdown is-hoverable">
+  <!-- content -->
+</div>
+
+<!-- Dropup (shows above) -->
+<div class="navbar-item has-dropdown has-dropdown-up">
+  <!-- content -->
+</div>
+
+<!-- Right-aligned dropdown -->
+<div class="navbar-item has-dropdown is-hoverable">
+  <a class="navbar-link">Right Aligned</a>
+  <div class="navbar-dropdown is-right">
+    <a class="navbar-item">Item</a>
+  </div>
+</div>
+
+<!-- Boxed dropdown -->
+<div class="navbar-item has-dropdown is-hoverable">
+  <a class="navbar-link">Boxed</a>
+  <div class="navbar-dropdown is-boxed">
+    <a class="navbar-item">Item</a>
+  </div>
+</div>
+```
+
+## Active Items
+
+Highlight the current page:
+
+```html
+<div class="navbar-start">
+  <a class="navbar-item is-active">Home</a>
+  <a class="navbar-item">About</a>
+  <a class="navbar-item">Contact</a>
+</div>
+```
+
+## Navbar Tabs
+
+Create a tab-style navbar:
+
+```html
+<div class="navbar-start">
+  <a class="navbar-item is-tab is-active">Home</a>
+  <a class="navbar-item is-tab">Features</a>
+  <a class="navbar-item is-tab">Pricing</a>
+  <a class="navbar-item is-tab">About</a>
+</div>
+```
+
+## Colors
+
+Navbars support all color variants:
+
+```html
+<!-- Primary -->
+<nav class="navbar is-primary">
+  <!-- navbar content -->
+</nav>
+
+<!-- Link -->
+<nav class="navbar is-link">
+  <!-- navbar content -->
+</nav>
+
+<!-- Info -->
+<nav class="navbar is-info">
+  <!-- navbar content -->
+</nav>
+
+<!-- Success -->
+<nav class="navbar is-success">
+  <!-- navbar content -->
+</nav>
+
+<!-- Warning -->
+<nav class="navbar is-warning">
+  <!-- navbar content -->
+</nav>
+
+<!-- Danger -->
+<nav class="navbar is-danger">
+  <!-- navbar content -->
+</nav>
+
+<!-- Dark -->
+<nav class="navbar is-dark">
+  <!-- navbar content -->
+</nav>
+```
+
+## Fixed Navbar
+
+Fix the navbar to the top or bottom:
+
+### Fixed Top
+
+```html
+<nav class="navbar is-fixed-top">
+  <!-- navbar content -->
+</nav>
+```
+
+Add to `<html>` or `<body>`:
+
+```html
+<html class="has-navbar-fixed-top">
+```
+
+### Fixed Bottom
+
+```html
+<nav class="navbar is-fixed-bottom">
+  <!-- navbar content -->
+</nav>
+```
+
+Add to `<html>` or `<body>`:
+
+```html
+<html class="has-navbar-fixed-bottom">
+```
+
+## Transparent Navbar
+
+Create a transparent navbar:
+
+```html
+<nav class="navbar is-transparent">
+  <!-- navbar content -->
+</nav>
+```
+
+## Spaced Navbar
+
+Add extra padding:
+
+```html
+<nav class="navbar is-spaced">
+  <!-- navbar content -->
+</nav>
+```
+
+## With Shadow
+
+Add a bottom shadow:
+
+```html
+<nav class="navbar has-shadow">
+  <!-- navbar content -->
+</nav>
+```
+
+## JavaScript Example
+
+Toggle mobile menu:
+
+```javascript
+document.addEventListener('DOMContentLoaded', () => {
+  // Get all navbar burgers
+  const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+  // Add a click event on each of them
+  $navbarBurgers.forEach( el => {
+    el.addEventListener('click', () => {
+      // Get the target from the "data-target" attribute
+      const target = el.dataset.target;
+      const $target = document.getElementById(target);
+
+      // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+      el.classList.toggle('is-active');
+      $target.classList.toggle('is-active');
+    });
+  });
+});
+```
+
+## Responsive Behavior
+
+The navbar is responsive by default:
+
+- **Mobile** (< 1024px): Menu is hidden, burger is visible
+- **Desktop** (≥ 1024px): Full horizontal menu is displayed
+
+## Modifiers
+
+| Class | Description |
+|-------|-------------|
+| `is-primary`, `is-link`, etc. | Color variants |
+| `is-fixed-top` | Fixes navbar to top |
+| `is-fixed-bottom` | Fixes navbar to bottom |
+| `is-transparent` | Transparent background |
+| `is-spaced` | Extra padding |
+| `has-shadow` | Bottom shadow |
+| `navbar-item is-active` | Active/current item |
+| `navbar-item is-tab` | Tab-style item |
+| `has-dropdown` | Enables dropdown on item |
+| `is-hoverable` | Shows dropdown on hover |
+| `has-dropdown-up` | Dropdown appears above |
+| `navbar-dropdown is-boxed` | Boxed dropdown style |
+| `navbar-dropdown is-right` | Right-aligned dropdown |
+
+## CSS Variables
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `--bulma-navbar-height` | 3.25rem | Height of navbar |
+| `--bulma-navbar-padding-vertical` | 1rem | Vertical padding |
+| `--bulma-navbar-padding-horizontal` | 2rem | Horizontal padding |
+| `--bulma-navbar-z` | 30 | Z-index |
+| `--bulma-navbar-item-img-max-height` | 1.75rem | Max height for images |
+
+## Accessibility
+
+- Use `<nav>` element with `role="navigation"`
+- Add `aria-label="main navigation"` to describe purpose
+- Include `aria-label="menu"` on burger button
+- Toggle `aria-expanded` on burger when menu opens/closes
+- Use semantic HTML for dropdown structure
+
+<Warning>
+  The navbar requires JavaScript for mobile menu toggling. The component only provides styling - you must implement the burger menu functionality.
+</Warning>

@@ -1,0 +1,281 @@
+---
+title: Message
+description: A colored message box for displaying notifications, warnings, and informational content
+---
+
+The **message** component displays colored notification boxes with optional headers and close buttons.
+
+## Basic Message
+
+A simple message with a body:
+
+```html
+<article class="message">
+  <div class="message-body">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla.
+  </div>
+</article>
+```
+
+## Message with Header
+
+Add a header to your message:
+
+```html
+<article class="message">
+  <div class="message-header">
+    <p>Info</p>
+    <button class="delete" aria-label="delete"></button>
+  </div>
+  <div class="message-body">
+    This is an informational message with a header and close button.
+  </div>
+</article>
+```
+
+## Structure
+
+The message component consists of:
+
+- `message` - Main container
+  - `message-header` - Optional header section
+    - Title text
+    - `delete` - Close button (optional)
+  - `message-body` - Content section
+
+## Colors
+
+Messages support all color variants:
+
+### Primary
+
+```html
+<article class="message is-primary">
+  <div class="message-header">
+    <p>Primary</p>
+    <button class="delete"></button>
+  </div>
+  <div class="message-body">
+    This is a primary message.
+  </div>
+</article>
+```
+
+### Link
+
+```html
+<article class="message is-link">
+  <div class="message-header">
+    <p>Link</p>
+  </div>
+  <div class="message-body">
+    This is a link-colored message.
+  </div>
+</article>
+```
+
+### Info
+
+```html
+<article class="message is-info">
+  <div class="message-header">
+    <p>Info</p>
+  </div>
+  <div class="message-body">
+    This is an informational message.
+  </div>
+</article>
+```
+
+### Success
+
+```html
+<article class="message is-success">
+  <div class="message-header">
+    <p>Success</p>
+  </div>
+  <div class="message-body">
+    This is a success message.
+  </div>
+</article>
+```
+
+### Warning
+
+```html
+<article class="message is-warning">
+  <div class="message-header">
+    <p>Warning</p>
+  </div>
+  <div class="message-body">
+    This is a warning message.
+  </div>
+</article>
+```
+
+### Danger
+
+```html
+<article class="message is-danger">
+  <div class="message-header">
+    <p>Danger</p>
+  </div>
+  <div class="message-body">
+    This is a danger/error message.
+  </div>
+</article>
+```
+
+## Sizes
+
+Messages support three size modifiers:
+
+```html
+<!-- Small -->
+<article class="message is-small">
+  <div class="message-body">
+    This is a small message.
+  </div>
+</article>
+
+<!-- Medium -->
+<article class="message is-medium">
+  <div class="message-body">
+    This is a medium message.
+  </div>
+</article>
+
+<!-- Large -->
+<article class="message is-large">
+  <div class="message-body">
+    This is a large message.
+  </div>
+</article>
+```
+
+## Body Only
+
+Messages without a header:
+
+```html
+<article class="message is-info">
+  <div class="message-body">
+    This message has no header, just a colored body.
+  </div>
+</article>
+```
+
+## With Delete Button
+
+Add a close button to dismiss messages:
+
+```html
+<article class="message is-success">
+  <div class="message-header">
+    <p>Operation Successful</p>
+    <button class="delete" aria-label="delete"></button>
+  </div>
+  <div class="message-body">
+    Your changes have been saved successfully.
+  </div>
+</article>
+```
+
+<Note>
+  The delete button requires JavaScript to actually remove the message from the DOM.
+</Note>
+
+## Rich Content
+
+Message bodies can contain any HTML:
+
+```html
+<article class="message is-info">
+  <div class="message-header">
+    <p>Installation Instructions</p>
+  </div>
+  <div class="message-body">
+    <p>To install, run the following command:</p>
+    <pre><code>npm install bulma</code></pre>
+    <p>Then import it in your CSS file:</p>
+    <pre><code>@import "bulma/css/bulma.min.css";</code></pre>
+  </div>
+</article>
+```
+
+## JavaScript Example
+
+Example code to close messages:
+
+```javascript
+document.addEventListener('DOMContentLoaded', () => {
+  // Get all message delete buttons
+  const deleteButtons = document.querySelectorAll('.message .delete');
+
+  deleteButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const message = button.closest('.message');
+      message.remove();
+    });
+  });
+});
+```
+
+## Notification vs Message
+
+Messages are similar to notifications but have key differences:
+
+- **Message**: Static component, typically used for inline content
+- **Notification**: Can be fixed/positioned, typically used for alerts
+
+Both use similar color schemes and can have delete buttons.
+
+## Accessibility
+
+- Use `<article>` for the message container for semantic meaning
+- Add `aria-label="delete"` to delete buttons
+- Consider using appropriate ARIA roles for alert messages:
+
+```html
+<article class="message is-danger" role="alert">
+  <div class="message-body">
+    Important error message
+  </div>
+</article>
+```
+
+## Color Modifiers
+
+| Class | Description |
+|-------|-------------|
+| `is-primary` | Primary color |
+| `is-link` | Link color |
+| `is-info` | Info color (blue) |
+| `is-success` | Success color (green) |
+| `is-warning` | Warning color (yellow) |
+| `is-danger` | Danger color (red) |
+| `is-dark` | Dark color |
+| `is-light` | Light color |
+
+## Size Modifiers
+
+| Class | Description |
+|-------|-------------|
+| `is-small` | Smaller text size |
+| `is-medium` | Medium text size |
+| `is-large` | Larger text size |
+
+## CSS Variables
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `--bulma-message-radius` | Radius variable | Border radius |
+| `--bulma-message-header-weight` | Semibold | Header font weight |
+| `--bulma-message-header-padding` | 1em 1.25em | Header padding |
+| `--bulma-message-body-padding` | 1.25em 1.5em | Body padding |
+| `--bulma-message-body-border-width` | 0 0 0 4px | Body border width |
+
+<Warning>
+  The message component doesn't automatically handle closing/dismissal. You need to add JavaScript to remove messages when the delete button is clicked.
+</Warning>

@@ -1,0 +1,447 @@
+---
+title: Syntax
+description: Understanding Bulma's class naming conventions and semantic approach
+---
+
+Bulma follows a clear, semantic naming convention that makes the framework intuitive and easy to learn. Understanding these patterns will help you write cleaner, more maintainable code.
+
+## Core Principles
+
+Bulma's syntax is built on three core principles:
+
+1. **Semantic naming** - Class names describe what elements are, not how they look
+2. **Modifier pattern** - Base classes are enhanced with modifier classes
+3. **Consistency** - Similar patterns are used across all components
+
+## Basic Pattern
+
+The fundamental pattern in Bulma is:
+
+```
+[component]
+[component]-[part]
+[component] [is-modifier]
+[component] [has-helper]
+```
+
+### Component
+
+The base component class:
+
+```html
+<button class="button">Button</button>
+<div class="card">Card</div>
+<nav class="navbar">Navbar</nav>
+```
+
+### Component Parts
+
+Multi-part components use the `component-part` pattern:
+
+```html
+<div class="card">
+  <header class="card-header">
+    <p class="card-header-title">Header</p>
+    <button class="card-header-icon">Icon</button>
+  </header>
+  <div class="card-content">
+    <div class="content">
+      Content goes here
+    </div>
+  </div>
+  <footer class="card-footer">
+    <a class="card-footer-item">Footer Item</a>
+  </footer>
+</div>
+```
+
+## Naming Conventions
+
+### Single Word Components
+
+Simple, descriptive names:
+
+```html
+<button class="button">Button</button>
+<div class="box">Box</div>
+<div class="tag">Tag</div>
+<div class="tile">Tile</div>
+```
+
+### Multi-Word Components
+
+Use hyphens to separate words:
+
+```html
+<div class="message-body">Message Body</div>
+<div class="navbar-brand">Navbar Brand</div>
+<input class="file-input" type="file">
+```
+
+### Hierarchical Parts
+
+Nested component parts follow the hierarchy:
+
+```html
+<nav class="navbar">
+  <div class="navbar-brand">
+    <a class="navbar-item">Item</a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start">
+      <a class="navbar-item">Item</a>
+      <div class="navbar-item has-dropdown">
+        <a class="navbar-link">Link</a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item">Dropdown Item</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+```
+
+## Modifier Syntax
+
+### State Modifiers (is-*)
+
+Describe the state or style of a component:
+
+```html
+<!-- Color -->
+<button class="button is-primary">Primary</button>
+
+<!-- Size -->
+<button class="button is-large">Large</button>
+
+<!-- State -->
+<button class="button is-loading">Loading</button>
+
+<!-- Style -->
+<button class="button is-outlined">Outlined</button>
+```
+
+### Helper Modifiers (has-*)
+
+Describe what the component has:
+
+```html
+<!-- Text alignment -->
+<p class="has-text-centered">Centered</p>
+
+<!-- Color -->
+<div class="has-background-primary">Background</div>
+
+<!-- Text properties -->
+<p class="has-text-weight-bold">Bold</p>
+```
+
+## Layout Components
+
+### Columns
+
+```html
+<div class="columns">
+  <div class="column">Column</div>
+  <div class="column is-half">Half Column</div>
+</div>
+```
+
+### Level
+
+```html
+<nav class="level">
+  <div class="level-left">
+    <div class="level-item">Item</div>
+  </div>
+  <div class="level-right">
+    <div class="level-item">Item</div>
+  </div>
+</nav>
+```
+
+### Media Object
+
+```html
+<article class="media">
+  <figure class="media-left">
+    <p class="image is-64x64">
+      <img src="image.jpg">
+    </p>
+  </figure>
+  <div class="media-content">
+    <div class="content">Content</div>
+  </div>
+  <div class="media-right">
+    <button class="delete"></button>
+  </div>
+</article>
+```
+
+## Form Components
+
+Forms follow consistent patterns:
+
+```html
+<div class="field">
+  <label class="label">Label</label>
+  <div class="control">
+    <input class="input" type="text" placeholder="Input">
+  </div>
+</div>
+
+<div class="field">
+  <div class="control">
+    <label class="checkbox">
+      <input type="checkbox">
+      Checkbox
+    </label>
+  </div>
+</div>
+
+<div class="field is-grouped">
+  <div class="control">
+    <button class="button is-primary">Submit</button>
+  </div>
+  <div class="control">
+    <button class="button is-light">Cancel</button>
+  </div>
+</div>
+```
+
+## Responsive Syntax
+
+Add breakpoint suffixes to modifiers:
+
+```html
+<!-- Format: [modifier]-[breakpoint] -->
+<div class="column is-half-mobile is-one-third-tablet is-one-quarter-desktop">
+  Responsive Column
+</div>
+
+<p class="has-text-centered-mobile has-text-left-tablet">
+  Responsive Text Alignment
+</p>
+
+<div class="is-hidden-mobile is-visible-tablet">
+  Hidden on mobile
+</div>
+```
+
+Available breakpoints:
+- `-mobile` - Up to 768px
+- `-tablet` - 769px and up
+- `-tablet-only` - 769px to 1023px
+- `-touch` - Up to 1023px
+- `-desktop` - 1024px and up
+- `-desktop-only` - 1024px to 1215px
+- `-widescreen` - 1216px and up
+- `-widescreen-only` - 1216px to 1407px
+- `-fullhd` - 1408px and up
+
+## Common Patterns
+
+### Container Pattern
+
+Many components follow a container > item pattern:
+
+```html
+<!-- Tabs -->
+<div class="tabs">
+  <ul>
+    <li class="is-active"><a>Tab</a></li>
+  </ul>
+</div>
+
+<!-- Breadcrumb -->
+<nav class="breadcrumb">
+  <ul>
+    <li><a>Item</a></li>
+    <li class="is-active"><a>Current</a></li>
+  </ul>
+</nav>
+
+<!-- Dropdown -->
+<div class="dropdown is-active">
+  <div class="dropdown-trigger">
+    <button class="button">Trigger</button>
+  </div>
+  <div class="dropdown-menu">
+    <div class="dropdown-content">
+      <a class="dropdown-item">Item</a>
+    </div>
+  </div>
+</div>
+```
+
+### Addon Pattern
+
+Components can be grouped together:
+
+```html
+<div class="field has-addons">
+  <div class="control">
+    <input class="input" type="text">
+  </div>
+  <div class="control">
+    <button class="button is-primary">Search</button>
+  </div>
+</div>
+```
+
+### Grouped Pattern
+
+Components can be grouped with spacing:
+
+```html
+<div class="field is-grouped">
+  <div class="control">
+    <button class="button">Left</button>
+  </div>
+  <div class="control">
+    <button class="button">Right</button>
+  </div>
+</div>
+
+<div class="buttons">
+  <button class="button">Button 1</button>
+  <button class="button">Button 2</button>
+</div>
+```
+
+## Icon Integration
+
+Bulma provides a special `icon` class for icon libraries:
+
+```html
+<button class="button">
+  <span class="icon">
+    <i class="fas fa-check"></i>
+  </span>
+  <span>Submit</span>
+</button>
+
+<span class="icon-text">
+  <span class="icon">
+    <i class="fas fa-home"></i>
+  </span>
+  <span>Home</span>
+</span>
+```
+
+## Size Modifiers
+
+Size modifiers follow a consistent pattern:
+
+```html
+<!-- is-small -->
+<button class="button is-small">Small</button>
+<input class="input is-small" type="text">
+
+<!-- Normal (default, no class needed) -->
+<button class="button">Normal</button>
+
+<!-- is-medium -->
+<button class="button is-medium">Medium</button>
+
+<!-- is-large -->
+<button class="button is-large">Large</button>
+```
+
+## Semantic Examples
+
+### Navigation
+
+```html
+<nav class="navbar is-primary">
+  <div class="navbar-brand">
+    <a class="navbar-item">
+      <img src="logo.png" alt="Logo">
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start">
+      <a class="navbar-item">Home</a>
+      <a class="navbar-item is-active">About</a>
+    </div>
+  </div>
+</nav>
+```
+
+### Content
+
+```html
+<article class="message is-info">
+  <div class="message-header">
+    <p>Information</p>
+    <button class="delete"></button>
+  </div>
+  <div class="message-body">
+    This is an informational message.
+  </div>
+</article>
+```
+
+### Hero
+
+```html
+<section class="hero is-primary is-medium">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">Hero Title</h1>
+      <h2 class="subtitle">Hero Subtitle</h2>
+    </div>
+  </div>
+</section>
+```
+
+## Customization
+
+Bulma allows you to customize class prefixes:
+
+```scss
+@use "bulma/bulma" with (
+  $class-prefix: "bl-",
+  $helpers-prefix: "is-",
+  $helpers-has-prefix: "has-"
+);
+```
+
+This would change:
+- `.button` → `.bl-button`
+- `.is-primary` → `.is-primary` (unchanged)
+- `.has-text-centered` → `.has-text-centered` (unchanged)
+
+## Best Practices
+
+1. **Use semantic classes** - Prefer `button is-primary` over custom color classes
+2. **Follow the hierarchy** - Use `component-part` for component parts
+3. **Combine modifiers** - Use multiple modifiers: `button is-primary is-large is-outlined`
+4. **Leverage helpers** - Use `has-*` helpers instead of custom CSS
+5. **Responsive design** - Add breakpoint suffixes for responsive behavior
+6. **Maintain consistency** - Follow Bulma's patterns in custom components
+
+<Tip>
+When creating custom components, follow Bulma's naming conventions to keep your codebase consistent and maintainable.
+</Tip>
+
+## Reading Bulma Classes
+
+Once you understand the patterns, Bulma classes become self-documenting:
+
+```html
+<button class="button is-primary is-large is-outlined is-fullwidth">
+  Submit
+</button>
+```
+
+This reads as:
+- **button** - It's a button component
+- **is-primary** - With primary color
+- **is-large** - Large size
+- **is-outlined** - Outlined style
+- **is-fullwidth** - Full width
+
+<Note>
+The order of modifiers doesn't matter functionally, but organizing them consistently (color, size, state, style) improves readability.
+</Note>

@@ -1,0 +1,513 @@
+---
+title: Radio
+description: Radio button input element for single selections in Bulma CSS framework
+---
+
+# Radio
+
+The `radio` class creates styled radio buttons. The radio label wraps the native `<input type="radio">` element.
+
+## Basic Radio
+
+```html
+<label class="radio">
+  <input type="radio" name="answer">
+  Yes
+</label>
+<label class="radio">
+  <input type="radio" name="answer">
+  No
+</label>
+```
+
+<Warning>
+  Radio buttons in the same group must share the same `name` attribute to ensure only one option can be selected at a time.
+</Warning>
+
+## In Forms
+
+```html
+<div class="field">
+  <div class="control">
+    <label class="radio">
+      <input type="radio" name="question">
+      Yes
+    </label>
+    <label class="radio">
+      <input type="radio" name="question">
+      No
+    </label>
+  </div>
+</div>
+```
+
+## Multiple Radio Groups
+
+Use the `radios` container for better spacing:
+
+```html
+<div class="field">
+  <label class="label">Do you own a car?</label>
+  <div class="control radios">
+    <label class="radio">
+      <input type="radio" name="car" value="yes">
+      Yes
+    </label>
+    <label class="radio">
+      <input type="radio" name="car" value="no">
+      No
+    </label>
+    <label class="radio">
+      <input type="radio" name="car" value="planning">
+      Planning to buy one
+    </label>
+  </div>
+</div>
+```
+
+The `radios` container uses flexbox with gaps to automatically space radio buttons.
+
+## Stacked Radio Buttons
+
+For vertical stacking, place each radio in its own control:
+
+```html
+<div class="field">
+  <label class="label">Select your plan</label>
+  <div class="control">
+    <label class="radio">
+      <input type="radio" name="plan" value="free" checked>
+      Free
+    </label>
+  </div>
+  <div class="control">
+    <label class="radio">
+      <input type="radio" name="plan" value="basic">
+      Basic - $9/month
+    </label>
+  </div>
+  <div class="control">
+    <label class="radio">
+      <input type="radio" name="plan" value="pro">
+      Pro - $29/month
+    </label>
+  </div>
+  <div class="control">
+    <label class="radio">
+      <input type="radio" name="plan" value="enterprise">
+      Enterprise - Contact us
+    </label>
+  </div>
+</div>
+```
+
+## Checked State
+
+Use the `checked` attribute to pre-select a radio button:
+
+```html
+<label class="radio">
+  <input type="radio" name="answer" checked>
+  Yes
+</label>
+<label class="radio">
+  <input type="radio" name="answer">
+  No
+</label>
+```
+
+## Disabled State
+
+Disable a radio button with the `disabled` attribute:
+
+```html
+<label class="radio">
+  <input type="radio" name="answer">
+  Yes
+</label>
+<label class="radio">
+  <input type="radio" name="answer" disabled>
+  No (disabled)
+</label>
+<label class="radio">
+  <input type="radio" name="answer" checked disabled>
+  Maybe (disabled and checked)
+</label>
+```
+
+Disabled radio buttons are automatically styled with reduced opacity and a not-allowed cursor.
+
+## With Fieldset Disabled
+
+Disable multiple radio buttons at once:
+
+```html
+<fieldset disabled>
+  <div class="field">
+    <label class="label">Already a member?</label>
+    <div class="control">
+      <label class="radio">
+        <input type="radio" name="member" checked>
+        Yes
+      </label>
+      <label class="radio">
+        <input type="radio" name="member">
+        No
+      </label>
+    </div>
+  </div>
+</fieldset>
+```
+
+## With Descriptions
+
+Add descriptive text to radio options:
+
+```html
+<div class="field">
+  <label class="label">Shipping method</label>
+  <div class="control">
+    <label class="radio">
+      <input type="radio" name="shipping" value="standard" checked>
+      Standard - 5-7 business days
+    </label>
+  </div>
+  <div class="control">
+    <label class="radio">
+      <input type="radio" name="shipping" value="express">
+      Express - 2-3 business days
+    </label>
+  </div>
+  <div class="control">
+    <label class="radio">
+      <input type="radio" name="shipping" value="overnight">
+      Overnight - Next business day
+    </label>
+  </div>
+</div>
+```
+
+## With Help Text
+
+```html
+<div class="field">
+  <label class="label">Payment method</label>
+  <div class="control">
+    <label class="radio">
+      <input type="radio" name="payment" value="card">
+      Credit Card
+    </label>
+    <label class="radio">
+      <input type="radio" name="payment" value="paypal">
+      PayPal
+    </label>
+  </div>
+  <p class="help">We use secure payment processing</p>
+</div>
+```
+
+## Validation States
+
+Combine radio buttons with help text for validation feedback:
+
+```html
+<div class="field">
+  <label class="label">Select a payment method</label>
+  <div class="control">
+    <label class="radio">
+      <input type="radio" name="payment" value="card">
+      Credit Card
+    </label>
+    <label class="radio">
+      <input type="radio" name="payment" value="paypal">
+      PayPal
+    </label>
+  </div>
+  <p class="help is-danger">Please select a payment method</p>
+</div>
+
+<div class="field">
+  <label class="label">Delivery preference</label>
+  <div class="control">
+    <label class="radio">
+      <input type="radio" name="delivery" value="home" checked>
+      Home delivery
+    </label>
+    <label class="radio">
+      <input type="radio" name="delivery" value="pickup">
+      Store pickup
+    </label>
+  </div>
+  <p class="help is-success">Selection confirmed</p>
+</div>
+```
+
+## Form Examples
+
+### Survey Form
+
+```html
+<form>
+  <div class="field">
+    <label class="label">How satisfied are you with our service?</label>
+    <div class="control">
+      <label class="radio">
+        <input type="radio" name="satisfaction" value="5">
+        Very satisfied
+      </label>
+    </div>
+    <div class="control">
+      <label class="radio">
+        <input type="radio" name="satisfaction" value="4">
+        Satisfied
+      </label>
+    </div>
+    <div class="control">
+      <label class="radio">
+        <input type="radio" name="satisfaction" value="3">
+        Neutral
+      </label>
+    </div>
+    <div class="control">
+      <label class="radio">
+        <input type="radio" name="satisfaction" value="2">
+        Dissatisfied
+      </label>
+    </div>
+    <div class="control">
+      <label class="radio">
+        <input type="radio" name="satisfaction" value="1">
+        Very dissatisfied
+      </label>
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="label">Would you recommend us to a friend?</label>
+    <div class="control radios">
+      <label class="radio">
+        <input type="radio" name="recommend" value="yes">
+        Yes
+      </label>
+      <label class="radio">
+        <input type="radio" name="recommend" value="no">
+        No
+      </label>
+      <label class="radio">
+        <input type="radio" name="recommend" value="maybe">
+        Maybe
+      </label>
+    </div>
+  </div>
+
+  <div class="field is-grouped">
+    <div class="control">
+      <button class="button is-primary" type="submit">Submit Survey</button>
+    </div>
+  </div>
+</form>
+```
+
+### Order Form
+
+```html
+<form>
+  <div class="field">
+    <label class="label">Size</label>
+    <div class="control radios">
+      <label class="radio">
+        <input type="radio" name="size" value="small">
+        Small
+      </label>
+      <label class="radio">
+        <input type="radio" name="size" value="medium" checked>
+        Medium
+      </label>
+      <label class="radio">
+        <input type="radio" name="size" value="large">
+        Large
+      </label>
+      <label class="radio">
+        <input type="radio" name="size" value="xlarge">
+        X-Large
+      </label>
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="label">Color</label>
+    <div class="control radios">
+      <label class="radio">
+        <input type="radio" name="color" value="black" checked>
+        Black
+      </label>
+      <label class="radio">
+        <input type="radio" name="color" value="white">
+        White
+      </label>
+      <label class="radio">
+        <input type="radio" name="color" value="blue">
+        Blue
+      </label>
+      <label class="radio">
+        <input type="radio" name="color" value="red">
+        Red
+      </label>
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="label">Shipping</label>
+    <div class="control">
+      <label class="radio">
+        <input type="radio" name="shipping" value="standard" checked>
+        Standard Shipping - Free
+      </label>
+    </div>
+    <div class="control">
+      <label class="radio">
+        <input type="radio" name="shipping" value="express">
+        Express Shipping - $9.99
+      </label>
+    </div>
+    <div class="control">
+      <label class="radio">
+        <input type="radio" name="shipping" value="overnight">
+        Overnight Shipping - $24.99
+      </label>
+    </div>
+  </div>
+
+  <div class="field is-grouped">
+    <div class="control">
+      <button class="button is-link" type="submit">Add to Cart</button>
+    </div>
+  </div>
+</form>
+```
+
+### Horizontal Form with Radio Buttons
+
+```html
+<div class="field is-horizontal">
+  <div class="field-label">
+    <label class="label">Already a member?</label>
+  </div>
+  <div class="field-body">
+    <div class="field is-narrow">
+      <div class="control radios">
+        <label class="radio">
+          <input type="radio" name="member">
+          Yes
+        </label>
+        <label class="radio">
+          <input type="radio" name="member">
+          No
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+### Account Type Selection
+
+```html
+<form>
+  <div class="field">
+    <label class="label">Select account type</label>
+    <div class="control">
+      <label class="radio">
+        <input type="radio" name="accountType" value="personal" checked>
+        <strong>Personal</strong> - For individual use
+      </label>
+    </div>
+    <div class="control">
+      <label class="radio">
+        <input type="radio" name="accountType" value="business">
+        <strong>Business</strong> - For companies and organizations
+      </label>
+    </div>
+    <div class="control">
+      <label class="radio">
+        <input type="radio" name="accountType" value="enterprise">
+        <strong>Enterprise</strong> - For large organizations with advanced needs
+      </label>
+    </div>
+  </div>
+
+  <div class="field is-grouped">
+    <div class="control">
+      <button class="button is-primary" type="submit">Continue</button>
+    </div>
+  </div>
+</form>
+```
+
+## Accessibility
+
+Ensure radio buttons are accessible:
+
+```html
+<div class="field">
+  <label class="label" id="gender-label">Gender</label>
+  <div class="control" role="radiogroup" aria-labelledby="gender-label">
+    <label class="radio">
+      <input type="radio" name="gender" value="female">
+      Female
+    </label>
+    <label class="radio">
+      <input type="radio" name="gender" value="male">
+      Male
+    </label>
+    <label class="radio">
+      <input type="radio" name="gender" value="other">
+      Other
+    </label>
+    <label class="radio">
+      <input type="radio" name="gender" value="prefer-not">
+      Prefer not to say
+    </label>
+  </div>
+</div>
+```
+
+### Required Radio Group
+
+```html
+<div class="field">
+  <label class="label" id="terms-label">Terms and conditions</label>
+  <div class="control" role="radiogroup" aria-labelledby="terms-label" aria-required="true">
+    <label class="radio">
+      <input type="radio" name="terms" value="accept" required>
+      I accept the terms
+    </label>
+    <label class="radio">
+      <input type="radio" name="terms" value="decline" required>
+      I decline
+    </label>
+  </div>
+  <p class="help">You must make a selection to continue</p>
+</div>
+```
+
+## Styling Tips
+
+Radio buttons inherit line height and spacing from their parent:
+
+```html
+<style>
+  .radio {
+    display: inline-block;
+    margin-right: 1em;
+  }
+  
+  .radio input[type="radio"] {
+    margin-right: 0.5em;
+  }
+</style>
+```
+
+<Note>
+  The radio input must be inside the label element for proper styling and functionality. Always use the same `name` attribute for radio buttons in the same group.
+</Note>

@@ -1,0 +1,89 @@
+---
+title: No Dark Mode
+description: Use the no-dark-mode version of Bulma to exclude dark mode styles and reduce file size
+---
+
+The **no-dark-mode** version of Bulma excludes all dark mode CSS, resulting in a smaller file size. This version is ideal for projects that only need light mode styling.
+
+## Overview
+
+By default, Bulma includes both light and dark mode themes. If your project only uses light mode, you can use the no-dark-mode version to reduce your CSS bundle size.
+
+## File Structure
+
+The no-dark-mode version is available as:
+
+```
+bulma-no-dark-mode.scss
+```
+
+This file includes:
+- All utilities
+- Base styles
+- All elements
+- Form components
+- All components
+- Grid system
+- Layout styles
+- Skeleton styles
+- Helper classes
+- **Only the light theme** (no dark mode)
+
+## How It Works
+
+Instead of importing both light and dark themes, the no-dark-mode version only imports the light theme:
+
+```scss
+@use "../sass/themes/light";
+@use "../sass/themes/setup";
+
+:root {
+  @include light.light-theme;
+  @include setup.setup-theme;
+}
+```
+
+## Installation
+
+You can use this version by importing it directly in your SCSS file:
+
+```scss
+@import "bulma/versions/bulma-no-dark-mode";
+```
+
+Or reference it in your build process to use the compiled CSS version.
+
+## Benefits
+
+<CardGroup cols={2}>
+  <Card title="Smaller File Size" icon="file">
+    By excluding dark mode styles, you reduce the overall CSS bundle size, leading to faster load times.
+  </Card>
+  
+  <Card title="Light Mode Only" icon="sun">
+    Perfect for applications that only need light mode styling without the overhead of dark mode CSS.
+  </Card>
+</CardGroup>
+
+## When to Use
+
+Consider using the no-dark-mode version when:
+
+- Your application only supports light mode
+- You want to minimize CSS file size
+- You're building a project where dark mode is not a requirement
+- Performance and bundle size are critical concerns
+
+<Warning>
+  If you later decide to add dark mode support, you'll need to switch to the standard Bulma version that includes both themes.
+</Warning>
+
+## Comparison
+
+| Feature | Standard Bulma | No Dark Mode |
+|---------|----------------|---------------|
+| Light theme | ✓ | ✓ |
+| Dark theme | ✓ | ✗ |
+| Helper classes | ✓ | ✓ |
+| All components | ✓ | ✓ |
+| File size | Larger | Smaller |

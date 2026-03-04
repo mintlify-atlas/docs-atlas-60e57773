@@ -1,0 +1,450 @@
+---
+title: Form Controls
+description: Learn how to structure forms with fields, controls, labels, and validation states in Bulma CSS framework
+---
+
+# Form Controls
+
+Bulma provides a comprehensive form system with proper structure and validation states. Forms are built using a combination of `field`, `control`, and `label` classes.
+
+## HTML Form Elements
+
+Bulma supports the following native HTML form elements:
+
+- `<form>`
+- `<button>`
+- `<input>`
+- `<textarea>`
+- `<label>`
+
+The following CSS classes are available:
+
+- `label` - for form labels
+- `input` - for text inputs
+- `textarea` - for multi-line text areas
+- `select` - for dropdown selects
+- `checkbox` - for checkbox inputs
+- `radio` - for radio buttons
+- `button` - for form buttons
+- `help` - for help text
+
+## Complete Form Example
+
+```html
+<div class="field">
+  <label class="label">Name</label>
+  <div class="control">
+    <input class="input" type="text" placeholder="Text input">
+  </div>
+</div>
+
+<div class="field">
+  <label class="label">Username</label>
+  <div class="control has-icons-left has-icons-right">
+    <input class="input is-success" type="text" placeholder="Text input" value="bulma">
+    <span class="icon is-small is-left">
+      <i class="fas fa-user"></i>
+    </span>
+    <span class="icon is-small is-right">
+      <i class="fas fa-check"></i>
+    </span>
+  </div>
+  <p class="help is-success">This username is available</p>
+</div>
+
+<div class="field">
+  <label class="label">Email</label>
+  <div class="control has-icons-left has-icons-right">
+    <input class="input is-danger" type="email" placeholder="Email input" value="hello@">
+    <span class="icon is-small is-left">
+      <i class="fas fa-envelope"></i>
+    </span>
+    <span class="icon is-small is-right">
+      <i class="fas fa-exclamation-triangle"></i>
+    </span>
+  </div>
+  <p class="help is-danger">This email is invalid</p>
+</div>
+
+<div class="field is-grouped">
+  <div class="control">
+    <button class="button is-link">Submit</button>
+  </div>
+  <div class="control">
+    <button class="button is-link is-light">Cancel</button>
+  </div>
+</div>
+```
+
+## Form Field
+
+The `field` container is a simple container for:
+
+- A text `label`
+- A form `control`
+- An optional `help` text
+
+```html
+<div class="field">
+  <label class="label">Label</label>
+  <div class="control">
+    <input class="input" type="text" placeholder="Text input">
+  </div>
+  <p class="help">This is a help text</p>
+</div>
+```
+
+This container allows form fields to be spaced consistently.
+
+## Form Control
+
+The `control` is a versatile block container meant to enhance single form controls. It can only contain:
+
+- `input`
+- `select`
+- `button`
+- `icon`
+
+The control provides the ability to:
+
+- Keep spacing consistent
+- Combine form controls into a group
+- Append and prepend icons to a form control
+- Add loading states
+
+```html
+<div class="control">
+  <input class="input" type="text" placeholder="Text input">
+</div>
+```
+
+## Label Sizes
+
+Labels support size modifiers:
+
+```html
+<label class="label is-small">Small label</label>
+<label class="label">Normal label</label>
+<label class="label is-medium">Medium label</label>
+<label class="label is-large">Large label</label>
+```
+
+## Help Text
+
+The `help` class displays helper text below form controls:
+
+```html
+<p class="help">This is a help text</p>
+<p class="help is-primary">This is a primary help text</p>
+<p class="help is-info">This is an info help text</p>
+<p class="help is-success">This is a success help text</p>
+<p class="help is-warning">This is a warning help text</p>
+<p class="help is-danger">This is a danger help text</p>
+```
+
+## Icons in Form Controls
+
+You can append icons to form controls using Font Awesome or other icon libraries.
+
+### Icon Modifiers
+
+Add one of these modifiers to the `control`:
+
+- `has-icons-left` - for left-side icons
+- `has-icons-right` - for right-side icons (or both)
+
+Add corresponding modifiers to the `icon`:
+
+- `icon is-left` if using `has-icons-left`
+- `icon is-right` if using `has-icons-right`
+
+```html
+<div class="field">
+  <p class="control has-icons-left has-icons-right">
+    <input class="input" type="email" placeholder="Email">
+    <span class="icon is-small is-left">
+      <i class="fas fa-envelope"></i>
+    </span>
+    <span class="icon is-small is-right">
+      <i class="fas fa-check"></i>
+    </span>
+  </p>
+</div>
+
+<div class="field">
+  <p class="control has-icons-left">
+    <input class="input" type="password" placeholder="Password">
+    <span class="icon is-small is-left">
+      <i class="fas fa-lock"></i>
+    </span>
+  </p>
+</div>
+```
+
+### Icons with Different Sizes
+
+The size of the input will define the size of the icon container:
+
+```html
+<div class="control has-icons-left has-icons-right">
+  <input class="input is-small" type="email" placeholder="Small input">
+  <span class="icon is-small is-left">
+    <i class="fas fa-envelope"></i>
+  </span>
+  <span class="icon is-small is-right">
+    <i class="fas fa-check"></i>
+  </span>
+</div>
+
+<div class="control has-icons-left has-icons-right">
+  <input class="input is-medium" type="email" placeholder="Medium input">
+  <span class="icon is-left">
+    <i class="fas fa-envelope"></i>
+  </span>
+  <span class="icon is-right">
+    <i class="fas fa-check"></i>
+  </span>
+</div>
+
+<div class="control has-icons-left has-icons-right">
+  <input class="input is-large" type="email" placeholder="Large input">
+  <span class="icon is-medium is-left">
+    <i class="fas fa-envelope"></i>
+  </span>
+  <span class="icon is-medium is-right">
+    <i class="fas fa-check"></i>
+  </span>
+</div>
+```
+
+## Form Addons
+
+To attach controls together, use the `has-addons` modifier on the `field`:
+
+```html
+<div class="field has-addons">
+  <div class="control">
+    <input class="input" type="text" placeholder="Find a repository">
+  </div>
+  <div class="control">
+    <button class="button is-info">Search</button>
+  </div>
+</div>
+```
+
+### Expanded Addons
+
+Use `is-expanded` to fill remaining space:
+
+```html
+<div class="field has-addons">
+  <p class="control">
+    <span class="select">
+      <select>
+        <option>$</option>
+        <option>£</option>
+        <option>€</option>
+      </select>
+    </span>
+  </p>
+  <p class="control is-expanded">
+    <input class="input" type="text" placeholder="Amount of money">
+  </p>
+  <p class="control">
+    <button class="button">Transfer</button>
+  </p>
+</div>
+```
+
+### Addon Alignment
+
+Align addons with these modifiers:
+
+- `has-addons-centered` - center alignment
+- `has-addons-right` - right alignment
+- `has-addons-fullwidth` - all controls take equal space
+
+```html
+<div class="field has-addons has-addons-centered">
+  <p class="control">
+    <span class="select">
+      <select>
+        <option>$</option>
+      </select>
+    </span>
+  </p>
+  <p class="control">
+    <input class="input" type="text" placeholder="Amount">
+  </p>
+  <p class="control">
+    <button class="button is-primary">Transfer</button>
+  </p>
+</div>
+```
+
+## Form Groups
+
+Group controls together using `is-grouped` on the `field`:
+
+```html
+<div class="field is-grouped">
+  <p class="control">
+    <button class="button is-primary">Submit</button>
+  </p>
+  <p class="control">
+    <a class="button is-light">Cancel</a>
+  </p>
+</div>
+```
+
+### Group Alignment
+
+- `is-grouped-centered` - center alignment
+- `is-grouped-right` - right alignment
+
+```html
+<div class="field is-grouped is-grouped-centered">
+  <p class="control">
+    <button class="button is-primary">Submit</button>
+  </p>
+  <p class="control">
+    <a class="button is-light">Cancel</a>
+  </p>
+</div>
+```
+
+### Expanded Groups
+
+Add `is-expanded` to fill remaining space:
+
+```html
+<div class="field is-grouped">
+  <p class="control is-expanded">
+    <input class="input" type="text" placeholder="Find a repository">
+  </p>
+  <p class="control">
+    <button class="button is-info">Search</button>
+  </p>
+</div>
+```
+
+### Multiline Groups
+
+Add `is-grouped-multiline` to wrap controls across multiple lines:
+
+```html
+<div class="field is-grouped is-grouped-multiline">
+  <p class="control">
+    <button class="button">One</button>
+  </p>
+  <p class="control">
+    <button class="button">Two</button>
+  </p>
+  <p class="control">
+    <button class="button">Three</button>
+  </p>
+  <!-- More buttons... -->
+</div>
+```
+
+## Horizontal Form
+
+Create horizontal forms using `is-horizontal` modifier with `field-label` and `field-body`:
+
+```html
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <label class="label">From</label>
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <p class="control is-expanded has-icons-left">
+        <input class="input" type="text" placeholder="Name">
+        <span class="icon is-small is-left">
+          <i class="fas fa-user"></i>
+        </span>
+      </p>
+    </div>
+    <div class="field">
+      <p class="control is-expanded has-icons-left">
+        <input class="input" type="email" placeholder="Email">
+        <span class="icon is-small is-left">
+          <i class="fas fa-envelope"></i>
+        </span>
+      </p>
+    </div>
+  </div>
+</div>
+```
+
+### Field Label Sizes
+
+The `field-label` comes with size modifiers for vertical alignment:
+
+- `is-small`
+- `is-normal`
+- `is-medium`
+- `is-large`
+
+```html
+<div class="field is-horizontal">
+  <div class="field-label is-small">
+    <label class="label">Small label</label>
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <div class="control">
+        <input class="input is-small" type="text" placeholder="Small input">
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+## Loading State
+
+Add a loading spinner to a control:
+
+```html
+<div class="control is-loading">
+  <input class="input" type="text" placeholder="Loading input">
+</div>
+```
+
+Size the loading spinner:
+
+```html
+<div class="control is-small is-loading">
+  <input class="input is-small" type="text" placeholder="Small loading">
+</div>
+
+<div class="control is-medium is-loading">
+  <input class="input is-medium" type="text" placeholder="Medium loading">
+</div>
+
+<div class="control is-large is-loading">
+  <input class="input is-large" type="text" placeholder="Large loading">
+</div>
+```
+
+## Disabled Forms
+
+Disable part or all of a form using a `fieldset` with the `disabled` attribute:
+
+```html
+<fieldset disabled>
+  <div class="field">
+    <label class="label">Name</label>
+    <div class="control">
+      <input class="input" type="text" placeholder="e.g Alex Smith">
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="label">Email</label>
+    <div class="control">
+      <input class="input" type="email" placeholder="e.g. alexsmith@gmail.com">
+    </div>
+  </div>
+</fieldset>
+```

@@ -1,0 +1,261 @@
+---
+title: 'Typography Helpers'
+description: 'Control text size, alignment, weight, transformation, and font families with Bulma typography helpers'
+---
+
+Bulma provides powerful typography helper classes to control text appearance without writing custom CSS.
+
+## Text Size
+
+Use `is-size-*` classes to change the font size. Bulma provides 7 sizes from largest (1) to smallest (7).
+
+<CodeGroup>
+```html Text Sizes
+<p class="is-size-1">Size 1 (3rem)</p>
+<p class="is-size-2">Size 2 (2.5rem)</p>
+<p class="is-size-3">Size 3 (2rem)</p>
+<p class="is-size-4">Size 4 (1.5rem)</p>
+<p class="is-size-5">Size 5 (1.25rem)</p>
+<p class="is-size-6">Size 6 (1rem)</p>
+<p class="is-size-7">Size 7 (0.75rem)</p>
+```
+</CodeGroup>
+
+### Size Classes
+
+| Class | Size | Use Case |
+|-------|------|----------|
+| `is-size-1` | 3rem | Page titles |
+| `is-size-2` | 2.5rem | Section titles |
+| `is-size-3` | 2rem | Subsection titles |
+| `is-size-4` | 1.5rem | Article titles |
+| `is-size-5` | 1.25rem | Large text |
+| `is-size-6` | 1rem | Normal text |
+| `is-size-7` | 0.75rem | Small text |
+
+### Responsive Text Sizes
+
+You can change text size based on viewport width.
+
+<CodeGroup>
+```html Responsive Sizes
+<p class="is-size-1-mobile is-size-3-tablet is-size-5-desktop">
+  Large on mobile, medium on tablet, smaller on desktop
+</p>
+
+<p class="is-size-4-touch is-size-2-desktop">
+  Size 4 on touch devices, size 2 on desktop
+</p>
+```
+</CodeGroup>
+
+#### Available Responsive Modifiers
+
+- `is-size-{1-7}-mobile` - Up to 768px
+- `is-size-{1-7}-tablet` - 769px and above
+- `is-size-{1-7}-touch` - Up to 1023px
+- `is-size-{1-7}-desktop` - 1024px and above
+- `is-size-{1-7}-widescreen` - 1216px and above
+- `is-size-{1-7}-fullhd` - 1408px and above
+
+## Text Alignment
+
+Control text alignment with `has-text-*` classes.
+
+<CodeGroup>
+```html Text Alignment
+<p class="has-text-centered">Centered text</p>
+<p class="has-text-left">Left aligned text</p>
+<p class="has-text-right">Right aligned text</p>
+<p class="has-text-justified">Justified text that will stretch to fill the full width of its container with equal spacing between words.</p>
+```
+</CodeGroup>
+
+### Alignment Classes
+
+| Class | Alignment |
+|-------|----------|
+| `has-text-centered` | Center aligned |
+| `has-text-left` | Left aligned |
+| `has-text-right` | Right aligned |
+| `has-text-justified` | Justified |
+
+### Responsive Text Alignment
+
+Align text differently based on viewport size.
+
+<CodeGroup>
+```html Responsive Alignment
+<p class="has-text-left-mobile has-text-centered-tablet">
+  Left on mobile, centered on tablet+
+</p>
+
+<p class="has-text-centered-touch has-text-right-desktop">
+  Centered on touch, right on desktop
+</p>
+```
+</CodeGroup>
+
+#### Available Responsive Alignment Modifiers
+
+- `has-text-{alignment}-mobile`
+- `has-text-{alignment}-tablet`
+- `has-text-{alignment}-tablet-only`
+- `has-text-{alignment}-touch`
+- `has-text-{alignment}-desktop`
+- `has-text-{alignment}-desktop-only`
+- `has-text-{alignment}-widescreen`
+- `has-text-{alignment}-widescreen-only`
+- `has-text-{alignment}-fullhd`
+
+Where `{alignment}` can be: `centered`, `left`, `right`, or `justified`
+
+## Text Weight
+
+Control font weight with `has-text-weight-*` classes.
+
+<CodeGroup>
+```html Text Weight
+<p class="has-text-weight-light">Light text (300)</p>
+<p class="has-text-weight-normal">Normal text (400)</p>
+<p class="has-text-weight-medium">Medium text (500)</p>
+<p class="has-text-weight-semibold">Semibold text (600)</p>
+<p class="has-text-weight-bold">Bold text (700)</p>
+<p class="has-text-weight-extrabold">Extrabold text (800)</p>
+```
+</CodeGroup>
+
+### Weight Classes
+
+| Class | Font Weight | Numeric Value |
+|-------|-------------|---------------|
+| `has-text-weight-light` | Light | 300 |
+| `has-text-weight-normal` | Normal | 400 |
+| `has-text-weight-medium` | Medium | 500 |
+| `has-text-weight-semibold` | Semibold | 600 |
+| `has-text-weight-bold` | Bold | 700 |
+| `has-text-weight-extrabold` | Extrabold | 800 |
+
+## Text Transformation
+
+Transform text with capitalization, uppercase, and lowercase classes.
+
+<CodeGroup>
+```html Text Transformation
+<p class="is-capitalized">capitalized text</p>
+<p class="is-lowercase">LOWERCASE TEXT</p>
+<p class="is-uppercase">uppercase text</p>
+```
+</CodeGroup>
+
+### Transformation Classes
+
+| Class | Transformation | Example |
+|-------|----------------|----------|
+| `is-capitalized` | Capitalize each word | "Hello World" |
+| `is-lowercase` | All lowercase | "hello world" |
+| `is-uppercase` | All uppercase | "HELLO WORLD" |
+
+## Text Style
+
+Add italic or underlined text styling.
+
+<CodeGroup>
+```html Text Style
+<p class="is-italic">Italic text</p>
+<p class="is-underlined">Underlined text</p>
+```
+</CodeGroup>
+
+### Style Classes
+
+| Class | Style |
+|-------|-------|
+| `is-italic` | Italic font style |
+| `is-underlined` | Underlined text |
+
+## Font Family
+
+Change the font family of text.
+
+<CodeGroup>
+```html Font Families
+<p class="is-family-primary">Primary font family</p>
+<p class="is-family-secondary">Secondary font family</p>
+<p class="is-family-sans-serif">Sans-serif font</p>
+<p class="is-family-monospace">Monospace font for code</p>
+<p class="is-family-code">Code font family</p>
+```
+</CodeGroup>
+
+### Font Family Classes
+
+| Class | Font Family | Use Case |
+|-------|-------------|----------|
+| `is-family-primary` | Primary theme font | Body text |
+| `is-family-secondary` | Secondary theme font | Headings |
+| `is-family-sans-serif` | Sans-serif system font | Clean, modern text |
+| `is-family-monospace` | Monospace system font | Code, technical content |
+| `is-family-code` | Code font | Code snippets |
+
+## Combining Typography Helpers
+
+You can combine multiple typography helpers for precise control.
+
+<CodeGroup>
+```html Combined Helpers
+<h1 class="is-size-2 has-text-centered has-text-weight-bold is-uppercase">
+  Large Centered Bold Title
+</h1>
+
+<p class="is-size-5 has-text-justified has-text-weight-light is-family-serif">
+  Light justified paragraph with serif font
+</p>
+
+<code class="is-size-6 is-family-monospace has-text-weight-semibold">
+  Semibold monospace code
+</code>
+```
+</CodeGroup>
+
+## Practical Examples
+
+### Article Header
+
+<CodeGroup>
+```html Article Header
+<header>
+  <h1 class="is-size-1 has-text-centered has-text-weight-bold">
+    Article Title
+  </h1>
+  <p class="is-size-6 has-text-centered has-text-weight-light is-uppercase">
+    By Author Name
+  </p>
+</header>
+```
+</CodeGroup>
+
+### Responsive Typography
+
+<CodeGroup>
+```html Responsive Typography
+<h1 class="is-size-3-mobile is-size-2-tablet is-size-1-desktop 
+           has-text-centered-mobile has-text-left-desktop">
+  Responsive Heading
+</h1>
+```
+</CodeGroup>
+
+### Code Block
+
+<CodeGroup>
+```html Code Block
+<pre class="is-family-code is-size-7 has-text-left">
+  <code>const greeting = 'Hello World';</code>
+</pre>
+```
+</CodeGroup>
+
+<Tip>
+Typography helpers use `!important` to ensure they override other styles. Combine them freely to achieve your desired text appearance.
+</Tip>

@@ -1,0 +1,275 @@
+---
+title: Modal
+description: A dialog overlay that focuses user attention on a specific task or content
+---
+
+The **modal** component is an overlay dialog that appears on top of page content. It requires JavaScript to toggle the `is-active` class.
+
+## Basic Modal
+
+A standard modal with background overlay:
+
+```html
+<div class="modal">
+  <div class="modal-background"></div>
+  <div class="modal-content">
+    <!-- Any other Bulma elements you want -->
+    <div class="box">
+      <p>Modal content goes here</p>
+    </div>
+  </div>
+  <button class="modal-close is-large" aria-label="close"></button>
+</div>
+```
+
+## Structure
+
+The modal component consists of:
+
+- `modal` - Main container
+  - `modal-background` - Overlay background
+  - `modal-content` - Container for your content
+  - `modal-close` - Close button
+
+## Active State
+
+Add `is-active` to show the modal:
+
+```html
+<div class="modal is-active">
+  <div class="modal-background"></div>
+  <div class="modal-content">
+    <div class="box">
+      <h2 class="title">Active Modal</h2>
+      <p>This modal is currently visible.</p>
+    </div>
+  </div>
+  <button class="modal-close is-large" aria-label="close"></button>
+</div>
+```
+
+<Warning>
+  You must use JavaScript to toggle the `is-active` class. The modal is hidden by default.
+</Warning>
+
+## Modal Card
+
+For a more structured modal with header and footer:
+
+```html
+<div class="modal">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">Modal title</p>
+      <button class="delete" aria-label="close"></button>
+    </header>
+    <section class="modal-card-body">
+      <!-- Content ... -->
+      <p>Modal card content goes here.</p>
+    </section>
+    <footer class="modal-card-foot">
+      <div class="buttons">
+        <button class="button is-success">Save changes</button>
+        <button class="button">Cancel</button>
+      </div>
+    </footer>
+  </div>
+</div>
+```
+
+### Modal Card Structure
+
+- `modal-card` - Structured modal container
+  - `modal-card-head` - Header section
+    - `modal-card-title` - Title text
+    - `delete` - Close button
+  - `modal-card-body` - Scrollable content area
+  - `modal-card-foot` - Footer section
+
+## Image Modal
+
+Display images in a modal:
+
+```html
+<div class="modal">
+  <div class="modal-background"></div>
+  <div class="modal-content">
+    <p class="image is-4by3">
+      <img src="image.jpg" alt="Description">
+    </p>
+  </div>
+  <button class="modal-close is-large" aria-label="close"></button>
+</div>
+```
+
+## Complete Modal Card Example
+
+```html
+<div class="modal is-active">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">Confirm Action</p>
+      <button class="delete" aria-label="close"></button>
+    </header>
+    <section class="modal-card-body">
+      <p>Are you sure you want to delete this item?</p>
+      <p>This action cannot be undone.</p>
+    </section>
+    <footer class="modal-card-foot">
+      <div class="buttons">
+        <button class="button is-danger">Delete</button>
+        <button class="button">Cancel</button>
+      </div>
+    </footer>
+  </div>
+</div>
+```
+
+## Form in Modal
+
+Modals work great for forms:
+
+```html
+<div class="modal">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">Create Account</p>
+      <button class="delete" aria-label="close"></button>
+    </header>
+    <section class="modal-card-body">
+      <div class="field">
+        <label class="label">Email</label>
+        <div class="control">
+          <input class="input" type="email" placeholder="e.g. alex@example.com">
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">Password</label>
+        <div class="control">
+          <input class="input" type="password" placeholder="********">
+        </div>
+      </div>
+    </section>
+    <footer class="modal-card-foot">
+      <div class="buttons">
+        <button class="button is-success">Sign up</button>
+        <button class="button">Cancel</button>
+      </div>
+    </footer>
+  </div>
+</div>
+```
+
+## JavaScript Example
+
+Basic JavaScript to open and close modals:
+
+```javascript
+document.addEventListener('DOMContentLoaded', () => {
+  // Functions to open and close a modal
+  function openModal($el) {
+    $el.classList.add('is-active');
+  }
+
+  function closeModal($el) {
+    $el.classList.remove('is-active');
+  }
+
+  function closeAllModals() {
+    (document.querySelectorAll('.modal') || []).forEach(($modal) => {
+      closeModal($modal);
+    });
+  }
+
+  // Add a click event on buttons to open a specific modal
+  (document.querySelectorAll('.js-modal-trigger') || []).forEach(($trigger) => {
+    const modal = $trigger.dataset.target;
+    const $target = document.getElementById(modal);
+
+    $trigger.addEventListener('click', () => {
+      openModal($target);
+    });
+  });
+
+  // Add a click event on various child elements to close the parent modal
+  (document.querySelectorAll('.modal-background, .modal-close, .modal-card-head .delete, .modal-card-foot .button') || []).forEach(($close) => {
+    const $target = $close.closest('.modal');
+
+    $close.addEventListener('click', () => {
+      closeModal($target);
+    });
+  });
+
+  // Add a keyboard event to close all modals
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      closeAllModals();
+    }
+  });
+});
+```
+
+### HTML Trigger Button
+
+```html
+<button class="button is-primary js-modal-trigger" data-target="modal-id">
+  Launch modal
+</button>
+
+<div id="modal-id" class="modal">
+  <!-- modal content -->
+</div>
+```
+
+## Responsive Behavior
+
+Modals are automatically responsive:
+
+- **Mobile**: Content has margins and max-height
+- **Tablet & Desktop**: Content is centered with better spacing
+
+## CSS Variables
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `--bulma-modal-z` | 40 | Z-index of modal |
+| `--bulma-modal-content-width` | 40rem | Default content width |
+| `--bulma-modal-card-head-padding` | 2rem | Header padding |
+| `--bulma-modal-card-body-padding` | 2rem | Body padding |
+| `--bulma-modal-card-head-radius` | Large radius | Header border radius |
+| `--bulma-modal-card-foot-radius` | Large radius | Footer border radius |
+
+## Accessibility
+
+- Add `aria-label="close"` to close buttons
+- Consider adding `role="dialog"` and `aria-modal="true"` to the modal container
+- Trap focus within the modal when open
+- Return focus to the trigger element when closed
+
+```html
+<div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title" id="modal-title">Modal Title</p>
+      <button class="delete" aria-label="close"></button>
+    </header>
+    <!-- ... -->
+  </div>
+</div>
+```
+
+## Best Practices
+
+1. **Close on background click**: Allow users to close by clicking the background
+2. **ESC key support**: Close modal when ESC is pressed
+3. **Focus management**: Trap focus within modal and return it on close
+4. **Prevent body scroll**: Add overflow hidden to body when modal is active
+5. **Loading states**: Show loading indicators for async operations
+
+<Warning>
+  Modals require JavaScript to function. The component only provides the styling - you must implement the show/hide logic and keyboard interactions.
+</Warning>

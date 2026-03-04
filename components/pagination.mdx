@@ -1,0 +1,294 @@
+---
+title: Pagination
+description: A responsive pagination component for navigating through multiple pages of content
+---
+
+The **pagination** component provides navigation for multi-page content with previous/next buttons and page numbers.
+
+## Basic Pagination
+
+A simple pagination with previous, next, and page links:
+
+```html
+<nav class="pagination" role="navigation" aria-label="pagination">
+  <a class="pagination-previous">Previous</a>
+  <a class="pagination-next">Next page</a>
+  <ul class="pagination-list">
+    <li><a class="pagination-link" aria-label="Goto page 1">1</a></li>
+    <li><a class="pagination-link is-current" aria-label="Page 2" aria-current="page">2</a></li>
+    <li><a class="pagination-link" aria-label="Goto page 3">3</a></li>
+  </ul>
+</nav>
+```
+
+## Structure
+
+The pagination consists of:
+
+- `pagination` - Main container
+  - `pagination-previous` - Previous page button
+  - `pagination-next` - Next page button
+  - `pagination-list` - List of page numbers
+    - `pagination-link` - Individual page links
+    - `pagination-ellipsis` - Ellipsis for skipped pages
+
+## Complete Example
+
+Pagination with ellipsis for long page lists:
+
+```html
+<nav class="pagination" role="navigation" aria-label="pagination">
+  <a class="pagination-previous">Previous</a>
+  <a class="pagination-next">Next page</a>
+  <ul class="pagination-list">
+    <li><a class="pagination-link" aria-label="Goto page 1">1</a></li>
+    <li><span class="pagination-ellipsis">&hellip;</span></li>
+    <li><a class="pagination-link" aria-label="Goto page 45">45</a></li>
+    <li><a class="pagination-link is-current" aria-label="Page 46" aria-current="page">46</a></li>
+    <li><a class="pagination-link" aria-label="Goto page 47">47</a></li>
+    <li><span class="pagination-ellipsis">&hellip;</span></li>
+    <li><a class="pagination-link" aria-label="Goto page 86">86</a></li>
+  </ul>
+</nav>
+```
+
+## Current Page
+
+Mark the current page with `is-current`:
+
+```html
+<ul class="pagination-list">
+  <li><a class="pagination-link">1</a></li>
+  <li><a class="pagination-link">2</a></li>
+  <li><a class="pagination-link is-current" aria-current="page">3</a></li>
+  <li><a class="pagination-link">4</a></li>
+  <li><a class="pagination-link">5</a></li>
+</ul>
+```
+
+<Note>
+  Always include `aria-current="page"` on the current page for accessibility.
+</Note>
+
+## Disabled State
+
+Disable previous/next buttons at the edges:
+
+```html
+<!-- First page - disable previous -->
+<nav class="pagination">
+  <a class="pagination-previous" disabled>Previous</a>
+  <a class="pagination-next">Next page</a>
+  <ul class="pagination-list">
+    <li><a class="pagination-link is-current" aria-current="page">1</a></li>
+    <li><a class="pagination-link">2</a></li>
+    <li><a class="pagination-link">3</a></li>
+  </ul>
+</nav>
+
+<!-- Last page - disable next -->
+<nav class="pagination">
+  <a class="pagination-previous">Previous</a>
+  <a class="pagination-next" disabled>Next page</a>
+  <ul class="pagination-list">
+    <li><a class="pagination-link">8</a></li>
+    <li><a class="pagination-link">9</a></li>
+    <li><a class="pagination-link is-current" aria-current="page">10</a></li>
+  </ul>
+</nav>
+```
+
+## Alignment
+
+Change the alignment of pagination:
+
+### Centered
+
+```html
+<nav class="pagination is-centered">
+  <a class="pagination-previous">Previous</a>
+  <a class="pagination-next">Next</a>
+  <ul class="pagination-list">
+    <li><a class="pagination-link">1</a></li>
+    <li><a class="pagination-link is-current">2</a></li>
+    <li><a class="pagination-link">3</a></li>
+  </ul>
+</nav>
+```
+
+### Right Aligned
+
+```html
+<nav class="pagination is-right">
+  <a class="pagination-previous">Previous</a>
+  <a class="pagination-next">Next</a>
+  <ul class="pagination-list">
+    <li><a class="pagination-link">1</a></li>
+    <li><a class="pagination-link is-current">2</a></li>
+    <li><a class="pagination-link">3</a></li>
+  </ul>
+</nav>
+```
+
+## Sizes
+
+Pagination supports different sizes:
+
+```html
+<!-- Small -->
+<nav class="pagination is-small">
+  <a class="pagination-previous">Previous</a>
+  <a class="pagination-next">Next</a>
+  <ul class="pagination-list">
+    <li><a class="pagination-link">1</a></li>
+    <li><a class="pagination-link is-current">2</a></li>
+  </ul>
+</nav>
+
+<!-- Medium -->
+<nav class="pagination is-medium">
+  <a class="pagination-previous">Previous</a>
+  <a class="pagination-next">Next</a>
+  <ul class="pagination-list">
+    <li><a class="pagination-link">1</a></li>
+    <li><a class="pagination-link is-current">2</a></li>
+  </ul>
+</nav>
+
+<!-- Large -->
+<nav class="pagination is-large">
+  <a class="pagination-previous">Previous</a>
+  <a class="pagination-next">Next</a>
+  <ul class="pagination-list">
+    <li><a class="pagination-link">1</a></li>
+    <li><a class="pagination-link is-current">2</a></li>
+  </ul>
+</nav>
+```
+
+## Rounded Style
+
+Make buttons and links rounded:
+
+```html
+<nav class="pagination is-rounded">
+  <a class="pagination-previous">Previous</a>
+  <a class="pagination-next">Next</a>
+  <ul class="pagination-list">
+    <li><a class="pagination-link">1</a></li>
+    <li><a class="pagination-link is-current">2</a></li>
+    <li><a class="pagination-link">3</a></li>
+  </ul>
+</nav>
+```
+
+## With Ellipsis
+
+Use ellipsis to indicate skipped pages:
+
+```html
+<nav class="pagination">
+  <a class="pagination-previous">Previous</a>
+  <a class="pagination-next">Next</a>
+  <ul class="pagination-list">
+    <li><a class="pagination-link">1</a></li>
+    <li><a class="pagination-link">2</a></li>
+    <li><a class="pagination-link">3</a></li>
+    <li><span class="pagination-ellipsis">&hellip;</span></li>
+    <li><a class="pagination-link">10</a></li>
+    <li><a class="pagination-link is-current">11</a></li>
+    <li><a class="pagination-link">12</a></li>
+    <li><span class="pagination-ellipsis">&hellip;</span></li>
+    <li><a class="pagination-link">20</a></li>
+  </ul>
+</nav>
+```
+
+## Responsive Behavior
+
+Pagination is automatically responsive:
+
+- **Mobile**: Items stack vertically, previous/next take full width
+- **Tablet and up**: Horizontal layout with proper spacing
+
+## JavaScript Example
+
+Basic pagination logic:
+
+```javascript
+function renderPagination(currentPage, totalPages) {
+  const pagination = document.querySelector('.pagination-list');
+  pagination.innerHTML = '';
+
+  for (let i = 1; i <= totalPages; i++) {
+    const li = document.createElement('li');
+    
+    if (i === currentPage) {
+      li.innerHTML = `<a class="pagination-link is-current" aria-label="Page ${i}" aria-current="page">${i}</a>`;
+    } else if (Math.abs(i - currentPage) <= 2 || i === 1 || i === totalPages) {
+      li.innerHTML = `<a class="pagination-link" aria-label="Goto page ${i}">${i}</a>`;
+    } else if (Math.abs(i - currentPage) === 3) {
+      li.innerHTML = '<span class="pagination-ellipsis">&hellip;</span>';
+    } else {
+      continue;
+    }
+    
+    pagination.appendChild(li);
+  }
+
+  // Update previous/next buttons
+  const prevBtn = document.querySelector('.pagination-previous');
+  const nextBtn = document.querySelector('.pagination-next');
+  
+  prevBtn.disabled = currentPage === 1;
+  nextBtn.disabled = currentPage === totalPages;
+}
+
+// Example usage
+renderPagination(5, 20);
+```
+
+## Accessibility
+
+- Use `<nav>` with `role="navigation"` and `aria-label="pagination"`
+- Add `aria-label` to each page link describing its purpose
+- Use `aria-current="page"` on the current page
+- Disable buttons at boundaries (first/last page)
+
+```html
+<nav class="pagination" role="navigation" aria-label="pagination">
+  <a class="pagination-previous" aria-label="Previous page">Previous</a>
+  <a class="pagination-next" aria-label="Next page">Next page</a>
+  <ul class="pagination-list">
+    <li><a class="pagination-link" aria-label="Goto page 1">1</a></li>
+    <li><a class="pagination-link is-current" aria-label="Page 2" aria-current="page">2</a></li>
+    <li><a class="pagination-link" aria-label="Goto page 3">3</a></li>
+  </ul>
+</nav>
+```
+
+## Modifiers
+
+| Class | Description |
+|-------|-------------|
+| `is-centered` | Centers the pagination |
+| `is-right` | Right-aligns the pagination |
+| `is-small` | Smaller size |
+| `is-medium` | Medium size |
+| `is-large` | Larger size |
+| `is-rounded` | Rounded buttons |
+| `pagination-link is-current` | Current/active page |
+
+## CSS Variables
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `--bulma-pagination-min-width` | Control height | Minimum button width |
+| `--bulma-pagination-item-font-size` | 1em | Font size |
+| `--bulma-pagination-item-margin` | 0.25rem | Spacing between items |
+| `--bulma-pagination-item-padding-left` | 0.5em | Left padding |
+| `--bulma-pagination-item-padding-right` | 0.5em | Right padding |
+
+<Note>
+  The pagination component is purely presentational. You need to implement the actual page navigation logic with JavaScript or server-side code.
+</Note>

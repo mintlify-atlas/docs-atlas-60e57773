@@ -1,0 +1,182 @@
+---
+title: Section
+description: A simple container to divide your page into sections with consistent vertical spacing
+---
+
+The `section` component provides consistent vertical padding to help organize your page content into distinct sections.
+
+## Basic Usage
+
+A section is a simple container with horizontal and vertical padding:
+
+```html
+<section class="section">
+  <h1 class="title">Section</h1>
+  <h2 class="subtitle">
+    A simple container to divide your page into <strong>sections</strong>
+  </h2>
+</section>
+```
+
+## Default Spacing
+
+By default, sections have:
+- **Mobile**: 3rem top/bottom padding, 1.5rem left/right padding
+- **Desktop**: 3rem padding on all sides
+
+## Size Modifiers
+
+You can adjust the vertical padding using size modifiers. These modifiers only take effect on **desktop** viewports and larger.
+
+### Medium Section
+
+```html
+<section class="section is-medium">
+  <h1 class="title">Medium Section</h1>
+  <p>This section has more vertical padding on desktop.</p>
+</section>
+```
+
+On desktop, `.is-medium` applies 9rem top/bottom padding and 4.5rem left/right padding.
+
+### Large Section
+
+```html
+<section class="section is-large">
+  <h1 class="title">Large Section</h1>
+  <p>This section has even more vertical padding on desktop.</p>
+</section>
+```
+
+On desktop, `.is-large` applies 18rem top/bottom padding and 6rem left/right padding.
+
+## Full Height Section
+
+You can make a section take up the full viewport height:
+
+```html
+<section class="section is-fullheight">
+  <h1 class="title">Fullheight Section</h1>
+  <p>This section will be at least 100vh tall.</p>
+</section>
+```
+
+The `.is-fullheight` modifier sets `min-height: 100vh`.
+
+## Common Patterns
+
+### Section with Container
+
+Combine sections with containers for centered, padded content:
+
+```html
+<section class="section">
+  <div class="container">
+    <h1 class="title">Section Title</h1>
+    <p>Content is centered and has vertical padding.</p>
+  </div>
+</section>
+```
+
+### Multiple Sections with Different Sizes
+
+```html
+<section class="section">
+  <div class="container">
+    <h1 class="title">Regular Section</h1>
+  </div>
+</section>
+
+<section class="section is-medium">
+  <div class="container">
+    <h1 class="title">Medium Section</h1>
+  </div>
+</section>
+
+<section class="section is-large">
+  <div class="container">
+    <h1 class="title">Large Section</h1>
+  </div>
+</section>
+```
+
+### Colored Sections
+
+```html
+<section class="section has-background-light">
+  <div class="container">
+    <h1 class="title">Light Background</h1>
+  </div>
+</section>
+
+<section class="section has-background-primary">
+  <div class="container">
+    <h1 class="title has-text-white">Primary Background</h1>
+  </div>
+</section>
+```
+
+### Section with Columns
+
+```html
+<section class="section">
+  <div class="container">
+    <div class="columns">
+      <div class="column">
+        <h2 class="title is-4">Column 1</h2>
+        <p>Content for first column.</p>
+      </div>
+      <div class="column">
+        <h2 class="title is-4">Column 2</h2>
+        <p>Content for second column.</p>
+      </div>
+      <div class="column">
+        <h2 class="title is-4">Column 3</h2>
+        <p>Content for third column.</p>
+      </div>
+    </div>
+  </div>
+</section>
+```
+
+## Responsive Padding
+
+<Note>
+Size modifiers (`.is-medium` and `.is-large`) only affect padding on **desktop** and larger viewports. On mobile and tablet, all sections use the default padding.
+</Note>
+
+| Modifier | Mobile/Tablet | Desktop |
+|----------|---------------|----------|
+| Default | 3rem 1.5rem | 3rem 3rem |
+| `.is-medium` | 3rem 1.5rem | 9rem 4.5rem |
+| `.is-large` | 3rem 1.5rem | 18rem 6rem |
+| `.is-fullheight` | min-height: 100vh | min-height: 100vh |
+
+## Use Cases
+
+- **Content separation**: Divide your page into logical sections
+- **Landing pages**: Create distinct areas for hero, features, testimonials, etc.
+- **Blog posts**: Add padding around article content
+- **Dashboards**: Separate different dashboard components
+
+## CSS Variables
+
+Customize section spacing using CSS variables:
+
+```css
+.section {
+  --bulma-section-padding: 3rem 1.5rem;
+  --bulma-section-padding-desktop: 3rem 3rem;
+  --bulma-section-padding-medium: 9rem 4.5rem;
+  --bulma-section-padding-large: 18rem 6rem;
+}
+```
+
+Or with Sass:
+
+```scss
+$section-padding: 3rem 1.5rem;
+$section-padding-desktop: 3rem 3rem;
+$section-padding-medium: 9rem 4.5rem;
+$section-padding-large: 18rem 6rem;
+```

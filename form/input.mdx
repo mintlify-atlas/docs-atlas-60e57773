@@ -1,0 +1,364 @@
+---
+title: Input
+description: Text input element with colors, sizes, states, and icon support in Bulma CSS framework
+---
+
+# Input
+
+The `input` class is used for `<input>` HTML elements to create styled text inputs.
+
+## Basic Input
+
+```html
+<input class="input" type="text" placeholder="Text input">
+```
+
+## Supported Input Types
+
+Bulma supports the following input types:
+
+- `type="text"`
+- `type="password"`
+- `type="email"`
+- `type="tel"`
+- `type="number"`
+- `type="search"`
+- `type="url"`
+- `type="date"`
+
+```html
+<input class="input" type="text" placeholder="Text">
+<input class="input" type="password" placeholder="Password">
+<input class="input" type="email" placeholder="Email">
+<input class="input" type="tel" placeholder="Phone">
+```
+
+## Colors
+
+Apply color modifiers to indicate validation states or emphasis:
+
+```html
+<input class="input is-primary" type="text" placeholder="Primary input">
+<input class="input is-link" type="text" placeholder="Link input">
+<input class="input is-info" type="text" placeholder="Info input">
+<input class="input is-success" type="text" placeholder="Success input">
+<input class="input is-warning" type="text" placeholder="Warning input">
+<input class="input is-danger" type="text" placeholder="Danger input">
+```
+
+### Color Usage for Validation
+
+Colors are commonly used with help text to indicate validation states:
+
+```html
+<div class="field">
+  <label class="label">Email</label>
+  <div class="control">
+    <input class="input is-danger" type="email" placeholder="Email" value="hello@">
+  </div>
+  <p class="help is-danger">This email is invalid</p>
+</div>
+
+<div class="field">
+  <label class="label">Username</label>
+  <div class="control">
+    <input class="input is-success" type="text" placeholder="Username" value="bulma">
+  </div>
+  <p class="help is-success">This username is available</p>
+</div>
+```
+
+## Sizes
+
+Inputs come in four sizes:
+
+```html
+<input class="input is-small" type="text" placeholder="Small input">
+<input class="input" type="text" placeholder="Normal input">
+<input class="input is-medium" type="text" placeholder="Medium input">
+<input class="input is-large" type="text" placeholder="Large input">
+```
+
+## Styles
+
+### Rounded Input
+
+Create fully rounded inputs:
+
+```html
+<input class="input is-rounded" type="text" placeholder="Rounded input">
+```
+
+### Static Input
+
+The `is-static` modifier removes background, border, and shadow while maintaining vertical spacing:
+
+```html
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <label class="label">From</label>
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <p class="control">
+        <input class="input is-static" type="email" value="me@example.com" readonly>
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <label class="label">To</label>
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <p class="control">
+        <input class="input" type="email" placeholder="Recipient email">
+      </p>
+    </div>
+  </div>
+</div>
+```
+
+## States
+
+### Normal
+
+```html
+<div class="control">
+  <input class="input" type="text" placeholder="Normal input">
+</div>
+```
+
+### Hover
+
+Force the hover state with `is-hovered`:
+
+```html
+<div class="control">
+  <input class="input is-hovered" type="text" placeholder="Hovered input">
+</div>
+```
+
+### Focus
+
+Force the focus state with `is-focused`:
+
+```html
+<div class="control">
+  <input class="input is-focused" type="text" placeholder="Focused input">
+</div>
+```
+
+### Loading
+
+Add a loading spinner to indicate processing:
+
+```html
+<div class="control is-loading">
+  <input class="input" type="text" placeholder="Loading input">
+</div>
+```
+
+Control the loading spinner size:
+
+```html
+<div class="control is-small is-loading">
+  <input class="input is-small" type="text" placeholder="Small loading">
+</div>
+
+<div class="control is-medium is-loading">
+  <input class="input is-medium" type="text" placeholder="Medium loading">
+</div>
+
+<div class="control is-large is-loading">
+  <input class="input is-large" type="text" placeholder="Large loading">
+</div>
+```
+
+### Disabled
+
+Disable an input with the `disabled` attribute:
+
+```html
+<div class="control">
+  <input class="input" type="text" placeholder="Disabled input" disabled>
+</div>
+```
+
+### Readonly
+
+Make an input readonly with the `readonly` attribute:
+
+```html
+<div class="control">
+  <input class="input" type="text" value="This text is readonly" readonly>
+</div>
+```
+
+The readonly input looks similar to a normal input but is not editable and has no shadow.
+
+## With Icons
+
+Add icons to inputs using the `has-icons-left` and `has-icons-right` modifiers on the control.
+
+### Left and Right Icons
+
+```html
+<div class="field">
+  <p class="control has-icons-left has-icons-right">
+    <input class="input" type="email" placeholder="Email">
+    <span class="icon is-small is-left">
+      <i class="fas fa-envelope"></i>
+    </span>
+    <span class="icon is-small is-right">
+      <i class="fas fa-check"></i>
+    </span>
+  </p>
+</div>
+```
+
+### Left Icon Only
+
+```html
+<div class="field">
+  <p class="control has-icons-left">
+    <input class="input" type="password" placeholder="Password">
+    <span class="icon is-small is-left">
+      <i class="fas fa-lock"></i>
+    </span>
+  </p>
+</div>
+```
+
+### Icons with Sizes
+
+Icons automatically adjust to match the input size:
+
+```html
+<!-- Small input with icons -->
+<div class="control has-icons-left has-icons-right">
+  <input class="input is-small" type="email" placeholder="Small">
+  <span class="icon is-small is-left">
+    <i class="fas fa-envelope"></i>
+  </span>
+  <span class="icon is-small is-right">
+    <i class="fas fa-check"></i>
+  </span>
+</div>
+
+<!-- Medium input with icons -->
+<div class="control has-icons-left has-icons-right">
+  <input class="input is-medium" type="email" placeholder="Medium">
+  <span class="icon is-left">
+    <i class="fas fa-envelope"></i>
+  </span>
+  <span class="icon is-right">
+    <i class="fas fa-check"></i>
+  </span>
+</div>
+
+<!-- Large input with icons -->
+<div class="control has-icons-left has-icons-right">
+  <input class="input is-large" type="email" placeholder="Large">
+  <span class="icon is-medium is-left">
+    <i class="fas fa-envelope"></i>
+  </span>
+  <span class="icon is-medium is-right">
+    <i class="fas fa-check"></i>
+  </span>
+</div>
+```
+
+### Icons with Colors
+
+Combine icons with colored inputs for validation feedback:
+
+```html
+<div class="field">
+  <label class="label">Username</label>
+  <div class="control has-icons-left has-icons-right">
+    <input class="input is-success" type="text" placeholder="Username" value="bulma">
+    <span class="icon is-small is-left">
+      <i class="fas fa-user"></i>
+    </span>
+    <span class="icon is-small is-right">
+      <i class="fas fa-check"></i>
+    </span>
+  </div>
+  <p class="help is-success">This username is available</p>
+</div>
+
+<div class="field">
+  <label class="label">Email</label>
+  <div class="control has-icons-left has-icons-right">
+    <input class="input is-danger" type="email" placeholder="Email" value="hello@">
+    <span class="icon is-small is-left">
+      <i class="fas fa-envelope"></i>
+    </span>
+    <span class="icon is-small is-right">
+      <i class="fas fa-exclamation-triangle"></i>
+    </span>
+  </div>
+  <p class="help is-danger">This email is invalid</p>
+</div>
+```
+
+## Width Modifiers
+
+### Full Width
+
+Inputs are full width by default when inside a control:
+
+```html
+<div class="control">
+  <input class="input" type="text" placeholder="Full width input">
+</div>
+```
+
+### Inline
+
+Make an input inline:
+
+```html
+<input class="input is-inline" type="text" placeholder="Inline input">
+```
+
+## Form Integration
+
+Inputs work seamlessly with Bulma's form structure:
+
+```html
+<form>
+  <div class="field">
+    <label class="label">Name</label>
+    <div class="control has-icons-left">
+      <input class="input" type="text" placeholder="John Doe" required>
+      <span class="icon is-small is-left">
+        <i class="fas fa-user"></i>
+      </span>
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="label">Email</label>
+    <div class="control has-icons-left">
+      <input class="input" type="email" placeholder="john@example.com" required>
+      <span class="icon is-small is-left">
+        <i class="fas fa-envelope"></i>
+      </span>
+    </div>
+    <p class="help">We'll never share your email with anyone else</p>
+  </div>
+
+  <div class="field is-grouped">
+    <div class="control">
+      <button class="button is-link" type="submit">Submit</button>
+    </div>
+    <div class="control">
+      <button class="button is-link is-light" type="reset">Cancel</button>
+    </div>
+  </div>
+</form>
+```

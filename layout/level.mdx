@@ -1,0 +1,325 @@
+---
+title: Level
+description: A multi-purpose horizontal level for floating elements side by side
+---
+
+The `level` component is a simple, versatile layout element that allows you to align elements horizontally. It's perfect for navigation bars, statistics displays, or any content that needs to be evenly distributed across a horizontal space.
+
+## Basic Structure
+
+A level is composed of:
+- A `level` container
+- `level-left` for left-aligned items (optional)
+- `level-right` for right-aligned items (optional)
+- `level-item` for individual elements
+
+```html
+<nav class="level">
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">Tweets</p>
+      <p class="title">3,456</p>
+    </div>
+  </div>
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">Following</p>
+      <p class="title">123</p>
+    </div>
+  </div>
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">Followers</p>
+      <p class="title">456K</p>
+    </div>
+  </div>
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">Likes</p>
+      <p class="title">789</p>
+    </div>
+  </div>
+</nav>
+```
+
+## Level with Left and Right Sides
+
+Use `level-left` and `level-right` to group items:
+
+```html
+<nav class="level">
+  <!-- Left side -->
+  <div class="level-left">
+    <div class="level-item">
+      <p class="subtitle is-5">
+        <strong>123</strong> posts
+      </p>
+    </div>
+    <div class="level-item">
+      <div class="field has-addons">
+        <p class="control">
+          <input class="input" type="text" placeholder="Find a post">
+        </p>
+        <p class="control">
+          <button class="button">Search</button>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right side -->
+  <div class="level-right">
+    <p class="level-item"><strong>All</strong></p>
+    <p class="level-item"><a>Published</a></p>
+    <p class="level-item"><a>Drafts</a></p>
+    <p class="level-item"><a>Deleted</a></p>
+    <p class="level-item"><a class="button is-success">New</a></p>
+  </div>
+</nav>
+```
+
+## Centered Level
+
+You can also create a centered level without left/right divisions:
+
+```html
+<nav class="level">
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">Repositories</p>
+      <p class="title">42</p>
+    </div>
+  </div>
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">Stars</p>
+      <p class="title">1,337</p>
+    </div>
+  </div>
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">Forks</p>
+      <p class="title">89</p>
+    </div>
+  </div>
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">Open Issues</p>
+      <p class="title">7</p>
+    </div>
+  </div>
+</nav>
+```
+
+## Modifiers
+
+### Mobile Level
+
+By default, levels stack vertically on mobile. Use `.is-mobile` to keep the horizontal layout on mobile:
+
+```html
+<nav class="level is-mobile">
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">Likes</p>
+      <p class="title">123</p>
+    </div>
+  </div>
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">Posts</p>
+      <p class="title">456</p>
+    </div>
+  </div>
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">Shares</p>
+      <p class="title">789</p>
+    </div>
+  </div>
+</nav>
+```
+
+### Flexible Items
+
+By default, level items don't grow. Use `.is-flexible` to make an item grow and take up remaining space:
+
+```html
+<div class="level">
+  <div class="level-left">
+    <div class="level-item is-flexible">
+      <p>This item will grow to fill available space</p>
+    </div>
+  </div>
+  <div class="level-right">
+    <div class="level-item">
+      <button class="button is-primary">Action</button>
+    </div>
+  </div>
+</div>
+```
+
+### Narrow Items
+
+Use `.is-narrow` to prevent an item from growing:
+
+```html
+<div class="level">
+  <div class="level-item">
+    <p>This will grow</p>
+  </div>
+  <div class="level-item is-narrow">
+    <p>This stays narrow</p>
+  </div>
+  <div class="level-item">
+    <p>This will grow</p>
+  </div>
+</div>
+```
+
+## Common Use Cases
+
+### Navigation Bar
+
+```html
+<nav class="level">
+  <div class="level-left">
+    <div class="level-item">
+      <p class="subtitle is-5">
+        <strong>Dashboard</strong>
+      </p>
+    </div>
+  </div>
+
+  <div class="level-right">
+    <p class="level-item"><a>Home</a></p>
+    <p class="level-item"><a>Menu</a></p>
+    <p class="level-item"><a>Reservations</a></p>
+    <p class="level-item"><a>Contact</a></p>
+  </div>
+</nav>
+```
+
+### Statistics Display
+
+```html
+<div class="box">
+  <nav class="level">
+    <div class="level-item has-text-centered">
+      <div>
+        <p class="heading">Revenue</p>
+        <p class="title">$12,345</p>
+      </div>
+    </div>
+    <div class="level-item has-text-centered">
+      <div>
+        <p class="heading">Customers</p>
+        <p class="title">1,234</p>
+      </div>
+    </div>
+    <div class="level-item has-text-centered">
+      <div>
+        <p class="heading">Orders</p>
+        <p class="title">567</p>
+      </div>
+    </div>
+    <div class="level-item has-text-centered">
+      <div>
+        <p class="heading">Conversion</p>
+        <p class="title">45%</p>
+      </div>
+    </div>
+  </nav>
+</div>
+```
+
+### Search and Filters
+
+```html
+<nav class="level">
+  <div class="level-left">
+    <div class="level-item">
+      <div class="field has-addons">
+        <p class="control">
+          <input class="input" type="text" placeholder="Search...">
+        </p>
+        <p class="control">
+          <button class="button">Search</button>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="level-right">
+    <div class="level-item">
+      <div class="select">
+        <select>
+          <option>All</option>
+          <option>Published</option>
+          <option>Draft</option>
+        </select>
+      </div>
+    </div>
+    <div class="level-item">
+      <button class="button is-primary">+ New</button>
+    </div>
+  </div>
+</nav>
+```
+
+### Pagination Controls
+
+```html
+<nav class="level">
+  <div class="level-left">
+    <div class="level-item">
+      <p class="subtitle is-6">Showing 1-10 of 100</p>
+    </div>
+  </div>
+
+  <div class="level-right">
+    <div class="level-item">
+      <button class="button">Previous</button>
+    </div>
+    <div class="level-item">
+      <button class="button is-primary">Next</button>
+    </div>
+  </div>
+</nav>
+```
+
+## Responsive Behavior
+
+<Note>
+By default, levels stack **vertically** on mobile and become **horizontal** on tablet and above. Use `.is-mobile` to maintain horizontal layout on all screen sizes.
+</Note>
+
+| Viewport | Default Behavior | With `.is-mobile` |
+|----------|-----------------|------------------|
+| Mobile (up to 768px) | Stacked vertically | Horizontal |
+| Tablet (769px+) | Horizontal | Horizontal |
+| Desktop (1024px+) | Horizontal | Horizontal |
+
+## Best Practices
+
+1. **Use semantic HTML**: Wrap levels in `<nav>` when using for navigation
+2. **Gap spacing**: Level items have consistent gap spacing that adapts to your theme
+3. **Alignment**: Use `level-left` and `level-right` for clear content separation
+4. **Flexibility**: Combine with other Bulma components like buttons, inputs, and dropdowns
+5. **Mobile-first**: Consider how your level will stack on mobile devices
+
+## CSS Variables
+
+Customize level spacing:
+
+```css
+.level {
+  --bulma-level-item-spacing: calc(var(--bulma-block-spacing) * 0.5);
+}
+```
+
+Or with Sass:
+
+```scss
+$level-item-spacing: calc(#{cv.getVar("block-spacing")} * 0.5);
+```

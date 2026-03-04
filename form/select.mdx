@@ -1,0 +1,554 @@
+---
+title: Select
+description: Dropdown select element with colors, sizes, states, and multiple selection support in Bulma CSS framework
+---
+
+# Select
+
+The `select` class creates a styled dropdown selector. The `<select>` element must be wrapped in a `.select` container.
+
+## Basic Select
+
+```html
+<div class="select">
+  <select>
+    <option>Select dropdown</option>
+    <option>With options</option>
+  </select>
+</div>
+```
+
+## With Label and Control
+
+```html
+<div class="field">
+  <label class="label">Subject</label>
+  <div class="control">
+    <div class="select">
+      <select>
+        <option>Select dropdown</option>
+        <option>With options</option>
+      </select>
+    </div>
+  </div>
+</div>
+```
+
+## Colors
+
+Apply color modifiers to the `.select` container:
+
+```html
+<div class="select is-primary">
+  <select>
+    <option>Primary select</option>
+  </select>
+</div>
+
+<div class="select is-link">
+  <select>
+    <option>Link select</option>
+  </select>
+</div>
+
+<div class="select is-info">
+  <select>
+    <option>Info select</option>
+  </select>
+</div>
+
+<div class="select is-success">
+  <select>
+    <option>Success select</option>
+  </select>
+</div>
+
+<div class="select is-warning">
+  <select>
+    <option>Warning select</option>
+  </select>
+</div>
+
+<div class="select is-danger">
+  <select>
+    <option>Danger select</option>
+  </select>
+</div>
+```
+
+## Sizes
+
+Selects come in four sizes:
+
+```html
+<div class="select is-small">
+  <select>
+    <option>Small select</option>
+  </select>
+</div>
+
+<div class="select">
+  <select>
+    <option>Normal select</option>
+  </select>
+</div>
+
+<div class="select is-medium">
+  <select>
+    <option>Medium select</option>
+  </select>
+</div>
+
+<div class="select is-large">
+  <select>
+    <option>Large select</option>
+  </select>
+</div>
+```
+
+## Styles
+
+### Rounded Select
+
+Create rounded select dropdowns:
+
+```html
+<div class="select is-rounded">
+  <select>
+    <option>Rounded select</option>
+  </select>
+</div>
+```
+
+## States
+
+### Normal
+
+```html
+<div class="control">
+  <div class="select">
+    <select>
+      <option>Normal select</option>
+    </select>
+  </div>
+</div>
+```
+
+### Hover
+
+Force the hover state with `is-hovered`:
+
+```html
+<div class="control">
+  <div class="select is-hovered">
+    <select>
+      <option>Hovered select</option>
+    </select>
+  </div>
+</div>
+```
+
+### Focus
+
+Force the focus state with `is-focused`:
+
+```html
+<div class="control">
+  <div class="select is-focused">
+    <select>
+      <option>Focused select</option>
+    </select>
+  </div>
+</div>
+```
+
+### Loading
+
+Add a loading spinner:
+
+```html
+<div class="select is-loading">
+  <select>
+    <option>Loading select</option>
+  </select>
+</div>
+```
+
+Control spinner size:
+
+```html
+<div class="select is-small is-loading">
+  <select>
+    <option>Small loading</option>
+  </select>
+</div>
+
+<div class="select is-medium is-loading">
+  <select>
+    <option>Medium loading</option>
+  </select>
+</div>
+
+<div class="select is-large is-loading">
+  <select>
+    <option>Large loading</option>
+  </select>
+</div>
+```
+
+### Disabled
+
+Disable a select with the `disabled` attribute on the `<select>` element:
+
+```html
+<div class="select">
+  <select disabled>
+    <option>Disabled select</option>
+  </select>
+</div>
+```
+
+Or use the `is-disabled` class on the container:
+
+```html
+<div class="select is-disabled">
+  <select disabled>
+    <option>Disabled select</option>
+  </select>
+</div>
+```
+
+## With Icons
+
+Add icons to select dropdowns:
+
+```html
+<div class="field">
+  <p class="control has-icons-left">
+    <span class="select">
+      <select>
+        <option selected>Country</option>
+        <option>United States</option>
+        <option>United Kingdom</option>
+        <option>Germany</option>
+      </select>
+    </span>
+    <span class="icon is-small is-left">
+      <i class="fas fa-globe"></i>
+    </span>
+  </p>
+</div>
+```
+
+### Icons with Sizes
+
+```html
+<!-- Small select with icon -->
+<div class="control has-icons-left">
+  <span class="select is-small">
+    <select>
+      <option>Small select</option>
+    </select>
+  </span>
+  <span class="icon is-small is-left">
+    <i class="fas fa-globe"></i>
+  </span>
+</div>
+
+<!-- Medium select with icon -->
+<div class="control has-icons-left">
+  <span class="select is-medium">
+    <select>
+      <option>Medium select</option>
+    </select>
+  </span>
+  <span class="icon is-left">
+    <i class="fas fa-globe"></i>
+  </span>
+</div>
+
+<!-- Large select with icon -->
+<div class="control has-icons-left">
+  <span class="select is-large">
+    <select>
+      <option>Large select</option>
+    </select>
+  </span>
+  <span class="icon is-medium is-left">
+    <i class="fas fa-globe"></i>
+  </span>
+</div>
+```
+
+## Multiple Select
+
+Create a multiple selection list with the `multiple` attribute:
+
+```html
+<div class="select is-multiple">
+  <select multiple size="8">
+    <option value="Argentina">Argentina</option>
+    <option value="Bolivia">Bolivia</option>
+    <option value="Brazil">Brazil</option>
+    <option value="Chile">Chile</option>
+    <option value="Colombia">Colombia</option>
+    <option value="Ecuador">Ecuador</option>
+    <option value="Guyana">Guyana</option>
+    <option value="Paraguay">Paraguay</option>
+    <option value="Peru">Peru</option>
+    <option value="Suriname">Suriname</option>
+    <option value="Uruguay">Uruguay</option>
+    <option value="Venezuela">Venezuela</option>
+  </select>
+</div>
+```
+
+The `size` attribute controls how many options are visible at once.
+
+### Multiple Select with Colors
+
+```html
+<div class="select is-multiple is-info">
+  <select multiple size="4">
+    <option>Option 1</option>
+    <option>Option 2</option>
+    <option>Option 3</option>
+    <option>Option 4</option>
+  </select>
+</div>
+```
+
+## Full Width
+
+Make a select take the full width of its container:
+
+```html
+<div class="select is-fullwidth">
+  <select>
+    <option>Full width select</option>
+  </select>
+</div>
+```
+
+This is especially useful in form layouts:
+
+```html
+<div class="field">
+  <label class="label">Country</label>
+  <div class="control">
+    <div class="select is-fullwidth">
+      <select>
+        <option>Select a country</option>
+        <option>United States</option>
+        <option>United Kingdom</option>
+        <option>Germany</option>
+        <option>France</option>
+      </select>
+    </div>
+  </div>
+</div>
+```
+
+## Form Integration
+
+### Basic Form Example
+
+```html
+<form>
+  <div class="field">
+    <label class="label">Department</label>
+    <div class="control">
+      <div class="select is-fullwidth">
+        <select required>
+          <option value="">Select department</option>
+          <option value="sales">Sales</option>
+          <option value="marketing">Marketing</option>
+          <option value="engineering">Engineering</option>
+          <option value="support">Customer Support</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="label">Priority</label>
+    <div class="control">
+      <div class="select is-fullwidth">
+        <select required>
+          <option value="">Select priority</option>
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
+          <option value="critical">Critical</option>
+        </select>
+      </div>
+    </div>
+    <p class="help">Choose the appropriate priority level</p>
+  </div>
+
+  <div class="field is-grouped">
+    <div class="control">
+      <button class="button is-link" type="submit">Submit</button>
+    </div>
+  </div>
+</form>
+```
+
+### With Validation States
+
+```html
+<div class="field">
+  <label class="label">Country</label>
+  <div class="control has-icons-left">
+    <span class="select is-success is-fullwidth">
+      <select>
+        <option>United States</option>
+      </select>
+    </span>
+    <span class="icon is-small is-left">
+      <i class="fas fa-globe"></i>
+    </span>
+  </div>
+  <p class="help is-success">Valid selection</p>
+</div>
+
+<div class="field">
+  <label class="label">State</label>
+  <div class="control has-icons-left">
+    <span class="select is-danger is-fullwidth">
+      <select>
+        <option>Select a state</option>
+      </select>
+    </span>
+    <span class="icon is-small is-left">
+      <i class="fas fa-map-marker-alt"></i>
+    </span>
+  </div>
+  <p class="help is-danger">This field is required</p>
+</div>
+```
+
+### In Horizontal Forms
+
+```html
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <label class="label">Department</label>
+  </div>
+  <div class="field-body">
+    <div class="field is-narrow">
+      <div class="control">
+        <div class="select is-fullwidth">
+          <select>
+            <option>Business development</option>
+            <option>Marketing</option>
+            <option>Sales</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+### In Addons
+
+Combine selects with inputs and buttons:
+
+```html
+<div class="field has-addons">
+  <p class="control">
+    <span class="select">
+      <select>
+        <option>$</option>
+        <option>£</option>
+        <option>€</option>
+      </select>
+    </span>
+  </p>
+  <p class="control is-expanded">
+    <input class="input" type="text" placeholder="Amount of money">
+  </p>
+  <p class="control">
+    <button class="button is-primary">Transfer</button>
+  </p>
+</div>
+```
+
+### Expanded in Addons
+
+```html
+<div class="field has-addons">
+  <div class="control is-expanded">
+    <div class="select is-fullwidth">
+      <select>
+        <option>Argentina</option>
+        <option>Bolivia</option>
+        <option>Brazil</option>
+        <option>Chile</option>
+      </select>
+    </div>
+  </div>
+  <div class="control">
+    <button type="submit" class="button is-primary">Choose</button>
+  </div>
+</div>
+```
+
+## Grouped Options
+
+Use `<optgroup>` for organized selections:
+
+```html
+<div class="field">
+  <label class="label">Select a car</label>
+  <div class="control">
+    <div class="select is-fullwidth">
+      <select>
+        <optgroup label="German Cars">
+          <option>Audi</option>
+          <option>BMW</option>
+          <option>Mercedes</option>
+          <option>Volkswagen</option>
+        </optgroup>
+        <optgroup label="Japanese Cars">
+          <option>Honda</option>
+          <option>Mazda</option>
+          <option>Nissan</option>
+          <option>Toyota</option>
+        </optgroup>
+        <optgroup label="American Cars">
+          <option>Chevrolet</option>
+          <option>Ford</option>
+          <option>Tesla</option>
+        </optgroup>
+      </select>
+    </div>
+  </div>
+</div>
+```
+
+## Accessibility
+
+Ensure selects are accessible:
+
+```html
+<div class="field">
+  <label class="label" for="country-select">Country</label>
+  <div class="control">
+    <div class="select is-fullwidth">
+      <select 
+        id="country-select"
+        aria-describedby="country-help"
+        required
+      >
+        <option value="">Select a country</option>
+        <option value="us">United States</option>
+        <option value="uk">United Kingdom</option>
+        <option value="de">Germany</option>
+      </select>
+    </div>
+  </div>
+  <p id="country-help" class="help">Choose your country of residence</p>
+</div>
+```

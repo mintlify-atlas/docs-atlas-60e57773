@@ -1,0 +1,270 @@
+---
+title: Icon
+description: A container for icons from icon libraries like Font Awesome
+---
+
+The **icon** element is a container for icon fonts. It ensures icons maintain consistent sizing and spacing with other elements.
+
+## Basic Usage
+
+The icon container works with any icon library (Font Awesome, Material Icons, etc.):
+
+```html
+<span class="icon">
+  <i class="fas fa-home"></i>
+</span>
+```
+
+## Sizes
+
+Icons come in four sizes:
+
+```html
+<span class="icon is-small">
+  <i class="fas fa-home"></i>
+</span>
+
+<span class="icon">
+  <i class="fas fa-home"></i>
+</span>
+
+<span class="icon is-medium">
+  <i class="fas fa-home fa-lg"></i>
+</span>
+
+<span class="icon is-large">
+  <i class="fas fa-home fa-2x"></i>
+</span>
+```
+
+| Size | Dimensions | Font Awesome Size |
+|------|-----------|-------------------|
+| `is-small` | 1rem x 1rem | Default |
+| Default | 1.5rem x 1.5rem | Default |
+| `is-medium` | 2rem x 2rem | `fa-lg` |
+| `is-large` | 3rem x 3rem | `fa-2x` |
+
+## Colors
+
+Use Bulma's text color helpers:
+
+```html
+<span class="icon has-text-primary">
+  <i class="fas fa-star"></i>
+</span>
+
+<span class="icon has-text-info">
+  <i class="fas fa-info-circle"></i>
+</span>
+
+<span class="icon has-text-success">
+  <i class="fas fa-check-circle"></i>
+</span>
+
+<span class="icon has-text-warning">
+  <i class="fas fa-exclamation-triangle"></i>
+</span>
+
+<span class="icon has-text-danger">
+  <i class="fas fa-ban"></i>
+</span>
+```
+
+## Icon Text
+
+Combine icons with text using the `icon-text` wrapper:
+
+```html
+<span class="icon-text">
+  <span class="icon">
+    <i class="fas fa-home"></i>
+  </span>
+  <span>Home</span>
+</span>
+```
+
+### Multiple Icons with Text
+
+```html
+<span class="icon-text">
+  <span class="icon">
+    <i class="fas fa-train"></i>
+  </span>
+  <span>Paris</span>
+  <span class="icon">
+    <i class="fas fa-arrow-right"></i>
+  </span>
+  <span>Budapest</span>
+  <span class="icon">
+    <i class="fas fa-arrow-right"></i>
+  </span>
+  <span>Bucharest</span>
+  <span class="icon">
+    <i class="fas fa-arrow-right"></i>
+  </span>
+  <span>Istanbul</span>
+  <span class="icon">
+    <i class="fas fa-flag-checkered"></i>
+  </span>
+</span>
+```
+
+### With Colors
+
+```html
+<span class="icon-text">
+  <span class="icon has-text-success">
+    <i class="fas fa-check-circle"></i>
+  </span>
+  <span>Success</span>
+</span>
+
+<span class="icon-text">
+  <span class="icon has-text-danger">
+    <i class="fas fa-times-circle"></i>
+  </span>
+  <span>Error</span>
+</span>
+```
+
+## In Buttons
+
+```html
+<button class="button">
+  <span class="icon">
+    <i class="fas fa-search"></i>
+  </span>
+  <span>Search</span>
+</button>
+
+<button class="button is-primary">
+  <span class="icon">
+    <i class="fas fa-download"></i>
+  </span>
+  <span>Download</span>
+</button>
+
+<button class="button is-danger">
+  <span class="icon">
+    <i class="fas fa-trash"></i>
+  </span>
+  <span>Delete</span>
+</button>
+```
+
+### Icon Only Buttons
+
+```html
+<button class="button">
+  <span class="icon">
+    <i class="fas fa-heart"></i>
+  </span>
+</button>
+
+<button class="button is-primary">
+  <span class="icon">
+    <i class="fas fa-star"></i>
+  </span>
+</button>
+```
+
+## In Form Controls
+
+```html
+<div class="field">
+  <p class="control has-icons-left has-icons-right">
+    <input class="input" type="email" placeholder="Email">
+    <span class="icon is-small is-left">
+      <i class="fas fa-envelope"></i>
+    </span>
+    <span class="icon is-small is-right">
+      <i class="fas fa-check"></i>
+    </span>
+  </p>
+</div>
+
+<div class="field">
+  <p class="control has-icons-left">
+    <input class="input" type="password" placeholder="Password">
+    <span class="icon is-small is-left">
+      <i class="fas fa-lock"></i>
+    </span>
+  </p>
+</div>
+```
+
+## Icon Libraries
+
+### Font Awesome 6
+
+```html
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<span class="icon">
+  <i class="fas fa-home"></i>
+</span>
+<span class="icon">
+  <i class="far fa-heart"></i>
+</span>
+<span class="icon">
+  <i class="fab fa-github"></i>
+</span>
+```
+
+### Material Design Icons
+
+```html
+<link rel="stylesheet" href="https://cdn.materialdesignicons.com/7.2.96/css/materialdesignicons.min.css">
+
+<span class="icon">
+  <i class="mdi mdi-home"></i>
+</span>
+<span class="icon">
+  <i class="mdi mdi-heart"></i>
+</span>
+```
+
+### Ionicons
+
+```html
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+
+<span class="icon">
+  <ion-icon name="home"></ion-icon>
+</span>
+<span class="icon">
+  <ion-icon name="heart"></ion-icon>
+</span>
+```
+
+## CSS Variables
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `--bulma-icon-dimensions` | `1.5rem` | Default icon size |
+| `--bulma-icon-dimensions-small` | `1rem` | Small icon size |
+| `--bulma-icon-dimensions-medium` | `2rem` | Medium icon size |
+| `--bulma-icon-dimensions-large` | `3rem` | Large icon size |
+| `--bulma-icon-text-spacing` | `0.25em` | Space between icon and text |
+
+### Custom Sizing
+
+```css
+.custom-icon {
+  --bulma-icon-dimensions: 4rem;
+}
+```
+
+```html
+<span class="icon custom-icon">
+  <i class="fas fa-rocket fa-3x"></i>
+</span>
+```
+
+<Tip>
+The icon container maintains a square aspect ratio and centers the icon within it, ensuring consistent alignment across different icon libraries.
+</Tip>
+
+<Note>
+When using Font Awesome sizing classes (fa-lg, fa-2x, etc.), make sure they match the Bulma icon size for proper display.
+</Note>

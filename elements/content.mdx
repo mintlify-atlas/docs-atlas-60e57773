@@ -1,0 +1,258 @@
+---
+title: Content
+description: A single class to handle WYSIWYG-generated content with proper typography
+---
+
+The **content** element provides a single class to style content that comes from a WYSIWYG editor or CMS. It handles all standard HTML typography elements.
+
+## Basic Usage
+
+```html
+<div class="content">
+  <h1>Heading 1</h1>
+  <p>This paragraph is styled automatically.</p>
+  <h2>Heading 2</h2>
+  <p>All standard HTML elements work out of the box.</p>
+</div>
+```
+
+## Headings
+
+```html
+<div class="content">
+  <h1>Heading 1</h1>
+  <h2>Heading 2</h2>
+  <h3>Heading 3</h3>
+  <h4>Heading 4</h4>
+  <h5>Heading 5</h5>
+  <h6>Heading 6</h6>
+</div>
+```
+
+## Paragraphs and Text
+
+```html
+<div class="content">
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan, metus ultrices eleifend gravida.</p>
+  <p>This is another paragraph with <strong>bold text</strong>, <em>italic text</em>, and <u>underlined text</u>.</p>
+</div>
+```
+
+## Lists
+
+### Unordered Lists
+
+```html
+<div class="content">
+  <ul>
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3
+      <ul>
+        <li>Nested item 1</li>
+        <li>Nested item 2</li>
+      </ul>
+    </li>
+  </ul>
+</div>
+```
+
+### Ordered Lists
+
+```html
+<div class="content">
+  <ol>
+    <li>First item</li>
+    <li>Second item</li>
+    <li>Third item</li>
+  </ol>
+</div>
+```
+
+### Custom List Styles
+
+```html
+<div class="content">
+  <ol class="is-lower-alpha">
+    <li>Lower alpha</li>
+    <li>Lower alpha</li>
+  </ol>
+  
+  <ol class="is-lower-roman">
+    <li>Lower roman</li>
+    <li>Lower roman</li>
+  </ol>
+  
+  <ol class="is-upper-alpha">
+    <li>Upper alpha</li>
+    <li>Upper alpha</li>
+  </ol>
+  
+  <ol class="is-upper-roman">
+    <li>Upper roman</li>
+    <li>Upper roman</li>
+  </ol>
+</div>
+```
+
+## Definition Lists
+
+```html
+<div class="content">
+  <dl>
+    <dt>Term 1</dt>
+    <dd>Definition 1</dd>
+    <dt>Term 2</dt>
+    <dd>Definition 2</dd>
+  </dl>
+</div>
+```
+
+## Blockquotes
+
+```html
+<div class="content">
+  <blockquote>
+    "The only way to do great work is to love what you do."
+    <br>
+    — Steve Jobs
+  </blockquote>
+</div>
+```
+
+## Code
+
+### Inline Code
+
+```html
+<div class="content">
+  <p>Use the <code>content</code> class to style your HTML.</p>
+</div>
+```
+
+### Code Blocks
+
+```html
+<div class="content">
+  <pre><code>function hello() {
+  console.log('Hello World!');
+}</code></pre>
+</div>
+```
+
+## Tables
+
+```html
+<div class="content">
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Country</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>John</td>
+        <td>30</td>
+        <td>USA</td>
+      </tr>
+      <tr>
+        <td>Jane</td>
+        <td>25</td>
+        <td>UK</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+```
+
+## Images and Figures
+
+```html
+<div class="content">
+  <figure>
+    <img src="image.jpg" alt="Description">
+    <figcaption>Image caption goes here</figcaption>
+  </figure>
+</div>
+```
+
+## Sizes
+
+Control the size of all content typography:
+
+```html
+<div class="content is-small">
+  <h1>Small Content</h1>
+  <p>All text in this container is smaller.</p>
+</div>
+
+<div class="content is-normal">
+  <h1>Normal Content</h1>
+  <p>Default size content.</p>
+</div>
+
+<div class="content is-medium">
+  <h1>Medium Content</h1>
+  <p>All text in this container is medium-sized.</p>
+</div>
+
+<div class="content is-large">
+  <h1>Large Content</h1>
+  <p>All text in this container is larger.</p>
+</div>
+```
+
+## CSS Variables
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `--bulma-content-heading-color` | `--bulma-text-strong` | Heading color |
+| `--bulma-content-heading-weight` | `--bulma-weight-extrabold` | Heading weight |
+| `--bulma-content-heading-line-height` | `1.125` | Heading line height |
+| `--bulma-content-block-margin-bottom` | `1em` | Bottom margin for blocks |
+| `--bulma-content-blockquote-background-color` | `--bulma-background` | Blockquote background |
+| `--bulma-content-blockquote-border-left` | `5px solid` | Blockquote left border |
+| `--bulma-content-blockquote-padding` | `1.25em 1.5em` | Blockquote padding |
+| `--bulma-content-pre-padding` | `1.25em 1.5em` | Pre element padding |
+| `--bulma-content-table-cell-border` | `1px solid` | Table cell border |
+| `--bulma-content-table-cell-padding` | `0.5em 0.75em` | Table cell padding |
+
+## Typical Use Case
+
+Perfect for blog posts and CMS content:
+
+```html
+<article class="content">
+  <h1>Article Title</h1>
+  <p class="subtitle">Published on January 1, 2024</p>
+  
+  <p>Introduction paragraph...</p>
+  
+  <h2>Section 1</h2>
+  <p>Section content with <strong>emphasis</strong> and <em>style</em>.</p>
+  
+  <ul>
+    <li>Key point 1</li>
+    <li>Key point 2</li>
+    <li>Key point 3</li>
+  </ul>
+  
+  <blockquote>
+    An important quote from the article.
+  </blockquote>
+  
+  <h2>Section 2</h2>
+  <p>More content...</p>
+</article>
+```
+
+<Tip>
+The `content` class is perfect for rendering Markdown or rich text editor output. Just wrap the HTML in a `content` container.
+</Tip>
+
+<Note>
+All spacing and typography inside a `content` container is automatically handled. You don't need additional classes.
+</Note>

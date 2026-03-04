@@ -1,0 +1,250 @@
+---
+title: Dropdown
+description: An interactive dropdown menu that can be toggled to display a list of options
+---
+
+The **dropdown** component is an interactive menu that displays a list of items when activated. It requires JavaScript to toggle the `is-active` class.
+
+## Basic Dropdown
+
+A standard dropdown with a button trigger:
+
+```html
+<div class="dropdown">
+  <div class="dropdown-trigger">
+    <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+      <span>Dropdown button</span>
+      <span class="icon is-small">
+        <i class="fas fa-angle-down" aria-hidden="true"></i>
+      </span>
+    </button>
+  </div>
+  <div class="dropdown-menu" id="dropdown-menu" role="menu">
+    <div class="dropdown-content">
+      <a href="#" class="dropdown-item">
+        Dropdown item
+      </a>
+      <a class="dropdown-item">
+        Other dropdown item
+      </a>
+      <a href="#" class="dropdown-item is-active">
+        Active dropdown item
+      </a>
+      <a href="#" class="dropdown-item">
+        Other dropdown item
+      </a>
+      <hr class="dropdown-divider">
+      <a href="#" class="dropdown-item">
+        With a divider
+      </a>
+    </div>
+  </div>
+</div>
+```
+
+## Structure
+
+The dropdown component uses this structure:
+
+- `dropdown` - Main container
+  - `dropdown-trigger` - Contains the trigger element
+  - `dropdown-menu` - The dropdown menu (hidden by default)
+    - `dropdown-content` - Content wrapper with styling
+      - `dropdown-item` - Individual menu items
+      - `dropdown-divider` - Horizontal separator
+
+## Active State
+
+Add the `is-active` class to show the dropdown:
+
+```html
+<div class="dropdown is-active">
+  <!-- dropdown content -->
+</div>
+```
+
+<Warning>
+  You need to toggle the `is-active` class with JavaScript. The dropdown doesn't automatically show/hide.
+</Warning>
+
+## Hoverable Dropdown
+
+Use `is-hoverable` to show the dropdown on hover (no JavaScript needed):
+
+```html
+<div class="dropdown is-hoverable">
+  <div class="dropdown-trigger">
+    <button class="button">
+      <span>Hover me</span>
+      <span class="icon is-small">
+        <i class="fas fa-angle-down"></i>
+      </span>
+    </button>
+  </div>
+  <div class="dropdown-menu" role="menu">
+    <div class="dropdown-content">
+      <a href="#" class="dropdown-item">Item 1</a>
+      <a href="#" class="dropdown-item">Item 2</a>
+      <a href="#" class="dropdown-item">Item 3</a>
+    </div>
+  </div>
+</div>
+```
+
+## Right Aligned
+
+Align the dropdown menu to the right:
+
+```html
+<div class="dropdown is-right">
+  <div class="dropdown-trigger">
+    <button class="button">
+      <span>Right aligned</span>
+      <span class="icon is-small">
+        <i class="fas fa-angle-down"></i>
+      </span>
+    </button>
+  </div>
+  <div class="dropdown-menu" role="menu">
+    <div class="dropdown-content">
+      <a href="#" class="dropdown-item">Item</a>
+    </div>
+  </div>
+</div>
+```
+
+## Dropup
+
+Make the dropdown appear above the trigger:
+
+```html
+<div class="dropdown is-up">
+  <div class="dropdown-trigger">
+    <button class="button">
+      <span>Dropup</span>
+      <span class="icon is-small">
+        <i class="fas fa-angle-up"></i>
+      </span>
+    </button>
+  </div>
+  <div class="dropdown-menu" role="menu">
+    <div class="dropdown-content">
+      <a href="#" class="dropdown-item">Item 1</a>
+      <a href="#" class="dropdown-item">Item 2</a>
+    </div>
+  </div>
+</div>
+```
+
+## Dropdown Content
+
+The dropdown content can contain more than just links:
+
+```html
+<div class="dropdown is-active">
+  <div class="dropdown-trigger">
+    <button class="button">
+      <span>Content</span>
+    </button>
+  </div>
+  <div class="dropdown-menu" role="menu">
+    <div class="dropdown-content">
+      <div class="dropdown-item">
+        <p>You can insert <strong>any type of content</strong> within the dropdown menu.</p>
+      </div>
+      <hr class="dropdown-divider">
+      <div class="dropdown-item">
+        <p>This is some <strong>custom content</strong>.</p>
+      </div>
+      <hr class="dropdown-divider">
+      <a href="#" class="dropdown-item">
+        This is a link
+      </a>
+    </div>
+  </div>
+</div>
+```
+
+## With Dividers
+
+Separate groups of items with dividers:
+
+```html
+<div class="dropdown-content">
+  <a href="#" class="dropdown-item">Action</a>
+  <a href="#" class="dropdown-item">Another action</a>
+  <hr class="dropdown-divider">
+  <a href="#" class="dropdown-item">Settings</a>
+  <a href="#" class="dropdown-item">Logout</a>
+</div>
+```
+
+## Active Item
+
+Mark an item as active with `is-active`:
+
+```html
+<div class="dropdown-content">
+  <a href="#" class="dropdown-item">Regular item</a>
+  <a href="#" class="dropdown-item is-active">Active item</a>
+  <a href="#" class="dropdown-item">Regular item</a>
+</div>
+```
+
+## JavaScript Example
+
+Here's a simple JavaScript example to toggle the dropdown:
+
+```javascript
+document.addEventListener('DOMContentLoaded', () => {
+  // Get all dropdown elements
+  const dropdowns = document.querySelectorAll('.dropdown:not(.is-hoverable)');
+
+  dropdowns.forEach((dropdown) => {
+    const trigger = dropdown.querySelector('.dropdown-trigger');
+    
+    trigger.addEventListener('click', () => {
+      dropdown.classList.toggle('is-active');
+    });
+  });
+
+  // Close dropdowns when clicking outside
+  document.addEventListener('click', (event) => {
+    if (!event.target.closest('.dropdown')) {
+      dropdowns.forEach((dropdown) => {
+        dropdown.classList.remove('is-active');
+      });
+    }
+  });
+});
+```
+
+## Modifiers
+
+| Class | Description |
+|-------|-------------|
+| `is-active` | Shows the dropdown menu |
+| `is-hoverable` | Shows dropdown on hover (no JS needed) |
+| `is-right` | Aligns dropdown menu to the right |
+| `is-up` | Makes dropdown appear above trigger |
+| `dropdown-item is-active` | Highlights the active item |
+
+## CSS Variables
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `--bulma-dropdown-menu-min-width` | 12rem | Minimum width of dropdown |
+| `--bulma-dropdown-content-offset` | 0.25rem | Space between trigger and menu |
+| `--bulma-dropdown-content-radius` | Radius variable | Border radius |
+| `--bulma-dropdown-content-shadow` | Shadow variable | Box shadow |
+
+## Accessibility
+
+- Use `aria-haspopup="true"` on the trigger button
+- Use `aria-controls` to reference the dropdown menu ID
+- Add `role="menu"` to the dropdown menu
+- Consider adding `aria-expanded` that toggles between true/false
+
+<Warning>
+  The dropdown component requires JavaScript to function properly. Use `is-hoverable` if you need a CSS-only solution.
+</Warning>

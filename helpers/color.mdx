@@ -1,0 +1,264 @@
+---
+title: 'Color Helpers'
+description: 'Apply text and background colors with Bulma color helper classes'
+---
+
+Bulma provides a comprehensive set of color helper classes to quickly apply text and background colors to any element.
+
+## Text Colors
+
+Use `has-text-*` classes to change the text color of an element.
+
+### Basic Colors
+
+<CodeGroup>
+```html Text Colors
+<p class="has-text-primary">Primary text</p>
+<p class="has-text-link">Link text</p>
+<p class="has-text-info">Info text</p>
+<p class="has-text-success">Success text</p>
+<p class="has-text-warning">Warning text</p>
+<p class="has-text-danger">Danger text</p>
+<p class="has-text-light">Light text</p>
+<p class="has-text-dark">Dark text</p>
+<p class="has-text-text">Text color</p>
+<p class="has-text-white">White text</p>
+<p class="has-text-black">Black text</p>
+```
+</CodeGroup>
+
+### Available Text Colors
+
+| Class | Description |
+|-------|-------------|
+| `has-text-primary` | Primary theme color |
+| `has-text-link` | Link color (blue) |
+| `has-text-info` | Info color (cyan) |
+| `has-text-success` | Success color (green) |
+| `has-text-warning` | Warning color (yellow) |
+| `has-text-danger` | Danger color (red) |
+| `has-text-light` | Light color |
+| `has-text-dark` | Dark color |
+| `has-text-text` | Default text color |
+| `has-text-white` | White color |
+| `has-text-black` | Black color |
+
+## Background Colors
+
+Use `has-background-*` classes to change the background color of an element.
+
+<CodeGroup>
+```html Background Colors
+<div class="has-background-primary">Primary background</div>
+<div class="has-background-link">Link background</div>
+<div class="has-background-info">Info background</div>
+<div class="has-background-success">Success background</div>
+<div class="has-background-warning">Warning background</div>
+<div class="has-background-danger">Danger background</div>
+<div class="has-background-light">Light background</div>
+<div class="has-background-dark">Dark background</div>
+```
+</CodeGroup>
+
+### Available Background Colors
+
+| Class | Description |
+|-------|-------------|
+| `has-background-primary` | Primary theme color |
+| `has-background-link` | Link color (blue) |
+| `has-background-info` | Info color (cyan) |
+| `has-background-success` | Success color (green) |
+| `has-background-warning` | Warning color (yellow) |
+| `has-background-danger` | Danger color (red) |
+| `has-background-light` | Light color |
+| `has-background-dark` | Dark color |
+| `has-background-white` | White color |
+| `has-background-black` | Black color |
+| `has-background` | Default background color |
+
+## Shade Colors
+
+Bulma includes grayscale shades for more subtle color variations.
+
+<CodeGroup>
+```html Shade Colors
+<!-- Text shades -->
+<p class="has-text-black-bis">Black bis text</p>
+<p class="has-text-black-ter">Black ter text</p>
+<p class="has-text-grey-darker">Grey darker text</p>
+<p class="has-text-grey-dark">Grey dark text</p>
+<p class="has-text-grey">Grey text</p>
+<p class="has-text-grey-light">Grey light text</p>
+<p class="has-text-grey-lighter">Grey lighter text</p>
+<p class="has-text-white-ter">White ter text</p>
+<p class="has-text-white-bis">White bis text</p>
+
+<!-- Background shades -->
+<div class="has-background-grey-darker">Grey darker background</div>
+<div class="has-background-grey-lighter">Grey lighter background</div>
+```
+</CodeGroup>
+
+### Available Shades
+
+| Text Class | Background Class | Description |
+|------------|------------------|-------------|
+| `has-text-black-bis` | `has-background-black-bis` | Slightly lighter than black |
+| `has-text-black-ter` | `has-background-black-ter` | Even lighter than black-bis |
+| `has-text-grey-darker` | `has-background-grey-darker` | Very dark grey |
+| `has-text-grey-dark` | `has-background-grey-dark` | Dark grey |
+| `has-text-grey` | `has-background-grey` | Standard grey |
+| `has-text-grey-light` | `has-background-grey-light` | Light grey |
+| `has-text-grey-lighter` | `has-background-grey-lighter` | Very light grey |
+| `has-text-white-ter` | `has-background-white-ter` | Slightly darker than white |
+| `has-text-white-bis` | `has-background-white-bis` | Even darker than white-ter |
+
+## Color Variants
+
+Each color has several variants for different use cases.
+
+### Light Variants
+
+<CodeGroup>
+```html Light Variants
+<p class="has-text-primary-light">Light primary text</p>
+<p class="has-text-info-light">Light info text</p>
+<p class="has-text-success-light">Light success text</p>
+
+<div class="has-background-primary-light">Light primary background</div>
+<div class="has-background-info-light">Light info background</div>
+```
+</CodeGroup>
+
+### Dark Variants
+
+<CodeGroup>
+```html Dark Variants
+<p class="has-text-primary-dark">Dark primary text</p>
+<p class="has-text-info-dark">Dark info text</p>
+<p class="has-text-success-dark">Dark success text</p>
+
+<div class="has-background-primary-dark">Dark primary background</div>
+<div class="has-background-info-dark">Dark info background</div>
+```
+</CodeGroup>
+
+### Soft and Bold Variants
+
+<CodeGroup>
+```html Soft and Bold
+<!-- Soft variants (more subtle) -->
+<p class="has-text-primary-soft">Soft primary text</p>
+<div class="has-background-danger-soft">Soft danger background</div>
+
+<!-- Bold variants (more vibrant) -->
+<p class="has-text-primary-bold">Bold primary text</p>
+<div class="has-background-success-bold">Bold success background</div>
+```
+</CodeGroup>
+
+### Invert Variants
+
+<CodeGroup>
+```html Invert Variants
+<p class="has-text-primary-invert">Inverted primary text</p>
+<p class="has-text-light-invert">Inverted light text</p>
+<p class="has-text-dark-invert">Inverted dark text</p>
+
+<div class="has-background-primary-invert">Inverted primary background</div>
+```
+</CodeGroup>
+
+### On Scheme Variants
+
+<CodeGroup>
+```html On Scheme
+<p class="has-text-primary-on-scheme">Primary on scheme text</p>
+<div class="has-background-info-on-scheme">Info on scheme background</div>
+```
+</CodeGroup>
+
+## Lightness Scale
+
+Each color supports a full lightness scale from 00 (darkest) to 100 (lightest) in increments of 5.
+
+<CodeGroup>
+```html Lightness Scale
+<!-- Text with lightness scale -->
+<p class="has-text-primary-00">Primary at 0% lightness</p>
+<p class="has-text-primary-25">Primary at 25% lightness</p>
+<p class="has-text-primary-50">Primary at 50% lightness</p>
+<p class="has-text-primary-75">Primary at 75% lightness</p>
+<p class="has-text-primary-100">Primary at 100% lightness</p>
+
+<!-- Background with lightness scale -->
+<div class="has-background-info-20">Info at 20% lightness</div>
+<div class="has-background-success-40">Success at 40% lightness</div>
+<div class="has-background-danger-60">Danger at 60% lightness</div>
+```
+</CodeGroup>
+
+### Available Lightness Values
+
+You can use any of these lightness values: `00`, `05`, `10`, `15`, `20`, `25`, `30`, `35`, `40`, `45`, `50`, `55`, `60`, `65`, `70`, `75`, `80`, `85`, `90`, `95`, `100`
+
+<CodeGroup>
+```html Lightness with Invert
+<p class="has-text-primary-30-invert">Inverted text at 30% lightness</p>
+<div class="has-background-danger-45-invert">Inverted background at 45% lightness</div>
+```
+</CodeGroup>
+
+## Special Color Classes
+
+Bulma includes special color utilities for common use cases.
+
+<CodeGroup>
+```html Special Colors
+<p class="has-text-current">Uses currentColor</p>
+<p class="has-text-inherit">Inherits color from parent</p>
+
+<div class="has-background-current">Uses currentColor as background</div>
+<div class="has-background-inherit">Inherits background from parent</div>
+```
+</CodeGroup>
+
+| Class | Description |
+|-------|-------------|
+| `has-text-current` | Sets color to `currentColor` |
+| `has-text-inherit` | Inherits color from parent |
+| `has-background-current` | Sets background to `currentColor` |
+| `has-background-inherit` | Inherits background from parent |
+
+## Hoverable Colors
+
+Add the `is-hoverable` class to make colors interactive on hover and active states. This also works automatically on `<a>` and `<button>` elements.
+
+<CodeGroup>
+```html Hoverable Colors
+<a class="has-text-primary">Link with hover effect</a>
+<button class="has-background-info">Button with hover effect</button>
+
+<div class="has-text-success is-hoverable">
+  Div with hover effect
+</div>
+```
+</CodeGroup>
+
+## Color Palettes
+
+Create CSS custom properties for a color palette with the `is-palette-*` class.
+
+<CodeGroup>
+```html Color Palette
+<div class="is-palette-primary">
+  <!-- Access color variables -->
+  <div style="color: var(--color)">Uses primary color</div>
+  <div style="color: var(--color-30)">Uses primary at 30% lightness</div>
+</div>
+```
+</CodeGroup>
+
+<Note>
+Color palettes set up CSS custom properties like `--h`, `--s`, `--l`, `--color`, and `--color-{digit}` for easy programmatic color manipulation.
+</Note>

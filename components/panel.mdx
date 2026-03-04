@@ -1,0 +1,368 @@
+---
+title: Panel
+description: A composable panel container for organizing content with headings, tabs, and blocks
+---
+
+The **panel** component is a container for organizing related content with support for headings, tabs, lists, and interactive blocks.
+
+## Basic Panel
+
+A simple panel with heading and blocks:
+
+```html
+<nav class="panel">
+  <p class="panel-heading">
+    Repositories
+  </p>
+  <a class="panel-block is-active">
+    <span class="panel-icon">
+      <i class="fas fa-book" aria-hidden="true"></i>
+    </span>
+    bulma
+  </a>
+  <a class="panel-block">
+    <span class="panel-icon">
+      <i class="fas fa-book" aria-hidden="true"></i>
+    </span>
+    marksheet
+  </a>
+  <a class="panel-block">
+    <span class="panel-icon">
+      <i class="fas fa-book" aria-hidden="true"></i>
+    </span>
+    minireset.css
+  </a>
+</nav>
+```
+
+## Structure
+
+The panel consists of:
+
+- `panel` - Main container
+  - `panel-heading` - Header section
+  - `panel-tabs` - Tab navigation (optional)
+  - `panel-block` - Content blocks
+    - `panel-icon` - Icons within blocks
+  - `panel-list` - Nested lists (optional)
+
+## Panel Heading
+
+The heading section of the panel:
+
+```html
+<nav class="panel">
+  <p class="panel-heading">
+    Panel Title
+  </p>
+  <!-- panel content -->
+</nav>
+```
+
+## Panel Tabs
+
+Add tab navigation to filter content:
+
+```html
+<nav class="panel">
+  <p class="panel-heading">Repositories</p>
+  
+  <div class="panel-tabs">
+    <a class="is-active">All</a>
+    <a>Public</a>
+    <a>Private</a>
+    <a>Sources</a>
+    <a>Forks</a>
+  </div>
+  
+  <a class="panel-block">Item 1</a>
+  <a class="panel-block">Item 2</a>
+</nav>
+```
+
+## Panel Blocks
+
+Interactive content blocks:
+
+```html
+<nav class="panel">
+  <p class="panel-heading">Menu</p>
+  
+  <a class="panel-block is-active">
+    <span class="panel-icon">
+      <i class="fas fa-home"></i>
+    </span>
+    Home
+  </a>
+  
+  <a class="panel-block">
+    <span class="panel-icon">
+      <i class="fas fa-cog"></i>
+    </span>
+    Settings
+  </a>
+  
+  <a class="panel-block">
+    <span class="panel-icon">
+      <i class="fas fa-user"></i>
+    </span>
+    Profile
+  </a>
+</nav>
+```
+
+## With Form Controls
+
+Panels can contain form elements:
+
+```html
+<nav class="panel">
+  <p class="panel-heading">Search</p>
+  
+  <div class="panel-block">
+    <p class="control has-icons-left">
+      <input class="input" type="text" placeholder="Search">
+      <span class="icon is-left">
+        <i class="fas fa-search" aria-hidden="true"></i>
+      </span>
+    </p>
+  </div>
+  
+  <a class="panel-block">Result 1</a>
+  <a class="panel-block">Result 2</a>
+  <a class="panel-block">Result 3</a>
+</nav>
+```
+
+## With Checkboxes
+
+Create selectable lists:
+
+```html
+<nav class="panel">
+  <p class="panel-heading">Tasks</p>
+  
+  <label class="panel-block">
+    <input type="checkbox">
+    Complete documentation
+  </label>
+  
+  <label class="panel-block">
+    <input type="checkbox" checked>
+    Review pull requests
+  </label>
+  
+  <label class="panel-block">
+    <input type="checkbox">
+    Deploy to production
+  </label>
+</nav>
+```
+
+## Panel Lists
+
+Nested lists within panels:
+
+```html
+<nav class="panel">
+  <p class="panel-heading">Navigation</p>
+  
+  <div class="panel-list">
+    <a>Home</a>
+    <a>About</a>
+    <a>Contact</a>
+  </div>
+</nav>
+```
+
+## Active State
+
+Highlight the active panel block:
+
+```html
+<nav class="panel">
+  <a class="panel-block">Regular item</a>
+  <a class="panel-block is-active">Active item</a>
+  <a class="panel-block">Regular item</a>
+</nav>
+```
+
+## Colors
+
+Panels support color variants:
+
+```html
+<!-- Primary -->
+<nav class="panel is-primary">
+  <p class="panel-heading">Primary Panel</p>
+  <a class="panel-block">Item</a>
+</nav>
+
+<!-- Info -->
+<nav class="panel is-info">
+  <p class="panel-heading">Info Panel</p>
+  <a class="panel-block">Item</a>
+</nav>
+
+<!-- Success -->
+<nav class="panel is-success">
+  <p class="panel-heading">Success Panel</p>
+  <a class="panel-block">Item</a>
+</nav>
+
+<!-- Warning -->
+<nav class="panel is-warning">
+  <p class="panel-heading">Warning Panel</p>
+  <a class="panel-block">Item</a>
+</nav>
+
+<!-- Danger -->
+<nav class="panel is-danger">
+  <p class="panel-heading">Danger Panel</p>
+  <a class="panel-block">Item</a>
+</nav>
+```
+
+## Complete Example
+
+A comprehensive panel with all features:
+
+```html
+<nav class="panel is-primary">
+  <p class="panel-heading">
+    Repositories
+  </p>
+  
+  <div class="panel-tabs">
+    <a class="is-active">All</a>
+    <a>Public</a>
+    <a>Private</a>
+    <a>Sources</a>
+    <a>Forks</a>
+  </div>
+  
+  <div class="panel-block">
+    <p class="control has-icons-left">
+      <input class="input" type="text" placeholder="Search">
+      <span class="icon is-left">
+        <i class="fas fa-search" aria-hidden="true"></i>
+      </span>
+    </p>
+  </div>
+  
+  <a class="panel-block is-active">
+    <span class="panel-icon">
+      <i class="fas fa-book" aria-hidden="true"></i>
+    </span>
+    bulma
+  </a>
+  
+  <a class="panel-block">
+    <span class="panel-icon">
+      <i class="fas fa-book" aria-hidden="true"></i>
+    </span>
+    marksheet
+  </a>
+  
+  <a class="panel-block">
+    <span class="panel-icon">
+      <i class="fas fa-code-branch" aria-hidden="true"></i>
+    </span>
+    minireset.css
+  </a>
+  
+  <label class="panel-block">
+    <input type="checkbox">
+    Remember me
+  </label>
+  
+  <div class="panel-block">
+    <button class="button is-primary is-outlined is-fullwidth">
+      Reset all filters
+    </button>
+  </div>
+</nav>
+```
+
+## Wrapped Blocks
+
+Allow panel blocks to wrap content:
+
+```html
+<div class="panel-block is-wrapped">
+  <div class="tags">
+    <span class="tag is-primary">Tag 1</span>
+    <span class="tag is-info">Tag 2</span>
+    <span class="tag is-success">Tag 3</span>
+  </div>
+</div>
+```
+
+## With Icons
+
+Add icons to panel blocks:
+
+```html
+<nav class="panel">
+  <a class="panel-block">
+    <span class="panel-icon">
+      <i class="fas fa-home"></i>
+    </span>
+    Home
+  </a>
+  
+  <a class="panel-block is-active">
+    <span class="panel-icon">
+      <i class="fas fa-star"></i>
+    </span>
+    Favorites
+  </a>
+</nav>
+```
+
+<Note>
+  The panel-icon automatically sizes icons appropriately and adds proper spacing.
+</Note>
+
+## CSS Variables
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `--bulma-panel-radius` | Large radius | Border radius |
+| `--bulma-panel-shadow` | Shadow variable | Box shadow |
+| `--bulma-panel-heading-size` | 1.25em | Heading font size |
+| `--bulma-panel-heading-weight` | Bold | Heading font weight |
+| `--bulma-panel-heading-padding` | 1em 1.25em | Heading padding |
+| `--bulma-panel-tabs-font-size` | 1em | Tabs font size |
+
+## Color Modifiers
+
+| Class | Description |
+|-------|-------------|
+| `is-primary` | Primary color |
+| `is-link` | Link color |
+| `is-info` | Info color |
+| `is-success` | Success color |
+| `is-warning` | Warning color |
+| `is-danger` | Danger color |
+| `is-dark` | Dark color |
+
+## State Modifiers
+
+| Class | Description |
+|-------|-------------|
+| `panel-block is-active` | Active/selected block |
+| `panel-tabs a is-active` | Active tab |
+| `panel-block is-wrapped` | Allows content wrapping |
+
+## Use Cases
+
+- **Sidebar navigation**: Organize menu items
+- **Filter panels**: Show filterable lists with tabs
+- **Task lists**: Display checkboxes for tasks
+- **Search results**: Show searchable content
+- **Settings panels**: Group related settings
+
+<Note>
+  Panels are purely presentational. Add JavaScript for interactive features like filtering, searching, or selecting items.
+</Note>

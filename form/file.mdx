@@ -1,0 +1,612 @@
+---
+title: File Input
+description: Styled file upload input with customizable layout, colors, and sizes in Bulma CSS framework
+---
+
+# File Input
+
+The `file` class creates a custom-styled file upload button. The file input requires a specific HTML structure.
+
+## Basic File Input
+
+```html
+<div class="file">
+  <label class="file-label">
+    <input class="file-input" type="file" name="resume">
+    <span class="file-cta">
+      <span class="file-icon">
+        <i class="fas fa-upload"></i>
+      </span>
+      <span class="file-label">
+        Choose a file…
+      </span>
+    </span>
+  </label>
+</div>
+```
+
+## Structure
+
+The file input uses the following structure:
+
+- `file` - main container
+- `file-label` - clickable label wrapper
+- `file-input` - native file input (hidden)
+- `file-cta` - call-to-action button
+- `file-icon` - optional icon container
+- `file-label` - button text
+- `file-name` - optional selected filename display
+
+## With File Name Display
+
+Show the selected filename:
+
+```html
+<div class="file has-name">
+  <label class="file-label">
+    <input class="file-input" type="file" name="resume">
+    <span class="file-cta">
+      <span class="file-icon">
+        <i class="fas fa-upload"></i>
+      </span>
+      <span class="file-label">
+        Choose a file…
+      </span>
+    </span>
+    <span class="file-name">
+      No file selected
+    </span>
+  </label>
+</div>
+```
+
+Use JavaScript to update the file name:
+
+```javascript
+const fileInput = document.querySelector('.file-input');
+const fileName = document.querySelector('.file-name');
+
+fileInput.addEventListener('change', (e) => {
+  if (e.target.files.length > 0) {
+    fileName.textContent = e.target.files[0].name;
+  } else {
+    fileName.textContent = 'No file selected';
+  }
+});
+```
+
+## Colors
+
+Apply color modifiers to the file container:
+
+```html
+<div class="file is-primary">
+  <label class="file-label">
+    <input class="file-input" type="file">
+    <span class="file-cta">
+      <span class="file-icon">
+        <i class="fas fa-upload"></i>
+      </span>
+      <span class="file-label">
+        Primary file…
+      </span>
+    </span>
+  </label>
+</div>
+
+<div class="file is-info has-name">
+  <label class="file-label">
+    <input class="file-input" type="file">
+    <span class="file-cta">
+      <span class="file-icon">
+        <i class="fas fa-upload"></i>
+      </span>
+      <span class="file-label">
+        Info file…
+      </span>
+    </span>
+    <span class="file-name">
+      document.pdf
+    </span>
+  </label>
+</div>
+
+<div class="file is-warning">
+  <label class="file-label">
+    <input class="file-input" type="file">
+    <span class="file-cta">
+      <span class="file-icon">
+        <i class="fas fa-upload"></i>
+      </span>
+      <span class="file-label">
+        Warning file…
+      </span>
+    </span>
+  </label>
+</div>
+
+<div class="file is-danger">
+  <label class="file-label">
+    <input class="file-input" type="file">
+    <span class="file-cta">
+      <span class="file-icon">
+        <i class="fas fa-upload"></i>
+      </span>
+      <span class="file-label">
+        Danger file…
+      </span>
+    </span>
+  </label>
+</div>
+```
+
+## Sizes
+
+File inputs come in four sizes:
+
+```html
+<div class="file is-small">
+  <label class="file-label">
+    <input class="file-input" type="file">
+    <span class="file-cta">
+      <span class="file-icon">
+        <i class="fas fa-upload"></i>
+      </span>
+      <span class="file-label">
+        Small file…
+      </span>
+    </span>
+  </label>
+</div>
+
+<div class="file is-normal">
+  <label class="file-label">
+    <input class="file-input" type="file">
+    <span class="file-cta">
+      <span class="file-icon">
+        <i class="fas fa-upload"></i>
+      </span>
+      <span class="file-label">
+        Normal file…
+      </span>
+    </span>
+  </label>
+</div>
+
+<div class="file is-medium">
+  <label class="file-label">
+    <input class="file-input" type="file">
+    <span class="file-cta">
+      <span class="file-icon">
+        <i class="fas fa-upload"></i>
+      </span>
+      <span class="file-label">
+        Medium file…
+      </span>
+    </span>
+  </label>
+</div>
+
+<div class="file is-large">
+  <label class="file-label">
+    <input class="file-input" type="file">
+    <span class="file-cta">
+      <span class="file-icon">
+        <i class="fas fa-upload"></i>
+      </span>
+      <span class="file-label">
+        Large file…
+      </span>
+    </span>
+  </label>
+</div>
+```
+
+## Alignment
+
+### Centered
+
+```html
+<div class="file is-centered">
+  <label class="file-label">
+    <input class="file-input" type="file">
+    <span class="file-cta">
+      <span class="file-icon">
+        <i class="fas fa-upload"></i>
+      </span>
+      <span class="file-label">
+        Centered file…
+      </span>
+    </span>
+  </label>
+</div>
+```
+
+### Right Aligned
+
+```html
+<div class="file is-right">
+  <label class="file-label">
+    <input class="file-input" type="file">
+    <span class="file-cta">
+      <span class="file-icon">
+        <i class="fas fa-upload"></i>
+      </span>
+      <span class="file-label">
+        Right-aligned file…
+      </span>
+    </span>
+  </label>
+</div>
+```
+
+With filename, the order is reversed:
+
+```html
+<div class="file is-right has-name">
+  <label class="file-label">
+    <input class="file-input" type="file">
+    <span class="file-name">
+      document.pdf
+    </span>
+    <span class="file-cta">
+      <span class="file-icon">
+        <i class="fas fa-upload"></i>
+      </span>
+      <span class="file-label">
+        Choose file…
+      </span>
+    </span>
+  </label>
+</div>
+```
+
+## Full Width
+
+Make the file input take full width:
+
+```html
+<div class="file is-fullwidth has-name">
+  <label class="file-label">
+    <input class="file-input" type="file">
+    <span class="file-cta">
+      <span class="file-icon">
+        <i class="fas fa-upload"></i>
+      </span>
+      <span class="file-label">
+        Choose a file…
+      </span>
+    </span>
+    <span class="file-name">
+      document.pdf
+    </span>
+  </label>
+</div>
+```
+
+## Boxed Layout
+
+Create a vertical boxed layout:
+
+```html
+<div class="file is-boxed">
+  <label class="file-label">
+    <input class="file-input" type="file">
+    <span class="file-cta">
+      <span class="file-icon">
+        <i class="fas fa-upload"></i>
+      </span>
+      <span class="file-label">
+        Choose a file…
+      </span>
+    </span>
+  </label>
+</div>
+```
+
+### Boxed with File Name
+
+```html
+<div class="file is-boxed has-name">
+  <label class="file-label">
+    <input class="file-input" type="file">
+    <span class="file-cta">
+      <span class="file-icon">
+        <i class="fas fa-upload"></i>
+      </span>
+      <span class="file-label">
+        Choose a file…
+      </span>
+    </span>
+    <span class="file-name">
+      project-report.pdf
+    </span>
+  </label>
+</div>
+```
+
+### Boxed Sizes
+
+```html
+<div class="file is-boxed is-small">
+  <label class="file-label">
+    <input class="file-input" type="file">
+    <span class="file-cta">
+      <span class="file-icon">
+        <i class="fas fa-upload"></i>
+      </span>
+      <span class="file-label">
+        Small boxed
+      </span>
+    </span>
+  </label>
+</div>
+
+<div class="file is-boxed is-medium">
+  <label class="file-label">
+    <input class="file-input" type="file">
+    <span class="file-cta">
+      <span class="file-icon">
+        <i class="fas fa-cloud-upload-alt"></i>
+      </span>
+      <span class="file-label">
+        Medium boxed
+      </span>
+    </span>
+  </label>
+</div>
+
+<div class="file is-boxed is-large">
+  <label class="file-label">
+    <input class="file-input" type="file">
+    <span class="file-cta">
+      <span class="file-icon">
+        <i class="fas fa-cloud-upload-alt fa-2x"></i>
+      </span>
+      <span class="file-label">
+        Large boxed
+      </span>
+    </span>
+  </label>
+</div>
+```
+
+## Form Integration
+
+### Upload Form
+
+```html
+<form>
+  <div class="field">
+    <label class="label">Upload your resume</label>
+    <div class="file has-name is-fullwidth">
+      <label class="file-label">
+        <input class="file-input" type="file" name="resume" accept=".pdf,.doc,.docx">
+        <span class="file-cta">
+          <span class="file-icon">
+            <i class="fas fa-upload"></i>
+          </span>
+          <span class="file-label">
+            Choose a file…
+          </span>
+        </span>
+        <span class="file-name">
+          No file selected
+        </span>
+      </label>
+    </div>
+    <p class="help">Accepted formats: PDF, DOC, DOCX (max 5MB)</p>
+  </div>
+
+  <div class="field">
+    <label class="label">Cover letter (optional)</label>
+    <div class="file has-name is-fullwidth">
+      <label class="file-label">
+        <input class="file-input" type="file" name="cover-letter" accept=".pdf,.doc,.docx">
+        <span class="file-cta">
+          <span class="file-icon">
+            <i class="fas fa-file-alt"></i>
+          </span>
+          <span class="file-label">
+            Choose a file…
+          </span>
+        </span>
+        <span class="file-name">
+          No file selected
+        </span>
+      </label>
+    </div>
+  </div>
+
+  <div class="field is-grouped">
+    <div class="control">
+      <button class="button is-link" type="submit">Submit Application</button>
+    </div>
+  </div>
+</form>
+```
+
+### Image Upload
+
+```html
+<div class="field">
+  <label class="label">Profile picture</label>
+  <div class="file is-info is-boxed has-name">
+    <label class="file-label">
+      <input class="file-input" type="file" name="profile-pic" accept="image/*">
+      <span class="file-cta">
+        <span class="file-icon">
+          <i class="fas fa-camera"></i>
+        </span>
+        <span class="file-label">
+          Upload photo
+        </span>
+      </span>
+      <span class="file-name">
+        No image selected
+      </span>
+    </label>
+  </div>
+  <p class="help">JPG, PNG or GIF (max 2MB)</p>
+</div>
+```
+
+### Multiple Files
+
+```html
+<div class="field">
+  <label class="label">Upload documents</label>
+  <div class="file has-name is-fullwidth">
+    <label class="file-label">
+      <input class="file-input" type="file" name="documents" multiple>
+      <span class="file-cta">
+        <span class="file-icon">
+          <i class="fas fa-upload"></i>
+        </span>
+        <span class="file-label">
+          Choose files…
+        </span>
+      </span>
+      <span class="file-name">
+        No files selected
+      </span>
+    </label>
+  </div>
+  <p class="help">You can select multiple files</p>
+</div>
+```
+
+### With Validation
+
+```html
+<div class="field">
+  <label class="label">Required document</label>
+  <div class="file has-name is-fullwidth is-danger">
+    <label class="file-label">
+      <input class="file-input" type="file" name="document" required>
+      <span class="file-cta">
+        <span class="file-icon">
+          <i class="fas fa-exclamation-triangle"></i>
+        </span>
+        <span class="file-label">
+          Choose a file…
+        </span>
+      </span>
+      <span class="file-name">
+        No file selected
+      </span>
+    </label>
+  </div>
+  <p class="help is-danger">This field is required</p>
+</div>
+
+<div class="field">
+  <label class="label">Verified upload</label>
+  <div class="file has-name is-fullwidth is-success">
+    <label class="file-label">
+      <input class="file-input" type="file" name="verified">
+      <span class="file-cta">
+        <span class="file-icon">
+          <i class="fas fa-check"></i>
+        </span>
+        <span class="file-label">
+          Choose a file…
+        </span>
+      </span>
+      <span class="file-name">
+        verified-document.pdf
+      </span>
+    </label>
+  </div>
+  <p class="help is-success">File uploaded successfully</p>
+</div>
+```
+
+## JavaScript Example
+
+Complete example with file name and size display:
+
+```javascript
+const fileInput = document.querySelector('.file-input');
+const fileName = document.querySelector('.file-name');
+const fileContainer = document.querySelector('.file');
+
+fileInput.addEventListener('change', (e) => {
+  const files = e.target.files;
+  
+  if (files.length > 0) {
+    const file = files[0];
+    const fileSize = (file.size / 1024 / 1024).toFixed(2);
+    
+    fileName.textContent = `${file.name} (${fileSize} MB)`;
+    
+    // Remove is-empty class if present
+    fileContainer.classList.remove('is-empty');
+  } else {
+    fileName.textContent = 'No file selected';
+    fileContainer.classList.add('is-empty');
+  }
+});
+```
+
+## Empty State
+
+Hide the filename when no file is selected:
+
+```html
+<div class="file has-name is-empty">
+  <label class="file-label">
+    <input class="file-input" type="file">
+    <span class="file-cta">
+      <span class="file-icon">
+        <i class="fas fa-upload"></i>
+      </span>
+      <span class="file-label">
+        Choose a file…
+      </span>
+    </span>
+    <span class="file-name">
+      No file selected
+    </span>
+  </label>
+</div>
+```
+
+The `is-empty` class hides the file name and makes the button full width.
+
+## Accessibility
+
+```html
+<div class="field">
+  <label class="label" id="resume-label">Upload resume</label>
+  <div class="file has-name is-fullwidth">
+    <label class="file-label">
+      <input 
+        class="file-input" 
+        type="file" 
+        name="resume"
+        aria-labelledby="resume-label"
+        aria-describedby="resume-help"
+        accept=".pdf,.doc,.docx"
+        required
+      >
+      <span class="file-cta">
+        <span class="file-icon">
+          <i class="fas fa-upload" aria-hidden="true"></i>
+        </span>
+        <span class="file-label">
+          Choose a file…
+        </span>
+      </span>
+      <span class="file-name">
+        No file selected
+      </span>
+    </label>
+  </div>
+  <p id="resume-help" class="help">PDF, DOC, or DOCX format, maximum 5MB</p>
+</div>
+```
+
+<Note>
+  Use the `accept` attribute to restrict file types, and always validate file types and sizes on the server side for security.
+</Note>

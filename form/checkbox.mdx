@@ -1,0 +1,413 @@
+---
+title: Checkbox
+description: Checkbox input element for multiple selections in Bulma CSS framework
+---
+
+# Checkbox
+
+The `checkbox` class creates styled checkboxes. The checkbox label wraps the native `<input type="checkbox">` element.
+
+## Basic Checkbox
+
+```html
+<label class="checkbox">
+  <input type="checkbox">
+  Remember me
+</label>
+```
+
+## In Forms
+
+```html
+<div class="field">
+  <div class="control">
+    <label class="checkbox">
+      <input type="checkbox">
+      I agree to the <a href="#">terms and conditions</a>
+    </label>
+  </div>
+</div>
+```
+
+## Multiple Checkboxes
+
+Use the `checkboxes` container for multiple checkbox options:
+
+```html
+<div class="field">
+  <label class="label">Select your interests</label>
+  <div class="control checkboxes">
+    <label class="checkbox">
+      <input type="checkbox">
+      Technology
+    </label>
+    <label class="checkbox">
+      <input type="checkbox">
+      Design
+    </label>
+    <label class="checkbox">
+      <input type="checkbox">
+      Business
+    </label>
+    <label class="checkbox">
+      <input type="checkbox">
+      Marketing
+    </label>
+  </div>
+</div>
+```
+
+The `checkboxes` container automatically adds spacing between checkbox items using flexbox with gaps.
+
+## Stacked Checkboxes
+
+For vertical stacking, place each checkbox in its own control:
+
+```html
+<div class="field">
+  <label class="label">Newsletter subscriptions</label>
+  <div class="control">
+    <label class="checkbox">
+      <input type="checkbox" checked>
+      Daily digest
+    </label>
+  </div>
+  <div class="control">
+    <label class="checkbox">
+      <input type="checkbox">
+      Weekly summary
+    </label>
+  </div>
+  <div class="control">
+    <label class="checkbox">
+      <input type="checkbox">
+      Monthly newsletter
+    </label>
+  </div>
+</div>
+```
+
+## Checked State
+
+Use the `checked` attribute to pre-select a checkbox:
+
+```html
+<label class="checkbox">
+  <input type="checkbox" checked>
+  I agree to the terms
+</label>
+```
+
+## Disabled State
+
+Disable a checkbox with the `disabled` attribute:
+
+```html
+<label class="checkbox">
+  <input type="checkbox" disabled>
+  Disabled checkbox
+</label>
+
+<label class="checkbox">
+  <input type="checkbox" checked disabled>
+  Disabled and checked
+</label>
+```
+
+Disabled checkboxes are automatically styled with reduced opacity and a not-allowed cursor.
+
+## With Fieldset Disabled
+
+Disable multiple checkboxes at once:
+
+```html
+<fieldset disabled>
+  <div class="field">
+    <div class="control">
+      <label class="checkbox">
+        <input type="checkbox" checked>
+        Option 1
+      </label>
+    </div>
+    <div class="control">
+      <label class="checkbox">
+        <input type="checkbox">
+        Option 2
+      </label>
+    </div>
+  </div>
+</fieldset>
+```
+
+## With Links
+
+Include links within checkbox labels:
+
+```html
+<div class="field">
+  <div class="control">
+    <label class="checkbox">
+      <input type="checkbox" required>
+      I agree to the <a href="#">terms and conditions</a> and <a href="#">privacy policy</a>
+    </label>
+  </div>
+</div>
+```
+
+## With Help Text
+
+```html
+<div class="field">
+  <div class="control">
+    <label class="checkbox">
+      <input type="checkbox">
+      Subscribe to newsletter
+    </label>
+  </div>
+  <p class="help">You can unsubscribe at any time</p>
+</div>
+```
+
+## Validation States
+
+Combine checkboxes with help text for validation feedback:
+
+```html
+<div class="field">
+  <div class="control">
+    <label class="checkbox">
+      <input type="checkbox" required>
+      I accept the terms and conditions
+    </label>
+  </div>
+  <p class="help is-danger">You must accept the terms to continue</p>
+</div>
+
+<div class="field">
+  <div class="control">
+    <label class="checkbox">
+      <input type="checkbox" checked>
+      I accept the terms and conditions
+    </label>
+  </div>
+  <p class="help is-success">Thank you for accepting</p>
+</div>
+```
+
+## Form Examples
+
+### Account Settings
+
+```html
+<form>
+  <div class="field">
+    <label class="label">Email Preferences</label>
+    <div class="control">
+      <label class="checkbox">
+        <input type="checkbox" name="email_product" checked>
+        Product updates
+      </label>
+    </div>
+    <div class="control">
+      <label class="checkbox">
+        <input type="checkbox" name="email_news" checked>
+        Company news
+      </label>
+    </div>
+    <div class="control">
+      <label class="checkbox">
+        <input type="checkbox" name="email_tips">
+        Weekly tips
+      </label>
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="label">Privacy Settings</label>
+    <div class="control">
+      <label class="checkbox">
+        <input type="checkbox" name="privacy_profile" checked>
+        Make profile public
+      </label>
+    </div>
+    <div class="control">
+      <label class="checkbox">
+        <input type="checkbox" name="privacy_activity">
+        Show activity status
+      </label>
+    </div>
+  </div>
+
+  <div class="field is-grouped">
+    <div class="control">
+      <button class="button is-link" type="submit">Save Changes</button>
+    </div>
+  </div>
+</form>
+```
+
+### Survey Form
+
+```html
+<form>
+  <div class="field">
+    <label class="label">Which features do you use most? (Select all that apply)</label>
+    <div class="control checkboxes">
+      <label class="checkbox">
+        <input type="checkbox" name="features" value="dashboard">
+        Dashboard
+      </label>
+      <label class="checkbox">
+        <input type="checkbox" name="features" value="reports">
+        Reports
+      </label>
+      <label class="checkbox">
+        <input type="checkbox" name="features" value="analytics">
+        Analytics
+      </label>
+      <label class="checkbox">
+        <input type="checkbox" name="features" value="export">
+        Export
+      </label>
+      <label class="checkbox">
+        <input type="checkbox" name="features" value="api">
+        API Access
+      </label>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="control">
+      <label class="checkbox">
+        <input type="checkbox" name="newsletter" value="yes">
+        Send me survey results
+      </label>
+    </div>
+  </div>
+
+  <div class="field is-grouped">
+    <div class="control">
+      <button class="button is-primary" type="submit">Submit Survey</button>
+    </div>
+  </div>
+</form>
+```
+
+### Registration Form
+
+```html
+<form>
+  <div class="field">
+    <label class="label">Email</label>
+    <div class="control has-icons-left">
+      <input class="input" type="email" placeholder="your@email.com" required>
+      <span class="icon is-small is-left">
+        <i class="fas fa-envelope"></i>
+      </span>
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="label">Password</label>
+    <div class="control has-icons-left">
+      <input class="input" type="password" placeholder="Password" required>
+      <span class="icon is-small is-left">
+        <i class="fas fa-lock"></i>
+      </span>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="control">
+      <label class="checkbox">
+        <input type="checkbox" required>
+        I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+      </label>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="control">
+      <label class="checkbox">
+        <input type="checkbox" name="remember">
+        Remember me
+      </label>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="control">
+      <label class="checkbox">
+        <input type="checkbox" name="newsletter">
+        Send me promotional emails
+      </label>
+    </div>
+  </div>
+
+  <div class="field is-grouped">
+    <div class="control">
+      <button class="button is-link" type="submit">Sign Up</button>
+    </div>
+  </div>
+</form>
+```
+
+## Accessibility
+
+Ensure checkboxes are accessible:
+
+```html
+<div class="field">
+  <label class="label" id="interests-label">Select your interests</label>
+  <div class="control" role="group" aria-labelledby="interests-label">
+    <label class="checkbox">
+      <input type="checkbox" name="interests" value="tech">
+      Technology
+    </label>
+    <label class="checkbox">
+      <input type="checkbox" name="interests" value="design">
+      Design
+    </label>
+  </div>
+</div>
+```
+
+### Required Checkbox
+
+```html
+<div class="field">
+  <div class="control">
+    <label class="checkbox">
+      <input 
+        type="checkbox" 
+        required 
+        aria-required="true"
+        aria-describedby="terms-help"
+      >
+      I accept the terms and conditions
+    </label>
+  </div>
+  <p id="terms-help" class="help">This field is required to proceed</p>
+</div>
+```
+
+## Styling Tips
+
+Checkboxes inherit the line height and spacing from their parent. You can customize spacing:
+
+```html
+<style>
+  .checkbox {
+    display: inline-block;
+    margin-right: 1em;
+  }
+  
+  .checkbox input[type="checkbox"] {
+    margin-right: 0.5em;
+  }
+</style>
+```
+
+<Note>
+  The checkbox input must be inside the label element for proper styling and functionality.
+</Note>

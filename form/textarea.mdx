@@ -1,0 +1,331 @@
+---
+title: Textarea
+description: Multi-line text input element with colors, sizes, and states in Bulma CSS framework
+---
+
+# Textarea
+
+The `textarea` class is used for `<textarea>` HTML elements to create styled multi-line text inputs.
+
+## Basic Textarea
+
+```html
+<textarea class="textarea" placeholder="Enter your message"></textarea>
+```
+
+## With Label and Help Text
+
+```html
+<div class="field">
+  <label class="label">Message</label>
+  <div class="control">
+    <textarea class="textarea" placeholder="Textarea"></textarea>
+  </div>
+  <p class="help">This field is required</p>
+</div>
+```
+
+## Colors
+
+Apply color modifiers to indicate validation states:
+
+```html
+<textarea class="textarea is-primary" placeholder="Primary textarea"></textarea>
+<textarea class="textarea is-link" placeholder="Link textarea"></textarea>
+<textarea class="textarea is-info" placeholder="Info textarea"></textarea>
+<textarea class="textarea is-success" placeholder="Success textarea"></textarea>
+<textarea class="textarea is-warning" placeholder="Warning textarea"></textarea>
+<textarea class="textarea is-danger" placeholder="Danger textarea"></textarea>
+```
+
+### Validation Example
+
+```html
+<div class="field">
+  <label class="label">Message</label>
+  <div class="control">
+    <textarea class="textarea is-danger" placeholder="Message is too short"></textarea>
+  </div>
+  <p class="help is-danger">Please enter at least 10 characters</p>
+</div>
+
+<div class="field">
+  <label class="label">Comment</label>
+  <div class="control">
+    <textarea class="textarea is-success" placeholder="Comment looks good!">This is a great comment!</textarea>
+  </div>
+  <p class="help is-success">Your comment has been saved</p>
+</div>
+```
+
+## Sizes
+
+Textareas come in four sizes:
+
+```html
+<textarea class="textarea is-small" placeholder="Small textarea"></textarea>
+<textarea class="textarea" placeholder="Normal textarea"></textarea>
+<textarea class="textarea is-medium" placeholder="Medium textarea"></textarea>
+<textarea class="textarea is-large" placeholder="Large textarea"></textarea>
+```
+
+## States
+
+### Normal
+
+```html
+<div class="control">
+  <textarea class="textarea" placeholder="Normal textarea"></textarea>
+</div>
+```
+
+### Hover
+
+Force the hover state with `is-hovered`:
+
+```html
+<div class="control">
+  <textarea class="textarea is-hovered" placeholder="Hovered textarea"></textarea>
+</div>
+```
+
+### Focus
+
+Force the focus state with `is-focused`:
+
+```html
+<div class="control">
+  <textarea class="textarea is-focused" placeholder="Focused textarea"></textarea>
+</div>
+```
+
+### Loading
+
+Add a loading spinner:
+
+```html
+<div class="control is-loading">
+  <textarea class="textarea" placeholder="Loading textarea"></textarea>
+</div>
+```
+
+Control the spinner size:
+
+```html
+<div class="control is-small is-loading">
+  <textarea class="textarea is-small" placeholder="Small loading"></textarea>
+</div>
+
+<div class="control is-medium is-loading">
+  <textarea class="textarea is-medium" placeholder="Medium loading"></textarea>
+</div>
+
+<div class="control is-large is-loading">
+  <textarea class="textarea is-large" placeholder="Large loading"></textarea>
+</div>
+```
+
+### Disabled
+
+Disable a textarea with the `disabled` attribute:
+
+```html
+<div class="control">
+  <textarea class="textarea" placeholder="Disabled textarea" disabled></textarea>
+</div>
+```
+
+### Readonly
+
+Make a textarea readonly with the `readonly` attribute:
+
+```html
+<div class="control">
+  <textarea class="textarea" readonly>This text is readonly and cannot be edited.</textarea>
+</div>
+```
+
+The readonly textarea looks similar to a normal textarea but is not editable and has no shadow.
+
+## Rows Attribute
+
+Control the height using the `rows` attribute:
+
+```html
+<textarea class="textarea" rows="2" placeholder="2 rows"></textarea>
+<textarea class="textarea" rows="4" placeholder="4 rows"></textarea>
+<textarea class="textarea" rows="8" placeholder="8 rows"></textarea>
+```
+
+When using `rows`, the textarea height becomes fixed based on the number of rows.
+
+## Fixed Size
+
+By default, textareas are resizable. Prevent resizing with `has-fixed-size`:
+
+```html
+<textarea class="textarea has-fixed-size" placeholder="This textarea cannot be resized"></textarea>
+```
+
+## Textarea with Character Counter
+
+Combine with JavaScript to create a character counter:
+
+```html
+<div class="field">
+  <label class="label">Bio (max 280 characters)</label>
+  <div class="control">
+    <textarea class="textarea" maxlength="280" placeholder="Tell us about yourself"></textarea>
+  </div>
+  <p class="help">0 / 280 characters</p>
+</div>
+```
+
+## Form Examples
+
+### Contact Form
+
+```html
+<form>
+  <div class="field">
+    <label class="label">Name</label>
+    <div class="control">
+      <input class="input" type="text" placeholder="Your name" required>
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="label">Email</label>
+    <div class="control">
+      <input class="input" type="email" placeholder="your@email.com" required>
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="label">Subject</label>
+    <div class="control">
+      <input class="input" type="text" placeholder="Message subject" required>
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="label">Message</label>
+    <div class="control">
+      <textarea class="textarea" placeholder="Your message" rows="6" required></textarea>
+    </div>
+  </div>
+
+  <div class="field is-grouped">
+    <div class="control">
+      <button class="button is-link" type="submit">Send Message</button>
+    </div>
+    <div class="control">
+      <button class="button is-link is-light" type="reset">Clear</button>
+    </div>
+  </div>
+</form>
+```
+
+### Comment Form with Validation
+
+```html
+<div class="field">
+  <label class="label">Leave a comment</label>
+  <div class="control">
+    <textarea class="textarea is-success" rows="4">This looks like a great article! Thanks for sharing.</textarea>
+  </div>
+  <p class="help is-success">Your comment meets all requirements</p>
+</div>
+
+<div class="field">
+  <div class="control">
+    <label class="checkbox">
+      <input type="checkbox">
+      Subscribe to replies
+    </label>
+  </div>
+</div>
+
+<div class="field is-grouped">
+  <div class="control">
+    <button class="button is-primary">Post Comment</button>
+  </div>
+</div>
+```
+
+### Horizontal Form with Textarea
+
+```html
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <label class="label">Question</label>
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <div class="control">
+        <textarea class="textarea" placeholder="Explain how we can help you" rows="4"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+## Styling Tips
+
+### Custom Height
+
+Control minimum and maximum height with custom CSS:
+
+```html
+<style>
+  .textarea.custom-height {
+    min-height: 100px;
+    max-height: 300px;
+  }
+</style>
+
+<textarea class="textarea custom-height" placeholder="Custom height textarea"></textarea>
+```
+
+### Monospace Font
+
+Use a monospace font for code input:
+
+```html
+<style>
+  .textarea.is-code {
+    font-family: monospace;
+  }
+</style>
+
+<div class="field">
+  <label class="label">Code</label>
+  <div class="control">
+    <textarea class="textarea is-code" rows="6" placeholder="Enter your code here"></textarea>
+  </div>
+</div>
+```
+
+## Accessibility
+
+Ensure textareas are accessible:
+
+```html
+<div class="field">
+  <label class="label" for="message-textarea">Message</label>
+  <div class="control">
+    <textarea 
+      id="message-textarea"
+      class="textarea" 
+      placeholder="Enter your message"
+      aria-describedby="message-help"
+      required
+    ></textarea>
+  </div>
+  <p id="message-help" class="help">Please provide a detailed message</p>
+</div>
+```
+
+<Note>
+  Always associate labels with textareas using the `for` and `id` attributes for better accessibility.
+</Note>

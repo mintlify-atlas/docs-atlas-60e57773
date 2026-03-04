@@ -1,0 +1,580 @@
+---
+title: Smart Grid
+description: Create modern, responsive layouts with Bulma's CSS Grid-based smart grid system
+---
+
+Bulma's **smart grid** system leverages CSS Grid to create modern, responsive layouts with minimal markup. It automatically adapts to different screen sizes and provides powerful control over grid behavior.
+
+## Basic Grid
+
+Create a smart grid with the `.grid` class:
+
+```html
+<div class="grid">
+  <div class="cell">Cell 1</div>
+  <div class="cell">Cell 2</div>
+  <div class="cell">Cell 3</div>
+  <div class="cell">Cell 4</div>
+</div>
+```
+
+By default, the grid uses `auto-fit` with a minimum column width of `9rem`, automatically creating as many columns as will fit.
+
+## Grid Column Minimum Width
+
+Control the minimum width of grid columns using `.is-col-min-{n}` classes:
+
+```html
+<!-- Smaller minimum width (3rem) -->
+<div class="grid is-col-min-2">
+  <div class="cell">Cell 1</div>
+  <div class="cell">Cell 2</div>
+  <div class="cell">Cell 3</div>
+  <div class="cell">Cell 4</div>
+</div>
+
+<!-- Larger minimum width (24rem) -->
+<div class="grid is-col-min-16">
+  <div class="cell">Cell 1</div>
+  <div class="cell">Cell 2</div>
+  <div class="cell">Cell 3</div>
+  <div class="cell">Cell 4</div>
+</div>
+```
+
+### Available Column Minimum Sizes
+
+Use `.is-col-min-1` through `.is-col-min-32`. The value is calculated as `n × 1.5rem`:
+
+- `.is-col-min-1`: 1.5rem
+- `.is-col-min-2`: 3rem
+- `.is-col-min-4`: 6rem
+- `.is-col-min-6`: 9rem (default)
+- `.is-col-min-8`: 12rem
+- `.is-col-min-12`: 18rem
+- `.is-col-min-16`: 24rem
+- `.is-col-min-24`: 36rem
+- `.is-col-min-32`: 48rem
+
+## Fixed Grid
+
+For precise control, use `.fixed-grid` with explicit column counts:
+
+```html
+<!-- 3 columns -->
+<div class="fixed-grid has-3-cols">
+  <div class="grid">
+    <div class="cell">Cell 1</div>
+    <div class="cell">Cell 2</div>
+    <div class="cell">Cell 3</div>
+    <div class="cell">Cell 4</div>
+    <div class="cell">Cell 5</div>
+    <div class="cell">Cell 6</div>
+  </div>
+</div>
+
+<!-- 4 columns -->
+<div class="fixed-grid has-4-cols">
+  <div class="grid">
+    <div class="cell">Cell 1</div>
+    <div class="cell">Cell 2</div>
+    <div class="cell">Cell 3</div>
+    <div class="cell">Cell 4</div>
+  </div>
+</div>
+```
+
+### Available Column Counts
+
+Use `.has-1-cols` through `.has-12-cols` for any column count from 1 to 12.
+
+### Responsive Fixed Grid
+
+Change column counts at different breakpoints:
+
+```html
+<div class="fixed-grid has-2-cols-mobile has-3-cols-tablet has-4-cols-desktop">
+  <div class="grid">
+    <div class="cell">Cell 1</div>
+    <div class="cell">Cell 2</div>
+    <div class="cell">Cell 3</div>
+    <div class="cell">Cell 4</div>
+    <div class="cell">Cell 5</div>
+    <div class="cell">Cell 6</div>
+    <div class="cell">Cell 7</div>
+    <div class="cell">Cell 8</div>
+  </div>
+</div>
+```
+
+Available breakpoint suffixes:
+- `-mobile`: up to 768px
+- `-tablet`: 769px and up
+- `-desktop`: 1024px and up
+- `-widescreen`: 1216px and up
+- `-fullhd`: 1408px and up
+
+### Auto Count Grid
+
+Use `.has-auto-count` for automatic responsive column counts:
+
+```html
+<div class="fixed-grid has-auto-count">
+  <div class="grid">
+    <div class="cell">Cell 1</div>
+    <div class="cell">Cell 2</div>
+    <div class="cell">Cell 3</div>
+    <div class="cell">Cell 4</div>
+  </div>
+</div>
+```
+
+Auto count provides:
+- **Mobile**: 2 columns
+- **Tablet**: 4 columns
+- **Desktop**: 8 columns
+- **Widescreen**: 12 columns
+- **Full HD**: 16 columns
+
+## Auto-Fill vs Auto-Fit
+
+By default, grids use `auto-fit`. Use `.is-auto-fill` for different wrapping behavior:
+
+```html
+<!-- auto-fit: empty space distributed to existing columns -->
+<div class="grid">
+  <div class="cell">Cell 1</div>
+  <div class="cell">Cell 2</div>
+</div>
+
+<!-- auto-fill: maintains minimum column width, creates empty tracks -->
+<div class="grid is-auto-fill">
+  <div class="cell">Cell 1</div>
+  <div class="cell">Cell 2</div>
+</div>
+```
+
+## Cell Spanning
+
+### Column Spanning
+
+Make cells span multiple columns:
+
+```html
+<div class="fixed-grid has-4-cols">
+  <div class="grid">
+    <div class="cell is-col-span-2">Spans 2 columns</div>
+    <div class="cell">Cell 1</div>
+    <div class="cell">Cell 2</div>
+    <div class="cell is-col-span-3">Spans 3 columns</div>
+    <div class="cell">Cell 3</div>
+  </div>
+</div>
+```
+
+Use `.is-col-span-1` through `.is-col-span-12`.
+
+### Row Spanning
+
+Make cells span multiple rows:
+
+```html
+<div class="fixed-grid has-3-cols">
+  <div class="grid">
+    <div class="cell is-row-span-2">Spans 2 rows</div>
+    <div class="cell">Cell 1</div>
+    <div class="cell">Cell 2</div>
+    <div class="cell">Cell 3</div>
+    <div class="cell">Cell 4</div>
+  </div>
+</div>
+```
+
+Use `.is-row-span-1` through `.is-row-span-12`.
+
+### Combined Spanning
+
+```html
+<div class="fixed-grid has-4-cols">
+  <div class="grid">
+    <div class="cell is-col-span-2 is-row-span-2">2×2 cell</div>
+    <div class="cell">Cell 1</div>
+    <div class="cell">Cell 2</div>
+    <div class="cell">Cell 3</div>
+    <div class="cell">Cell 4</div>
+    <div class="cell">Cell 5</div>
+    <div class="cell">Cell 6</div>
+  </div>
+</div>
+```
+
+## Cell Positioning
+
+### Column Start Position
+
+Place cells at specific column positions:
+
+```html
+<div class="fixed-grid has-4-cols">
+  <div class="grid">
+    <div class="cell is-col-start-2">Starts at column 2</div>
+    <div class="cell is-col-start-1">Starts at column 1</div>
+    <div class="cell is-col-start-4">Starts at column 4</div>
+  </div>
+</div>
+```
+
+Use `.is-col-start-1` through `.is-col-start-12`.
+
+### Column End Position
+
+Specify where cells should end:
+
+```html
+<div class="fixed-grid has-4-cols">
+  <div class="grid">
+    <div class="cell is-col-start-1 is-col-end-3">Columns 1-3</div>
+    <div class="cell is-col-start-3 is-col-end-5">Columns 3-5</div>
+  </div>
+</div>
+```
+
+Use `.is-col-end-1` through `.is-col-end-12`.
+
+### Starting from End
+
+Position cells from the end of the grid:
+
+```html
+<div class="fixed-grid has-4-cols">
+  <div class="grid">
+    <div class="cell is-col-from-end-1">Last column</div>
+    <div class="cell is-col-from-end-2">Second to last</div>
+  </div>
+</div>
+```
+
+Use `.is-col-from-end-1` through `.is-col-from-end-12`.
+
+### Row Positioning
+
+The same positioning classes work for rows:
+
+- `.is-row-start-{n}`: Start at row n
+- `.is-row-end-{n}`: End at row n  
+- `.is-row-from-end-{n}`: Start from end
+
+```html
+<div class="fixed-grid has-3-cols">
+  <div class="grid">
+    <div class="cell">Cell 1</div>
+    <div class="cell">Cell 2</div>
+    <div class="cell is-row-start-1 is-row-end-3">Rows 1-3</div>
+    <div class="cell">Cell 4</div>
+    <div class="cell">Cell 5</div>
+    <div class="cell">Cell 6</div>
+  </div>
+</div>
+```
+
+### End Position Shorthand
+
+Use `.is-col-start-end` or `.is-row-start-end` to start from the last grid line:
+
+```html
+<div class="fixed-grid has-4-cols">
+  <div class="grid">
+    <div class="cell">Cell 1</div>
+    <div class="cell">Cell 2</div>
+    <div class="cell is-col-start-end">Starts at last line</div>
+  </div>
+</div>
+```
+
+## Responsive Cell Properties
+
+All cell classes support responsive breakpoints:
+
+```html
+<div class="fixed-grid has-2-cols-mobile has-4-cols-desktop">
+  <div class="grid">
+    <div class="cell is-col-span-2-mobile is-col-span-1-desktop">
+      Spans 2 columns on mobile, 1 on desktop
+    </div>
+    <div class="cell">Cell 1</div>
+    <div class="cell">Cell 2</div>
+    <div class="cell">Cell 3</div>
+  </div>
+</div>
+```
+
+Breakpoint suffixes available:
+- `-mobile`
+- `-tablet`
+- `-tablet-only`
+- `-touch`
+- `-desktop`
+- `-desktop-only`
+- `-widescreen`
+- `-widescreen-only`
+- `-fullhd`
+
+## Grid Gap
+
+The default gap is `0.75rem`. You can customize it using CSS variables:
+
+```html
+<!-- Custom gap using inline styles -->
+<div class="grid" style="--bulma-grid-gap: 2rem;">
+  <div class="cell">Cell 1</div>
+  <div class="cell">Cell 2</div>
+  <div class="cell">Cell 3</div>
+</div>
+```
+
+Or with custom CSS:
+
+```css
+.my-grid {
+  --bulma-grid-gap: 1.5rem;
+}
+
+/* Different column and row gaps */
+.my-grid-asymmetric {
+  --bulma-grid-column-gap: 2rem;
+  --bulma-grid-row-gap: 1rem;
+}
+```
+
+## Practical Examples
+
+### Responsive Image Gallery
+
+```html
+<div class="grid is-col-min-10">
+  <figure class="cell">
+    <img src="image1.jpg" alt="Gallery image 1">
+  </figure>
+  <figure class="cell">
+    <img src="image2.jpg" alt="Gallery image 2">
+  </figure>
+  <figure class="cell">
+    <img src="image3.jpg" alt="Gallery image 3">
+  </figure>
+  <figure class="cell">
+    <img src="image4.jpg" alt="Gallery image 4">
+  </figure>
+  <figure class="cell">
+    <img src="image5.jpg" alt="Gallery image 5">
+  </figure>
+  <figure class="cell">
+    <img src="image6.jpg" alt="Gallery image 6">
+  </figure>
+</div>
+```
+
+### Dashboard Layout
+
+```html
+<div class="fixed-grid has-4-cols">
+  <div class="grid">
+    <!-- Header spans full width -->
+    <div class="cell is-col-span-4">
+      <div class="box">
+        <h1 class="title">Dashboard</h1>
+      </div>
+    </div>
+    
+    <!-- Sidebar spans 1 column, 3 rows -->
+    <div class="cell is-row-span-3">
+      <div class="box">
+        <aside class="menu">
+          <p class="menu-label">Navigation</p>
+          <ul class="menu-list">
+            <li><a>Dashboard</a></li>
+            <li><a>Analytics</a></li>
+            <li><a>Settings</a></li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+    
+    <!-- Main content area -->
+    <div class="cell is-col-span-3 is-row-span-2">
+      <div class="box">
+        <h2 class="subtitle">Main Content</h2>
+        <p>Your dashboard content goes here...</p>
+      </div>
+    </div>
+    
+    <!-- Footer stats -->
+    <div class="cell">
+      <div class="box">Stat 1</div>
+    </div>
+    <div class="cell">
+      <div class="box">Stat 2</div>
+    </div>
+    <div class="cell">
+      <div class="box">Stat 3</div>
+    </div>
+  </div>
+</div>
+```
+
+### Card Grid with Featured Item
+
+```html
+<div class="fixed-grid has-2-cols-mobile has-3-cols-tablet has-4-cols-desktop">
+  <div class="grid">
+    <!-- Featured card spans 2 columns and 2 rows -->
+    <div class="cell is-col-span-2 is-row-span-2">
+      <div class="card">
+        <div class="card-image">
+          <figure class="image is-16by9">
+            <img src="featured.jpg" alt="Featured">
+          </figure>
+        </div>
+        <div class="card-content">
+          <p class="title is-4">Featured Post</p>
+          <p>This is a featured post with more content.</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Regular cards -->
+    <div class="cell">
+      <div class="card">
+        <div class="card-content">
+          <p class="title is-6">Post 1</p>
+        </div>
+      </div>
+    </div>
+    <div class="cell">
+      <div class="card">
+        <div class="card-content">
+          <p class="title is-6">Post 2</p>
+        </div>
+      </div>
+    </div>
+    <div class="cell">
+      <div class="card">
+        <div class="card-content">
+          <p class="title is-6">Post 3</p>
+        </div>
+      </div>
+    </div>
+    <div class="cell">
+      <div class="card">
+        <div class="card-content">
+          <p class="title is-6">Post 4</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+### Auto-Responsive Grid
+
+```html
+<div class="fixed-grid has-auto-count">
+  <div class="grid">
+    <div class="cell">
+      <div class="box">Item 1</div>
+    </div>
+    <div class="cell">
+      <div class="box">Item 2</div>
+    </div>
+    <div class="cell">
+      <div class="box">Item 3</div>
+    </div>
+    <div class="cell">
+      <div class="box">Item 4</div>
+    </div>
+    <div class="cell">
+      <div class="box">Item 5</div>
+    </div>
+    <div class="cell">
+      <div class="box">Item 6</div>
+    </div>
+    <div class="cell">
+      <div class="box">Item 7</div>
+    </div>
+    <div class="cell">
+      <div class="box">Item 8</div>
+    </div>
+  </div>
+</div>
+```
+
+## CSS Variables
+
+Customize the grid using CSS variables:
+
+```css
+:root {
+  --bulma-grid-gap: 0.75rem;
+  --bulma-grid-column-gap: 0.75rem;
+  --bulma-grid-row-gap: 0.75rem;
+  --bulma-grid-column-min: 9rem;
+}
+
+/* Custom grid styles */
+.my-compact-grid {
+  --bulma-grid-gap: 0.25rem;
+  --bulma-grid-column-min: 6rem;
+}
+
+.my-spacious-grid {
+  --bulma-grid-gap: 2rem;
+  --bulma-grid-column-min: 15rem;
+}
+```
+
+## Best Practices
+
+<AccordionGroup>
+  <Accordion title="When to use grid vs. columns">
+    Use **grid** when you need:
+    - Automatic responsive layouts without manual breakpoints
+    - Modern CSS Grid features
+    - Equal-width items that wrap naturally
+    - Complex 2D layouts with row and column spanning
+    
+    Use **columns** when you need:
+    - Precise control over individual column widths
+    - Flexbox-based flexibility
+    - Support for older browsers
+    - Simple multi-column layouts
+  </Accordion>
+
+  <Accordion title="Performance tips">
+    - Use `auto-fit` (default) for most cases; it performs better
+    - Prefer `.fixed-grid` with explicit column counts for predictable layouts
+    - Use `.has-auto-count` for quick responsive grids without custom breakpoints
+    - Avoid excessive cell spanning in large grids
+  </Accordion>
+
+  <Accordion title="Accessibility considerations">
+    - Grid order is based on source order by default
+    - Use semantic HTML elements inside cells (article, section, etc.)
+    - Ensure keyboard navigation works naturally
+    - Test screen reader behavior with positioned cells
+  </Accordion>
+
+  <Accordion title="Browser support">
+    The smart grid system uses CSS Grid, which is supported in all modern browsers:
+    - Chrome 57+
+    - Firefox 52+
+    - Safari 10.1+
+    - Edge 16+
+    
+    For older browser support, use the [columns system](/grid/columns) instead.
+  </Accordion>
+</AccordionGroup>
+
+## Related Components
+
+- [Columns](/grid/columns) - Flexbox-based multi-column layouts
+- [Container](/layout/container) - Centered container with max-width
+- [Section](/layout/section) - Vertical spacing for page sections

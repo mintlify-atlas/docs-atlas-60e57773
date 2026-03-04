@@ -1,0 +1,126 @@
+---
+title: Box
+description: A white container with a shadow, border, and padding for wrapping content
+---
+
+The **box** element is a simple container with a white background, border radius, shadow, and padding. It's perfect for grouping related content.
+
+## Basic Usage
+
+```html
+<div class="box">
+  <p>This content is inside a box.</p>
+</div>
+```
+
+## Box with Content
+
+```html
+<div class="box">
+  <article class="media">
+    <div class="media-content">
+      <div class="content">
+        <p>
+          <strong>John Smith</strong> <small>@johnsmith</small> <small>31m</small>
+          <br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas.
+        </p>
+      </div>
+    </div>
+  </article>
+</div>
+```
+
+## Clickable Box
+
+When using an anchor tag, the box will have hover and active states:
+
+```html
+<a href="#" class="box">
+  <article class="media">
+    <div class="media-left">
+      <figure class="image is-64x64">
+        <img src="https://bulma.io/assets/images/placeholders/128x128.png" alt="Image">
+      </figure>
+    </div>
+    <div class="media-content">
+      <div class="content">
+        <p>
+          <strong>John Smith</strong>
+          <br>
+          Click me! This entire box is clickable.
+        </p>
+      </div>
+    </div>
+  </article>
+</a>
+```
+
+## Multiple Boxes
+
+```html
+<div class="box">
+  <h3 class="title is-5">Box Title 1</h3>
+  <p>Content for the first box.</p>
+</div>
+
+<div class="box">
+  <h3 class="title is-5">Box Title 2</h3>
+  <p>Content for the second box.</p>
+</div>
+
+<div class="box">
+  <h3 class="title is-5">Box Title 3</h3>
+  <p>Content for the third box.</p>
+</div>
+```
+
+## CSS Variables
+
+Customize the box appearance using CSS variables:
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `--bulma-box-background-color` | `--bulma-scheme-main` | Background color |
+| `--bulma-box-color` | `--bulma-text` | Text color |
+| `--bulma-box-radius` | `--bulma-radius-large` | Border radius |
+| `--bulma-box-shadow` | `--bulma-shadow` | Box shadow |
+| `--bulma-box-padding` | `1.25rem` | Inner padding |
+
+### Custom Styling Example
+
+```css
+.custom-box {
+  --bulma-box-background-color: hsl(0, 0%, 98%);
+  --bulma-box-padding: 2rem;
+  --bulma-box-radius: 1rem;
+}
+```
+
+```html
+<div class="box custom-box">
+  <p>This box has custom styling.</p>
+</div>
+```
+
+<Note>
+The `box` element automatically includes the `block` behavior, adding bottom margin except on the last child.
+</Note>
+
+## Interactive States
+
+For clickable boxes (using `<a>` tags):
+
+- **Hover**: Enhanced shadow effect
+- **Active**: Inset shadow for pressed appearance
+- **Focus**: Same as hover state
+
+```html
+<a href="/item-1" class="box">
+  <p>Click to navigate to item 1</p>
+</a>
+
+<a href="/item-2" class="box">
+  <p>Click to navigate to item 2</p>
+</a>
+```

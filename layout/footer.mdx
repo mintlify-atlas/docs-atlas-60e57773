@@ -1,0 +1,362 @@
+---
+title: Footer
+description: A simple responsive footer for the bottom of your page
+---
+
+The `footer` is a simple container for the bottom of your page, providing consistent padding and styling.
+
+## Basic Usage
+
+The footer is a full-width container with vertical padding:
+
+```html
+<footer class="footer">
+  <div class="content has-text-centered">
+    <p>
+      <strong>Bulma</strong> by <a href="https://jgthms.com">Jeremy Thomas</a>. 
+      The source code is licensed
+      <a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
+    </p>
+  </div>
+</footer>
+```
+
+## Footer with Container
+
+Combine footer with a container for centered content:
+
+```html
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <p>
+        <strong>My App</strong> © 2024. All rights reserved.
+      </p>
+    </div>
+  </div>
+</footer>
+```
+
+## Common Patterns
+
+### Multi-Column Footer
+
+```html
+<footer class="footer">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-4">
+        <h3 class="title is-5">About</h3>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+          Nullam euismod, nisl eget aliquam ultricies.
+        </p>
+      </div>
+      <div class="column is-4">
+        <h3 class="title is-5">Links</h3>
+        <ul>
+          <li><a href="#">Documentation</a></li>
+          <li><a href="#">Support</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+      </div>
+      <div class="column is-4">
+        <h3 class="title is-5">Contact</h3>
+        <p>
+          Email: hello@example.com<br>
+          Phone: (555) 123-4567
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+```
+
+### Footer with Social Links
+
+```html
+<footer class="footer">
+  <div class="content has-text-centered">
+    <p>
+      <strong>My Project</strong> by <a href="#">Author Name</a>.
+    </p>
+    <p>
+      <a href="https://github.com" class="icon is-large">
+        <i class="fab fa-2x fa-github"></i>
+      </a>
+      <a href="https://twitter.com" class="icon is-large">
+        <i class="fab fa-2x fa-twitter"></i>
+      </a>
+      <a href="https://linkedin.com" class="icon is-large">
+        <i class="fab fa-2x fa-linkedin"></i>
+      </a>
+    </p>
+  </div>
+</footer>
+```
+
+### Comprehensive Footer
+
+```html
+<footer class="footer">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-3">
+        <h3 class="title is-6">Company</h3>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Our Team</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Press Kit</a></li>
+        </ul>
+      </div>
+      <div class="column is-3">
+        <h3 class="title is-6">Products</h3>
+        <ul>
+          <li><a href="#">Features</a></li>
+          <li><a href="#">Pricing</a></li>
+          <li><a href="#">Enterprise</a></li>
+          <li><a href="#">Changelog</a></li>
+        </ul>
+      </div>
+      <div class="column is-3">
+        <h3 class="title is-6">Resources</h3>
+        <ul>
+          <li><a href="#">Documentation</a></li>
+          <li><a href="#">Tutorials</a></li>
+          <li><a href="#">API Reference</a></li>
+          <li><a href="#">Community</a></li>
+        </ul>
+      </div>
+      <div class="column is-3">
+        <h3 class="title is-6">Legal</h3>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Cookie Policy</a></li>
+          <li><a href="#">License</a></li>
+        </ul>
+      </div>
+    </div>
+    <hr>
+    <div class="content has-text-centered">
+      <p>
+        © 2024 Your Company. All rights reserved.
+      </p>
+    </div>
+  </div>
+</footer>
+```
+
+### Footer with Newsletter Signup
+
+```html
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-vcentered">
+      <div class="column is-6">
+        <h3 class="title is-5">Stay Updated</h3>
+        <p class="subtitle is-6">
+          Subscribe to our newsletter for the latest updates.
+        </p>
+      </div>
+      <div class="column is-6">
+        <div class="field has-addons">
+          <div class="control is-expanded">
+            <input class="input" type="email" placeholder="Enter your email">
+          </div>
+          <div class="control">
+            <button class="button is-primary">Subscribe</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="content has-text-centered">
+      <p>
+        <small>© 2024 Your Company. All rights reserved.</small>
+      </p>
+    </div>
+  </div>
+</footer>
+```
+
+### Footer with Logo and Description
+
+```html
+<footer class="footer">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-4">
+        <figure class="image is-128x128">
+          <img src="logo.png" alt="Logo">
+        </figure>
+        <p class="mt-4">
+          Building amazing web experiences since 2024.
+        </p>
+      </div>
+      <div class="column is-8">
+        <div class="columns">
+          <div class="column">
+            <h3 class="title is-6">Product</h3>
+            <ul>
+              <li><a href="#">Features</a></li>
+              <li><a href="#">Pricing</a></li>
+              <li><a href="#">Roadmap</a></li>
+            </ul>
+          </div>
+          <div class="column">
+            <h3 class="title is-6">Support</h3>
+            <ul>
+              <li><a href="#">Help Center</a></li>
+              <li><a href="#">Contact</a></li>
+              <li><a href="#">Status</a></li>
+            </ul>
+          </div>
+          <div class="column">
+            <h3 class="title is-6">Company</h3>
+            <ul>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Careers</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+```
+
+### Minimal Footer
+
+```html
+<footer class="footer">
+  <div class="content has-text-centered">
+    <p>
+      <small>
+        Made with <span class="icon has-text-danger"><i class="fas fa-heart"></i></span> 
+        by <a href="#">Your Team</a>
+      </small>
+    </p>
+  </div>
+</footer>
+```
+
+## Default Styling
+
+The footer has:
+- **Background color**: A light grayish background (`scheme-main-bis`)
+- **Padding**: 3rem horizontal, 1.5rem top, 6rem bottom
+- **Full width**: Spans the entire width of the viewport
+
+<Note>
+The footer has extra bottom padding (6rem) by default to provide breathing room at the bottom of the page.
+</Note>
+
+## Combining with Other Elements
+
+### Footer with Divider
+
+```html
+<footer class="footer">
+  <div class="container">
+    <div class="columns">
+      <!-- Your footer content -->
+    </div>
+    <hr>
+    <div class="content has-text-centered">
+      <p>© 2024 Company Name</p>
+    </div>
+  </div>
+</footer>
+```
+
+### Colored Footer
+
+```html
+<footer class="footer has-background-dark has-text-white">
+  <div class="content has-text-centered">
+    <p class="has-text-white">
+      <strong class="has-text-white">My App</strong> © 2024
+    </p>
+  </div>
+</footer>
+```
+
+### Footer with Level
+
+```html
+<footer class="footer">
+  <div class="container">
+    <nav class="level">
+      <div class="level-left">
+        <div class="level-item">
+          <p>© 2024 Your Company</p>
+        </div>
+      </div>
+      <div class="level-right">
+        <p class="level-item"><a href="#">Privacy</a></p>
+        <p class="level-item"><a href="#">Terms</a></p>
+        <p class="level-item"><a href="#">Contact</a></p>
+      </div>
+    </nav>
+  </div>
+</footer>
+```
+
+## Best Practices
+
+1. **Consistent branding**: Include your logo and brand colors
+2. **Navigation**: Provide quick links to important pages
+3. **Contact info**: Make it easy for users to reach you
+4. **Social links**: Connect users to your social media presence
+5. **Legal compliance**: Include privacy policy and terms of service links
+6. **Accessibility**: Use semantic HTML and ensure sufficient color contrast
+7. **Mobile-friendly**: Test that your footer works well on all screen sizes
+
+## Responsive Behavior
+
+The footer itself is not responsive, but you can make its contents responsive using Bulma's responsive helpers:
+
+```html
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-mobile">
+      <div class="column">
+        <!-- Column content -->
+      </div>
+      <div class="column">
+        <!-- Column content -->
+      </div>
+    </div>
+  </div>
+</footer>
+```
+
+## CSS Variables
+
+Customize the footer appearance:
+
+```css
+.footer {
+  --bulma-footer-background-color: var(--bulma-scheme-main-bis);
+  --bulma-footer-padding: 3rem 1.5rem 6rem;
+}
+```
+
+Or with Sass:
+
+```scss
+$footer-background-color: $scheme-main-bis;
+$footer-padding: 3rem 1.5rem 6rem;
+```
+
+## Use Cases
+
+- **Copyright information**: Display copyright notices and legal links
+- **Navigation**: Provide secondary navigation links
+- **Contact details**: Share contact information and social links
+- **Newsletter signup**: Capture email addresses for marketing
+- **Sitemap**: Offer a complete overview of site structure
+- **Brand identity**: Reinforce your brand with logo and messaging

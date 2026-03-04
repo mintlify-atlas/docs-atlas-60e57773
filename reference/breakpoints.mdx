@@ -1,0 +1,162 @@
+---
+title: Breakpoints
+description: Responsive breakpoint values and usage in Bulma CSS framework
+---
+
+Bulma provides a mobile-first responsive design system with five main breakpoints. These breakpoints allow you to create layouts that adapt seamlessly across different screen sizes.
+
+## Breakpoint Values
+
+The framework uses the following breakpoint values:
+
+| Breakpoint | Variable | Value | Description |
+|------------|----------|-------|-------------|
+| Mobile | `$mobile` | Up to `768px` | For phones and small devices |
+| Tablet | `$tablet` | `769px` and up | Starting from tablets |
+| Desktop | `$desktop` | `1024px` and up | Desktop screens (960px + 64px gap) |
+| Widescreen | `$widescreen` | `1216px` and up | Large desktop screens (1152px + 64px gap) |
+| FullHD | `$fullhd` | `1408px` and up | Ultra-wide screens (1344px + 64px gap) |
+
+<Note>
+The desktop, widescreen, and fullhd breakpoints include a `$gap` value of 32px on each side (64px total) to account for container padding.
+</Note>
+
+## Source Values
+
+From the Bulma source code (`initial-variables.scss`):
+
+```scss
+$gap: 32px;
+$tablet: 769px;
+$desktop: 960px + (2 * $gap); // 1024px
+$widescreen: 1152px + (2 * $gap); // 1216px
+$fullhd: 1344px + (2 * $gap); // 1408px
+```
+
+## Breakpoint Ranges
+
+Bulma also provides specific breakpoint ranges for targeting devices between two breakpoints:
+
+| Range | Media Query | Description |
+|-------|-------------|-------------|
+| `mobile` | `max-width: 768px` | Mobile devices only |
+| `tablet` | `min-width: 769px` | Tablet and larger |
+| `tablet-only` | `769px` to `1023px` | Only tablets |
+| `touch` | `max-width: 1023px` | Mobile and tablet (touch devices) |
+| `desktop` | `min-width: 1024px` | Desktop and larger |
+| `desktop-only` | `1024px` to `1215px` | Only desktop |
+| `until-widescreen` | `max-width: 1215px` | Up to widescreen |
+| `widescreen` | `min-width: 1216px` | Widescreen and larger |
+| `widescreen-only` | `1216px` to `1407px` | Only widescreen |
+| `until-fullhd` | `max-width: 1407px` | Up to fullHD |
+| `fullhd` | `min-width: 1408px` | FullHD and larger |
+
+## Responsive Modifiers
+
+Bulma uses these breakpoints to create responsive modifier classes. You can append breakpoint suffixes to many utility classes:
+
+### Display Utilities
+
+```html
+<!-- Hidden on mobile, visible on tablet and up -->
+<div class="is-hidden-mobile">
+  This content appears on tablets and larger screens.
+</div>
+
+<!-- Visible only on desktop -->
+<div class="is-hidden-touch is-hidden-widescreen">
+  This content only appears on desktop.
+</div>
+```
+
+### Column Sizes
+
+```html
+<div class="columns">
+  <div class="column is-full-mobile is-half-tablet is-one-third-desktop">
+    <!-- Full width on mobile, half on tablet, one-third on desktop -->
+  </div>
+</div>
+```
+
+### Text Alignment
+
+```html
+<p class="has-text-centered-mobile has-text-left-tablet">
+  Centered on mobile, left-aligned on tablet and up.
+</p>
+```
+
+## Usage in Sass
+
+If you're customizing Bulma, you can use breakpoint mixins in your Sass:
+
+```scss
+@use "bulma/sass/utilities/mixins" as mx;
+
+.my-component {
+  padding: 1rem;
+  
+  @include mx.tablet {
+    padding: 2rem;
+  }
+  
+  @include mx.desktop {
+    padding: 3rem;
+  }
+}
+```
+
+## Available Mixins
+
+| Mixin | Usage | Description |
+|-------|-------|-------------|
+| `mobile` | `@include mx.mobile { }` | Up to 768px |
+| `tablet` | `@include mx.tablet { }` | 769px and up |
+| `tablet-only` | `@include mx.tablet-only { }` | 769px to 1023px |
+| `touch` | `@include mx.touch { }` | Up to 1023px |
+| `desktop` | `@include mx.desktop { }` | 1024px and up |
+| `desktop-only` | `@include mx.desktop-only { }` | 1024px to 1215px |
+| `widescreen` | `@include mx.widescreen { }` | 1216px and up |
+| `widescreen-only` | `@include mx.widescreen-only { }` | 1216px to 1407px |
+| `fullhd` | `@include mx.fullhd { }` | 1408px and up |
+
+## Custom Breakpoints
+
+You can override the default breakpoint values by setting the variables before importing Bulma:
+
+```scss
+// Custom breakpoint values
+$tablet: 640px;
+$desktop: 1280px;
+$widescreen: 1536px;
+$fullhd: 1920px;
+
+@use "bulma/bulma" with (
+  $tablet: 640px,
+  $desktop: 1280px,
+  $widescreen: 1536px,
+  $fullhd: 1920px
+);
+```
+
+<Warning>
+Changing breakpoint values will affect all responsive utilities and components throughout the framework.
+</Warning>
+
+## Mobile-First Approach
+
+Bulma follows a mobile-first philosophy. This means:
+
+1. Base styles apply to all screen sizes
+2. Breakpoint modifiers add or override styles for larger screens
+3. Use `min-width` media queries for progressive enhancement
+
+```html
+<!-- Mobile-first column sizing -->
+<div class="columns">
+  <div class="column is-12 is-6-tablet is-4-desktop">
+    <!-- 100% on mobile, 50% on tablet, 33.33% on desktop -->
+  </div>
+</div>
+```

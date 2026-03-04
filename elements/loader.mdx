@@ -1,0 +1,207 @@
+---
+title: Loader
+description: A pure CSS animated loading spinner
+---
+
+The **loader** is a simple CSS-only animated spinner for indicating loading states.
+
+## Basic Usage
+
+The loader is typically applied using the `is-loading` modifier on other elements:
+
+```html
+<button class="button is-loading">Loading</button>
+```
+
+## Standalone Loader
+
+You can create a standalone loader element:
+
+```html
+<div class="loader"></div>
+```
+
+<Note>
+The standalone `loader` class is primarily used internally by Bulma. Most of the time, you'll use the `is-loading` modifier on buttons or other elements.
+</Note>
+
+## Loading Buttons
+
+```html
+<button class="button is-loading">Loading</button>
+<button class="button is-primary is-loading">Loading</button>
+<button class="button is-info is-loading">Loading</button>
+<button class="button is-success is-loading">Loading</button>
+```
+
+### Different Sizes
+
+```html
+<button class="button is-small is-loading">Small</button>
+<button class="button is-loading">Normal</button>
+<button class="button is-medium is-loading">Medium</button>
+<button class="button is-large is-loading">Large</button>
+```
+
+## How It Works
+
+The loader is a spinning circle created with CSS:
+
+1. **Circular border** with transparent top and right sides
+2. **Infinite rotation animation** using CSS keyframes
+3. **Size** of 1em by default (scales with font size)
+
+```css
+.loader {
+  animation: spinAround 500ms infinite linear;
+  border: 2px solid var(--bulma-border);
+  border-radius: var(--bulma-radius-rounded);
+  border-right-color: transparent;
+  border-top-color: transparent;
+  display: block;
+  height: 1em;
+  width: 1em;
+}
+```
+
+## Custom Loading Container
+
+Create a custom loading overlay:
+
+```html
+<div style="position: relative; height: 200px; border: 1px solid #ddd;">
+  <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+    <div class="loader" style="width: 3em; height: 3em; border-width: 4px;"></div>
+  </div>
+</div>
+```
+
+## Custom Spinner Size
+
+```html
+<div class="loader" style="width: 2em; height: 2em;"></div>
+<div class="loader" style="width: 3em; height: 3em; border-width: 3px;"></div>
+<div class="loader" style="width: 4em; height: 4em; border-width: 4px;"></div>
+```
+
+## Loading State Examples
+
+### Loading Button with JavaScript
+
+```html
+<button class="button is-primary" id="submit-btn" onclick="handleSubmit()">Submit</button>
+
+<script>
+function handleSubmit() {
+  const btn = document.getElementById('submit-btn');
+  btn.classList.add('is-loading');
+  
+  // Simulate API call
+  setTimeout(() => {
+    btn.classList.remove('is-loading');
+    btn.textContent = 'Success!';
+  }, 2000);
+}
+</script>
+```
+
+### Loading Content Area
+
+```html
+<div class="box" style="position: relative; min-height: 200px;">
+  <div class="has-text-centered" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+    <div class="loader" style="width: 3em; height: 3em; border-width: 3px; margin: 0 auto;"></div>
+    <p class="mt-4">Loading content...</p>
+  </div>
+</div>
+```
+
+### Loading Overlay
+
+```html
+<div style="position: relative;">
+  <div class="content">
+    <h1>Content Title</h1>
+    <p>This is some content that's being loaded.</p>
+  </div>
+  
+  <!-- Loading overlay -->
+  <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(255,255,255,0.9); display: flex; align-items: center; justify-content: center;">
+    <div class="loader" style="width: 3em; height: 3em; border-width: 3px;"></div>
+  </div>
+</div>
+```
+
+## With Form Controls
+
+```html
+<div class="field">
+  <div class="control is-loading">
+    <input class="input" type="text" placeholder="Loading...">
+  </div>
+</div>
+
+<div class="field">
+  <div class="control is-loading">
+    <select class="select">
+      <option>Loading options...</option>
+    </select>
+  </div>
+</div>
+```
+
+## Customizing Colors
+
+Change the loader color using CSS variables:
+
+```html
+<style>
+.custom-loader {
+  border-color: var(--bulma-primary);
+  border-right-color: transparent;
+  border-top-color: transparent;
+}
+</style>
+
+<div class="loader custom-loader"></div>
+```
+
+### Colored Loading Buttons
+
+The loader automatically inherits the button's color:
+
+```html
+<button class="button is-primary is-loading">Primary</button>
+<button class="button is-link is-loading">Link</button>
+<button class="button is-success is-loading">Success</button>
+<button class="button is-warning is-loading">Warning</button>
+<button class="button is-danger is-loading">Danger</button>
+```
+
+## Animation
+
+The loader uses the `spinAround` keyframe animation:
+
+```css
+@keyframes spinAround {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+```
+
+The animation:
+- Duration: 500ms
+- Timing: linear
+- Iteration: infinite
+
+<Tip>
+When applying `is-loading` to a button, the text content is automatically hidden and the button becomes non-interactive.
+</Tip>
+
+<Note>
+The loader's size is 1em, making it scale automatically with the font size of its container.
+</Note>

@@ -1,0 +1,420 @@
+---
+title: Media Object
+description: The famous media object prevalent in social media interfaces, but useful in any context
+---
+
+The `media` component is perfect for repeating content blocks like blog comments, tweets, or user profiles. It's designed to display an image alongside text content with consistent spacing.
+
+## Basic Structure
+
+A media object is composed of:
+- `media`: the main container
+- `media-left`: for the left-side image/icon (optional)
+- `media-content`: for the main content (required)
+- `media-right`: for the right-side content (optional)
+
+```html
+<article class="media">
+  <figure class="media-left">
+    <p class="image is-64x64">
+      <img src="avatar.png">
+    </p>
+  </figure>
+  <div class="media-content">
+    <div class="content">
+      <p>
+        <strong>John Smith</strong> <small>@johnsmith</small> <small>31m</small>
+        <br>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare 
+        magna eros, eu pellentesque tortor vestibulum ut.
+      </p>
+    </div>
+  </div>
+</article>
+```
+
+## Complete Example
+
+Here's a media object with all sections:
+
+```html
+<article class="media">
+  <figure class="media-left">
+    <p class="image is-64x64">
+      <img src="https://bulma.io/images/placeholders/128x128.png">
+    </p>
+  </figure>
+  <div class="media-content">
+    <div class="content">
+      <p>
+        <strong>Barbara Middleton</strong>
+        <br>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis porta 
+        eros lacus, nec ultricies elit blandit non. Suspendisse pellentesque 
+        mauris sit amet dolor blandit rutrum.
+        <br>
+        <small><a>Like</a> · <a>Reply</a> · 3 hrs</small>
+      </p>
+    </div>
+  </div>
+  <div class="media-right">
+    <button class="delete"></button>
+  </div>
+</article>
+```
+
+## Nesting Media Objects
+
+You can nest media objects for threaded conversations:
+
+```html
+<article class="media">
+  <figure class="media-left">
+    <p class="image is-64x64">
+      <img src="avatar1.png">
+    </p>
+  </figure>
+  <div class="media-content">
+    <div class="content">
+      <p>
+        <strong>Barbara Middleton</strong>
+        <br>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        <br>
+        <small><a>Like</a> · <a>Reply</a> · 2 hrs</small>
+      </p>
+    </div>
+
+    <!-- Nested media object -->
+    <article class="media">
+      <figure class="media-left">
+        <p class="image is-48x48">
+          <img src="avatar2.png">
+        </p>
+      </figure>
+      <div class="media-content">
+        <div class="content">
+          <p>
+            <strong>Sean Brown</strong>
+            <br>
+            Donec sollicitudin urna eget eros malesuada sagittis.
+            <br>
+            <small><a>Like</a> · <a>Reply</a> · 1 hr</small>
+          </p>
+        </div>
+
+        <!-- Nested level 2 -->
+        <article class="media">
+          <figure class="media-left">
+            <p class="image is-48x48">
+              <img src="avatar3.png">
+            </p>
+          </figure>
+          <div class="media-content">
+            <div class="content">
+              <p>
+                <strong>Kayli Eunice</strong>
+                <br>
+                Vestibulum a massa a tortor ultrices viverra.
+                <br>
+                <small><a>Like</a> · <a>Reply</a> · 30 min</small>
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </article>
+  </div>
+</article>
+```
+
+<Note>
+Nested media objects automatically have reduced spacing and a top border to visually separate them from parent comments.
+</Note>
+
+## Size Modifier
+
+### Large Media
+
+Increase spacing between consecutive media objects:
+
+```html
+<article class="media is-large">
+  <figure class="media-left">
+    <p class="image is-64x64">
+      <img src="avatar.png">
+    </p>
+  </figure>
+  <div class="media-content">
+    <div class="content">
+      <p>
+        <strong>John Smith</strong>
+        <br>
+        This media object has larger spacing.
+      </p>
+    </div>
+  </div>
+</article>
+
+<article class="media is-large">
+  <figure class="media-left">
+    <p class="image is-64x64">
+      <img src="avatar2.png">
+    </p>
+  </figure>
+  <div class="media-content">
+    <div class="content">
+      <p>
+        <strong>Jane Doe</strong>
+        <br>
+        Notice the increased gap between items.
+      </p>
+    </div>
+  </div>
+</article>
+```
+
+## Common Use Cases
+
+### Comment Section
+
+```html
+<div class="box">
+  <article class="media">
+    <figure class="media-left">
+      <p class="image is-64x64">
+        <img src="avatar.png">
+      </p>
+    </figure>
+    <div class="media-content">
+      <div class="content">
+        <p>
+          <strong>John Smith</strong> <small>@johnsmith</small> <small>31m</small>
+          <br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin 
+          ornare magna eros, eu pellentesque tortor vestibulum ut.
+        </p>
+      </div>
+      <nav class="level is-mobile">
+        <div class="level-left">
+          <a class="level-item">
+            <span class="icon is-small"><i class="fas fa-reply"></i></span>
+          </a>
+          <a class="level-item">
+            <span class="icon is-small"><i class="fas fa-retweet"></i></span>
+          </a>
+          <a class="level-item">
+            <span class="icon is-small"><i class="fas fa-heart"></i></span>
+          </a>
+        </div>
+      </nav>
+    </div>
+    <div class="media-right">
+      <button class="delete"></button>
+    </div>
+  </article>
+</div>
+```
+
+### User List
+
+```html
+<article class="media">
+  <figure class="media-left">
+    <p class="image is-48x48">
+      <img src="user1.png">
+    </p>
+  </figure>
+  <div class="media-content">
+    <div class="content">
+      <p>
+        <strong>Sarah Johnson</strong> <small>@sarahj</small>
+        <br>
+        Full-stack developer passionate about open source
+      </p>
+    </div>
+  </div>
+  <div class="media-right">
+    <button class="button is-primary">Follow</button>
+  </div>
+</article>
+
+<article class="media">
+  <figure class="media-left">
+    <p class="image is-48x48">
+      <img src="user2.png">
+    </p>
+  </figure>
+  <div class="media-content">
+    <div class="content">
+      <p>
+        <strong>Mike Chen</strong> <small>@mikechen</small>
+        <br>
+        Designer and creative director
+      </p>
+    </div>
+  </div>
+  <div class="media-right">
+    <button class="button is-primary">Follow</button>
+  </div>
+</article>
+```
+
+### Blog Post Preview
+
+```html
+<article class="media">
+  <figure class="media-left">
+    <p class="image is-128x128">
+      <img src="post-thumbnail.jpg">
+    </p>
+  </figure>
+  <div class="media-content">
+    <div class="content">
+      <p>
+        <strong>Getting Started with Bulma</strong>
+        <br>
+        <small>Published on Jan 15, 2024</small>
+        <br>
+        Learn how to quickly set up Bulma CSS framework in your project 
+        and start building beautiful, responsive interfaces.
+      </p>
+    </div>
+    <nav class="level">
+      <div class="level-left">
+        <a class="level-item button is-small is-primary">Read More</a>
+      </div>
+    </nav>
+  </div>
+</article>
+```
+
+### Notification List
+
+```html
+<article class="media">
+  <figure class="media-left">
+    <span class="icon is-large has-text-info">
+      <i class="fas fa-2x fa-info-circle"></i>
+    </span>
+  </figure>
+  <div class="media-content">
+    <div class="content">
+      <p>
+        <strong>System Update</strong>
+        <br>
+        Your system will be updated tonight at 2 AM.
+        <br>
+        <small>2 hours ago</small>
+      </p>
+    </div>
+  </div>
+</article>
+
+<article class="media">
+  <figure class="media-left">
+    <span class="icon is-large has-text-success">
+      <i class="fas fa-2x fa-check-circle"></i>
+    </span>
+  </figure>
+  <div class="media-content">
+    <div class="content">
+      <p>
+        <strong>Backup Complete</strong>
+        <br>
+        Your data has been successfully backed up.
+        <br>
+        <small>5 hours ago</small>
+      </p>
+    </div>
+  </div>
+</article>
+```
+
+### Comment Form
+
+```html
+<article class="media">
+  <figure class="media-left">
+    <p class="image is-64x64">
+      <img src="my-avatar.png">
+    </p>
+  </figure>
+  <div class="media-content">
+    <div class="field">
+      <p class="control">
+        <textarea class="textarea" placeholder="Add a comment..."></textarea>
+      </p>
+    </div>
+    <nav class="level">
+      <div class="level-left">
+        <div class="level-item">
+          <button class="button is-info">Submit</button>
+        </div>
+      </div>
+      <div class="level-right">
+        <div class="level-item">
+          <label class="checkbox">
+            <input type="checkbox"> Press Ctrl + Enter to submit
+          </label>
+        </div>
+      </div>
+    </nav>
+  </div>
+</article>
+```
+
+## Responsive Behavior
+
+<Warning>
+On mobile devices, the `.media-content` element has `overflow-x: auto` to handle long content that might break the layout.
+</Warning>
+
+- **Media-left and media-right**: Fixed width, don't grow or shrink
+- **Media-content**: Grows to fill available space
+- **Nested media**: Automatically reduced spacing and top border
+
+## Spacing and Borders
+
+Media objects have built-in spacing:
+- **Between siblings**: Top border and margin/padding (1rem by default)
+- **Nested level 1**: Reduced spacing (0.75rem)
+- **Nested level 2**: Further reduced spacing (0.5rem)
+- **Large modifier**: Increased spacing (1.5rem)
+
+## Best Practices
+
+1. **Use semantic HTML**: Wrap in `<article>` for individual items
+2. **Image sizes**: Use Bulma's image classes (`.is-48x48`, `.is-64x64`) for consistent avatars
+3. **Nesting depth**: Limit nesting to 2-3 levels for readability
+4. **Content flexibility**: The content area grows to fill space, while left/right stay fixed
+5. **Mobile considerations**: Content will overflow horizontally on mobile if needed
+
+## CSS Variables
+
+Customize media spacing:
+
+```css
+.media {
+  --bulma-media-border-color: hsla(var(--bulma-scheme-h), var(--bulma-scheme-s), var(--bulma-border-l), 0.5);
+  --bulma-media-border-size: 1px;
+  --bulma-media-spacing: 1rem;
+  --bulma-media-spacing-large: 1.5rem;
+  --bulma-media-content-spacing: 0.75rem;
+  --bulma-media-level-1-spacing: 0.75rem;
+  --bulma-media-level-1-content-spacing: 0.5rem;
+  --bulma-media-level-2-spacing: 0.5rem;
+}
+```
+
+Or with Sass:
+
+```scss
+$media-border-size: 1px;
+$media-spacing: 1rem;
+$media-spacing-large: 1.5rem;
+$media-content-spacing: 0.75rem;
+$media-level-1-spacing: 0.75rem;
+$media-level-1-content-spacing: 0.5rem;
+$media-level-2-spacing: 0.5rem;
+```

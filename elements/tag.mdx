@@ -1,0 +1,365 @@
+---
+title: Tag
+description: Small labels for categorizing and tagging content
+---
+
+The **tag** element is a small label element for categorizing content, showing statuses, or displaying metadata.
+
+## Basic Tag
+
+```html
+<span class="tag">Tag</span>
+```
+
+## Colors
+
+Tags support all Bulma color variants:
+
+```html
+<span class="tag is-primary">Primary</span>
+<span class="tag is-link">Link</span>
+<span class="tag is-info">Info</span>
+<span class="tag is-success">Success</span>
+<span class="tag is-warning">Warning</span>
+<span class="tag is-danger">Danger</span>
+```
+
+### Light Colors
+
+```html
+<span class="tag is-primary is-light">Primary</span>
+<span class="tag is-link is-light">Link</span>
+<span class="tag is-info is-light">Info</span>
+<span class="tag is-success is-light">Success</span>
+<span class="tag is-warning is-light">Warning</span>
+<span class="tag is-danger is-light">Danger</span>
+```
+
+## Sizes
+
+```html
+<span class="tag">Normal</span>
+<span class="tag is-medium">Medium</span>
+<span class="tag is-large">Large</span>
+```
+
+## Modifiers
+
+### Rounded
+
+```html
+<span class="tag is-rounded">Rounded</span>
+<span class="tag is-primary is-rounded">Primary</span>
+<span class="tag is-info is-rounded">Info</span>
+```
+
+### Delete Tag
+
+```html
+<span class="tag is-delete"></span>
+<span class="tag is-primary is-delete"></span>
+<span class="tag is-danger is-delete"></span>
+```
+
+## Tag with Delete Button
+
+```html
+<span class="tag is-primary">
+  Tag Label
+  <button class="delete is-small"></button>
+</span>
+
+<span class="tag is-info">
+  Another Tag
+  <button class="delete is-small"></button>
+</span>
+
+<span class="tag is-success">
+  Success Tag
+  <button class="delete is-small"></button>
+</span>
+```
+
+## Tags with Icons
+
+```html
+<span class="tag is-primary">
+  <span class="icon">
+    <i class="fas fa-home"></i>
+  </span>
+  <span>Home</span>
+</span>
+
+<span class="tag is-success">
+  <span class="icon">
+    <i class="fas fa-check"></i>
+  </span>
+  <span>Approved</span>
+</span>
+
+<span class="tag is-danger">
+  <span class="icon">
+    <i class="fas fa-times"></i>
+  </span>
+  <span>Rejected</span>
+</span>
+```
+
+## Tag Groups
+
+### Basic Group
+
+```html
+<div class="tags">
+  <span class="tag">One</span>
+  <span class="tag">Two</span>
+  <span class="tag">Three</span>
+</div>
+```
+
+### Group with Colors
+
+```html
+<div class="tags">
+  <span class="tag is-primary">Primary</span>
+  <span class="tag is-info">Info</span>
+  <span class="tag is-success">Success</span>
+  <span class="tag is-warning">Warning</span>
+  <span class="tag is-danger">Danger</span>
+</div>
+```
+
+### Group Sizes
+
+```html
+<div class="tags are-medium">
+  <span class="tag">Medium</span>
+  <span class="tag">Medium</span>
+  <span class="tag">Medium</span>
+</div>
+
+<div class="tags are-large">
+  <span class="tag">Large</span>
+  <span class="tag">Large</span>
+  <span class="tag">Large</span>
+</div>
+```
+
+## Attached Tags (Addons)
+
+```html
+<div class="tags has-addons">
+  <span class="tag">Package</span>
+  <span class="tag is-primary">v1.0.0</span>
+</div>
+
+<div class="tags has-addons">
+  <span class="tag">Build</span>
+  <span class="tag is-success">Passing</span>
+</div>
+
+<div class="tags has-addons">
+  <span class="tag">Chat</span>
+  <span class="tag is-info">12</span>
+</div>
+
+<div class="tags has-addons">
+  <span class="tag is-danger">Error</span>
+  <span class="tag is-danger is-light">3 issues</span>
+</div>
+```
+
+## Tag Alignment
+
+### Centered
+
+```html
+<div class="tags is-centered">
+  <span class="tag">One</span>
+  <span class="tag">Two</span>
+  <span class="tag">Three</span>
+</div>
+```
+
+### Right Aligned
+
+```html
+<div class="tags is-right">
+  <span class="tag">One</span>
+  <span class="tag">Two</span>
+  <span class="tag">Three</span>
+</div>
+```
+
+## Practical Examples
+
+### Blog Post Tags
+
+```html
+<article class="box">
+  <h3 class="title is-4">Blog Post Title</h3>
+  <p>This is the blog post content...</p>
+  <div class="tags mt-4">
+    <span class="tag is-link is-light">JavaScript</span>
+    <span class="tag is-link is-light">Web Development</span>
+    <span class="tag is-link is-light">Tutorial</span>
+  </div>
+</article>
+```
+
+### Status Indicators
+
+```html
+<table class="table is-fullwidth">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Project A</td>
+      <td><span class="tag is-success">Active</span></td>
+    </tr>
+    <tr>
+      <td>Project B</td>
+      <td><span class="tag is-warning">Pending</span></td>
+    </tr>
+    <tr>
+      <td>Project C</td>
+      <td><span class="tag is-danger">Archived</span></td>
+    </tr>
+  </tbody>
+</table>
+```
+
+### Version Badges
+
+```html
+<div class="content">
+  <h4>Available Versions</h4>
+  <div class="tags">
+    <span class="tags has-addons">
+      <span class="tag is-dark">npm</span>
+      <span class="tag is-success">v2.1.5</span>
+    </span>
+    <span class="tags has-addons">
+      <span class="tag is-dark">yarn</span>
+      <span class="tag is-info">v2.1.5</span>
+    </span>
+    <span class="tags has-addons">
+      <span class="tag is-dark">cdn</span>
+      <span class="tag is-warning">latest</span>
+    </span>
+  </div>
+</div>
+```
+
+### Filter Tags with Delete
+
+```html
+<div class="box">
+  <p><strong>Active Filters:</strong></p>
+  <div class="tags">
+    <span class="tag is-info is-medium">
+      Category: Electronics
+      <button class="delete is-small"></button>
+    </span>
+    <span class="tag is-info is-medium">
+      Price: $100-$500
+      <button class="delete is-small"></button>
+    </span>
+    <span class="tag is-info is-medium">
+      Brand: Apple
+      <button class="delete is-small"></button>
+    </span>
+  </div>
+</div>
+```
+
+### User Roles
+
+```html
+<div class="content">
+  <p>
+    <strong>John Doe</strong>
+    <span class="tag is-primary">Admin</span>
+    <span class="tag is-info">Editor</span>
+  </p>
+  <p>
+    <strong>Jane Smith</strong>
+    <span class="tag is-info">Editor</span>
+  </p>
+  <p>
+    <strong>Bob Johnson</strong>
+    <span class="tag">User</span>
+  </p>
+</div>
+```
+
+### Notification Counts
+
+```html
+<button class="button">
+  <span>Messages</span>
+  <span class="tag is-danger is-rounded ml-2">5</span>
+</button>
+
+<button class="button">
+  <span>Notifications</span>
+  <span class="tag is-primary is-rounded ml-2">12</span>
+</button>
+```
+
+## Clickable Tags
+
+Make tags interactive:
+
+```html
+<div class="tags">
+  <a href="#" class="tag is-link">Clickable</a>
+  <a href="#" class="tag is-primary">Link Tag</a>
+  <a href="#" class="tag is-info">Another</a>
+</div>
+```
+
+### Hoverable Tags
+
+```html
+<div class="tags">
+  <span class="tag is-hoverable">Hoverable</span>
+  <span class="tag is-primary is-hoverable">Primary</span>
+</div>
+```
+
+## CSS Variables
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `--bulma-tag-h` | `--bulma-scheme-h` | Hue |
+| `--bulma-tag-s` | `--bulma-scheme-s` | Saturation |
+| `--bulma-tag-background-l` | `--bulma-background-l` | Background lightness |
+| `--bulma-tag-color-l` | `--bulma-text-l` | Text color lightness |
+| `--bulma-tag-radius` | `--bulma-radius` | Border radius |
+
+### Custom Styling
+
+```css
+.custom-tag {
+  --bulma-tag-radius: 0.5rem;
+  font-weight: bold;
+}
+```
+
+```html
+<span class="tag is-primary custom-tag">Custom</span>
+```
+
+<Tip>
+Use the `has-addons` modifier on the `tags` container to create connected tag combinations, perfect for labels with values.
+</Tip>
+
+<Note>
+Tags automatically use `font-size: var(--bulma-size-small)` by default. Use size modifiers to adjust.
+</Note>

@@ -1,0 +1,487 @@
+---
+title: 'Sass Setup'
+description: 'Learn how to import and compile Bulma from source using Sass for maximum customization'
+---
+
+## Introduction
+
+Compiling Bulma from Sass source gives you complete control over customization, allows you to import only the modules you need, and ensures optimal performance by removing unused CSS.
+
+## Installation
+
+First, install Bulma and Sass:
+
+<CodeGroup>
+
+```bash npm
+npm install bulma sass
+```
+
+```bash yarn
+yarn add bulma sass
+```
+
+```bash pnpm
+pnpm add bulma sass
+```
+
+</CodeGroup>
+
+## Modern Syntax: @use
+
+Bulma supports the modern `@use` syntax (recommended) instead of the deprecated `@import`.
+
+### Basic Import
+
+Import all of Bulma:
+
+```scss
+// app.scss
+@use "bulma";
+```
+
+Or import with namespace:
+
+```scss
+@use "bulma" as *;  // Import without namespace
+@use "bulma" as b;  // Use custom namespace: b.button
+```
+
+### Import with Customization
+
+Override variables using the `with` clause:
+
+```scss
+// app.scss
+@use "bulma/sass/utilities" with (
+  $primary: hsl(171, 100%, 41%),
+  $family-sans-serif: "Inter", sans-serif,
+  $radius: 0.5rem
+);
+
+@use "bulma/sass" as bulma;
+```
+
+<Note>
+  Always customize the `utilities` module, then import the main Bulma module.
+</Note>
+
+## Modular Imports
+
+Import only the modules you need for smaller bundle sizes:
+
+### Minimal Setup
+
+```scss
+// Import utilities (required)
+@use "bulma/sass/utilities";
+
+// Import base styles (required)
+@use "bulma/sass/base";
+
+// Import only needed modules
+@use "bulma/sass/elements/button";
+@use "bulma/sass/elements/title";
+@use "bulma/sass/components/navbar";
+@use "bulma/sass/layout/section";
+```
+
+### Available Modules
+
+Bulma is organized into these module categories:
+
+```scss
+// Utilities (required for customization)
+@use "bulma/sass/utilities";
+
+// Themes
+@use "bulma/sass/themes";
+
+// Base
+@use "bulma/sass/base";
+@use "bulma/sass/base/skeleton";
+
+// Elements
+@use "bulma/sass/elements/button";
+@use "bulma/sass/elements/content";
+@use "bulma/sass/elements/icon";
+@use "bulma/sass/elements/image";
+@use "bulma/sass/elements/notification";
+@use "bulma/sass/elements/progress";
+@use "bulma/sass/elements/table";
+@use "bulma/sass/elements/tag";
+@use "bulma/sass/elements/title";
+
+// Form
+@use "bulma/sass/form/shared";
+@use "bulma/sass/form/input-textarea";
+@use "bulma/sass/form/checkbox-radio";
+@use "bulma/sass/form/select";
+@use "bulma/sass/form/file";
+@use "bulma/sass/form/tools";
+
+// Components
+@use "bulma/sass/components/breadcrumb";
+@use "bulma/sass/components/card";
+@use "bulma/sass/components/dropdown";
+@use "bulma/sass/components/level";
+@use "bulma/sass/components/media";
+@use "bulma/sass/components/menu";
+@use "bulma/sass/components/message";
+@use "bulma/sass/components/modal";
+@use "bulma/sass/components/navbar";
+@use "bulma/sass/components/pagination";
+@use "bulma/sass/components/panel";
+@use "bulma/sass/components/tabs";
+
+// Grid
+@use "bulma/sass/grid/columns";
+@use "bulma/sass/grid/grid";
+@use "bulma/sass/grid/tiles";
+
+// Layout
+@use "bulma/sass/layout/container";
+@use "bulma/sass/layout/footer";
+@use "bulma/sass/layout/hero";
+@use "bulma/sass/layout/section";
+
+// Helpers
+@use "bulma/sass/helpers";
+```
+
+<Tip>
+  Use modular imports in production to reduce CSS bundle size by up to 70%.
+</Tip>
+
+## Build Process
+
+### Command Line
+
+Compile Sass directly from the command line:
+
+```bash
+# Basic compilation
+sass app.scss dist/app.css
+
+# Watch for changes
+sass --watch app.scss:dist/app.css
+
+# Compressed output
+sass --style=compressed app.scss dist/app.css
+
+# With source maps
+sass --source-map app.scss dist/app.css
+```
+
+### Package.json Scripts
+
+Add build scripts to your `package.json`:
+
+```json
+{
+  "scripts": {
+    "css:build": "sass --style=compressed src/styles/app.scss dist/css/app.css",
+    "css:watch": "sass --watch src/styles/app.scss:dist/css/app.css",
+    "css:dev": "sass --watch --source-map src/styles/app.scss:dist/css/app.css"
+  }
+}
+```
+
+## Build Tool Integration
+
+### Vite
+
+Vite has built-in Sass support:
+
+```javascript
+// vite.config.js
+import { defineConfig } from 'vite';
+
+export default defineConfig({
+  css: {
+    preprocessorOptions: {
+      scss: {
+        // Optional: add global Sass variables
+        additionalData: `@use "@/styles/variables" as *;`
+      }
+    }
+  }
+});
+```
+
+```scss
+// src/styles/app.scss
+@use "bulma/sass/utilities" with (
+  $primary: hsl(171, 100%, 41%)
+);
+
+@use "bulma/sass" as bulma;
+```
+
+```javascript
+// src/main.js
+import './styles/app.scss';
+```
+
+### Webpack
+
+Install required loaders:
+
+```bash
+npm install sass-loader sass css-loader style-loader --save-dev
+```
+
+Configure webpack:
+
+```javascript
+// webpack.config.js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.scss$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              sassOptions: {
+                // Modern Sass API
+                api: 'modern',
+              },
+            },
+          },
+        ],
+      },
+    ],
+  },
+};
+```
+
+### Parcel
+
+Parcel automatically processes Sass files:
+
+```html
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="./styles/app.scss">
+</head>
+<body>
+  <!-- content -->
+</body>
+</html>
+```
+
+### Next.js
+
+Install Sass:
+
+```bash
+npm install sass
+```
+
+Import in your component or `_app.js`:
+
+```javascript
+// pages/_app.js
+import '../styles/app.scss';
+
+function MyApp({ Component, pageProps }) {
+  return <Component {...pageProps} />;
+}
+
+export default MyApp;
+```
+
+```scss
+// styles/app.scss
+@use "bulma/sass/utilities" with (
+  $primary: hsl(171, 100%, 41%)
+);
+
+@use "bulma/sass" as bulma;
+```
+
+### SvelteKit
+
+```svelte
+<!-- +layout.svelte -->
+<script>
+  import '../app.scss';
+</script>
+
+<slot />
+```
+
+```scss
+// src/app.scss
+@use "bulma/sass/utilities" with (
+  $primary: hsl(171, 100%, 41%)
+);
+
+@use "bulma/sass" as bulma;
+```
+
+## Advanced Customization
+
+### Two-Step Customization
+
+For complex customization, use a two-step approach:
+
+```scss
+// Step 1: Customize initial variables
+@use "bulma/sass/utilities" with (
+  $primary: hsl(171, 100%, 41%),
+  $family-sans-serif: "Inter", sans-serif
+);
+
+// Step 2: Customize derived variables
+@use "bulma/sass/utilities/derived-variables" with (
+  $background: hsl(0, 0%, 98%),
+  $link: hsl(229, 53%, 53%)
+);
+
+// Step 3: Import Bulma
+@use "bulma/sass" as bulma;
+```
+
+### Using Custom Theme
+
+```scss
+// custom-theme.scss
+@use "bulma/sass/utilities";
+@use "bulma/sass/utilities/derived-variables";
+
+// Import theme mixins
+@use "bulma/sass/themes/light";
+@use "bulma/sass/themes/dark";
+
+// Apply light theme to :root
+:root {
+  @include light.light-theme;
+}
+
+// Apply dark theme
+[data-theme="dark"],
+.theme-dark {
+  @include dark.dark-theme;
+}
+
+// Import remaining Bulma
+@use "bulma/sass/base";
+@use "bulma/sass/elements";
+// ... other modules
+```
+
+### Custom Mixins and Functions
+
+Access Bulma's utility functions:
+
+```scss
+@use "bulma/sass/utilities/functions" as fn;
+@use "bulma/sass/utilities/css-variables" as cv;
+
+.custom-component {
+  // Use Bulma's color functions
+  background-color: fn.bulmaFindColorInvert($primary);
+  
+  // Use CSS variable helpers
+  color: cv.getVar("primary");
+  border: 1px solid cv.getVar("border");
+}
+```
+
+## Common Issues
+
+### Issue: Module Not Found
+
+```scss
+// ❌ Wrong
+@use "bulma";
+
+// ✅ Correct - specify full path
+@use "bulma/sass";
+```
+
+### Issue: Variables Not Applied
+
+```scss
+// ❌ Wrong - customizing wrong module
+@use "bulma/sass" with (
+  $primary: hsl(171, 100%, 41%)
+);
+
+// ✅ Correct - customize utilities first
+@use "bulma/sass/utilities" with (
+  $primary: hsl(171, 100%, 41%)
+);
+@use "bulma/sass";
+```
+
+### Issue: Cannot Override Derived Variables
+
+```scss
+// ❌ Wrong
+@use "bulma/sass/utilities" with (
+  $link: hsl(229, 53%, 53%)  // This won't work
+);
+
+// ✅ Correct
+@use "bulma/sass/utilities";
+@use "bulma/sass/utilities/derived-variables" with (
+  $link: hsl(229, 53%, 53%)
+);
+```
+
+## Optimization Tips
+
+### 1. Use Modular Imports
+
+Only import what you need:
+
+```scss
+// Instead of importing everything
+@use "bulma/sass";
+
+// Import specific modules
+@use "bulma/sass/base";
+@use "bulma/sass/elements/button";
+@use "bulma/sass/components/navbar";
+```
+
+### 2. Disable Unused Features
+
+```scss
+@use "bulma/sass/utilities" with (
+  $widescreen-enabled: false,
+  $fullhd-enabled: false,
+  $variable-columns: false
+);
+```
+
+### 3. Use Compressed Output
+
+```bash
+sass --style=compressed app.scss dist/app.css
+```
+
+### 4. Enable Source Maps for Development
+
+```bash
+sass --source-map --watch app.scss:dist/app.css
+```
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Sass Variables" icon="code" href="/customize/variables">
+    Explore all available Sass variables
+  </Card>
+  <Card title="CSS Variables" icon="css3" href="/customize/css-variables">
+    Learn about runtime customization with CSS custom properties
+  </Card>
+</CardGroup>

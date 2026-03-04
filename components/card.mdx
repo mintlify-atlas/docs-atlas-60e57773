@@ -1,0 +1,246 @@
+---
+title: Card
+description: A versatile content container with multiple sections including header, content, image, and footer
+---
+
+The **card** component is a flexible container for organizing content. It can include a header, image, content section, and footer with multiple items.
+
+## Basic Card
+
+A simple card with just content:
+
+```html
+<div class="card">
+  <div class="card-content">
+    <div class="content">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      Phasellus nec iaculis mauris.
+    </div>
+  </div>
+</div>
+```
+
+## Complete Card Structure
+
+A card with all available sections:
+
+```html
+<div class="card">
+  <header class="card-header">
+    <p class="card-header-title">
+      Component
+    </p>
+    <button class="card-header-icon" aria-label="more options">
+      <span class="icon">
+        <i class="fas fa-angle-down" aria-hidden="true"></i>
+      </span>
+    </button>
+  </header>
+  <div class="card-image">
+    <figure class="image is-4by3">
+      <img src="https://bulma.io/assets/images/placeholders/1280x960.png" alt="Placeholder image">
+    </figure>
+  </div>
+  <div class="card-content">
+    <div class="content">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      Phasellus nec iaculis mauris.
+    </div>
+  </div>
+  <footer class="card-footer">
+    <a href="#" class="card-footer-item">Save</a>
+    <a href="#" class="card-footer-item">Edit</a>
+    <a href="#" class="card-footer-item">Delete</a>
+  </footer>
+</div>
+```
+
+## Structure
+
+The card component consists of several sub-components:
+
+- `card` - Main container
+  - `card-header` - Top section (optional)
+    - `card-header-title` - Header text
+    - `card-header-icon` - Header icon button (optional)
+  - `card-image` - Image container (optional)
+  - `card-content` - Main content section
+  - `card-footer` - Bottom section (optional)
+    - `card-footer-item` - Individual footer items
+
+## Card Header
+
+The card header can contain a title and an optional icon:
+
+```html
+<div class="card">
+  <header class="card-header">
+    <p class="card-header-title">
+      Card Title
+    </p>
+    <button class="card-header-icon">
+      <span class="icon">
+        <i class="fas fa-angle-down"></i>
+      </span>
+    </button>
+  </header>
+  <div class="card-content">
+    Content goes here
+  </div>
+</div>
+```
+
+### Centered Title
+
+```html
+<header class="card-header">
+  <p class="card-header-title is-centered">
+    Centered Title
+  </p>
+</header>
+```
+
+## Card Image
+
+The card image section displays images with proper rounded corners:
+
+```html
+<div class="card">
+  <div class="card-image">
+    <figure class="image is-4by3">
+      <img src="image.jpg" alt="Description">
+    </figure>
+  </div>
+  <div class="card-content">
+    <p>Content below the image</p>
+  </div>
+</div>
+```
+
+## Card Content
+
+The main content area of the card:
+
+```html
+<div class="card">
+  <div class="card-content">
+    <div class="media">
+      <div class="media-left">
+        <figure class="image is-48x48">
+          <img src="avatar.jpg" alt="Avatar">
+        </figure>
+      </div>
+      <div class="media-content">
+        <p class="title is-4">John Smith</p>
+        <p class="subtitle is-6">@johnsmith</p>
+      </div>
+    </div>
+    <div class="content">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      Phasellus nec iaculis mauris.
+      <br>
+      <time datetime="2024-1-1">11:09 PM - 1 Jan 2024</time>
+    </div>
+  </div>
+</div>
+```
+
+## Card Footer
+
+The footer contains items separated by borders:
+
+```html
+<div class="card">
+  <div class="card-content">
+    Quick Actions
+  </div>
+  <footer class="card-footer">
+    <a href="#" class="card-footer-item">Save</a>
+    <a href="#" class="card-footer-item">Edit</a>
+    <a href="#" class="card-footer-item">Delete</a>
+  </footer>
+</div>
+```
+
+<Note>
+  Footer items are automatically separated by borders and distributed evenly.
+</Note>
+
+## With Media Elements
+
+Cards work well with the media object:
+
+```html
+<div class="card">
+  <div class="card-content">
+    <div class="media">
+      <div class="media-left">
+        <figure class="image is-48x48">
+          <img src="avatar.jpg" alt="User avatar">
+        </figure>
+      </div>
+      <div class="media-content">
+        <p class="title is-4">John Smith</p>
+        <p class="subtitle is-6">@johnsmith</p>
+      </div>
+    </div>
+
+    <div class="content">
+      This is the main content of the card.
+      It can contain any HTML elements.
+    </div>
+  </div>
+</div>
+```
+
+## List of Cards
+
+Create a grid of cards using columns:
+
+```html
+<div class="columns">
+  <div class="column is-one-third">
+    <div class="card">
+      <div class="card-content">
+        Card 1
+      </div>
+    </div>
+  </div>
+  <div class="column is-one-third">
+    <div class="card">
+      <div class="card-content">
+        Card 2
+      </div>
+    </div>
+  </div>
+  <div class="column is-one-third">
+    <div class="card">
+      <div class="card-content">
+        Card 3
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+## CSS Variables
+
+Customize cards using CSS variables:
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `--bulma-card-radius` | 0.75rem | Border radius |
+| `--bulma-card-shadow` | Shadow variable | Box shadow |
+| `--bulma-card-header-padding` | 0.75rem 1rem | Header padding |
+| `--bulma-card-content-padding` | 1.5rem | Content padding |
+| `--bulma-card-footer-padding` | 0.75rem | Footer item padding |
+
+## Modifiers
+
+| Class | Description |
+|-------|-------------|
+| `card-header-title is-centered` | Centers the header title |
+
+<Warning>
+  The card component is purely structural and doesn't include JavaScript. If you need interactive features like collapsible cards, you'll need to add your own JavaScript.
+</Warning>

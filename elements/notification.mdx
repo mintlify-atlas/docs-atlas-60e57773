@@ -1,0 +1,284 @@
+---
+title: Notification
+description: Bold notification blocks to alert users of important information
+---
+
+The **notification** is a colored message block to emphasize important information to the user.
+
+## Basic Usage
+
+```html
+<div class="notification">
+  <p>This is a notification message.</p>
+</div>
+```
+
+## Colors
+
+Notifications support all Bulma color variants:
+
+```html
+<div class="notification is-primary">
+  <p>Primary notification</p>
+</div>
+
+<div class="notification is-link">
+  <p>Link notification</p>
+</div>
+
+<div class="notification is-info">
+  <p>Info notification</p>
+</div>
+
+<div class="notification is-success">
+  <p>Success notification</p>
+</div>
+
+<div class="notification is-warning">
+  <p>Warning notification</p>
+</div>
+
+<div class="notification is-danger">
+  <p>Danger notification</p>
+</div>
+```
+
+### Light Variant
+
+```html
+<div class="notification is-primary is-light">
+  <p>Light primary notification</p>
+</div>
+
+<div class="notification is-info is-light">
+  <p>Light info notification</p>
+</div>
+
+<div class="notification is-success is-light">
+  <p>Light success notification</p>
+</div>
+
+<div class="notification is-warning is-light">
+  <p>Light warning notification</p>
+</div>
+
+<div class="notification is-danger is-light">
+  <p>Light danger notification</p>
+</div>
+```
+
+### Dark Variant
+
+```html
+<div class="notification is-primary is-dark">
+  <p>Dark primary notification</p>
+</div>
+
+<div class="notification is-info is-dark">
+  <p>Dark info notification</p>
+</div>
+
+<div class="notification is-success is-dark">
+  <p>Dark success notification</p>
+</div>
+```
+
+## With Delete Button
+
+```html
+<div class="notification is-primary">
+  <button class="delete"></button>
+  <p>Click the delete button to dismiss this notification.</p>
+</div>
+```
+
+### Making it Dismissible
+
+```html
+<div class="notification is-success" id="notification-1">
+  <button class="delete"></button>
+  <strong>Success!</strong> Your changes have been saved.
+</div>
+
+<script>
+document.querySelectorAll('.notification .delete').forEach(($delete) => {
+  const $notification = $delete.parentNode;
+  
+  $delete.addEventListener('click', () => {
+    $notification.remove();
+  });
+});
+</script>
+```
+
+## Rich Content
+
+### With Title
+
+```html
+<div class="notification is-info">
+  <button class="delete"></button>
+  <p class="title is-5">Information</p>
+  <p>Here is some important information you should know about.</p>
+</div>
+```
+
+### With Multiple Paragraphs
+
+```html
+<div class="notification is-warning">
+  <button class="delete"></button>
+  <p><strong>Warning!</strong></p>
+  <p>Your subscription will expire in 3 days.</p>
+  <p>Please update your payment method to continue using our service.</p>
+</div>
+```
+
+### With Lists
+
+```html
+<div class="notification is-success">
+  <button class="delete"></button>
+  <p><strong>Congratulations! You've completed:</strong></p>
+  <ul>
+    <li>Profile setup</li>
+    <li>Email verification</li>
+    <li>Security settings</li>
+  </ul>
+</div>
+```
+
+### With Links
+
+```html
+<div class="notification is-info">
+  <button class="delete"></button>
+  <p>New features have been released! <a href="/changelog">Read the changelog</a> to learn more.</p>
+</div>
+```
+
+## With Code
+
+```html
+<div class="notification">
+  <button class="delete"></button>
+  <p>Run the following command:</p>
+  <pre><code>npm install bulma</code></pre>
+</div>
+```
+
+## Notification Stack
+
+```html
+<div class="notification is-danger is-light">
+  <button class="delete"></button>
+  <strong>Error:</strong> Failed to save your changes.
+</div>
+
+<div class="notification is-warning is-light">
+  <button class="delete"></button>
+  <strong>Warning:</strong> Your session will expire soon.
+</div>
+
+<div class="notification is-info is-light">
+  <button class="delete"></button>
+  <strong>Info:</strong> A new version is available.
+</div>
+```
+
+## Practical Examples
+
+### Cookie Consent
+
+```html
+<div class="notification is-primary" style="position: fixed; bottom: 0; left: 0; right: 0; margin: 0; border-radius: 0; z-index: 100;">
+  <div class="container">
+    <div class="columns is-vcentered">
+      <div class="column">
+        <p>We use cookies to improve your experience. By continuing to use our site, you accept our cookie policy.</p>
+      </div>
+      <div class="column is-narrow">
+        <button class="button is-light" onclick="this.closest('.notification').remove()">Accept</button>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+### Flash Message
+
+```html
+<div class="notification is-success is-light">
+  <button class="delete"></button>
+  <span class="icon-text">
+    <span class="icon has-text-success">
+      <i class="fas fa-check-circle"></i>
+    </span>
+    <span><strong>Success!</strong> Your profile has been updated.</span>
+  </span>
+</div>
+```
+
+### Error Message
+
+```html
+<div class="notification is-danger is-light">
+  <button class="delete"></button>
+  <span class="icon-text">
+    <span class="icon has-text-danger">
+      <i class="fas fa-exclamation-circle"></i>
+    </span>
+    <span><strong>Error!</strong> Unable to process your request. Please try again later.</span>
+  </span>
+</div>
+```
+
+### Alert with Actions
+
+```html
+<div class="notification is-warning">
+  <div class="columns is-vcentered">
+    <div class="column">
+      <p><strong>Your payment method is expiring soon.</strong></p>
+      <p>Please update your credit card information.</p>
+    </div>
+    <div class="column is-narrow">
+      <button class="button is-warning">Update Now</button>
+    </div>
+  </div>
+</div>
+```
+
+## CSS Variables
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `--bulma-notification-h` | `--bulma-scheme-h` | Hue |
+| `--bulma-notification-s` | `--bulma-scheme-s` | Saturation |
+| `--bulma-notification-background-l` | `--bulma-background-l` | Background lightness |
+| `--bulma-notification-color-l` | `--bulma-text-strong-l` | Text color lightness |
+| `--bulma-notification-radius` | `--bulma-radius` | Border radius |
+| `--bulma-notification-padding` | `1.375em 1.5em` | Padding |
+
+### Custom Styling
+
+```css
+.custom-notification {
+  --bulma-notification-padding: 2rem;
+  --bulma-notification-radius: 1rem;
+}
+```
+
+```html
+<div class="notification is-primary custom-notification">
+  <p>This notification has custom padding and border radius.</p>
+</div>
+```
+
+<Tip>
+Use light variants (`is-light`) for less intrusive notifications, and regular colored variants for important messages.
+</Tip>
+
+<Note>
+The notification element automatically includes the `block` behavior, so it has bottom margin by default.
+</Note>

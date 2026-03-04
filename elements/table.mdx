@@ -1,0 +1,460 @@
+---
+title: Table
+description: Versatile and responsive table component with various styles
+---
+
+The **table** element provides clean and customizable styling for HTML tables with multiple modifiers.
+
+## Basic Table
+
+```html
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Role</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>John Doe</td>
+      <td>john@example.com</td>
+      <td>Developer</td>
+    </tr>
+    <tr>
+      <td>Jane Smith</td>
+      <td>jane@example.com</td>
+      <td>Designer</td>
+    </tr>
+    <tr>
+      <td>Bob Johnson</td>
+      <td>bob@example.com</td>
+      <td>Manager</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+## Table Modifiers
+
+### Bordered
+
+Add borders to all cells:
+
+```html
+<table class="table is-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Position</th>
+      <th>Department</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Alice Brown</td>
+      <td>Engineer</td>
+      <td>Development</td>
+    </tr>
+    <tr>
+      <td>Charlie Davis</td>
+      <td>Analyst</td>
+      <td>Research</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+### Striped
+
+Alternate row colors:
+
+```html
+<table class="table is-striped">
+  <thead>
+    <tr>
+      <th>Product</th>
+      <th>Price</th>
+      <th>Stock</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Product A</td>
+      <td>$19.99</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <td>Product B</td>
+      <td>$29.99</td>
+      <td>30</td>
+    </tr>
+    <tr>
+      <td>Product C</td>
+      <td>$39.99</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td>Product D</td>
+      <td>$49.99</td>
+      <td>10</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+### Narrow
+
+More compact cell padding:
+
+```html
+<table class="table is-narrow">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Item One</td>
+      <td>Active</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Item Two</td>
+      <td>Pending</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+### Hoverable
+
+Highlight rows on hover:
+
+```html
+<table class="table is-hoverable">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>John Doe</td>
+      <td>john@example.com</td>
+      <td>(555) 123-4567</td>
+    </tr>
+    <tr>
+      <td>Jane Smith</td>
+      <td>jane@example.com</td>
+      <td>(555) 234-5678</td>
+    </tr>
+    <tr>
+      <td>Bob Johnson</td>
+      <td>bob@example.com</td>
+      <td>(555) 345-6789</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+### Full Width
+
+Expand table to 100% width:
+
+```html
+<table class="table is-fullwidth">
+  <thead>
+    <tr>
+      <th>Column 1</th>
+      <th>Column 2</th>
+      <th>Column 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Cell 1</td>
+      <td>Cell 2</td>
+      <td>Cell 3</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+## Combined Modifiers
+
+```html
+<table class="table is-bordered is-striped is-hoverable is-fullwidth">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Department</th>
+      <th>Salary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Alice</td>
+      <td>Engineering</td>
+      <td>$120,000</td>
+    </tr>
+    <tr>
+      <td>Bob</td>
+      <td>Marketing</td>
+      <td>$95,000</td>
+    </tr>
+    <tr>
+      <td>Charlie</td>
+      <td>Sales</td>
+      <td>$85,000</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+## Cell and Row Colors
+
+### Colored Cells
+
+```html
+<table class="table">
+  <thead>
+    <tr>
+      <th>Status</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="is-primary">Primary</td>
+      <td>Primary colored cell</td>
+    </tr>
+    <tr>
+      <td class="is-info">Info</td>
+      <td>Info colored cell</td>
+    </tr>
+    <tr>
+      <td class="is-success">Success</td>
+      <td>Success colored cell</td>
+    </tr>
+    <tr>
+      <td class="is-warning">Warning</td>
+      <td>Warning colored cell</td>
+    </tr>
+    <tr>
+      <td class="is-danger">Danger</td>
+      <td>Danger colored cell</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+### Colored Rows
+
+```html
+<table class="table">
+  <thead>
+    <tr>
+      <th>Item</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="is-selected">
+      <td>Selected Item</td>
+      <td>Active</td>
+    </tr>
+    <tr>
+      <td>Regular Item</td>
+      <td>Pending</td>
+    </tr>
+    <tr class="is-success">
+      <td>Success Item</td>
+      <td>Complete</td>
+    </tr>
+    <tr class="is-warning">
+      <td>Warning Item</td>
+      <td>Review</td>
+    </tr>
+    <tr class="is-danger">
+      <td>Error Item</td>
+      <td>Failed</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+## Cell Modifiers
+
+### Narrow Cells
+
+```html
+<table class="table">
+  <thead>
+    <tr>
+      <th class="is-narrow">ID</th>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="is-narrow">1</td>
+      <td>Item Name</td>
+      <td>This is a longer description that takes up more space</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+### Vertically Centered
+
+```html
+<table class="table">
+  <tbody>
+    <tr>
+      <td class="is-vcentered">
+        <figure class="image is-48x48">
+          <img src="avatar.jpg">
+        </figure>
+      </td>
+      <td class="is-vcentered">
+        <p>John Doe</p>
+        <p class="has-text-grey">Developer</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+```
+
+## Table with Footer
+
+```html
+<table class="table is-fullwidth">
+  <thead>
+    <tr>
+      <th>Product</th>
+      <th>Quantity</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Product A</td>
+      <td>2</td>
+      <td>$39.98</td>
+    </tr>
+    <tr>
+      <td>Product B</td>
+      <td>1</td>
+      <td>$29.99</td>
+    </tr>
+    <tr>
+      <td>Product C</td>
+      <td>3</td>
+      <td>$119.97</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <th colspan="2">Total</th>
+      <th>$189.94</th>
+    </tr>
+  </tfoot>
+</table>
+```
+
+## Responsive Table Container
+
+Make tables scrollable on smaller screens:
+
+```html
+<div class="table-container">
+  <table class="table is-fullwidth">
+    <thead>
+      <tr>
+        <th>Column 1</th>
+        <th>Column 2</th>
+        <th>Column 3</th>
+        <th>Column 4</th>
+        <th>Column 5</th>
+        <th>Column 6</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Cell 1</td>
+        <td>Cell 2</td>
+        <td>Cell 3</td>
+        <td>Cell 4</td>
+        <td>Cell 5</td>
+        <td>Cell 6</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+```
+
+## Interactive Table Example
+
+```html
+<table class="table is-hoverable is-fullwidth">
+  <thead>
+    <tr>
+      <th><input type="checkbox"></th>
+      <th>Name</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><input type="checkbox"></td>
+      <td>Item 1</td>
+      <td><span class="tag is-success">Active</span></td>
+      <td>
+        <button class="button is-small is-info">Edit</button>
+        <button class="button is-small is-danger">Delete</button>
+      </td>
+    </tr>
+    <tr>
+      <td><input type="checkbox"></td>
+      <td>Item 2</td>
+      <td><span class="tag is-warning">Pending</span></td>
+      <td>
+        <button class="button is-small is-info">Edit</button>
+        <button class="button is-small is-danger">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+```
+
+## CSS Variables
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `--bulma-table-color` | `--bulma-text-strong` | Text color |
+| `--bulma-table-background-color` | `--bulma-scheme-main` | Background color |
+| `--bulma-table-cell-border-color` | `--bulma-border` | Cell border color |
+| `--bulma-table-cell-border-width` | `0 0 1px` | Cell border width |
+| `--bulma-table-cell-padding` | `0.5em 0.75em` | Cell padding |
+| `--bulma-table-row-hover-background-color` | `--bulma-scheme-main-bis` | Hover background |
+| `--bulma-table-row-active-background-color` | `--bulma-primary` | Selected row background |
+| `--bulma-table-row-active-color` | `--bulma-primary-invert` | Selected row text |
+| `--bulma-table-striped-row-even-background-color` | `--bulma-scheme-main-bis` | Striped even rows |
+
+<Tip>
+Use the `table-container` wrapper to make wide tables responsive. The table will scroll horizontally on smaller screens.
+</Tip>
+
+<Note>
+Combine modifiers like `is-bordered`, `is-striped`, and `is-hoverable` for rich table styling.
+</Note>

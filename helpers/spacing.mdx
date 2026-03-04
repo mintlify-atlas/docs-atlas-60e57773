@@ -1,0 +1,314 @@
+---
+title: 'Spacing Helpers'
+description: 'Control margins and padding with Bulma spacing utility classes'
+---
+
+Bulma provides a complete set of spacing helpers to add margin and padding to elements without writing custom CSS.
+
+## How It Works
+
+Spacing helpers follow a consistent naming pattern:
+
+```
+{property}{direction}-{size}
+```
+
+Where:
+- **property**: `m` (margin) or `p` (padding)
+- **direction**: `t` (top), `r` (right), `b` (bottom), `l` (left), `x` (horizontal), `y` (vertical), or omit for all sides
+- **size**: `0`, `1`, `2`, `3`, `4`, `5`, `6`, or `auto`
+
+## Spacing Scale
+
+Bulma uses a 0-6 scale for spacing values, plus `auto` for margins.
+
+| Size | Value | Pixels (approx) |
+|------|-------|----------------|
+| `0` | `0` | 0px |
+| `1` | `0.25rem` | 4px |
+| `2` | `0.5rem` | 8px |
+| `3` | `0.75rem` | 12px |
+| `4` | `1rem` | 16px |
+| `5` | `1.5rem` | 24px |
+| `6` | `3rem` | 48px |
+| `auto` | `auto` | Automatic |
+
+## Margin Helpers
+
+### All Sides
+
+Apply margin to all sides of an element.
+
+<CodeGroup>
+```html Margin All Sides
+<div class="m-0">No margin</div>
+<div class="m-1">Margin 0.25rem (4px)</div>
+<div class="m-2">Margin 0.5rem (8px)</div>
+<div class="m-3">Margin 0.75rem (12px)</div>
+<div class="m-4">Margin 1rem (16px)</div>
+<div class="m-5">Margin 1.5rem (24px)</div>
+<div class="m-6">Margin 3rem (48px)</div>
+<div class="m-auto">Margin auto</div>
+```
+</CodeGroup>
+
+### Individual Sides
+
+Apply margin to specific sides.
+
+<CodeGroup>
+```html Margin Individual Sides
+<!-- Top margin -->
+<div class="mt-2">Margin top 0.5rem</div>
+<div class="mt-4">Margin top 1rem</div>
+
+<!-- Right margin -->
+<div class="mr-3">Margin right 0.75rem</div>
+
+<!-- Bottom margin -->
+<div class="mb-5">Margin bottom 1.5rem</div>
+
+<!-- Left margin -->
+<div class="ml-2">Margin left 0.5rem</div>
+```
+</CodeGroup>
+
+### Margin Classes
+
+| Class | CSS Property |
+|-------|-------------|
+| `m-{size}` | `margin: {value}` |
+| `mt-{size}` | `margin-top: {value}` |
+| `mr-{size}` | `margin-right: {value}` |
+| `mb-{size}` | `margin-bottom: {value}` |
+| `ml-{size}` | `margin-left: {value}` |
+
+### Horizontal and Vertical Margins
+
+Apply margin to horizontal (left + right) or vertical (top + bottom) sides.
+
+<CodeGroup>
+```html Horizontal and Vertical Margins
+<!-- Horizontal margin (left and right) -->
+<div class="mx-3">Margin left and right 0.75rem</div>
+<div class="mx-auto">Centered with auto margin</div>
+
+<!-- Vertical margin (top and bottom) -->
+<div class="my-4">Margin top and bottom 1rem</div>
+<div class="my-0">No vertical margin</div>
+```
+</CodeGroup>
+
+| Class | CSS Properties |
+|-------|----------------|
+| `mx-{size}` | `margin-left` and `margin-right` |
+| `my-{size}` | `margin-top` and `margin-bottom` |
+
+### Auto Margins
+
+Use `auto` margins for centering or alignment.
+
+<CodeGroup>
+```html Auto Margins
+<!-- Center element horizontally -->
+<div class="mx-auto" style="width: 200px;">
+  Centered element
+</div>
+
+<!-- Push element to the right -->
+<div class="ml-auto" style="width: 200px;">
+  Right-aligned element
+</div>
+
+<!-- Push element to the left -->
+<div class="mr-auto" style="width: 200px;">
+  Left-aligned element
+</div>
+```
+</CodeGroup>
+
+## Padding Helpers
+
+### All Sides
+
+Apply padding to all sides of an element.
+
+<CodeGroup>
+```html Padding All Sides
+<div class="p-0">No padding</div>
+<div class="p-1">Padding 0.25rem (4px)</div>
+<div class="p-2">Padding 0.5rem (8px)</div>
+<div class="p-3">Padding 0.75rem (12px)</div>
+<div class="p-4">Padding 1rem (16px)</div>
+<div class="p-5">Padding 1.5rem (24px)</div>
+<div class="p-6">Padding 3rem (48px)</div>
+```
+</CodeGroup>
+
+### Individual Sides
+
+Apply padding to specific sides.
+
+<CodeGroup>
+```html Padding Individual Sides
+<!-- Top padding -->
+<div class="pt-3">Padding top 0.75rem</div>
+
+<!-- Right padding -->
+<div class="pr-4">Padding right 1rem</div>
+
+<!-- Bottom padding -->
+<div class="pb-2">Padding bottom 0.5rem</div>
+
+<!-- Left padding -->
+<div class="pl-5">Padding left 1.5rem</div>
+```
+</CodeGroup>
+
+### Padding Classes
+
+| Class | CSS Property |
+|-------|-------------|
+| `p-{size}` | `padding: {value}` |
+| `pt-{size}` | `padding-top: {value}` |
+| `pr-{size}` | `padding-right: {value}` |
+| `pb-{size}` | `padding-bottom: {value}` |
+| `pl-{size}` | `padding-left: {value}` |
+
+### Horizontal and Vertical Padding
+
+Apply padding to horizontal or vertical sides.
+
+<CodeGroup>
+```html Horizontal and Vertical Padding
+<!-- Horizontal padding (left and right) -->
+<div class="px-4">Padding left and right 1rem</div>
+
+<!-- Vertical padding (top and bottom) -->
+<div class="py-3">Padding top and bottom 0.75rem</div>
+```
+</CodeGroup>
+
+| Class | CSS Properties |
+|-------|----------------|
+| `px-{size}` | `padding-left` and `padding-right` |
+| `py-{size}` | `padding-top` and `padding-bottom` |
+
+## Removing Spacing
+
+Bulma provides special classes to remove all margin or padding.
+
+<CodeGroup>
+```html Remove Spacing
+<div class="marginless">No margin on any side</div>
+<div class="paddingless">No padding on any side</div>
+```
+</CodeGroup>
+
+| Class | Effect |
+|-------|--------|
+| `marginless` | Removes all margins |
+| `paddingless` | Removes all padding |
+
+## Practical Examples
+
+### Card with Spacing
+
+<CodeGroup>
+```html Card with Spacing
+<div class="box">
+  <div class="mb-4">
+    <h3 class="is-size-4 mb-2">Card Title</h3>
+    <p class="mb-3">Card description with bottom margin.</p>
+  </div>
+  <div class="mt-4 pt-4" style="border-top: 1px solid #ddd;">
+    <button class="button mr-2">Action 1</button>
+    <button class="button">Action 2</button>
+  </div>
+</div>
+```
+</CodeGroup>
+
+### Responsive Container
+
+<CodeGroup>
+```html Responsive Container
+<div class="container px-4 py-6">
+  <h1 class="mb-5">Main Heading</h1>
+  <div class="mb-4">
+    <p>First paragraph with bottom margin.</p>
+  </div>
+  <div class="mb-4">
+    <p>Second paragraph with bottom margin.</p>
+  </div>
+</div>
+```
+</CodeGroup>
+
+### Navigation with Spacing
+
+<CodeGroup>
+```html Navigation
+<nav class="px-5 py-3">
+  <a class="mr-4">Home</a>
+  <a class="mr-4">About</a>
+  <a class="mr-4">Services</a>
+  <a>Contact</a>
+</nav>
+```
+</CodeGroup>
+
+### Grid with Gaps
+
+<CodeGroup>
+```html Grid with Spacing
+<div class="columns">
+  <div class="column is-4">
+    <div class="box p-5 m-2">
+      <h4 class="mb-3">Item 1</h4>
+      <p>Content</p>
+    </div>
+  </div>
+  <div class="column is-4">
+    <div class="box p-5 m-2">
+      <h4 class="mb-3">Item 2</h4>
+      <p>Content</p>
+    </div>
+  </div>
+  <div class="column is-4">
+    <div class="box p-5 m-2">
+      <h4 class="mb-3">Item 3</h4>
+      <p>Content</p>
+    </div>
+  </div>
+</div>
+```
+</CodeGroup>
+
+## Combining Spacing Helpers
+
+You can combine multiple spacing helpers for precise control.
+
+<CodeGroup>
+```html Combined Spacing
+<div class="mt-6 mb-4 px-5 py-3">
+  Large top margin, medium bottom margin, large horizontal padding, medium vertical padding
+</div>
+
+<div class="m-0 p-4">
+  No margin, medium padding on all sides
+</div>
+
+<button class="button mx-auto mt-5 px-6">
+  Centered button with custom padding
+</button>
+```
+</CodeGroup>
+
+<Note>
+Spacing helpers use `!important` to override other styles. They work on any element and are particularly useful for quick layout adjustments.
+</Note>
+
+<Tip>
+For consistent vertical rhythm in your layouts, use the same spacing values (like `mb-4` or `my-5`) throughout your content sections.
+</Tip>

@@ -1,0 +1,199 @@
+---
+title: Breadcrumb
+description: A simple navigation component that shows the current page location within a website hierarchy
+---
+
+The **breadcrumb** component is a navigation aid that helps users understand their current location within a website's hierarchy and provides links to previous pages.
+
+## Basic Usage
+
+The breadcrumb component requires a simple structure with `breadcrumb` as the container and an unordered list:
+
+```html
+<nav class="breadcrumb" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Documentation</a></li>
+    <li><a href="#">Components</a></li>
+    <li class="is-active"><a href="#" aria-current="page">Breadcrumb</a></li>
+  </ul>
+</nav>
+```
+
+<Note>
+  The active/current page should use the `is-active` class and include the `aria-current="page"` attribute for accessibility.
+</Note>
+
+## Structure
+
+The breadcrumb component uses this HTML structure:
+
+- `breadcrumb` - The main container
+  - `ul` or `ol` - List container
+    - `li` - List items containing links
+      - `a` - Navigation links
+
+## Alignment
+
+You can change the alignment of the breadcrumb using modifier classes:
+
+### Centered
+
+```html
+<nav class="breadcrumb is-centered">
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Documentation</a></li>
+    <li class="is-active"><a href="#">Breadcrumb</a></li>
+  </ul>
+</nav>
+```
+
+### Right Aligned
+
+```html
+<nav class="breadcrumb is-right">
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Documentation</a></li>
+    <li class="is-active"><a href="#">Breadcrumb</a></li>
+  </ul>
+</nav>
+```
+
+## Separator Styles
+
+The breadcrumb supports different separator styles between items:
+
+### Arrow Separator
+
+```html
+<nav class="breadcrumb has-arrow-separator">
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Documentation</a></li>
+    <li class="is-active"><a href="#">Breadcrumb</a></li>
+  </ul>
+</nav>
+```
+
+### Bullet Separator
+
+```html
+<nav class="breadcrumb has-bullet-separator">
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Documentation</a></li>
+    <li class="is-active"><a href="#">Breadcrumb</a></li>
+  </ul>
+</nav>
+```
+
+### Dot Separator
+
+```html
+<nav class="breadcrumb has-dot-separator">
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Documentation</a></li>
+    <li class="is-active"><a href="#">Breadcrumb</a></li>
+  </ul>
+</nav>
+```
+
+### Succeeds Separator
+
+```html
+<nav class="breadcrumb has-succeeds-separator">
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Documentation</a></li>
+    <li class="is-active"><a href="#">Breadcrumb</a></li>
+  </ul>
+</nav>
+```
+
+## Sizes
+
+The breadcrumb component supports three size modifiers:
+
+```html
+<!-- Small -->
+<nav class="breadcrumb is-small">
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li class="is-active"><a href="#">Small</a></li>
+  </ul>
+</nav>
+
+<!-- Medium -->
+<nav class="breadcrumb is-medium">
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li class="is-active"><a href="#">Medium</a></li>
+  </ul>
+</nav>
+
+<!-- Large -->
+<nav class="breadcrumb is-large">
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li class="is-active"><a href="#">Large</a></li>
+  </ul>
+</nav>
+```
+
+## With Icons
+
+You can add icons to breadcrumb items:
+
+```html
+<nav class="breadcrumb">
+  <ul>
+    <li>
+      <a href="#">
+        <span class="icon is-small">
+          <i class="fas fa-home"></i>
+        </span>
+        <span>Home</span>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <span class="icon is-small">
+          <i class="fas fa-book"></i>
+        </span>
+        <span>Documentation</span>
+      </a>
+    </li>
+    <li class="is-active">
+      <a href="#">
+        <span class="icon is-small">
+          <i class="fas fa-puzzle-piece"></i>
+        </span>
+        <span>Breadcrumb</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+```
+
+## Modifiers
+
+| Class | Description |
+|-------|-------------|
+| `is-centered` | Centers the breadcrumb |
+| `is-right` | Aligns breadcrumb to the right |
+| `is-small` | Smaller text size |
+| `is-medium` | Medium text size |
+| `is-large` | Larger text size |
+| `has-arrow-separator` | Uses → as separator |
+| `has-bullet-separator` | Uses • as separator |
+| `has-dot-separator` | Uses · as separator |
+| `has-succeeds-separator` | Uses ≻ as separator |
+
+## Accessibility
+
+- Use the `<nav>` element with `aria-label="breadcrumbs"` for proper navigation landmark
+- Add `aria-current="page"` to the current/active page link
+- The `is-active` class visually styles the current page and disables pointer events

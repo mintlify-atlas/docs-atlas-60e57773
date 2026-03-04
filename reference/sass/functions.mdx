@@ -1,0 +1,403 @@
+---
+title: Sass Functions
+description: Complete reference of all Sass functions in Bulma for color manipulation, calculations, and utilities
+---
+
+Bulma provides a comprehensive set of Sass functions for color manipulation, luminance calculations, and utility operations. All functions are defined in `sass/utilities/functions.scss`.
+
+## Color Functions
+
+### `bulmaFindColorInvert($color)`
+
+Automatically determines the best contrasting color (black or white) for a given background color.
+
+**Parameters:**
+- `$color` - The background color
+
+**Returns:** `rgba(#000, 0.7)` for light backgrounds, `#fff` for dark backgrounds
+
+```scss
+@use "bulma/sass/utilities/functions" as fn;
+
+$primary: hsl(171, 100%, 41%);
+$primary-invert: fn.bulmaFindColorInvert($primary);
+// Returns: #fff
+
+$light: hsl(0, 0%, 96%);
+$light-invert: fn.bulmaFindColorInvert($light);
+// Returns: rgba(#000, 0.7)
+```
+
+<Tip>
+This function uses the `bulmaColorLuminance()` function internally to determine if a color is light or dark based on its luminance value.
+</Tip>
+
+### `bulmaFindLightColor($color, $l: 96%)`
+
+Creates a light variant of a color by adjusting its lightness.
+
+**Parameters:**
+- `$color` - The base color
+- `$l` - Target lightness (default: 96%)
+
+**Returns:** A lighter version of the input color
+
+```scss
+$primary: hsl(171, 100%, 41%);
+$primary-light: fn.bulmaFindLightColor($primary);
+// Returns: hsl(171, 100%, 96%)
+
+$custom: hsl(220, 90%, 50%);
+$custom-light: fn.bulmaFindLightColor($custom, 90%);
+// Returns: hsl(220, 90%, 90%)
+```
+
+### `bulmaFindDarkColor($color, $base-l: 29%)`
+
+Creates a dark variant of a color with proper contrast.
+
+**Parameters:**
+- `$color` - The base color
+- `$base-l` - Base lightness (default: 29%)
+
+**Returns:** A darker version of the input color
+
+```scss
+$primary: hsl(171, 100%, 41%);
+$primary-dark: fn.bulmaFindDarkColor($primary);
+// Returns: A calculated dark variant
+
+$warning: hsl(42, 100%, 53%);
+$warning-dark: fn.bulmaFindDarkColor($warning);
+// Returns: A darker, higher contrast version
+```
+
+This function uses luminance calculations to ensure the dark variant has sufficient contrast.
+
+### `bulmaColorLuminance($color)`
+
+Calculates the relative luminance of a color using the WCAG formula.
+
+**Parameters:**
+- `$color` - The color to analyze
+
+**Returns:** Luminance value between 0 (darkest) and 1 (lightest)
+
+```scss
+$black: hsl(0, 0%, 0%);
+$luminance-black: fn.bulmaColorLuminance($black);
+// Returns: ~0.0
+
+$white: hsl(0, 0%, 100%);
+$luminance-white: fn.bulmaColorLuminance($white);
+// Returns: 1.0
+
+$blue: hsl(233, 100%, 63%);
+$luminance-blue: fn.bulmaColorLuminance($blue);
+// Returns: ~0.35
+```
+
+### `bulmaRgba($color, $alpha)`
+
+Safely converts a color to RGBA format.
+
+**Parameters:**
+- `$color` - The color value
+- `$alpha` - Alpha/opacity value (0-1)
+
+**Returns:** RGBA color or original value if not a color
+
+```scss
+$primary: hsl(171, 100%, 41%);
+$primary-transparent: fn.bulmaRgba($primary, 0.5);
+// Returns: rgba(0, 209, 178, 0.5)
+
+$overlay: fn.bulmaRgba(#000, 0.7);
+// Returns: rgba(0, 0, 0, 0.7)
+```
+
+### `bulmaDarken($color, $amount)`
+
+Darkens a color by decreasing its lightness.
+
+**Parameters:**
+- `$color` - The color to darken
+- `$amount` - Percentage to decrease lightness
+
+**Returns:** Darkened color
+
+```scss
+$primary: hsl(171, 100%, 41%);
+$primary-dark: fn.bulmaDarken($primary, 10%);
+// Decreases lightness by 10%
+
+$button-hover: fn.bulmaDarken($primary, 5%);
+// Subtle darkening for hover states
+```
+
+### `bulmaLighten($color, $amount)`
+
+Lightens a color by increasing its lightness.
+
+**Parameters:**
+- `$color` - The color to lighten
+- `$amount` - Percentage to increase lightness
+
+**Returns:** Lightened color
+
+```scss
+$primary: hsl(171, 100%, 41%);
+$primary-light: fn.bulmaLighten($primary, 10%);
+// Increases lightness by 10%
+
+$border: fn.bulmaLighten($grey, 20%);
+// Creates a lighter border color
+```
+
+### `bulmaColorBrightness($color)`
+
+Calculates color brightness using the YIQ formula.
+
+**Parameters:**
+- `$color` - The color to analyze
+
+**Returns:** `"dark"` or `"bright"`
+
+```scss
+$primary: hsl(233, 100%, 63%);
+$brightness: fn.bulmaColorBrightness($primary);
+// Returns: "dark"
+
+$yellow: hsl(42, 100%, 53%);
+$brightness-yellow: fn.bulmaColorBrightness($yellow);
+// Returns: "bright"
+```
+
+### `bulmaEnoughContrast($foreground, $background)`
+
+Checks if two colors have sufficient contrast.
+
+**Parameters:**
+- `$foreground` - Foreground color
+- `$background` - Background color
+
+**Returns:** `true` if contrast is sufficient, `false` otherwise
+
+```scss
+$has-contrast: fn.bulmaEnoughContrast(#333, #fff);
+// Returns: true
+
+$poor-contrast: fn.bulmaEnoughContrast(#ccc, #fff);
+// Returns: false
+```
+
+This is useful for ensuring accessibility in custom themes.
+
+## Color Map Functions
+
+### `mergeColorMaps($bulma-colors, $custom-colors)`
+
+Merges custom color maps with Bulma's default colors.
+
+**Parameters:**
+- `$bulma-colors` - Bulma's default color map
+- `$custom-colors` - Your custom color map
+
+**Returns:** Merged color map
+
+```scss
+$custom-colors: (
+  "orange": ($orange, $white),
+  "purple": ($purple, $white),
+  "brand": (
+    hsl(180, 50%, 50%),
+    $white,
+    hsl(180, 50%, 90%),
+    hsl(180, 50%, 30%)
+  )
+);
+
+$colors: fn.mergeColorMaps($bulma-default-colors, $custom-colors);
+```
+
+The color map format:
+- Single color: Automatically generates invert, light, and dark variants
+- Tuple of 2: `(base, invert)`
+- Tuple of 3: `(base, invert, light)` - dark is auto-generated
+- Tuple of 4: `(base, invert, light, dark)` - full control
+
+<Note>
+This function powers Bulma's color system and enables automatic generation of color modifiers like `.is-primary`, `.has-background-primary-light`, etc.
+</Note>
+
+## Utility Functions
+
+### `powerNumber($number, $exp)`
+
+Raises a number to a power (exponentiation).
+
+**Parameters:**
+- `$number` - Base number
+- `$exp` - Exponent
+
+**Returns:** Result of $number^$exp
+
+```scss
+$result: fn.powerNumber(2, 3);
+// Returns: 8
+
+$result: fn.powerNumber(10, -2);
+// Returns: 0.01
+```
+
+Used internally for luminance calculations.
+
+### `bulmaStringToNumber($value)`
+
+Converts a string to a number.
+
+**Parameters:**
+- `$value` - String or number value
+
+**Returns:** Numeric value
+
+```scss
+$num: fn.bulmaStringToNumber("42");
+// Returns: 42
+
+$decimal: fn.bulmaStringToNumber("3.14");
+// Returns: 3.14
+
+$negative: fn.bulmaStringToNumber("-10");
+// Returns: -10
+```
+
+## Practical Examples
+
+### Creating a Custom Color Palette
+
+```scss
+@use "bulma/sass/utilities/functions" as fn;
+
+// Define base color
+$brand: hsl(280, 80%, 55%);
+
+// Generate variants automatically
+$brand-invert: fn.bulmaFindColorInvert($brand);
+$brand-light: fn.bulmaFindLightColor($brand);
+$brand-dark: fn.bulmaFindDarkColor($brand);
+
+// Use in color map
+$custom-colors: (
+  "brand": ($brand, $brand-invert, $brand-light, $brand-dark)
+);
+```
+
+### Ensuring Accessible Color Combinations
+
+```scss
+@use "bulma/sass/utilities/functions" as fn;
+
+$bg-color: hsl(210, 30%, 95%);
+$text-color: hsl(210, 30%, 20%);
+
+@if not fn.bulmaEnoughContrast($text-color, $bg-color) {
+  // Use a darker text color
+  $text-color: fn.bulmaDarken($text-color, 20%);
+}
+```
+
+### Creating Hover States
+
+```scss
+@use "bulma/sass/utilities/functions" as fn;
+
+.button {
+  $button-color: hsl(171, 100%, 41%);
+  background-color: $button-color;
+  
+  &:hover {
+    background-color: fn.bulmaDarken($button-color, 5%);
+  }
+  
+  &:active {
+    background-color: fn.bulmaDarken($button-color, 10%);
+  }
+  
+  &:disabled {
+    background-color: fn.bulmaRgba($button-color, 0.5);
+  }
+}
+```
+
+### Dynamic Light/Dark Variants
+
+```scss
+@use "bulma/sass/utilities/functions" as fn;
+
+$colors: (
+  "primary": hsl(171, 100%, 41%),
+  "secondary": hsl(233, 100%, 63%),
+  "accent": hsl(348, 100%, 70%)
+);
+
+@each $name, $color in $colors {
+  .has-background-#{$name} {
+    background-color: $color;
+  }
+  
+  .has-background-#{$name}-light {
+    background-color: fn.bulmaFindLightColor($color);
+  }
+  
+  .has-background-#{$name}-dark {
+    background-color: fn.bulmaFindDarkColor($color);
+  }
+  
+  .has-text-#{$name} {
+    color: $color;
+  }
+}
+```
+
+### Checking Color Luminance
+
+```scss
+@use "bulma/sass/utilities/functions" as fn;
+
+$color: hsl(220, 90%, 50%);
+$luminance: fn.bulmaColorLuminance($color);
+
+.element {
+  background-color: $color;
+  
+  @if $luminance > 0.5 {
+    // Light background - use dark text
+    color: hsl(0, 0%, 20%);
+  } @else {
+    // Dark background - use light text
+    color: hsl(0, 0%, 96%);
+  }
+}
+```
+
+## Function Reference Summary
+
+| Function | Purpose | Returns |
+|----------|---------|----------|
+| `mergeColorMaps()` | Merge custom colors with defaults | Color map |
+| `powerNumber()` | Mathematical exponentiation | Number |
+| `bulmaColorLuminance()` | Calculate color luminance | Number (0-1) |
+| `bulmaFindColorInvert()` | Find contrasting text color | Color |
+| `bulmaFindLightColor()` | Generate light variant | Color |
+| `bulmaFindDarkColor()` | Generate dark variant | Color |
+| `bulmaRgba()` | Convert to RGBA | Color |
+| `bulmaDarken()` | Darken a color | Color |
+| `bulmaLighten()` | Lighten a color | Color |
+| `bulmaColorBrightness()` | Check if color is bright/dark | String |
+| `bulmaEnoughContrast()` | Verify color contrast | Boolean |
+| `bulmaStringToNumber()` | Parse numeric strings | Number |
+
+<Tip>
+All color functions handle non-color values gracefully, returning safe defaults or the original value when appropriate.
+</Tip>

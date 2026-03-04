@@ -1,0 +1,420 @@
+---
+title: 'Other Helpers'
+description: 'Additional Bulma utility classes for visibility, display, overflow, floats, and more'
+---
+
+Bulma provides a variety of additional helper classes for common layout and styling needs.
+
+## Display Helpers
+
+Control the display property of elements.
+
+<CodeGroup>
+```html Display Helpers
+<!-- Display types -->
+<div class="is-block">Block element</div>
+<span class="is-inline">Inline element</span>
+<span class="is-inline-block">Inline-block element</span>
+<div class="is-flex">Flex container</div>
+<div class="is-inline-flex">Inline flex container</div>
+<div class="is-grid">Grid container</div>
+```
+</CodeGroup>
+
+### Display Classes
+
+| Class | CSS Value | Description |
+|-------|-----------|-------------|
+| `is-block` | `display: block` | Block-level element |
+| `is-inline` | `display: inline` | Inline element |
+| `is-inline-block` | `display: inline-block` | Inline block element |
+| `is-flex` | `display: flex` | Flex container |
+| `is-inline-flex` | `display: inline-flex` | Inline flex container |
+| `is-grid` | `display: grid` | Grid container |
+
+<Note>
+Alternative syntax: You can also use `is-display-block`, `is-display-flex`, etc.
+</Note>
+
+### Responsive Display
+
+Change display type based on viewport size.
+
+<CodeGroup>
+```html Responsive Display
+<!-- Block on mobile, flex on tablet+ -->
+<div class="is-block-mobile is-flex-tablet">
+  Responsive display
+</div>
+
+<!-- Inline on touch, block on desktop -->
+<span class="is-inline-touch is-block-desktop">
+  Changes display type
+</span>
+```
+</CodeGroup>
+
+#### Available Responsive Modifiers
+
+Add these suffixes to any display class:
+- `-mobile` - Up to 768px
+- `-tablet` - 769px and above
+- `-tablet-only` - 769px to 1023px
+- `-touch` - Up to 1023px
+- `-desktop` - 1024px and above
+- `-desktop-only` - 1024px to 1215px
+- `-widescreen` - 1216px and above
+- `-widescreen-only` - 1216px to 1407px
+- `-fullhd` - 1408px and above
+
+## Visibility Helpers
+
+### Hide Elements
+
+Hide elements completely or just visually.
+
+<CodeGroup>
+```html Hide Elements
+<!-- Completely hidden (not in layout) -->
+<div class="is-hidden">This is hidden</div>
+<div class="is-display-none">Also hidden</div>
+
+<!-- Invisible but takes up space -->
+<div class="is-invisible">Invisible but present</div>
+<div class="is-visibility-hidden">Also invisible</div>
+
+<!-- Screen reader only -->
+<span class="is-sr-only">Only visible to screen readers</span>
+```
+</CodeGroup>
+
+### Visibility Classes
+
+| Class | Effect | Use Case |
+|-------|--------|----------|
+| `is-hidden` | `display: none` | Completely remove from layout |
+| `is-invisible` | `visibility: hidden` | Hide but keep space |
+| `is-sr-only` | Screen reader only | Accessibility |
+
+### Responsive Visibility
+
+Show or hide elements at specific breakpoints.
+
+<CodeGroup>
+```html Responsive Visibility
+<!-- Hidden on mobile only -->
+<div class="is-hidden-mobile">
+  Not visible on mobile
+</div>
+
+<!-- Visible only on tablet -->
+<div class="is-hidden-mobile is-hidden-desktop">
+  Only visible on tablet
+</div>
+
+<!-- Hidden on touch devices -->
+<div class="is-hidden-touch">
+  Only visible on desktop+
+</div>
+```
+</CodeGroup>
+
+#### Hidden Classes by Breakpoint
+
+| Class | Hidden On |
+|-------|----------|
+| `is-hidden-mobile` | Mobile (up to 768px) |
+| `is-hidden-tablet` | Tablet and above (769px+) |
+| `is-hidden-tablet-only` | Tablet only (769-1023px) |
+| `is-hidden-touch` | Touch devices (up to 1023px) |
+| `is-hidden-desktop` | Desktop and above (1024px+) |
+| `is-hidden-desktop-only` | Desktop only (1024-1215px) |
+| `is-hidden-widescreen` | Widescreen and above (1216px+) |
+| `is-hidden-widescreen-only` | Widescreen only (1216-1407px) |
+| `is-hidden-fullhd` | Full HD (1408px+) |
+
+#### Invisible Classes by Breakpoint
+
+| Class | Invisible On |
+|-------|-------------|
+| `is-invisible-mobile` | Mobile |
+| `is-invisible-tablet` | Tablet and above |
+| `is-invisible-tablet-only` | Tablet only |
+| `is-invisible-touch` | Touch devices |
+| `is-invisible-desktop` | Desktop and above |
+| `is-invisible-desktop-only` | Desktop only |
+| `is-invisible-widescreen` | Widescreen and above |
+| `is-invisible-widescreen-only` | Widescreen only |
+| `is-invisible-fullhd` | Full HD |
+
+## Float Helpers
+
+Float elements left or right, or clear floats.
+
+<CodeGroup>
+```html Float Helpers
+<!-- Float left -->
+<div class="is-pulled-left">Floated left</div>
+<div class="is-float-left">Also floated left</div>
+
+<!-- Float right -->
+<div class="is-pulled-right">Floated right</div>
+<div class="is-float-right">Also floated right</div>
+
+<!-- No float -->
+<div class="is-float-none">Not floated</div>
+
+<!-- Clearfix -->
+<div class="is-clearfix">
+  <div class="is-pulled-left">Floated content</div>
+  <!-- Parent will contain floated children -->
+</div>
+```
+</CodeGroup>
+
+### Float Classes
+
+| Class | CSS Value | Description |
+|-------|-----------|-------------|
+| `is-pulled-left` | `float: left` | Float left |
+| `is-float-left` | `float: left` | Float left (alternative) |
+| `is-pulled-right` | `float: right` | Float right |
+| `is-float-right` | `float: right` | Float right (alternative) |
+| `is-float-none` | `float: none` | No float |
+| `is-clearfix` | Clearfix hack | Contains floated children |
+
+### Clear Helpers
+
+<CodeGroup>
+```html Clear Helpers
+<div class="is-clear-both">Clear both sides</div>
+<div class="is-clear-left">Clear left</div>
+<div class="is-clear-right">Clear right</div>
+<div class="is-clear-none">No clear</div>
+```
+</CodeGroup>
+
+| Class | CSS Value |
+|-------|----------|
+| `is-clear-both` | `clear: both` |
+| `is-clear-left` | `clear: left` |
+| `is-clear-right` | `clear: right` |
+| `is-clear-none` | `clear: none` |
+
+## Overflow Helpers
+
+Control how content overflows its container.
+
+<CodeGroup>
+```html Overflow Helpers
+<!-- Clipped overflow -->
+<div class="is-clipped" style="height: 100px;">
+  Content that overflows will be hidden
+</div>
+
+<!-- Auto overflow -->
+<div class="is-overflow-auto" style="height: 100px;">
+  Scrollable when content overflows
+</div>
+
+<!-- Hidden overflow -->
+<div class="is-overflow-hidden" style="height: 100px;">
+  Overflow is hidden
+</div>
+
+<!-- Visible overflow -->
+<div class="is-overflow-visible">
+  Overflow is visible
+</div>
+
+<!-- Scroll overflow -->
+<div class="is-overflow-scroll" style="height: 100px;">
+  Always shows scrollbars
+</div>
+
+<!-- Clip overflow -->
+<div class="is-overflow-clip" style="height: 100px;">
+  Content is clipped
+</div>
+```
+</CodeGroup>
+
+### Overflow Classes
+
+| Class | CSS Value | Description |
+|-------|-----------|-------------|
+| `is-clipped` | `overflow: hidden` | Hide overflow |
+| `is-overflow-auto` | `overflow: auto` | Scroll when needed |
+| `is-overflow-hidden` | `overflow: hidden` | Hide overflow |
+| `is-overflow-visible` | `overflow: visible` | Show overflow |
+| `is-overflow-scroll` | `overflow: scroll` | Always show scrollbars |
+| `is-overflow-clip` | `overflow: clip` | Clip overflow |
+
+### Directional Overflow
+
+Control overflow on specific axes.
+
+<CodeGroup>
+```html Directional Overflow
+<!-- Horizontal overflow -->
+<div class="is-overflow-x-auto" style="width: 200px;">
+  <div style="width: 500px;">Wide content</div>
+</div>
+
+<!-- Vertical overflow -->
+<div class="is-overflow-y-scroll" style="height: 100px;">
+  <div style="height: 300px;">Tall content</div>
+</div>
+```
+</CodeGroup>
+
+| Class Pattern | CSS Property |
+|--------------|-------------|
+| `is-overflow-x-{value}` | `overflow-x: {value}` |
+| `is-overflow-y-{value}` | `overflow-y: {value}` |
+
+Where `{value}` can be: `auto`, `hidden`, `visible`, `scroll`, or `clip`
+
+## Other Utility Helpers
+
+### Border Radius
+
+<CodeGroup>
+```html Border Radius
+<div class="box is-radiusless">
+  No border radius
+</div>
+```
+</CodeGroup>
+
+| Class | Effect |
+|-------|--------|
+| `is-radiusless` | Removes border radius |
+
+### Box Shadow
+
+<CodeGroup>
+```html Box Shadow
+<div class="box is-shadowless">
+  No box shadow
+</div>
+```
+</CodeGroup>
+
+| Class | Effect |
+|-------|--------|
+| `is-shadowless` | Removes box shadow |
+
+### User Interaction
+
+<CodeGroup>
+```html User Interaction
+<div class="is-clickable">
+  Shows pointer cursor
+</div>
+
+<div class="is-unselectable">
+  Text cannot be selected
+</div>
+```
+</CodeGroup>
+
+| Class | Effect |
+|-------|--------|
+| `is-clickable` | Pointer cursor, clickable |
+| `is-unselectable` | Prevents text selection |
+
+## Practical Examples
+
+### Responsive Navigation
+
+<CodeGroup>
+```html Responsive Navigation
+<nav class="navbar">
+  <div class="navbar-brand">
+    <span>Logo</span>
+  </div>
+  
+  <!-- Hidden on mobile, visible on desktop -->
+  <div class="navbar-menu is-hidden-mobile">
+    <a class="navbar-item">Home</a>
+    <a class="navbar-item">About</a>
+    <a class="navbar-item">Contact</a>
+  </div>
+  
+  <!-- Visible on mobile only -->
+  <button class="button is-hidden-tablet">
+    Menu
+  </button>
+</nav>
+```
+</CodeGroup>
+
+### Image Gallery with Overflow
+
+<CodeGroup>
+```html Image Gallery
+<div class="is-overflow-x-auto is-overflow-y-hidden">
+  <div class="is-flex">
+    <img src="1.jpg" class="mr-2">
+    <img src="2.jpg" class="mr-2">
+    <img src="3.jpg" class="mr-2">
+    <img src="4.jpg" class="mr-2">
+  </div>
+</div>
+```
+</CodeGroup>
+
+### Accessible Skip Link
+
+<CodeGroup>
+```html Skip Link
+<a href="#main-content" class="is-sr-only">
+  Skip to main content
+</a>
+
+<main id="main-content">
+  <!-- Content -->
+</main>
+```
+</CodeGroup>
+
+### Responsive Card
+
+<CodeGroup>
+```html Responsive Card
+<div class="box">
+  <div class="is-flex-tablet is-block-mobile">
+    <img src="thumbnail.jpg" 
+         class="is-pulled-left-tablet mr-4-tablet mb-3-mobile">
+    <div>
+      <h4>Card Title</h4>
+      <p>Card content that flows around the image on tablet+</p>
+    </div>
+  </div>
+  <div class="is-clearfix"></div>
+</div>
+```
+</CodeGroup>
+
+### Modal Overlay
+
+<CodeGroup>
+```html Modal Overlay
+<div class="modal is-active">
+  <div class="modal-background is-clickable"></div>
+  <div class="modal-content is-overflow-y-auto" style="max-height: 90vh;">
+    <!-- Scrollable modal content -->
+  </div>
+  <button class="modal-close is-clickable"></button>
+</div>
+```
+</CodeGroup>
+
+<Tip>
+Combine visibility helpers with display and flexbox helpers for powerful responsive layouts. For example: `is-flex is-hidden-mobile is-justify-content-center`
+</Tip>
+
+<Warning>
+Be cautious when using `is-sr-only`. It should only be used for content that provides additional context for screen readers but isn't needed visually.
+</Warning>

@@ -1,0 +1,275 @@
+---
+title: Button
+description: The classic button element with multiple colors, sizes, and states
+---
+
+The **button** is an essential element for any type of action or interaction. Bulma provides extensive styling options for buttons.
+
+## Basic Button
+
+```html
+<button class="button">Button</button>
+<a class="button">Anchor</a>
+<input class="button" type="submit" value="Submit">
+<input class="button" type="reset" value="Reset">
+```
+
+## Colors
+
+Buttons support all Bulma color variants:
+
+```html
+<button class="button is-primary">Primary</button>
+<button class="button is-link">Link</button>
+<button class="button is-info">Info</button>
+<button class="button is-success">Success</button>
+<button class="button is-warning">Warning</button>
+<button class="button is-danger">Danger</button>
+```
+
+### Light and Dark Colors
+
+```html
+<button class="button is-primary is-light">Light Primary</button>
+<button class="button is-link is-light">Light Link</button>
+<button class="button is-info is-dark">Dark Info</button>
+<button class="button is-success is-dark">Dark Success</button>
+```
+
+### Soft and Bold Colors
+
+```html
+<button class="button is-primary is-soft">Soft Primary</button>
+<button class="button is-link is-soft">Soft Link</button>
+<button class="button is-info is-bold">Bold Info</button>
+<button class="button is-success is-bold">Bold Success</button>
+```
+
+## Sizes
+
+```html
+<button class="button is-small">Small</button>
+<button class="button is-normal">Normal</button>
+<button class="button is-medium">Medium</button>
+<button class="button is-large">Large</button>
+```
+
+### Responsive Sizes
+
+Buttons that adapt to screen size:
+
+```html
+<button class="button is-responsive is-small">Responsive Small</button>
+<button class="button is-responsive">Responsive Normal</button>
+<button class="button is-responsive is-medium">Responsive Medium</button>
+<button class="button is-responsive is-large">Responsive Large</button>
+```
+
+## Styles
+
+### Outlined
+
+```html
+<button class="button is-primary is-outlined">Outlined</button>
+<button class="button is-link is-outlined">Outlined</button>
+<button class="button is-info is-outlined">Outlined</button>
+<button class="button is-success is-outlined">Outlined</button>
+```
+
+### Inverted
+
+```html
+<button class="button is-primary is-inverted">Inverted</button>
+<button class="button is-link is-inverted">Inverted</button>
+<button class="button is-info is-inverted">Inverted</button>
+<button class="button is-success is-inverted">Inverted</button>
+```
+
+### Text
+
+```html
+<button class="button is-text">Text</button>
+<button class="button is-text is-primary">Primary Text</button>
+```
+
+### Ghost
+
+```html
+<button class="button is-ghost">Ghost</button>
+<button class="button is-ghost">Ghost with icon</button>
+```
+
+## States
+
+### Normal States
+
+```html
+<button class="button is-primary">Normal</button>
+<button class="button is-primary is-hovered">Hover</button>
+<button class="button is-primary is-focused">Focus</button>
+<button class="button is-primary is-active">Active</button>
+```
+
+### Loading State
+
+```html
+<button class="button is-loading">Loading</button>
+<button class="button is-primary is-loading">Loading</button>
+<button class="button is-large is-loading">Loading</button>
+```
+
+### Disabled State
+
+```html
+<button class="button" disabled>Disabled</button>
+<button class="button is-primary" disabled>Disabled</button>
+<button class="button is-info is-outlined" disabled>Disabled</button>
+```
+
+### Static State
+
+Non-interactive button (for display only):
+
+```html
+<button class="button is-static">Static Button</button>
+```
+
+## Modifiers
+
+### Rounded
+
+```html
+<button class="button is-rounded">Rounded</button>
+<button class="button is-primary is-rounded">Rounded Primary</button>
+<button class="button is-success is-rounded">Rounded Success</button>
+```
+
+### Full Width
+
+```html
+<button class="button is-primary is-fullwidth">Full Width</button>
+```
+
+## Buttons with Icons
+
+```html
+<button class="button">
+  <span class="icon">
+    <i class="fas fa-home"></i>
+  </span>
+  <span>Home</span>
+</button>
+
+<button class="button is-primary">
+  <span class="icon">
+    <i class="fas fa-check"></i>
+  </span>
+  <span>Save</span>
+</button>
+
+<button class="button is-danger">
+  <span>Delete</span>
+  <span class="icon">
+    <i class="fas fa-times"></i>
+  </span>
+</button>
+```
+
+### Icon Only
+
+```html
+<button class="button">
+  <span class="icon">
+    <i class="fas fa-heart"></i>
+  </span>
+</button>
+
+<button class="button is-primary">
+  <span class="icon">
+    <i class="fas fa-star"></i>
+  </span>
+</button>
+```
+
+## Button Groups
+
+### Basic Group
+
+```html
+<div class="buttons">
+  <button class="button">Button 1</button>
+  <button class="button">Button 2</button>
+  <button class="button">Button 3</button>
+</div>
+```
+
+### Group Sizes
+
+```html
+<div class="buttons are-small">
+  <button class="button">Small</button>
+  <button class="button">Small</button>
+  <button class="button">Small</button>
+</div>
+
+<div class="buttons are-medium">
+  <button class="button">Medium</button>
+  <button class="button">Medium</button>
+</div>
+
+<div class="buttons are-large">
+  <button class="button">Large</button>
+  <button class="button">Large</button>
+</div>
+```
+
+### Addons (Attached Buttons)
+
+```html
+<div class="buttons has-addons">
+  <button class="button">Left</button>
+  <button class="button">Center</button>
+  <button class="button">Right</button>
+</div>
+
+<div class="buttons has-addons">
+  <button class="button is-success is-selected">Yes</button>
+  <button class="button">Maybe</button>
+  <button class="button">No</button>
+</div>
+```
+
+### Alignment
+
+```html
+<div class="buttons is-centered">
+  <button class="button">Centered</button>
+  <button class="button">Buttons</button>
+</div>
+
+<div class="buttons is-right">
+  <button class="button">Right</button>
+  <button class="button">Aligned</button>
+</div>
+```
+
+## CSS Variables
+
+| Variable | Description |
+|----------|-------------|
+| `--bulma-button-weight` | Font weight |
+| `--bulma-button-border-color` | Border color |
+| `--bulma-button-border-width` | Border width |
+| `--bulma-button-padding-vertical` | Vertical padding |
+| `--bulma-button-padding-horizontal` | Horizontal padding |
+| `--bulma-button-h` | Hue value |
+| `--bulma-button-s` | Saturation value |
+| `--bulma-button-l` | Lightness value |
+
+<Tip>
+Use the `is-loading` class to show a loading spinner. The button text will be hidden automatically.
+</Tip>
+
+<Note>
+Buttons automatically inherit the `control` size and radius variables, making them consistent with form inputs.
+</Note>

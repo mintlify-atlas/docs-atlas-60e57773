@@ -1,0 +1,163 @@
+---
+title: 'Customization Overview'
+description: 'Learn how to customize Bulma using Sass variables, CSS custom properties, and themes'
+---
+
+## Introduction
+
+Bulma offers multiple ways to customize its appearance to match your brand and design requirements. Understanding the different customization approaches will help you choose the right method for your project.
+
+## Customization Methods
+
+### 1. Sass Variables
+
+The most powerful way to customize Bulma is through **Sass variables**. This method provides:
+
+- **Build-time customization**: Variables are set when you compile Sass
+- **Type safety**: Sass validates your values at compile time
+- **Full control**: Access to all customization options
+- **Best performance**: No runtime overhead
+
+```scss
+@use "bulma/sass/utilities" with (
+  $primary: hsl(171, 100%, 41%),
+  $family-sans-serif: "Inter", sans-serif,
+  $radius: 0.5rem
+);
+
+@use "bulma/sass" as bulma;
+```
+
+<Note>
+  Sass variables are set at compile time and cannot be changed at runtime.
+</Note>
+
+### 2. CSS Custom Properties
+
+Bulma generates **CSS custom properties** (CSS variables) that can be:
+
+- **Changed at runtime**: Update styles dynamically with JavaScript
+- **Scoped**: Override variables for specific components or sections
+- **Theme-aware**: Automatically adapt to light/dark themes
+- **Browser-native**: No build tools required
+
+```css
+:root {
+  --bulma-primary-h: 171;
+  --bulma-primary-s: 100%;
+  --bulma-primary-l: 41%;
+  --bulma-radius: 0.5rem;
+}
+```
+
+### 3. Theme System
+
+Bulma includes a built-in **theme system** with light and dark themes:
+
+- **Automatic switching**: Based on user's system preferences
+- **Manual control**: Use `data-theme` attribute or theme classes
+- **Custom themes**: Create your own theme variations
+- **Seamless transitions**: Smooth color changes between themes
+
+```html
+<!-- Automatic theme switching -->
+<html>
+
+<!-- Manual theme control -->
+<html data-theme="dark">
+
+<!-- Theme class -->
+<div class="theme-light">
+```
+
+## Comparison: Sass vs CSS Variables
+
+| Feature | Sass Variables | CSS Custom Properties |
+|---------|---------------|----------------------|
+| **When set** | Compile time | Runtime |
+| **Performance** | Fastest (static) | Fast (native CSS) |
+| **Dynamic updates** | ❌ No | ✅ Yes |
+| **Build tools required** | ✅ Yes | ❌ No |
+| **Type checking** | ✅ Yes | ❌ No |
+| **Scope control** | Module-based | Selector-based |
+| **Best for** | Static themes, build-time customization | Dynamic themes, runtime changes |
+
+## When to Use Each Method
+
+### Use Sass Variables When:
+
+- Building a static site with a fixed design
+- You want the best possible performance
+- You need compile-time validation
+- You're customizing fundamental values (colors, spacing, typography)
+- You want to use only specific Bulma modules
+
+### Use CSS Custom Properties When:
+
+- Implementing theme switching (light/dark mode)
+- Need to change styles at runtime with JavaScript
+- Building a component library with customizable components
+- Want to scope customizations to specific sections
+- Don't want to use a build process
+
+### Use Both When:
+
+- Setting base values with Sass variables
+- Allowing runtime customization with CSS variables
+- Building a complex application with multiple themes
+
+```scss
+// Set defaults with Sass
+@use "bulma/sass/utilities" with (
+  $primary: hsl(171, 100%, 41%)
+);
+
+@use "bulma/sass" as bulma;
+
+// Override at runtime with CSS
+.custom-section {
+  --bulma-primary-l: 35%;
+}
+```
+
+## Variable Naming Convention
+
+### Sass Variables
+
+```scss
+$primary              // Color
+$family-sans-serif    // Typography
+$radius              // Border radius
+$scheme-main         // Theme color
+```
+
+### CSS Custom Properties
+
+```css
+--bulma-primary-h     // Hue
+--bulma-primary-s     // Saturation
+--bulma-primary-l     // Lightness
+--bulma-radius        // Border radius
+--bulma-scheme-main   // Computed theme color
+```
+
+<Tip>
+  Bulma uses HSL color space, splitting colors into hue (h), saturation (s), and lightness (l) for better theme control.
+</Tip>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Sass Variables" icon="sass" href="/customize/variables">
+    Learn about Bulma's Sass variables and how to override them
+  </Card>
+  <Card title="CSS Variables" icon="css3" href="/customize/css-variables">
+    Discover CSS custom properties for runtime customization
+  </Card>
+  <Card title="Theme System" icon="moon" href="/customize/themes">
+    Implement light/dark themes and create custom themes
+  </Card>
+  <Card title="Sass Setup" icon="code" href="/customize/sass">
+    Set up your build process to compile Bulma from source
+  </Card>
+</CardGroup>

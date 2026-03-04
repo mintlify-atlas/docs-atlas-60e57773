@@ -1,0 +1,266 @@
+---
+title: Image
+description: A container for responsive images with fixed aspect ratios
+---
+
+The **image** element is a container that maintains aspect ratios and provides responsive image sizing with fixed dimensions.
+
+## Basic Usage
+
+```html
+<figure class="image is-128x128">
+  <img src="https://bulma.io/assets/images/placeholders/128x128.png">
+</figure>
+```
+
+## Fixed Square Dimensions
+
+Images with fixed width and height:
+
+```html
+<figure class="image is-16x16">
+  <img src="https://bulma.io/assets/images/placeholders/16x16.png">
+</figure>
+
+<figure class="image is-24x24">
+  <img src="https://bulma.io/assets/images/placeholders/24x24.png">
+</figure>
+
+<figure class="image is-32x32">
+  <img src="https://bulma.io/assets/images/placeholders/32x32.png">
+</figure>
+
+<figure class="image is-48x48">
+  <img src="https://bulma.io/assets/images/placeholders/48x48.png">
+</figure>
+
+<figure class="image is-64x64">
+  <img src="https://bulma.io/assets/images/placeholders/64x64.png">
+</figure>
+
+<figure class="image is-96x96">
+  <img src="https://bulma.io/assets/images/placeholders/96x96.png">
+</figure>
+
+<figure class="image is-128x128">
+  <img src="https://bulma.io/assets/images/placeholders/128x128.png">
+</figure>
+```
+
+Available sizes: **16x16**, **24x24**, **32x32**, **48x48**, **64x64**, **96x96**, **128x128**
+
+## Responsive Images with Ratios
+
+Maintain aspect ratios while being responsive:
+
+### Square
+
+```html
+<figure class="image is-square">
+  <img src="https://bulma.io/assets/images/placeholders/480x480.png">
+</figure>
+```
+
+### Common Ratios
+
+```html
+<figure class="image is-1by1">
+  <img src="https://bulma.io/assets/images/placeholders/480x480.png">
+</figure>
+
+<figure class="image is-5by4">
+  <img src="https://bulma.io/assets/images/placeholders/600x480.png">
+</figure>
+
+<figure class="image is-4by3">
+  <img src="https://bulma.io/assets/images/placeholders/640x480.png">
+</figure>
+
+<figure class="image is-3by2">
+  <img src="https://bulma.io/assets/images/placeholders/480x320.png">
+</figure>
+
+<figure class="image is-5by3">
+  <img src="https://bulma.io/assets/images/placeholders/800x480.png">
+</figure>
+
+<figure class="image is-16by9">
+  <img src="https://bulma.io/assets/images/placeholders/640x360.png">
+</figure>
+
+<figure class="image is-2by1">
+  <img src="https://bulma.io/assets/images/placeholders/640x320.png">
+</figure>
+
+<figure class="image is-3by1">
+  <img src="https://bulma.io/assets/images/placeholders/720x240.png">
+</figure>
+```
+
+### Portrait Ratios
+
+```html
+<figure class="image is-4by5">
+  <img src="https://bulma.io/assets/images/placeholders/480x600.png">
+</figure>
+
+<figure class="image is-3by4">
+  <img src="https://bulma.io/assets/images/placeholders/480x640.png">
+</figure>
+
+<figure class="image is-2by3">
+  <img src="https://bulma.io/assets/images/placeholders/320x480.png">
+</figure>
+
+<figure class="image is-3by5">
+  <img src="https://bulma.io/assets/images/placeholders/480x800.png">
+</figure>
+
+<figure class="image is-9by16">
+  <img src="https://bulma.io/assets/images/placeholders/360x640.png">
+</figure>
+
+<figure class="image is-1by2">
+  <img src="https://bulma.io/assets/images/placeholders/320x640.png">
+</figure>
+
+<figure class="image is-1by3">
+  <img src="https://bulma.io/assets/images/placeholders/240x720.png">
+</figure>
+```
+
+## Rounded Images
+
+```html
+<figure class="image is-128x128">
+  <img class="is-rounded" src="https://bulma.io/assets/images/placeholders/128x128.png">
+</figure>
+```
+
+<Note>
+The `is-rounded` class goes on the `<img>` element, not the container.
+</Note>
+
+## Full Width Images
+
+```html
+<figure class="image is-fullwidth">
+  <img src="https://bulma.io/assets/images/placeholders/1280x960.png">
+</figure>
+```
+
+## Responsive Embeds
+
+Use with iframes for embedded content:
+
+```html
+<figure class="image is-16by9">
+  <iframe class="has-ratio" width="640" height="360" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+</figure>
+```
+
+### Other Embed Ratios
+
+```html
+<!-- 21:9 Ultrawide -->
+<figure class="image is-21by9">
+  <iframe class="has-ratio" src="..."></iframe>
+</figure>
+
+<!-- 4:3 Traditional -->
+<figure class="image is-4by3">
+  <iframe class="has-ratio" src="..."></iframe>
+</figure>
+
+<!-- 1:1 Square -->
+<figure class="image is-square">
+  <iframe class="has-ratio" src="..."></iframe>
+</figure>
+```
+
+## Practical Examples
+
+### Avatar Image
+
+```html
+<figure class="image is-48x48">
+  <img class="is-rounded" src="/avatar.jpg" alt="User avatar">
+</figure>
+```
+
+### Thumbnail Grid
+
+```html
+<div class="columns is-multiline">
+  <div class="column is-3">
+    <figure class="image is-square">
+      <img src="/photo1.jpg">
+    </figure>
+  </div>
+  <div class="column is-3">
+    <figure class="image is-square">
+      <img src="/photo2.jpg">
+    </figure>
+  </div>
+  <div class="column is-3">
+    <figure class="image is-square">
+      <img src="/photo3.jpg">
+    </figure>
+  </div>
+  <div class="column is-3">
+    <figure class="image is-square">
+      <img src="/photo4.jpg">
+    </figure>
+  </div>
+</div>
+```
+
+### Responsive Card Image
+
+```html
+<div class="card">
+  <div class="card-image">
+    <figure class="image is-4by3">
+      <img src="/card-image.jpg" alt="Card image">
+    </figure>
+  </div>
+  <div class="card-content">
+    <p class="title is-4">Card Title</p>
+    <p>Card content goes here.</p>
+  </div>
+</div>
+```
+
+## How Aspect Ratios Work
+
+The image container uses the `aspect-ratio` CSS property to maintain proportions:
+
+```css
+.image.is-16by9 {
+  aspect-ratio: 16 / 9;
+}
+
+.image.is-4by3 {
+  aspect-ratio: 4 / 3;
+}
+```
+
+The image inside is positioned absolutely and fills the container:
+
+```css
+.image.is-16by9 img {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+```
+
+<Tip>
+Use aspect ratio classes (like `is-16by9`) for responsive images that maintain their proportions, and fixed size classes (like `is-128x128`) for icons and avatars.
+</Tip>
+
+<Warning>
+For aspect ratio containers to work properly, the container must have a defined width. They work great within columns and flex containers.
+</Warning>

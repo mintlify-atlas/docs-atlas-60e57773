@@ -1,0 +1,398 @@
+---
+title: 'Theme System'
+description: 'Implement light and dark themes, create custom themes, and enable automatic theme switching'
+---
+
+## Introduction
+
+Bulma includes a powerful theme system that enables seamless switching between light and dark modes, as well as custom theme variants. The system uses CSS custom properties to allow runtime theme changes without page reloads.
+
+## Built-in Themes
+
+Bulma provides two built-in themes:
+
+- **Light theme**: Default, optimized for readability in bright environments
+- **Dark theme**: Reduces eye strain in low-light conditions
+
+## Theme Implementation Methods
+
+### 1. Automatic Theme (System Preference)
+
+By default, Bulma respects the user's system color scheme preference:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="bulma.css">
+</head>
+<body>
+  <!-- Content automatically adapts to system theme -->
+</body>
+</html>
+```
+
+This uses the `prefers-color-scheme` media query internally:
+
+```css
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Dark theme CSS variables */
+  }
+}
+```
+
+### 2. Manual Theme Control with data-theme
+
+Override system preferences by setting the `data-theme` attribute:
+
+```html
+<!-- Force light theme -->
+<html data-theme="light">
+
+<!-- Force dark theme -->
+<html data-theme="dark">
+```
+
+<Tip>
+  The `data-theme` attribute can be placed on any element to scope the theme to that section.
+</Tip>
+
+### 3. Theme Classes
+
+Use theme classes for component-level theming:
+
+```html
+<!-- Light theme section -->
+<section class="theme-light">
+  <h1 class="title">Always Light</h1>
+</section>
+
+<!-- Dark theme section -->
+<section class="theme-dark">
+  <h1 class="title">Always Dark</h1>
+</section>
+```
+
+## Theme Toggle Implementation
+
+Here's how to implement a theme switcher:
+
+### HTML
+
+```html
+<button id="theme-toggle" class="button">
+  <span class="icon">
+    <i class="fas fa-moon"></i>
+  </span>
+</button>
+```
+
+### JavaScript
+
+```javascript
+const themeToggle = document.getElementById('theme-toggle');
+const html = document.documentElement;
+
+// Get saved theme or default to system preference
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme) {
+  html.setAttribute('data-theme', savedTheme);
+}
+
+themeToggle.addEventListener('click', () => {
+  const currentTheme = html.getAttribute('data-theme');
+  const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+  
+  html.setAttribute('data-theme', newTheme);
+  localStorage.setItem('theme', newTheme);
+});
+```
+
+### Enhanced with System Preference Detection
+
+```javascript
+function getPreferredTheme() {
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme) {
+    return savedTheme;
+  }
+  
+  return window.matchMedia('(prefers-color-scheme: dark)').matches 
+    ? 'dark' 
+    : 'light';
+}
+
+function setTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  localStorage.setItem('theme', theme);
+}
+
+// Initialize theme
+setTheme(getPreferredTheme());
+
+// Listen for system theme changes
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+  if (!localStorage.getItem('theme')) {
+    setTheme(e.matches ? 'dark' : 'light');
+  }
+});
+```
+
+## Theme Variable Structure
+
+Bulma themes control these key variables:
+
+### Light Theme Values
+
+```css
+[data-theme="light"],
+.theme-light {
+  --bulma-scheme-h: 221;
+  --bulma-scheme-s: 14%;
+  --bulma-scheme-brightness: light;
+  
+  /* Scheme colors */
+  --bulma-scheme-main-l: 100%;
+  --bulma-scheme-main-bis-l: 98%;
+  --bulma-scheme-main-ter-l: 96%;
+  --bulma-scheme-invert-l: 4%;
+  
+  /* UI colors */
+  --bulma-background-l: 96%;
+  --bulma-border-l: 86%;
+  --bulma-border-weak-l: 93%;
+  --bulma-text-l: 29%;
+  --bulma-text-weak-l: 48%;
+  --bulma-text-strong-l: 21%;
+  
+  /* Interaction deltas */
+  --bulma-hover-background-l-delta: -5%;
+  --bulma-active-background-l-delta: -10%;
+  --bulma-hover-border-l-delta: -10%;
+  --bulma-active-border-l-delta: -20%;
+}
+```
+
+### Dark Theme Values
+
+```css
+[data-theme="dark"],
+.theme-dark {
+  --bulma-scheme-brightness: dark;
+  
+  /* Scheme colors - inverted from light */
+  --bulma-scheme-main-l: 9%;
+  --bulma-scheme-main-bis-l: 11%;
+  --bulma-scheme-main-ter-l: 13%;
+  --bulma-scheme-invert-l: 100%;
+  
+  /* UI colors */
+  --bulma-background-l: 14%;
+  --bulma-border-l: 24%;
+  --bulma-border-weak-l: 21%;
+  --bulma-text-l: 71%;
+  --bulma-text-weak-l: 53%;
+  --bulma-text-strong-l: 93%;
+  
+  /* Interaction deltas - inverted */
+  --bulma-hover-background-l-delta: 5%;
+  --bulma-active-background-l-delta: 10%;
+  --bulma-hover-border-l-delta: 10%;
+  --bulma-active-border-l-delta: 20%;
+}
+```
+
+<Note>
+  Notice how dark theme uses positive deltas (lighter on hover) while light theme uses negative deltas (darker on hover).
+</Note>
+
+## Creating Custom Themes
+
+You can create custom themes by defining your own CSS variables:
+
+### Example: Blue Theme
+
+```css
+[data-theme="blue"],
+.theme-blue {
+  --bulma-scheme-h: 220;
+  --bulma-scheme-s: 30%;
+  --bulma-scheme-main-l: 95%;
+  --bulma-scheme-main-bis-l: 92%;
+  --bulma-scheme-main-ter-l: 89%;
+  
+  --bulma-primary-h: 220;
+  --bulma-primary-s: 80%;
+  --bulma-primary-l: 50%;
+  
+  --bulma-background-l: 94%;
+  --bulma-text-l: 25%;
+}
+```
+
+### Example: High Contrast Theme
+
+```css
+[data-theme="high-contrast"],
+.theme-high-contrast {
+  --bulma-scheme-main-l: 100%;
+  --bulma-scheme-invert-l: 0%;
+  
+  --bulma-background-l: 100%;
+  --bulma-border-l: 0%;
+  --bulma-text-l: 0%;
+  --bulma-text-strong-l: 0%;
+  
+  /* Increase contrast for better accessibility */
+  --bulma-primary-l: 30%;
+  --bulma-link-l: 30%;
+  --bulma-danger-l: 35%;
+}
+```
+
+### Example: Sepia Theme
+
+```css
+[data-theme="sepia"],
+.theme-sepia {
+  --bulma-scheme-h: 40;
+  --bulma-scheme-s: 20%;
+  --bulma-scheme-main-l: 95%;
+  
+  --bulma-background-l: 92%;
+  --bulma-text-l: 20%;
+  
+  /* Warm color palette */
+  --bulma-primary-h: 35;
+  --bulma-primary-s: 65%;
+  --bulma-primary-l: 50%;
+}
+```
+
+## Theme with Sass Customization
+
+Customize theme variables at compile time:
+
+```scss
+@use "bulma/sass/themes/light" with (
+  $scheme-main-l: 98%,
+  $background-l: 95%
+);
+
+@use "bulma/sass/themes/dark" with (
+  $scheme-main-l: 10%,
+  $background-l: 15%,
+  $text-l: 75%
+);
+
+@use "bulma/sass" as bulma;
+```
+
+## Scoped Themes
+
+Apply themes to specific sections of your page:
+
+```html
+<html data-theme="light">
+  <body>
+    <!-- Light theme by default -->
+    <header class="hero">
+      <h1>Welcome</h1>
+    </header>
+    
+    <!-- Force dark theme for this section -->
+    <section class="theme-dark section">
+      <h2>Dark Section</h2>
+      <p>This always uses dark theme.</p>
+    </section>
+    
+    <!-- Back to light theme -->
+    <footer>
+      <p>Footer content</p>
+    </footer>
+  </body>
+</html>
+```
+
+## Theme Transition
+
+Add smooth transitions when switching themes:
+
+```css
+* {
+  transition: 
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease;
+}
+```
+
+<Warning>
+  Be careful with universal transitions as they can impact performance. Consider limiting to specific properties or elements.
+</Warning>
+
+## Accessibility Considerations
+
+### Respect User Preferences
+
+```javascript
+// Check if user prefers reduced motion
+if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  // Disable theme transitions
+  document.documentElement.style.setProperty('--bulma-duration', '0ms');
+}
+```
+
+### Provide Clear Controls
+
+```html
+<button 
+  id="theme-toggle" 
+  class="button"
+  aria-label="Toggle dark mode"
+  aria-pressed="false"
+>
+  <span class="icon">
+    <i class="fas fa-moon" aria-hidden="true"></i>
+  </span>
+  <span>Dark Mode</span>
+</button>
+```
+
+### Maintain Contrast Ratios
+
+Ensure your custom themes meet WCAG contrast requirements:
+
+```scss
+// Bulma automatically calculates accessible contrasts
+// using the generate-on-scheme-colors mixin
+@include cv.generate-on-scheme-colors('primary', $primary, $scheme-main);
+```
+
+## Testing Themes
+
+Test both themes during development:
+
+```javascript
+// Development helper
+if (process.env.NODE_ENV === 'development') {
+  window.toggleTheme = (theme) => {
+    document.documentElement.setAttribute('data-theme', theme);
+    console.log(`Theme switched to: ${theme}`);
+  };
+  
+  console.log('Use window.toggleTheme("light") or window.toggleTheme("dark") to test');
+}
+```
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="CSS Variables" icon="css3" href="/customize/css-variables">
+    Learn about all available CSS custom properties for theming
+  </Card>
+  <Card title="Sass Variables" icon="sass" href="/customize/variables">
+    Customize theme defaults with Sass variables
+  </Card>
+</CardGroup>

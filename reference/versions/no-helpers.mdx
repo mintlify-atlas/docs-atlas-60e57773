@@ -1,0 +1,140 @@
+---
+title: No Helpers
+description: Use the no-helpers version of Bulma to exclude helper classes and reduce file size
+---
+
+The **no-helpers** version of Bulma excludes all helper classes, resulting in a smaller file size. This version is ideal for projects that prefer utility-first CSS frameworks or custom utility classes.
+
+## Overview
+
+Bulma includes many helper classes for spacing, typography, colors, and more. If you don't need these helpers or use a different utility system, the no-helpers version can significantly reduce your CSS bundle size.
+
+## Available Files
+
+The no-helpers version comes in two variants:
+
+<CardGroup cols={2}>
+  <Card title="Standard" icon="file">
+    **bulma-no-helpers.scss**
+    
+    Includes all Bulma features except helper classes, with standard class names.
+  </Card>
+  
+  <Card title="Prefixed" icon="tag">
+    **bulma-no-helpers-prefixed.scss**
+    
+    Includes all Bulma features except helper classes, with the `bulma-` prefix for all classes.
+  </Card>
+</CardGroup>
+
+## File Structure
+
+### bulma-no-helpers.scss
+
+This file includes:
+- All utilities
+- Both light and dark themes
+- Base styles
+- All elements
+- Form components
+- All components
+- Grid system
+- Layout styles
+- Skeleton styles
+- **No helper classes**
+
+```scss
+@forward "../sass/utilities";
+@forward "../sass/themes";
+@forward "../sass/base";
+@forward "../sass/elements";
+@forward "../sass/form";
+@forward "../sass/components";
+@forward "../sass/grid";
+@forward "../sass/layout";
+@forward "../sass/base/skeleton";
+```
+
+### bulma-no-helpers-prefixed.scss
+
+Same as above, but with the `bulma-` prefix for all class names:
+
+```scss
+@use "../sass/utilities" with (
+  $class-prefix: "bulma-"
+);
+@forward "../sass/themes";
+@forward "../sass/base";
+// ... rest of the imports
+```
+
+## Installation
+
+Import the version you need in your SCSS file:
+
+### Standard (No Helpers)
+
+```scss
+@import "bulma/versions/bulma-no-helpers";
+```
+
+### Prefixed (No Helpers)
+
+```scss
+@import "bulma/versions/bulma-no-helpers-prefixed";
+```
+
+## Benefits
+
+<CardGroup cols={2}>
+  <Card title="Reduced File Size" icon="file">
+    Excluding helper classes significantly reduces the CSS bundle size.
+  </Card>
+  
+  <Card title="Custom Utilities" icon="wrench">
+    Use your own utility system like Tailwind CSS alongside Bulma components.
+  </Card>
+  
+  <Card title="No Conflicts" icon="shield">
+    Avoid potential conflicts with other utility-first CSS frameworks.
+  </Card>
+  
+  <Card title="Cleaner Output" icon="sparkles">
+    Only include the component styles you actually use.
+  </Card>
+</CardGroup>
+
+## When to Use
+
+Consider using the no-helpers version when:
+
+- You're using another utility-first CSS framework (like Tailwind CSS)
+- You have your own custom utility class system
+- You want to minimize CSS file size and don't use Bulma's helpers
+- You prefer component-based styling over utility classes
+- You want to avoid CSS bloat from unused helper classes
+
+## What You're Missing
+
+Without helper classes, you won't have access to:
+
+- Spacing helpers (margins, paddings)
+- Typography helpers (text alignment, sizes, weights)
+- Color helpers (text colors, background colors)
+- Display helpers (is-hidden, is-visible)
+- Flexbox helpers (is-flex, justify-content, align-items)
+- Other utility classes
+
+<Info>
+  If you need helper classes, use the standard Bulma version or the no-dark-mode version instead.
+</Info>
+
+## Comparison
+
+| Feature | Standard Bulma | No Helpers |
+|---------|----------------|------------|
+| Components | ✓ | ✓ |
+| Elements | ✓ | ✓ |
+| Themes | ✓ | ✓ |
+| Helper classes | ✓ | ✗ |
+| File size | Larger | Smaller |

@@ -1,0 +1,584 @@
+---
+title: Sass Mixins
+description: Complete reference of all Sass mixins in Bulma, including responsive breakpoint mixins and utility mixins
+---
+
+Bulma provides a powerful set of Sass mixins for responsive design, common UI patterns, and utility functions. All mixins are defined in `sass/utilities/mixins.scss`.
+
+## Responsive Mixins
+
+Bulma's responsive mixins make it easy to apply styles at specific breakpoints.
+
+### Basic Breakpoint Mixins
+
+#### `@mixin mobile`
+
+Applies styles for mobile devices only (up to 768px).
+
+```scss
+@use "bulma/sass/utilities/mixins" as mx;
+
+.my-element {
+  @include mx.mobile {
+    font-size: 14px;
+    padding: 0.5rem;
+  }
+}
+```
+
+**Generated media query:**
+```scss
+@media screen and (max-width: 768px) { ... }
+```
+
+#### `@mixin tablet`
+
+Applies styles for tablet and larger screens (from 769px).
+
+```scss
+@include mx.tablet {
+  font-size: 16px;
+  padding: 1rem;
+}
+```
+
+**Generated media query:**
+```scss
+@media screen and (min-width: 769px), print { ... }
+```
+
+#### `@mixin tablet-only`
+
+Applies styles for tablet devices only (769px to 1023px).
+
+```scss
+@include mx.tablet-only {
+  display: flex;
+  flex-direction: column;
+}
+```
+
+**Generated media query:**
+```scss
+@media screen and (min-width: 769px) and (max-width: 1023px) { ... }
+```
+
+#### `@mixin touch`
+
+Applies styles for touch devices (up to 1023px).
+
+```scss
+@include mx.touch {
+  -webkit-overflow-scrolling: touch;
+}
+```
+
+**Generated media query:**
+```scss
+@media screen and (max-width: 1023px) { ... }
+```
+
+#### `@mixin desktop`
+
+Applies styles for desktop and larger screens (from 1024px).
+
+```scss
+@include mx.desktop {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+```
+
+**Generated media query:**
+```scss
+@media screen and (min-width: 1024px) { ... }
+```
+
+#### `@mixin desktop-only`
+
+Applies styles for desktop only (1024px to 1215px).
+
+```scss
+@include mx.desktop-only {
+  max-width: 960px;
+}
+```
+
+#### `@mixin widescreen`
+
+Applies styles for widescreen and larger (from 1216px).
+
+```scss
+@include mx.widescreen {
+  max-width: 1152px;
+}
+```
+
+#### `@mixin widescreen-only`
+
+Applies styles for widescreen only (1216px to 1407px).
+
+```scss
+@include mx.widescreen-only {
+  max-width: 1152px;
+}
+```
+
+#### `@mixin fullhd`
+
+Applies styles for full HD screens (from 1408px).
+
+```scss
+@include mx.fullhd {
+  max-width: 1344px;
+}
+```
+
+### Advanced Responsive Mixins
+
+#### `@mixin from($device)`
+
+Applies styles from a specific breakpoint and up.
+
+**Parameters:**
+- `$device` - Minimum width value
+
+```scss
+@include mx.from(1280px) {
+  font-size: 18px;
+}
+```
+
+#### `@mixin until($device)`
+
+Applies styles up to a specific breakpoint.
+
+**Parameters:**
+- `$device` - Maximum width value (exclusive)
+
+```scss
+@include mx.until(640px) {
+  display: none;
+}
+```
+
+#### `@mixin between($from, $until)`
+
+Applies styles between two breakpoints.
+
+**Parameters:**
+- `$from` - Minimum width value
+- `$until` - Maximum width value (exclusive)
+
+```scss
+@include mx.between(768px, 1024px) {
+  width: 50%;
+}
+```
+
+#### `@mixin breakpoint($name)`
+
+Applies styles using a named breakpoint from the `$breakpoints` map.
+
+**Parameters:**
+- `$name` - Breakpoint name (e.g., "mobile", "tablet", "desktop")
+
+```scss
+@include mx.breakpoint("tablet-only") {
+  padding: 2rem;
+}
+```
+
+<Tip>
+The `breakpoint()` mixin uses the `$breakpoints` variable, which you can customize to add your own named breakpoints.
+</Tip>
+
+### Container Query Mixins
+
+#### `@mixin container-from($name, $width)`
+
+Applies styles based on container width (minimum).
+
+**Parameters:**
+- `$name` - Container name
+- `$width` - Minimum width value
+
+```scss
+@include mx.container-from("sidebar", 300px) {
+  display: grid;
+}
+```
+
+#### `@mixin container-until($name, $width)`
+
+Applies styles based on container width (maximum).
+
+**Parameters:**
+- `$name` - Container name
+- `$width` - Maximum width value
+
+```scss
+@include mx.container-until("sidebar", 300px) {
+  flex-direction: column;
+}
+```
+
+## Layout Mixins
+
+### `@mixin clearfix`
+
+Clears floats using the clearfix technique.
+
+```scss
+.container {
+  @include mx.clearfix;
+}
+```
+
+**Generated CSS:**
+```scss
+.container::after {
+  clear: both;
+  content: " ";
+  display: table;
+}
+```
+
+### `@mixin center($width, $height: 0)`
+
+Centers an absolutely positioned element.
+
+**Parameters:**
+- `$width` - Element width
+- `$height` - Element height (optional, defaults to `$width`)
+
+```scss
+.modal {
+  @include mx.center(400px, 300px);
+}
+```
+
+**Generated CSS:**
+```scss
+.modal {
+  position: absolute;
+  left: calc(50% - (400px * 0.5));
+  top: calc(50% - (300px * 0.5));
+}
+```
+
+### `@mixin overlay($offset: 0)`
+
+Positions an element to cover its parent.
+
+**Parameters:**
+- `$offset` - Offset from edges (default: 0)
+
+```scss
+.overlay {
+  @include mx.overlay();
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.inset-overlay {
+  @include mx.overlay(10px);
+}
+```
+
+**Generated CSS:**
+```scss
+.overlay {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+```
+
+### `@mixin block($spacing)`
+
+Adds bottom margin to all elements except the last.
+
+**Parameters:**
+- `$spacing` - Bottom margin value (default: CSS variable)
+
+```scss
+.content > * {
+  @include mx.block(1.5rem);
+}
+```
+
+**Generated CSS:**
+```scss
+.content > *:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+```
+
+## Component Mixins
+
+### `@mixin arrow($color)`
+
+Creates a CSS arrow (chevron).
+
+**Parameters:**
+- `$color` - Arrow color (default: CSS variable)
+
+```scss
+.select::after {
+  @include mx.arrow(#3273dc);
+}
+```
+
+### `@mixin delete`
+
+Creates a delete button with an X icon.
+
+```scss
+.notification-close {
+  @include mx.delete;
+}
+```
+
+### `@mixin loader`
+
+Creates a loading spinner.
+
+```scss
+.button.is-loading::after {
+  @include mx.loader;
+}
+```
+
+### `@mixin burger($dimensions)`
+
+Creates a hamburger menu icon.
+
+**Parameters:**
+- `$dimensions` - Icon size
+
+```scss
+.navbar-burger {
+  @include mx.burger(2.5rem);
+}
+```
+
+### `@mixin fa($size, $dimensions)`
+
+Styles for Font Awesome icons.
+
+**Parameters:**
+- `$size` - Font size
+- `$dimensions` - Icon container dimensions
+
+```scss
+.icon {
+  @include mx.fa(1rem, 1.5rem);
+}
+```
+
+## Utility Mixins
+
+### `@mixin reset`
+
+Resets default element styles.
+
+```scss
+button {
+  @include mx.reset;
+  // Add your custom styles
+}
+```
+
+**Generated CSS:**
+```scss
+button {
+  appearance: none;
+  background: none;
+  border: none;
+  color: inherit;
+  font-family: inherit;
+  font-size: 1em;
+  margin: 0;
+  padding: 0;
+}
+```
+
+### `@mixin unselectable`
+
+Makes element text unselectable.
+
+```scss
+.drag-handle {
+  @include mx.unselectable;
+}
+```
+
+**Generated CSS:**
+```scss
+.drag-handle {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+```
+
+### `@mixin overflow-touch`
+
+Enables momentum scrolling on touch devices.
+
+```scss
+.scrollable {
+  overflow-y: auto;
+  @include mx.overflow-touch;
+}
+```
+
+### `@mixin placeholder`
+
+Styles for input placeholder text.
+
+```scss
+input {
+  @include mx.placeholder {
+    color: #aaa;
+    font-style: italic;
+  }
+}
+```
+
+### `@mixin selection($current-selector: false)`
+
+Styles for selected text.
+
+**Parameters:**
+- `$current-selector` - Apply to current selector (default: false)
+
+```scss
+// Global selection
+@include mx.selection {
+  background: #3273dc;
+  color: white;
+}
+
+// Scoped selection
+.highlight {
+  @include mx.selection(true) {
+    background: yellow;
+  }
+}
+```
+
+## RTL (Right-to-Left) Mixins
+
+### `@mixin ltr`
+
+Applies styles only in LTR mode.
+
+```scss
+@include mx.ltr {
+  margin-left: 1rem;
+}
+```
+
+### `@mixin rtl`
+
+Applies styles only in RTL mode.
+
+```scss
+@include mx.rtl {
+  margin-right: 1rem;
+}
+```
+
+### `@mixin ltr-property($property, $spacing, $right: true)`
+
+Applies directional properties that respect RTL.
+
+**Parameters:**
+- `$property` - CSS property (e.g., "margin", "padding")
+- `$spacing` - Value
+- `$right` - Apply to right side (default: true)
+
+```scss
+.element {
+  @include mx.ltr-property("margin", 1rem, true);
+  // LTR: margin-right: 1rem;
+  // RTL: margin-left: 1rem;
+}
+```
+
+### `@mixin ltr-position($spacing, $right: true)`
+
+Applies directional positioning that respects RTL.
+
+**Parameters:**
+- `$spacing` - Position value
+- `$right` - Apply to right side (default: true)
+
+```scss
+.element {
+  position: absolute;
+  @include mx.ltr-position(1rem, true);
+  // LTR: right: 1rem;
+  // RTL: left: 1rem;
+}
+```
+
+## Complete Example
+
+Here's a complete example combining multiple mixins:
+
+```scss
+@use "bulma/sass/utilities/mixins" as mx;
+
+.card {
+  // Block spacing
+  @include mx.block(1.5rem);
+  
+  // Mobile styles
+  @include mx.mobile {
+    padding: 1rem;
+    font-size: 14px;
+  }
+  
+  // Tablet and up
+  @include mx.tablet {
+    padding: 2rem;
+    font-size: 16px;
+  }
+  
+  // Desktop and up
+  @include mx.desktop {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 2rem;
+  }
+  
+  .card-close {
+    @include mx.delete;
+  }
+  
+  .card-dropdown::after {
+    @include mx.arrow(#3273dc);
+  }
+}
+
+.overlay-modal {
+  @include mx.overlay();
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  .modal-content {
+    @include mx.center(500px, 300px);
+  }
+}
+```
+
+<Note>
+All responsive mixins can be combined and nested to create complex responsive layouts. The mixins are mobile-first by default.
+</Note>

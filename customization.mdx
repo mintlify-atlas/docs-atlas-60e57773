@@ -1,0 +1,538 @@
+---
+title: Customization
+description: Customize Bulma using Sass variables, CSS custom properties, or the built-in theme system
+---
+
+Bulma offers multiple ways to customize its appearance to match your brand and design requirements. Choose the approach that best fits your workflow.
+
+## Customization methods
+
+Bulma provides three main customization approaches:
+
+<CardGroup cols={3}>
+  <Card title="Sass variables" icon="code">
+    Compile-time customization by overriding Sass variables before importing Bulma.
+  </Card>
+  
+  <Card title="CSS custom properties" icon="palette">
+    Runtime customization using CSS variables for dynamic theming.
+  </Card>
+  
+  <Card title="Theme system" icon="moon">
+    Built-in light and dark themes with automatic switching.
+  </Card>
+</CardGroup>
+
+## Sass variables
+
+The most powerful customization method. Override Sass variables before importing Bulma to change any aspect of the framework.
+
+### Initial variables
+
+Customize foundational settings like colors, typography, and spacing.
+
+```scss title="src/styles/main.scss"
+@use "bulma/sass" with (
+  // Primary colors
+  $primary: #8e44ad,
+  $link: #3273dc,
+  $info: #3298dc,
+  $success: #48c774,
+  $warning: #ffdd57,
+  $danger: #f14668,
+  
+  // Typography
+  $family-sans-serif: ('Roboto', 'Helvetica', 'Arial', sans-serif),
+  $size-1: 3.5rem,
+  $size-2: 2.75rem,
+  $size-3: 2.25rem,
+  $size-4: 1.75rem,
+  $size-5: 1.5rem,
+  $size-6: 1.25rem,
+  $size-7: 0.875rem,
+  
+  // Spacing
+  $block-spacing: 2rem,
+  $gap: 32px,
+  
+  // Responsiveness
+  $tablet: 769px,
+  $desktop: 1024px,
+  $widescreen: 1216px,
+  $fullhd: 1408px
+);
+```
+
+### Color system
+
+Bulma uses HSL colors defined with hue, saturation, and lightness values:
+
+```scss
+@use "bulma/sass" with (
+  // Color definitions
+  $turquoise: hsl(171, 100%, 41%),
+  $cyan: hsl(198, 100%, 70%),
+  $blue: hsl(233, 100%, 63%),
+  $purple: hsl(271, 100%, 71%),
+  $red: hsl(348, 100%, 70%),
+  $orange: hsl(14, 100%, 53%),
+  $yellow: hsl(42, 100%, 53%),
+  $green: hsl(153, 53%, 53%),
+  
+  // Scheme colors (for theming)
+  $scheme-h: 221,
+  $scheme-s: 14%,
+  $dark-l: 20%,
+  $light-l: 90%
+);
+```
+
+<Note>
+Bulma v1.0+ uses HSL color format extensively, which makes it easier to generate color variations and support themes.
+</Note>
+
+### Component-specific variables
+
+Every component has its own set of variables. For example, button customization:
+
+```scss
+@use "bulma/sass" with (
+  // Button variables
+  $button-weight: 600,
+  $button-padding-vertical: 0.75em,
+  $button-padding-horizontal: 1.5em,
+  $button-border-width: 2px
+);
+```
+
+Card customization:
+
+```scss
+@use "bulma/sass" with (
+  // Card variables
+  $card-radius: 1rem,
+  $card-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1),
+  $card-header-padding: 1rem 1.25rem,
+  $card-content-padding: 2rem
+);
+```
+
+### Available variable categories
+
+<AccordionGroup>
+  <Accordion title="Initial variables (sass/utilities/initial-variables.scss)">
+    Core settings that affect the entire framework:
+    
+    - **Colors**: `$black`, `$white`, `$grey`, `$primary`, `$link`, etc.
+    - **Typography**: `$family-sans-serif`, `$family-monospace`, `$size-1` through `$size-7`, `$weight-light` through `$weight-extrabold`
+    - **Spacing**: `$block-spacing`, `$gap`
+    - **Responsiveness**: `$tablet`, `$desktop`, `$widescreen`, `$fullhd`
+    - **Miscellaneous**: `$radius`, `$radius-small`, `$radius-large`, `$radius-rounded`, `$speed`, `$duration`
+  </Accordion>
+  
+  <Accordion title="Derived variables (sass/utilities/derived-variables.scss)">
+    Variables computed from initial variables:
+    
+    - Color schemes and contrasts
+    - Responsive breakpoint calculations
+    - Derived spacing values
+  </Accordion>
+  
+  <Accordion title="Component variables">
+    Each component has its own variables:
+    
+    - **Button**: Padding, border, shadow, colors
+    - **Card**: Radius, shadow, padding, colors
+    - **Navbar**: Height, padding, breakpoint
+    - **Modal**: Background color, content width
+    - And many more...
+    
+    See the source file for each component in `sass/elements/` and `sass/components/` for available variables.
+  </Accordion>
+</AccordionGroup>
+
+## CSS custom properties
+
+Bulma v1.0+ generates CSS custom properties (CSS variables) for runtime customization. This allows you to change values dynamically without recompiling.
+
+### How it works
+
+Bulma automatically generates CSS variables with the `--bulma-` prefix:
+
+```css
+:root {
+  --bulma-primary-h: 233;
+  --bulma-primary-s: 100%;
+  --bulma-primary-l: 63%;
+  --bulma-primary: hsl(233, 100%, 63%);
+  
+  --bulma-size-1: 3rem;
+  --bulma-size-2: 2.5rem;
+  --bulma-radius: 0.375rem;
+  --bulma-block-spacing: 1.5rem;
+  
+  /* ...and many more */
+}
+```
+
+### Override CSS variables
+
+You can override these variables in your CSS to customize Bulma at runtime:
+
+```css
+/* Global overrides */
+:root {
+  --bulma-primary-h: 271;
+  --bulma-primary-s: 100%;
+  --bulma-primary-l: 71%;
+  --bulma-family-sans-serif: 'Inter', system-ui, sans-serif;
+  --bulma-radius: 0.5rem;
+}
+
+/* Component-specific overrides */
+.button {
+  --bulma-button-padding-horizontal: 2em;
+  --bulma-button-weight: 600;
+}
+
+.card {
+  --bulma-card-radius: 1rem;
+  --bulma-card-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+```
+
+### Dynamic theming example
+
+Create custom themes by overriding CSS variables:
+
+```css
+/* Brand theme */
+.theme-brand {
+  --bulma-primary-h: 280;
+  --bulma-primary-s: 80%;
+  --bulma-primary-l: 60%;
+  --bulma-link-h: 280;
+  --bulma-link-s: 80%;
+  --bulma-link-l: 50%;
+}
+
+/* Ocean theme */
+.theme-ocean {
+  --bulma-primary-h: 200;
+  --bulma-primary-s: 100%;
+  --bulma-primary-l: 50%;
+  --bulma-scheme-h: 200;
+  --bulma-scheme-s: 20%;
+}
+```
+
+```html
+<!-- Apply theme to entire section -->
+<section class="section theme-ocean">
+  <div class="container">
+    <button class="button is-primary">Ocean themed button</button>
+  </div>
+</section>
+```
+
+<Tip>
+CSS custom properties are perfect for:
+- User-selectable themes
+- Component variations
+- Per-page color schemes
+- A/B testing different styles
+</Tip>
+
+## Theme system
+
+Bulma v1.0+ includes a built-in theme system with light and dark modes.
+
+### How themes work
+
+Bulma defines theme-specific variables that automatically adjust based on the active theme:
+
+```scss title="sass/themes/light.scss"
+:root {
+  --bulma-scheme-main-l: 100%;        // White background
+  --bulma-text-l: 20%;                // Dark text
+  --bulma-background-l: 96%;          // Light grey
+  --bulma-border-l: 86%;              // Medium grey borders
+  /* ...more light theme variables */
+}
+```
+
+```scss title="sass/themes/dark.scss"
+:root.dark-mode {
+  --bulma-scheme-main-l: 10%;         // Dark background
+  --bulma-text-l: 90%;                // Light text
+  --bulma-background-l: 14%;          // Slightly lighter dark
+  --bulma-border-l: 21%;              // Dark borders
+  /* ...more dark theme variables */
+}
+```
+
+### Enable dark mode
+
+Add the `dark-mode` class to your root element:
+
+```html
+<html class="dark-mode">
+  <head>
+    <link rel="stylesheet" href="path/to/bulma.css">
+  </head>
+  <body>
+    <!-- Your content automatically uses dark theme -->
+  </body>
+</html>
+```
+
+### Automatic theme switching
+
+Respect user's system preference with the `prefers-color-scheme` media query:
+
+```css
+/* Light mode by default */
+:root {
+  /* Light theme variables */
+}
+
+/* Dark mode when user prefers it */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Apply dark theme variables */
+    --bulma-scheme-main-l: 10%;
+    --bulma-text-l: 90%;
+    /* ...etc */
+  }
+}
+```
+
+### JavaScript theme toggle
+
+Implement a theme switcher:
+
+```html
+<button id="theme-toggle" class="button">Toggle Theme</button>
+
+<script>
+  const toggle = document.getElementById('theme-toggle');
+  const html = document.documentElement;
+  
+  toggle.addEventListener('click', () => {
+    html.classList.toggle('dark-mode');
+    
+    // Save preference
+    const isDark = html.classList.contains('dark-mode');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  });
+  
+  // Load saved preference
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'dark') {
+    html.classList.add('dark-mode');
+  }
+</script>
+```
+
+### Disable dark mode
+
+If you don't need dark mode, use the `bulma-no-dark-mode.css` version:
+
+```html
+<link rel="stylesheet" href="node_modules/bulma/css/versions/bulma-no-dark-mode.min.css">
+```
+
+Or exclude it when compiling:
+
+```scss
+// Import only light theme
+@use "bulma/sass/utilities";
+@use "bulma/sass/themes/light";
+@use "bulma/sass/base";
+// ...rest of imports
+```
+
+## Prefix customization
+
+Customize class name prefixes to avoid conflicts with other frameworks.
+
+### Class prefix
+
+Change the class prefix from empty string to your own:
+
+```scss
+@use "bulma/sass" with (
+  $class-prefix: "bulma-"
+);
+```
+
+Now all classes use your prefix:
+
+```html
+<button class="bulma-button bulma-is-primary">Button</button>
+<div class="bulma-card">Card</div>
+```
+
+### CSS variable prefix
+
+Change the CSS variable prefix:
+
+```scss
+@use "bulma/sass" with (
+  $cssvars-prefix: "my-"
+);
+```
+
+Variables become:
+
+```css
+:root {
+  --my-primary-h: 233;
+  --my-primary-s: 100%;
+  --my-primary-l: 63%;
+}
+```
+
+### Helper prefix
+
+Customize the `is-` and `has-` prefixes:
+
+```scss
+@use "bulma/sass" with (
+  $helpers-prefix: "u-",
+  $helpers-has-prefix: "with-"
+);
+```
+
+Classes become:
+
+```html
+<button class="button u-primary u-large">Button</button>
+<p class="with-text-centered">Centered text</p>
+```
+
+## Build optimization
+
+Optimize your Bulma build by importing only what you need.
+
+### Minimal build
+
+Import only essential modules:
+
+```scss
+// Utilities and base (required)
+@use "bulma/sass/utilities";
+@use "bulma/sass/themes/light";
+@use "bulma/sass/base";
+
+// Only the components you need
+@use "bulma/sass/elements/button";
+@use "bulma/sass/elements/title";
+@use "bulma/sass/components/navbar";
+@use "bulma/sass/layout/section";
+@use "bulma/sass/layout/container";
+```
+
+### Exclude helpers
+
+If you use utility classes from another framework (like Tailwind), exclude Bulma's helpers:
+
+```scss
+@use "bulma/sass/utilities";
+@use "bulma/sass/themes";
+@use "bulma/sass/base";
+@use "bulma/sass/elements";
+@use "bulma/sass/form";
+@use "bulma/sass/components";
+@use "bulma/sass/grid";
+@use "bulma/sass/layout";
+// Don't import sass/helpers
+```
+
+Or use the pre-built version:
+
+```html
+<link rel="stylesheet" href="node_modules/bulma/css/versions/bulma-no-helpers.min.css">
+```
+
+## Best practices
+
+<AccordionGroup>
+  <Accordion title="Use Sass variables for compile-time customization">
+    If your design is fixed and won't change at runtime, use Sass variables for the best performance and smallest file size.
+  </Accordion>
+  
+  <Accordion title="Use CSS custom properties for runtime changes">
+    If you need theme switching, user customization, or dynamic styling, use CSS custom properties.
+  </Accordion>
+  
+  <Accordion title="Combine both approaches">
+    Override Sass variables for your base design, then use CSS custom properties for runtime variations:
+    
+    ```scss
+    @use "bulma/sass" with (
+      $primary: #8e44ad  // Base color
+    );
+    ```
+    
+    ```css
+    .theme-alt {
+      --bulma-primary-h: 200;  // Runtime variation
+    }
+    ```
+  </Accordion>
+  
+  <Accordion title="Test in both light and dark themes">
+    If you're using the theme system, always test your customizations in both themes to ensure readability and accessibility.
+  </Accordion>
+</AccordionGroup>
+
+## Example: Complete custom theme
+
+Here's a complete example combining all customization methods:
+
+```scss title="src/styles/custom-bulma.scss"
+// Override Sass variables
+@use "bulma/sass" with (
+  // Brand colors
+  $primary: hsl(271, 100%, 71%),
+  $link: hsl(233, 100%, 63%),
+  
+  // Typography
+  $family-sans-serif: ('Inter', system-ui, sans-serif),
+  $size-1: 3.5rem,
+  $weight-medium: 600,
+  
+  // Spacing and layout
+  $gap: 48px,
+  $block-spacing: 2rem,
+  $radius: 0.5rem,
+  $radius-large: 1rem,
+  
+  // Components
+  $button-padding-horizontal: 1.5em,
+  $card-radius: 1rem,
+  $navbar-height: 4rem
+);
+
+// Add custom CSS on top
+.my-custom-hero {
+  --bulma-hero-body-padding: 6rem 1.5rem;
+  background: linear-gradient(
+    135deg,
+    hsl(var(--bulma-primary-h), var(--bulma-primary-s), var(--bulma-primary-l)),
+    hsl(var(--bulma-link-h), var(--bulma-link-s), var(--bulma-link-l))
+  );
+}
+```
+
+## Next steps
+
+<CardGroup cols={2}>
+  <Card title="Component documentation" icon="box" href="/components">
+    Explore all Bulma components and their options
+  </Card>
+  <Card title="Sass documentation" icon="code" href="/customize/sass">
+    Deep dive into Bulma's Sass architecture
+  </Card>
+</CardGroup>

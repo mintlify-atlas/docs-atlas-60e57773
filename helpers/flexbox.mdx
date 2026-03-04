@@ -1,0 +1,464 @@
+---
+title: 'Flexbox Helpers'
+description: 'Create flexible layouts with Bulma flexbox utility classes'
+---
+
+Bulma provides comprehensive flexbox helper classes to create flexible, responsive layouts without writing custom CSS.
+
+## Flex Container
+
+Make an element a flex container with display flex classes.
+
+<CodeGroup>
+```html Flex Container
+<!-- Block-level flex container -->
+<div class="is-flex">
+  <div>Item 1</div>
+  <div>Item 2</div>
+  <div>Item 3</div>
+</div>
+
+<!-- Inline flex container -->
+<div class="is-inline-flex">
+  <div>Item 1</div>
+  <div>Item 2</div>
+</div>
+```
+</CodeGroup>
+
+### Container Classes
+
+| Class | CSS Property | Description |
+|-------|--------------|-------------|
+| `is-flex` | `display: flex` | Block-level flex container |
+| `is-inline-flex` | `display: inline-flex` | Inline flex container |
+
+<Note>
+Alternative syntax: You can also use `is-display-flex` and `is-display-inline-flex`.
+</Note>
+
+## Flex Direction
+
+Control the direction of flex items.
+
+<CodeGroup>
+```html Flex Direction
+<!-- Row (default) -->
+<div class="is-flex is-flex-direction-row">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+</div>
+
+<!-- Row reversed -->
+<div class="is-flex is-flex-direction-row-reverse">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+</div>
+
+<!-- Column -->
+<div class="is-flex is-flex-direction-column">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+</div>
+
+<!-- Column reversed -->
+<div class="is-flex is-flex-direction-column-reverse">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+</div>
+```
+</CodeGroup>
+
+### Direction Classes
+
+| Class | CSS Value | Description |
+|-------|-----------|-------------|
+| `is-flex-direction-row` | `flex-direction: row` | Horizontal layout (left to right) |
+| `is-flex-direction-row-reverse` | `flex-direction: row-reverse` | Horizontal layout (right to left) |
+| `is-flex-direction-column` | `flex-direction: column` | Vertical layout (top to bottom) |
+| `is-flex-direction-column-reverse` | `flex-direction: column-reverse` | Vertical layout (bottom to top) |
+
+## Flex Wrap
+
+Control whether flex items wrap onto multiple lines.
+
+<CodeGroup>
+```html Flex Wrap
+<!-- No wrap (default) -->
+<div class="is-flex is-flex-wrap-nowrap">
+  <div>Item 1</div>
+  <div>Item 2</div>
+  <div>Item 3</div>
+</div>
+
+<!-- Wrap -->
+<div class="is-flex is-flex-wrap-wrap">
+  <div>Item 1</div>
+  <div>Item 2</div>
+  <div>Item 3</div>
+  <div>Item 4</div>
+  <div>Item 5</div>
+</div>
+
+<!-- Wrap reversed -->
+<div class="is-flex is-flex-wrap-wrap-reverse">
+  <div>Item 1</div>
+  <div>Item 2</div>
+  <div>Item 3</div>
+</div>
+```
+</CodeGroup>
+
+### Wrap Classes
+
+| Class | CSS Value | Description |
+|-------|-----------|-------------|
+| `is-flex-wrap-nowrap` | `flex-wrap: nowrap` | Single line (no wrapping) |
+| `is-flex-wrap-wrap` | `flex-wrap: wrap` | Wrap to multiple lines |
+| `is-flex-wrap-wrap-reverse` | `flex-wrap: wrap-reverse` | Wrap in reverse order |
+
+## Justify Content
+
+Align flex items along the main axis.
+
+<CodeGroup>
+```html Justify Content
+<!-- Flex start -->
+<div class="is-flex is-justify-content-flex-start">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+</div>
+
+<!-- Center -->
+<div class="is-flex is-justify-content-center">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+</div>
+
+<!-- Flex end -->
+<div class="is-flex is-justify-content-flex-end">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+</div>
+
+<!-- Space between -->
+<div class="is-flex is-justify-content-space-between">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+</div>
+
+<!-- Space around -->
+<div class="is-flex is-justify-content-space-around">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+</div>
+
+<!-- Space evenly -->
+<div class="is-flex is-justify-content-space-evenly">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+</div>
+```
+</CodeGroup>
+
+### Justify Content Classes
+
+| Class | Description |
+|-------|-------------|
+| `is-justify-content-flex-start` | Align to start of container |
+| `is-justify-content-flex-end` | Align to end of container |
+| `is-justify-content-center` | Center items |
+| `is-justify-content-space-between` | Space between items |
+| `is-justify-content-space-around` | Space around items |
+| `is-justify-content-space-evenly` | Even space between items |
+| `is-justify-content-start` | Align to start (logical) |
+| `is-justify-content-end` | Align to end (logical) |
+| `is-justify-content-left` | Align to left |
+| `is-justify-content-right` | Align to right |
+
+## Align Items
+
+Align flex items along the cross axis.
+
+<CodeGroup>
+```html Align Items
+<!-- Stretch (default) -->
+<div class="is-flex is-align-items-stretch" style="height: 100px;">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+</div>
+
+<!-- Flex start -->
+<div class="is-flex is-align-items-flex-start" style="height: 100px;">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+</div>
+
+<!-- Center -->
+<div class="is-flex is-align-items-center" style="height: 100px;">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+</div>
+
+<!-- Flex end -->
+<div class="is-flex is-align-items-flex-end" style="height: 100px;">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+</div>
+
+<!-- Baseline -->
+<div class="is-flex is-align-items-baseline" style="height: 100px;">
+  <div class="is-size-1">1</div>
+  <div class="is-size-4">2</div>
+  <div class="is-size-6">3</div>
+</div>
+```
+</CodeGroup>
+
+### Align Items Classes
+
+| Class | Description |
+|-------|-------------|
+| `is-align-items-stretch` | Stretch to fill container |
+| `is-align-items-flex-start` | Align to start of cross axis |
+| `is-align-items-flex-end` | Align to end of cross axis |
+| `is-align-items-center` | Center on cross axis |
+| `is-align-items-baseline` | Align baselines |
+| `is-align-items-start` | Align to start (logical) |
+| `is-align-items-end` | Align to end (logical) |
+| `is-align-items-self-start` | Align to self start |
+| `is-align-items-self-end` | Align to self end |
+
+## Align Content
+
+Align flex lines when there's extra space in the cross axis (multi-line flex containers).
+
+<CodeGroup>
+```html Align Content
+<!-- Flex start -->
+<div class="is-flex is-flex-wrap-wrap is-align-content-flex-start" 
+     style="height: 200px;">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+  <div>4</div>
+</div>
+
+<!-- Center -->
+<div class="is-flex is-flex-wrap-wrap is-align-content-center" 
+     style="height: 200px;">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+  <div>4</div>
+</div>
+
+<!-- Space between -->
+<div class="is-flex is-flex-wrap-wrap is-align-content-space-between" 
+     style="height: 200px;">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+  <div>4</div>
+</div>
+```
+</CodeGroup>
+
+### Align Content Classes
+
+| Class | Description |
+|-------|-------------|
+| `is-align-content-flex-start` | Pack lines to start |
+| `is-align-content-flex-end` | Pack lines to end |
+| `is-align-content-center` | Center lines |
+| `is-align-content-space-between` | Space between lines |
+| `is-align-content-space-around` | Space around lines |
+| `is-align-content-space-evenly` | Even space between lines |
+| `is-align-content-stretch` | Stretch lines |
+| `is-align-content-start` | Pack to start (logical) |
+| `is-align-content-end` | Pack to end (logical) |
+| `is-align-content-baseline` | Align to baseline |
+
+## Align Self
+
+Override align-items for individual flex items.
+
+<CodeGroup>
+```html Align Self
+<div class="is-flex is-align-items-flex-start" style="height: 100px;">
+  <div>Normal</div>
+  <div class="is-align-self-center">Centered</div>
+  <div class="is-align-self-flex-end">End</div>
+  <div class="is-align-self-stretch">Stretched</div>
+</div>
+```
+</CodeGroup>
+
+### Align Self Classes
+
+| Class | Description |
+|-------|-------------|
+| `is-align-self-auto` | Inherit from parent |
+| `is-align-self-flex-start` | Align to start |
+| `is-align-self-flex-end` | Align to end |
+| `is-align-self-center` | Center on cross axis |
+| `is-align-self-baseline` | Align to baseline |
+| `is-align-self-stretch` | Stretch to fill |
+
+## Flex Grow and Shrink
+
+Control how flex items grow or shrink.
+
+<CodeGroup>
+```html Flex Grow
+<!-- Flex grow -->
+<div class="is-flex">
+  <div class="is-flex-grow-0">No grow</div>
+  <div class="is-flex-grow-1">Grow 1x</div>
+  <div class="is-flex-grow-2">Grow 2x</div>
+</div>
+
+<!-- Flex shrink -->
+<div class="is-flex">
+  <div class="is-flex-shrink-0">No shrink</div>
+  <div class="is-flex-shrink-1">Shrink 1x</div>
+  <div class="is-flex-shrink-2">Shrink 2x</div>
+</div>
+```
+</CodeGroup>
+
+### Flex Grow Classes
+
+| Class | CSS Value |
+|-------|----------|
+| `is-flex-grow-0` | `flex-grow: 0` |
+| `is-flex-grow-1` | `flex-grow: 1` |
+| `is-flex-grow-2` | `flex-grow: 2` |
+| `is-flex-grow-3` | `flex-grow: 3` |
+| `is-flex-grow-4` | `flex-grow: 4` |
+| `is-flex-grow-5` | `flex-grow: 5` |
+
+### Flex Shrink Classes
+
+| Class | CSS Value |
+|-------|----------|
+| `is-flex-shrink-0` | `flex-shrink: 0` |
+| `is-flex-shrink-1` | `flex-shrink: 1` |
+| `is-flex-shrink-2` | `flex-shrink: 2` |
+| `is-flex-shrink-3` | `flex-shrink: 3` |
+| `is-flex-shrink-4` | `flex-shrink: 4` |
+| `is-flex-shrink-5` | `flex-shrink: 5` |
+
+## Practical Examples
+
+### Centered Content
+
+<CodeGroup>
+```html Centered Content
+<div class="is-flex is-justify-content-center is-align-items-center" 
+     style="height: 200px; border: 1px solid #ddd;">
+  <div>
+    <h3>Perfectly Centered</h3>
+    <p>Both horizontally and vertically</p>
+  </div>
+</div>
+```
+</CodeGroup>
+
+### Navigation Bar
+
+<CodeGroup>
+```html Navigation
+<nav class="is-flex is-justify-content-space-between is-align-items-center p-4">
+  <div class="is-flex is-align-items-center">
+    <img src="logo.png" alt="Logo" style="height: 40px;">
+    <span class="ml-3">Brand</span>
+  </div>
+  <div class="is-flex is-align-items-center">
+    <a class="mr-4">Home</a>
+    <a class="mr-4">About</a>
+    <a>Contact</a>
+  </div>
+</nav>
+```
+</CodeGroup>
+
+### Card Layout
+
+<CodeGroup>
+```html Card Layout
+<div class="box is-flex is-flex-direction-column" style="height: 300px;">
+  <div class="mb-4">
+    <h4 class="is-size-4">Card Title</h4>
+  </div>
+  <div class="is-flex-grow-1">
+    <p>Card content that grows to fill available space</p>
+  </div>
+  <div class="is-flex is-justify-content-flex-end mt-4">
+    <button class="button mr-2">Cancel</button>
+    <button class="button is-primary">Save</button>
+  </div>
+</div>
+```
+</CodeGroup>
+
+### Responsive Grid
+
+<CodeGroup>
+```html Responsive Grid
+<div class="is-flex is-flex-wrap-wrap is-justify-content-space-between">
+  <div style="width: 30%; min-width: 250px;" class="mb-4">
+    <div class="box">Item 1</div>
+  </div>
+  <div style="width: 30%; min-width: 250px;" class="mb-4">
+    <div class="box">Item 2</div>
+  </div>
+  <div style="width: 30%; min-width: 250px;" class="mb-4">
+    <div class="box">Item 3</div>
+  </div>
+</div>
+```
+</CodeGroup>
+
+### Equal Height Columns
+
+<CodeGroup>
+```html Equal Height
+<div class="is-flex">
+  <div class="is-flex-grow-1 box mr-2">
+    <h4>Column 1</h4>
+    <p>Short content</p>
+  </div>
+  <div class="is-flex-grow-1 box mr-2">
+    <h4>Column 2</h4>
+    <p>This column has much more content that spans multiple lines, but all columns will have equal height.</p>
+  </div>
+  <div class="is-flex-grow-1 box">
+    <h4>Column 3</h4>
+    <p>Medium content here</p>
+  </div>
+</div>
+```
+</CodeGroup>
+
+<Tip>
+Combine flexbox helpers with spacing helpers for precise control over your layouts. For example: `is-flex is-justify-content-center is-align-items-center p-5 m-4`
+</Tip>
+
+<Note>
+Flexbox helpers work seamlessly with Bulma's responsive breakpoints. Add responsive modifiers like `-mobile`, `-tablet`, or `-desktop` to any display class to show/hide flex containers at different screen sizes.
+</Note>

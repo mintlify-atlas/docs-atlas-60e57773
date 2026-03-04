@@ -1,0 +1,159 @@
+---
+title: Container
+description: A responsive container to center your content horizontally
+---
+
+The `container` is a simple layout element that centers your content horizontally. It becomes "fixed" at certain breakpoints to ensure optimal readability.
+
+## Basic Usage
+
+The `.container` class can be used in any context, but is most commonly used as a direct child of:
+- `.navbar`
+- `.hero`
+- `.section`
+- `.footer`
+
+```html
+<div class="container">
+  <div class="notification is-primary">
+    This container is <strong>centered</strong> on desktop and larger viewports.
+  </div>
+</div>
+```
+
+## How it works
+
+By default, the container will have a different `max-width` depending on the viewport width:
+
+- On **desktop** (>= 1024px): container has a maximum width of 960px
+- On **widescreen** (>= 1216px): container has a maximum width of 1152px  
+- On **fullhd** (>= 1408px): container has a maximum width of 1344px
+
+The container will always have a 32px gap on either side (2 × 16px).
+
+## Modifiers
+
+### Fluid Container
+
+If you want a full-width container, use the `.is-fluid` modifier:
+
+```html
+<div class="container is-fluid">
+  This container takes up 100% of the width with horizontal padding.
+</div>
+```
+
+The `.is-fluid` container removes the max-width constraint and adds left and right padding instead.
+
+### Breakpoint Containers
+
+You can have containers that are only "fixed" starting at certain breakpoints:
+
+#### Widescreen Container
+
+```html
+<div class="container is-widescreen">
+  This container is <strong>fullwidth</strong> until the <strong>widescreen</strong> breakpoint.
+</div>
+```
+
+The `.is-widescreen` container will be:
+- Full-width up to 1215px
+- Fixed-width (max 1152px) from 1216px and above
+
+#### FullHD Container
+
+```html
+<div class="container is-fullhd">
+  This container is <strong>fullwidth</strong> until the <strong>fullhd</strong> breakpoint.
+</div>
+```
+
+The `.is-fullhd` container will be:
+- Full-width up to 1407px
+- Fixed-width (max 1344px) from 1408px and above
+
+### Max Width Modifiers
+
+You can also set a maximum width for the container:
+
+#### Max Tablet
+
+```html
+<div class="container is-max-tablet">
+  This container has a maximum width of tablet size.
+</div>
+```
+
+The `.is-max-tablet` container has a max-width of approximately 736px.
+
+## Common Patterns
+
+### Container in Section
+
+```html
+<section class="section">
+  <div class="container">
+    <h1 class="title">Section Title</h1>
+    <p class="subtitle">
+      A simple container to center your content
+    </p>
+  </div>
+</section>
+```
+
+### Container in Hero
+
+```html
+<section class="hero is-primary">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">Hero Title</h1>
+      <p class="subtitle">
+        Hero subtitle
+      </p>
+    </div>
+  </div>
+</section>
+```
+
+### Multiple Containers
+
+```html
+<section class="section">
+  <div class="container">
+    <h1 class="title">First Container</h1>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-fluid">
+    <h1 class="title">Second Container (Fluid)</h1>
+  </div>
+</section>
+```
+
+## Responsive Behavior
+
+<Note>
+On mobile and tablet devices (up to 1023px), the container is **full-width** and will not have any horizontal margin.
+</Note>
+
+The container's behavior changes based on the viewport:
+
+| Viewport | Behavior |
+|----------|----------|
+| Mobile (up to 768px) | Full-width |
+| Tablet (769px - 1023px) | Full-width |
+| Desktop (1024px - 1215px) | Max 960px, centered |
+| Widescreen (1216px - 1407px) | Max 1152px, centered |
+| FullHD (1408px+) | Max 1344px, centered |
+
+## CSS Variables
+
+You can customize the container using Sass variables:
+
+```scss
+$container-offset: 2 * $gap; // Default gap on each side
+$container-max-width: $fullhd; // Default maximum width
+```

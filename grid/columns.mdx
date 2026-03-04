@@ -1,0 +1,508 @@
+---
+title: Columns
+description: Build responsive multi-column layouts with Bulma's flexible Flexbox-based column system
+---
+
+Bulma's **columns** system is a simple, flexible way to build responsive multi-column layouts using Flexbox. It provides an intuitive 12-column grid with powerful sizing and responsive modifiers.
+
+## Basic Column Layout
+
+To create a column layout, wrap your `.column` elements inside a `.columns` container:
+
+```html
+<div class="columns">
+  <div class="column">
+    First column
+  </div>
+  <div class="column">
+    Second column
+  </div>
+  <div class="column">
+    Third column
+  </div>
+  <div class="column">
+    Fourth column
+  </div>
+</div>
+```
+
+By default, columns are equal width and will automatically adjust to fill the available space.
+
+## Column Sizes
+
+Bulma provides several ways to specify column widths:
+
+### Numeric Sizes (12-column grid)
+
+Use `.is-1` through `.is-12` to specify column width based on a 12-column grid:
+
+```html
+<div class="columns">
+  <div class="column is-4">
+    is-4 (33.33%)
+  </div>
+  <div class="column is-8">
+    is-8 (66.67%)
+  </div>
+</div>
+
+<div class="columns">
+  <div class="column is-3">
+    is-3 (25%)
+  </div>
+  <div class="column is-6">
+    is-6 (50%)
+  </div>
+  <div class="column is-3">
+    is-3 (25%)
+  </div>
+</div>
+```
+
+### Fractional Sizes
+
+Use semantic fraction classes for more readable code:
+
+```html
+<div class="columns">
+  <div class="column is-half">
+    is-half (50%)
+  </div>
+  <div class="column">
+    Auto width
+  </div>
+</div>
+
+<div class="columns">
+  <div class="column is-one-third">
+    is-one-third (33.33%)
+  </div>
+  <div class="column">
+    Auto width
+  </div>
+</div>
+
+<div class="columns">
+  <div class="column is-one-quarter">
+    is-one-quarter (25%)
+  </div>
+  <div class="column">
+    Auto width
+  </div>
+</div>
+```
+
+#### Available Fraction Sizes
+
+- **Halves**: `.is-half` (50%)
+- **Thirds**: `.is-one-third` (33.33%), `.is-two-thirds` (66.67%)
+- **Quarters**: `.is-one-quarter` (25%), `.is-three-quarters` (75%)
+- **Fifths**: `.is-one-fifth` (20%), `.is-two-fifths` (40%), `.is-three-fifths` (60%), `.is-four-fifths` (80%)
+
+### Narrow Columns
+
+Use `.is-narrow` to make a column only as wide as its content:
+
+```html
+<div class="columns">
+  <div class="column is-narrow">
+    <div class="box" style="width: 200px;">
+      Narrow column (200px)
+    </div>
+  </div>
+  <div class="column">
+    Flexible column
+  </div>
+</div>
+```
+
+### Full Width Columns
+
+Use `.is-full` to make a column take the entire row width:
+
+```html
+<div class="columns is-multiline">
+  <div class="column is-full">
+    Full width column
+  </div>
+  <div class="column is-half">
+    Half width
+  </div>
+  <div class="column is-half">
+    Half width
+  </div>
+</div>
+```
+
+## Responsive Column Sizes
+
+Make columns responsive by adding breakpoint suffixes:
+
+```html
+<div class="columns is-mobile">
+  <div class="column is-half-mobile is-one-third-tablet is-one-quarter-desktop">
+    Responsive column
+  </div>
+  <div class="column">
+    Flexible column
+  </div>
+</div>
+```
+
+### Breakpoint Suffixes
+
+- `-mobile`: up to 768px
+- `-tablet`: 769px and up
+- `-touch`: up to 1023px  
+- `-desktop`: 1024px and up
+- `-widescreen`: 1216px and up
+- `-fullhd`: 1408px and up
+
+### Example: Different Sizes per Breakpoint
+
+```html
+<div class="columns is-mobile">
+  <div class="column is-full-mobile is-half-tablet is-one-third-desktop">
+    Full on mobile, half on tablet, one-third on desktop
+  </div>
+  <div class="column">
+    Auto width
+  </div>
+</div>
+```
+
+## Column Offsets
+
+Push columns to the right using offset classes:
+
+```html
+<div class="columns">
+  <div class="column is-half is-offset-one-quarter">
+    Centered with offset
+  </div>
+</div>
+
+<div class="columns">
+  <div class="column is-4 is-offset-4">
+    is-4 with is-offset-4
+  </div>
+</div>
+```
+
+### Available Offset Classes
+
+- **Numeric**: `.is-offset-1` through `.is-offset-12`
+- **Fractional**: `.is-offset-one-quarter`, `.is-offset-one-third`, `.is-offset-half`, `.is-offset-two-thirds`, `.is-offset-three-quarters`
+- **Fifths**: `.is-offset-one-fifth`, `.is-offset-two-fifths`, `.is-offset-three-fifths`, `.is-offset-four-fifths`
+
+Offsets also support responsive breakpoints:
+
+```html
+<div class="columns is-mobile">
+  <div class="column is-4 is-offset-4-desktop is-offset-2-tablet">
+    Different offsets per breakpoint
+  </div>
+</div>
+```
+
+## Column Gap
+
+Control the spacing between columns using gap modifiers.
+
+### Default Gap
+
+The default gap is `0.75rem` (12px).
+
+### Custom Gap Sizes
+
+Use `.is-0` through `.is-8` to adjust the gap:
+
+```html
+<!-- No gap -->
+<div class="columns is-0">
+  <div class="column">Column 1</div>
+  <div class="column">Column 2</div>
+</div>
+
+<!-- Small gap (0.5rem) -->
+<div class="columns is-2">
+  <div class="column">Column 1</div>
+  <div class="column">Column 2</div>
+</div>
+
+<!-- Large gap (2rem) -->
+<div class="columns is-8">
+  <div class="column">Column 1</div>
+  <div class="column">Column 2</div>
+</div>
+```
+
+Gap sizes are calculated as `n × 0.25rem`:
+- `.is-0`: 0rem
+- `.is-1`: 0.25rem
+- `.is-2`: 0.5rem  
+- `.is-3`: 0.75rem (default)
+- `.is-4`: 1rem
+- `.is-5`: 1.25rem
+- `.is-6`: 1.5rem
+- `.is-7`: 1.75rem
+- `.is-8`: 2rem
+
+### Gapless Columns
+
+Remove all gaps with `.is-gapless`:
+
+```html
+<div class="columns is-gapless">
+  <div class="column">No gap</div>
+  <div class="column">Between columns</div>
+  <div class="column">At all</div>
+</div>
+```
+
+### Responsive Gap Sizes
+
+Apply different gaps at different breakpoints:
+
+```html
+<div class="columns is-1-mobile is-4-tablet is-8-desktop">
+  <div class="column">Column 1</div>
+  <div class="column">Column 2</div>
+</div>
+```
+
+## Multiline Columns
+
+By default, columns stay on one line. Use `.is-multiline` to allow wrapping:
+
+```html
+<div class="columns is-multiline">
+  <div class="column is-one-quarter">Column 1</div>
+  <div class="column is-one-quarter">Column 2</div>
+  <div class="column is-one-quarter">Column 3</div>
+  <div class="column is-one-quarter">Column 4</div>
+  <div class="column is-half">Column 5</div>
+  <div class="column is-half">Column 6</div>
+</div>
+```
+
+## Column Alignment
+
+### Vertical Centering
+
+Center columns vertically with `.is-vcentered`:
+
+```html
+<div class="columns is-vcentered">
+  <div class="column">
+    <p class="bd-notification is-primary">First column</p>
+  </div>
+  <div class="column">
+    <p class="bd-notification is-primary">
+      Second column<br>
+      with more content<br>
+      to show vertical centering
+    </p>
+  </div>
+</div>
+```
+
+### Horizontal Centering
+
+Center columns horizontally with `.is-centered`:
+
+```html
+<div class="columns is-centered">
+  <div class="column is-half">
+    Centered column
+  </div>
+</div>
+
+<div class="columns is-centered">
+  <div class="column is-one-quarter">Column 1</div>
+  <div class="column is-one-quarter">Column 2</div>
+</div>
+```
+
+## Responsive Behavior
+
+### Mobile Columns
+
+By default, columns stack vertically on mobile. Use `.is-mobile` to keep them horizontal:
+
+```html
+<!-- Stacks on mobile by default -->
+<div class="columns">
+  <div class="column">Column 1</div>
+  <div class="column">Column 2</div>
+</div>
+
+<!-- Stays horizontal on mobile -->
+<div class="columns is-mobile">
+  <div class="column">Column 1</div>
+  <div class="column">Column 2</div>
+</div>
+```
+
+### Desktop-Only Columns
+
+Use `.is-desktop` to display columns only on desktop screens:
+
+```html
+<div class="columns is-desktop">
+  <div class="column">Stacked until desktop</div>
+  <div class="column">Then horizontal</div>
+</div>
+```
+
+## Nested Columns
+
+You can nest columns to create complex layouts:
+
+```html
+<div class="columns">
+  <div class="column">
+    <p class="bd-notification is-primary">First column</p>
+    <div class="columns is-mobile">
+      <div class="column">
+        <p class="bd-notification is-primary">Nested 1</p>
+      </div>
+      <div class="column">
+        <p class="bd-notification is-primary">Nested 2</p>
+      </div>
+    </div>
+  </div>
+  <div class="column">
+    <p class="bd-notification is-primary">Second column</p>
+  </div>
+</div>
+```
+
+## Practical Examples
+
+### Two-Column Layout
+
+```html
+<div class="columns">
+  <div class="column is-two-thirds">
+    <div class="content">
+      <h2>Main Content</h2>
+      <p>Your main content goes here...</p>
+    </div>
+  </div>
+  <div class="column">
+    <aside class="menu">
+      <p class="menu-label">Sidebar</p>
+      <ul class="menu-list">
+        <li><a>Menu item 1</a></li>
+        <li><a>Menu item 2</a></li>
+      </ul>
+    </aside>
+  </div>
+</div>
+```
+
+### Three-Column Layout with Header
+
+```html
+<div class="columns is-multiline">
+  <div class="column is-full">
+    <h1 class="title">Page Header</h1>
+  </div>
+  <div class="column">
+    <div class="box">Column 1</div>
+  </div>
+  <div class="column">
+    <div class="box">Column 2</div>
+  </div>
+  <div class="column">
+    <div class="box">Column 3</div>
+  </div>
+</div>
+```
+
+### Responsive Card Grid
+
+```html
+<div class="columns is-multiline is-mobile">
+  <div class="column is-half-mobile is-one-third-tablet is-one-quarter-desktop">
+    <div class="card">
+      <div class="card-content">
+        <p class="title">Card 1</p>
+      </div>
+    </div>
+  </div>
+  <div class="column is-half-mobile is-one-third-tablet is-one-quarter-desktop">
+    <div class="card">
+      <div class="card-content">
+        <p class="title">Card 2</p>
+      </div>
+    </div>
+  </div>
+  <div class="column is-half-mobile is-one-third-tablet is-one-quarter-desktop">
+    <div class="card">
+      <div class="card-content">
+        <p class="title">Card 3</p>
+      </div>
+    </div>
+  </div>
+  <div class="column is-half-mobile is-one-third-tablet is-one-quarter-desktop">
+    <div class="card">
+      <div class="card-content">
+        <p class="title">Card 4</p>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+## CSS Variables
+
+Customize the column gap using CSS variables:
+
+```css
+:root {
+  --bulma-column-gap: 1.5rem; /* Default is 0.75rem */
+}
+
+/* Or target specific elements */
+.my-columns {
+  --bulma-column-gap: 2rem;
+}
+```
+
+## Best Practices
+
+<AccordionGroup>
+  <Accordion title="When to use columns vs. grid">
+    Use **columns** when you need:
+    - Simple multi-column layouts
+    - Flexbox-based flexibility
+    - Precise control over individual column widths
+    - Support for older browsers
+    
+    Use **grid** when you need:
+    - Automatic responsive layouts
+    - Equal-width columns without manual sizing
+    - CSS Grid features like auto-fit and minmax
+  </Accordion>
+
+  <Accordion title="Responsive design tips">
+    - Always test layouts on mobile first
+    - Use `.is-mobile` only when necessary
+    - Combine fraction sizes with responsive suffixes for clarity
+    - Use multiline for wrapping layouts instead of manual rows
+  </Accordion>
+
+  <Accordion title="Performance considerations">
+    - Avoid deeply nested columns when possible
+    - Use gap modifiers instead of custom margin/padding
+    - Prefer semantic fraction classes over numeric for readability
+  </Accordion>
+</AccordionGroup>
+
+## Related Components
+
+- [Smart Grid](/grid/smart-grid) - CSS Grid-based responsive layouts
+- [Container](/layout/container) - Centered container with max-width
+- [Level](/layout/level) - Horizontal layout for navbars and footers

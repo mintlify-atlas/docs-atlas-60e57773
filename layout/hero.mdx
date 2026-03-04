@@ -1,0 +1,335 @@
+---
+title: Hero
+description: An impressive hero banner to showcase something with bold background colors and optional gradients
+---
+
+The `hero` component is a full-width banner that can be used as a landing section or to emphasize important content. It supports color themes, size variations, and can even span the full viewport height.
+
+## Basic Structure
+
+A hero is composed of up to 3 parts:
+- `hero-head` (optional): for navigation or breadcrumbs
+- `hero-body` (required): for the main content
+- `hero-foot` (optional): for tabs or additional navigation
+
+```html
+<section class="hero">
+  <div class="hero-body">
+    <p class="title">Hero Title</p>
+    <p class="subtitle">Hero subtitle</p>
+  </div>
+</section>
+```
+
+## Colors
+
+You can apply any of Bulma's color modifiers to heroes:
+
+```html
+<section class="hero is-primary">
+  <div class="hero-body">
+    <p class="title">Primary Hero</p>
+    <p class="subtitle">Primary subtitle</p>
+  </div>
+</section>
+```
+
+Available color modifiers:
+- `.is-primary`
+- `.is-link`
+- `.is-info`
+- `.is-success`
+- `.is-warning`
+- `.is-danger`
+- `.is-dark`
+- `.is-light`
+
+### Gradient Heroes
+
+Add a subtle gradient overlay with the `.is-bold` modifier:
+
+```html
+<section class="hero is-primary is-bold">
+  <div class="hero-body">
+    <p class="title">Primary Bold Hero</p>
+    <p class="subtitle">With gradient background</p>
+  </div>
+</section>
+```
+
+<Note>
+The `.is-bold` modifier adds a subtle gradient that transitions from a lighter shade in the top-left to a darker shade in the bottom-right.
+</Note>
+
+## Size Modifiers
+
+Control the vertical padding of the hero:
+
+### Small Hero
+
+```html
+<section class="hero is-small is-primary">
+  <div class="hero-body">
+    <p class="title">Small Hero</p>
+    <p class="subtitle">Compact vertical spacing</p>
+  </div>
+</section>
+```
+
+The `.is-small` modifier applies 1.5rem padding.
+
+### Medium Hero
+
+```html
+<section class="hero is-medium is-info">
+  <div class="hero-body">
+    <p class="title">Medium Hero</p>
+    <p class="subtitle">More vertical spacing</p>
+  </div>
+</section>
+```
+
+On tablet and above, `.is-medium` applies 9rem top/bottom padding and 4.5rem left/right padding.
+
+### Large Hero
+
+```html
+<section class="hero is-large is-success">
+  <div class="hero-body">
+    <p class="title">Large Hero</p>
+    <p class="subtitle">Maximum vertical spacing</p>
+  </div>
+</section>
+```
+
+On tablet and above, `.is-large` applies 18rem top/bottom padding and 6rem left/right padding.
+
+## Full Height Heroes
+
+Create heroes that span the full viewport height:
+
+### Half Height
+
+```html
+<section class="hero is-halfheight is-primary">
+  <div class="hero-body">
+    <div class="container">
+      <p class="title">Half Height Hero</p>
+      <p class="subtitle">50vh minimum height</p>
+    </div>
+  </div>
+</section>
+```
+
+The `.is-halfheight` modifier sets `min-height: 50vh`.
+
+### Full Height
+
+```html
+<section class="hero is-fullheight is-info">
+  <div class="hero-body">
+    <div class="container">
+      <p class="title">Full Height Hero</p>
+      <p class="subtitle">100vh minimum height</p>
+    </div>
+  </div>
+</section>
+```
+
+The `.is-fullheight` modifier sets `min-height: 100vh` and centers content vertically.
+
+### Full Height with Navbar
+
+If you have a fixed navbar, use this modifier to account for its height:
+
+```html
+<section class="hero is-fullheight-with-navbar is-danger">
+  <div class="hero-body">
+    <div class="container">
+      <p class="title">Full Height with Navbar</p>
+      <p class="subtitle">Accounts for navbar height</p>
+    </div>
+  </div>
+</section>
+```
+
+## Full Hero Structure
+
+Here's a complete hero with all three sections:
+
+```html
+<section class="hero is-primary is-medium">
+  <!-- Hero head: will stick at the top -->
+  <div class="hero-head">
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar-brand">
+          <a class="navbar-item">
+            <img src="logo.png" alt="Logo">
+          </a>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Hero content: will be in the middle -->
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <p class="title">Hero Title</p>
+      <p class="subtitle">Hero subtitle</p>
+    </div>
+  </div>
+
+  <!-- Hero footer: will stick at the bottom -->
+  <div class="hero-foot">
+    <nav class="tabs is-boxed is-fullwidth">
+      <div class="container">
+        <ul>
+          <li class="is-active"><a>Overview</a></li>
+          <li><a>Modifiers</a></li>
+          <li><a>Grid</a></li>
+          <li><a>Elements</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</section>
+```
+
+## Hero with Buttons
+
+Use the `.hero-buttons` container for action buttons:
+
+```html
+<section class="hero is-primary">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <p class="title">Welcome</p>
+      <p class="subtitle">Get started with our platform</p>
+      <div class="hero-buttons">
+        <button class="button is-primary is-inverted is-outlined">
+          <strong>Sign up</strong>
+        </button>
+        <button class="button is-light">
+          Learn more
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+```
+
+<Note>
+Buttons in `.hero-buttons` stack vertically on mobile and display horizontally on tablet and above.
+</Note>
+
+## Hero with Video Background
+
+Add a fullscreen video background:
+
+```html
+<section class="hero is-dark is-medium">
+  <div class="hero-video">
+    <video autoplay muted loop>
+      <source src="video.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <p class="title">Video Hero</p>
+      <p class="subtitle">With background video</p>
+    </div>
+  </div>
+</section>
+```
+
+### Transparent Video Overlay
+
+```html
+<div class="hero-video is-transparent">
+  <video autoplay muted loop>
+    <source src="video.mp4" type="video/mp4">
+  </video>
+</div>
+```
+
+The `.is-transparent` modifier sets the video opacity to 0.3.
+
+<Warning>
+The `.hero-video` component is hidden on mobile devices to save bandwidth.
+</Warning>
+
+## Common Patterns
+
+### Landing Page Hero
+
+```html
+<section class="hero is-fullheight is-primary is-bold">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <p class="title is-1">Welcome to Our App</p>
+      <p class="subtitle is-3">
+        The best way to manage your projects
+      </p>
+      <div class="hero-buttons">
+        <button class="button is-primary is-inverted is-large">
+          <strong>Get Started</strong>
+        </button>
+        <button class="button is-light is-large">
+          Watch Demo
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+```
+
+### Hero with Container
+
+```html
+<section class="hero is-info">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-vcentered">
+        <div class="column">
+          <p class="title">Product Feature</p>
+          <p class="subtitle">Description of the feature</p>
+        </div>
+        <div class="column">
+          <img src="feature.png" alt="Feature">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+```
+
+## Responsive Behavior
+
+- **Mobile**: Full-width with default padding, size modifiers have no effect
+- **Tablet and above**: Size modifiers (`.is-medium`, `.is-large`) take effect
+- **Full height heroes**: Content is vertically centered on all screen sizes
+
+## CSS Variables
+
+Customize hero spacing:
+
+```css
+.hero {
+  --bulma-hero-body-padding: 3rem 1.5rem;
+  --bulma-hero-body-padding-tablet: 3rem 3rem;
+  --bulma-hero-body-padding-small: 1.5rem;
+  --bulma-hero-body-padding-medium: 9rem 4.5rem;
+  --bulma-hero-body-padding-large: 18rem 6rem;
+}
+```
+
+Or with Sass:
+
+```scss
+$hero-body-padding: 3rem 1.5rem;
+$hero-body-padding-tablet: 3rem 3rem;
+$hero-body-padding-small: 1.5rem;
+$hero-body-padding-medium: 9rem 4.5rem;
+$hero-body-padding-large: 18rem 6rem;
+```

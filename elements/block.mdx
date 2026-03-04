@@ -1,0 +1,104 @@
+---
+title: Block
+description: A simple spacer element to add vertical space between other elements
+---
+
+The **block** element is a simple spacing utility that ensures consistent vertical spacing between elements. It adds a bottom margin to all elements except the last one in a container.
+
+## Basic Usage
+
+Wrap any elements in a `block` class to add spacing:
+
+```html
+<div class="block">
+  <p>This paragraph has spacing below it.</p>
+</div>
+<div class="block">
+  <p>This paragraph also has spacing below it.</p>
+</div>
+<div class="block">
+  <p>The last block has no spacing after it.</p>
+</div>
+```
+
+## How It Works
+
+The `block` class applies a bottom margin using the `--bulma-block-spacing` CSS variable (default: 1.5rem) to all elements except the last child:
+
+```scss
+.block:not(:last-child) {
+  margin-bottom: var(--bulma-block-spacing);
+}
+```
+
+## Common Use Cases
+
+### Spacing Between Sections
+
+```html
+<section class="block">
+  <h2 class="title">First Section</h2>
+  <p>Content for the first section.</p>
+</section>
+
+<section class="block">
+  <h2 class="title">Second Section</h2>
+  <p>Content for the second section.</p>
+</section>
+```
+
+### Spacing Between Form Elements
+
+```html
+<div class="block">
+  <label class="label">Name</label>
+  <input class="input" type="text" placeholder="Enter your name">
+</div>
+
+<div class="block">
+  <label class="label">Email</label>
+  <input class="input" type="email" placeholder="Enter your email">
+</div>
+
+<div class="block">
+  <button class="button is-primary">Submit</button>
+</div>
+```
+
+### Spacing Between Components
+
+```html
+<div class="notification is-info block">
+  <p>This is an informational notification.</p>
+</div>
+
+<div class="notification is-warning block">
+  <p>This is a warning notification.</p>
+</div>
+
+<div class="box block">
+  <p>This is a box with content.</p>
+</div>
+```
+
+<Tip>
+The `block` class is automatically applied to many Bulma elements, so you often don't need to add it manually.
+</Tip>
+
+## CSS Variables
+
+You can customize the block spacing by overriding the CSS variable:
+
+```css
+:root {
+  --bulma-block-spacing: 2rem; /* Increase spacing */
+}
+```
+
+Or target specific blocks:
+
+```css
+.custom-block {
+  --bulma-block-spacing: 3rem;
+}
+```

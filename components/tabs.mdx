@@ -1,0 +1,414 @@
+---
+title: Tabs
+description: A horizontal tabbed navigation component with multiple style variations
+---
+
+The **tabs** component provides horizontal navigation with support for different styles, sizes, and alignment options.
+
+## Basic Tabs
+
+Simple tab navigation:
+
+```html
+<div class="tabs">
+  <ul>
+    <li class="is-active"><a>Pictures</a></li>
+    <li><a>Music</a></li>
+    <li><a>Videos</a></li>
+    <li><a>Documents</a></li>
+  </ul>
+</div>
+```
+
+## Structure
+
+The tabs component uses:
+
+- `tabs` - Main container
+  - `ul` - List container
+    - `li` - Tab items
+      - `a` - Tab links
+
+<Note>
+  Mark the active tab with the `is-active` class on the `<li>` element.
+</Note>
+
+## Alignment
+
+Change tab alignment:
+
+### Centered
+
+```html
+<div class="tabs is-centered">
+  <ul>
+    <li class="is-active"><a>Pictures</a></li>
+    <li><a>Music</a></li>
+    <li><a>Videos</a></li>
+  </ul>
+</div>
+```
+
+### Right Aligned
+
+```html
+<div class="tabs is-right">
+  <ul>
+    <li class="is-active"><a>Pictures</a></li>
+    <li><a>Music</a></li>
+    <li><a>Videos</a></li>
+  </ul>
+</div>
+```
+
+## With Icons
+
+Add icons to tabs:
+
+```html
+<div class="tabs">
+  <ul>
+    <li class="is-active">
+      <a>
+        <span class="icon is-small"><i class="fas fa-image" aria-hidden="true"></i></span>
+        <span>Pictures</span>
+      </a>
+    </li>
+    <li>
+      <a>
+        <span class="icon is-small"><i class="fas fa-music" aria-hidden="true"></i></span>
+        <span>Music</span>
+      </a>
+    </li>
+    <li>
+      <a>
+        <span class="icon is-small"><i class="fas fa-video" aria-hidden="true"></i></span>
+        <span>Videos</span>
+      </a>
+    </li>
+  </ul>
+</div>
+```
+
+### Icon Only
+
+```html
+<div class="tabs">
+  <ul>
+    <li class="is-active">
+      <a><span class="icon"><i class="fas fa-image"></i></span></a>
+    </li>
+    <li>
+      <a><span class="icon"><i class="fas fa-music"></i></span></a>
+    </li>
+    <li>
+      <a><span class="icon"><i class="fas fa-video"></i></span></a>
+    </li>
+  </ul>
+</div>
+```
+
+## Sizes
+
+Tabs support different sizes:
+
+```html
+<!-- Small -->
+<div class="tabs is-small">
+  <ul>
+    <li class="is-active"><a>Small</a></li>
+    <li><a>Tabs</a></li>
+  </ul>
+</div>
+
+<!-- Medium -->
+<div class="tabs is-medium">
+  <ul>
+    <li class="is-active"><a>Medium</a></li>
+    <li><a>Tabs</a></li>
+  </ul>
+</div>
+
+<!-- Large -->
+<div class="tabs is-large">
+  <ul>
+    <li class="is-active"><a>Large</a></li>
+    <li><a>Tabs</a></li>
+  </ul>
+</div>
+```
+
+## Boxed Style
+
+Create boxed tabs:
+
+```html
+<div class="tabs is-boxed">
+  <ul>
+    <li class="is-active">
+      <a>
+        <span class="icon is-small"><i class="fas fa-image"></i></span>
+        <span>Pictures</span>
+      </a>
+    </li>
+    <li>
+      <a>
+        <span class="icon is-small"><i class="fas fa-music"></i></span>
+        <span>Music</span>
+      </a>
+    </li>
+    <li>
+      <a>
+        <span class="icon is-small"><i class="fas fa-video"></i></span>
+        <span>Videos</span>
+      </a>
+    </li>
+  </ul>
+</div>
+```
+
+## Toggle Style
+
+Create toggle button-style tabs:
+
+```html
+<div class="tabs is-toggle">
+  <ul>
+    <li class="is-active">
+      <a>
+        <span class="icon is-small"><i class="fas fa-image"></i></span>
+        <span>Pictures</span>
+      </a>
+    </li>
+    <li>
+      <a>
+        <span class="icon is-small"><i class="fas fa-music"></i></span>
+        <span>Music</span>
+      </a>
+    </li>
+    <li>
+      <a>
+        <span class="icon is-small"><i class="fas fa-video"></i></span>
+        <span>Videos</span>
+      </a>
+    </li>
+  </ul>
+</div>
+```
+
+### Toggle Rounded
+
+Combine toggle with rounded corners:
+
+```html
+<div class="tabs is-toggle is-toggle-rounded">
+  <ul>
+    <li class="is-active">
+      <a>
+        <span class="icon is-small"><i class="fas fa-image"></i></span>
+        <span>Pictures</span>
+      </a>
+    </li>
+    <li>
+      <a>
+        <span class="icon is-small"><i class="fas fa-music"></i></span>
+        <span>Music</span>
+      </a>
+    </li>
+    <li>
+      <a>
+        <span class="icon is-small"><i class="fas fa-video"></i></span>
+        <span>Videos</span>
+      </a>
+    </li>
+  </ul>
+</div>
+```
+
+## Full Width
+
+Make tabs expand to full width:
+
+```html
+<div class="tabs is-fullwidth">
+  <ul>
+    <li class="is-active"><a>Pictures</a></li>
+    <li><a>Music</a></li>
+    <li><a>Videos</a></li>
+    <li><a>Documents</a></li>
+  </ul>
+</div>
+```
+
+## Combining Styles
+
+You can combine multiple modifiers:
+
+```html
+<!-- Boxed, centered, medium -->
+<div class="tabs is-boxed is-centered is-medium">
+  <ul>
+    <li class="is-active"><a>Pictures</a></li>
+    <li><a>Music</a></li>
+    <li><a>Videos</a></li>
+  </ul>
+</div>
+
+<!-- Toggle, rounded, large, fullwidth -->
+<div class="tabs is-toggle is-toggle-rounded is-large is-fullwidth">
+  <ul>
+    <li class="is-active">
+      <a>
+        <span class="icon"><i class="fas fa-home"></i></span>
+        <span>Home</span>
+      </a>
+    </li>
+    <li>
+      <a>
+        <span class="icon"><i class="fas fa-cog"></i></span>
+        <span>Settings</span>
+      </a>
+    </li>
+  </ul>
+</div>
+```
+
+## Tab Content
+
+Show/hide content based on active tab:
+
+```html
+<div class="tabs" id="myTabs">
+  <ul>
+    <li class="is-active" data-tab="tab1"><a>Tab 1</a></li>
+    <li data-tab="tab2"><a>Tab 2</a></li>
+    <li data-tab="tab3"><a>Tab 3</a></li>
+  </ul>
+</div>
+
+<div id="tab-content">
+  <div id="tab1" class="tab-pane is-active">
+    <p>Content for Tab 1</p>
+  </div>
+  <div id="tab2" class="tab-pane" style="display: none;">
+    <p>Content for Tab 2</p>
+  </div>
+  <div id="tab3" class="tab-pane" style="display: none;">
+    <p>Content for Tab 3</p>
+  </div>
+</div>
+```
+
+## JavaScript Example
+
+Basic tab switching functionality:
+
+```javascript
+document.addEventListener('DOMContentLoaded', () => {
+  const tabs = document.querySelectorAll('.tabs li');
+  const tabPanes = document.querySelectorAll('.tab-pane');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      // Remove active class from all tabs
+      tabs.forEach(t => t.classList.remove('is-active'));
+      
+      // Add active class to clicked tab
+      tab.classList.add('is-active');
+
+      // Hide all tab panes
+      tabPanes.forEach(pane => pane.style.display = 'none');
+
+      // Show corresponding tab pane
+      const target = tab.dataset.tab;
+      document.getElementById(target).style.display = 'block';
+    });
+  });
+});
+```
+
+## Multiple Tab Lists
+
+Create tabs with multiple lists:
+
+```html
+<div class="tabs">
+  <ul class="is-left">
+    <li class="is-active"><a>Left 1</a></li>
+    <li><a>Left 2</a></li>
+  </ul>
+  <ul class="is-center">
+    <li><a>Center 1</a></li>
+    <li><a>Center 2</a></li>
+  </ul>
+  <ul class="is-right">
+    <li><a>Right 1</a></li>
+    <li><a>Right 2</a></li>
+  </ul>
+</div>
+```
+
+## Alignment Modifiers
+
+| Class | Description |
+|-------|-------------|
+| `is-centered` | Centers the tabs |
+| `is-right` | Right-aligns the tabs |
+
+## Style Modifiers
+
+| Class | Description |
+|-------|-------------|
+| `is-boxed` | Boxed tab style |
+| `is-toggle` | Toggle button style |
+| `is-toggle-rounded` | Rounded toggle style |
+| `is-fullwidth` | Full width tabs |
+
+## Size Modifiers
+
+| Class | Description |
+|-------|-------------|
+| `is-small` | Small tabs |
+| `is-medium` | Medium tabs |
+| `is-large` | Large tabs |
+
+## CSS Variables
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `--bulma-tabs-link-padding` | 0.5em 1em | Link padding |
+| `--bulma-tabs-border-bottom-width` | 1px | Border width |
+| `--bulma-tabs-boxed-link-radius` | Radius variable | Border radius for boxed |
+| `--bulma-tabs-toggle-link-radius` | Radius variable | Border radius for toggle |
+| `--bulma-tabs-toggle-link-border-width` | 1px | Toggle border width |
+
+## Accessibility
+
+- Use proper ARIA attributes for tab navigation:
+
+```html
+<div class="tabs" role="tablist">
+  <ul>
+    <li class="is-active" role="presentation">
+      <a role="tab" aria-selected="true" aria-controls="panel1">Tab 1</a>
+    </li>
+    <li role="presentation">
+      <a role="tab" aria-selected="false" aria-controls="panel2">Tab 2</a>
+    </li>
+  </ul>
+</div>
+
+<div id="panel1" role="tabpanel" aria-labelledby="tab1">
+  Content 1
+</div>
+<div id="panel2" role="tabpanel" aria-labelledby="tab2" hidden>
+  Content 2
+</div>
+```
+
+- Toggle `aria-selected` when changing tabs
+- Use keyboard navigation (arrow keys) for better accessibility
+
+<Warning>
+  The tabs component only provides styling. You must add JavaScript to switch between tab content panels.
+</Warning>

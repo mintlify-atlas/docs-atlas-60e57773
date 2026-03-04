@@ -1,0 +1,201 @@
+---
+title: Delete
+description: A versatile delete cross button for removing elements
+---
+
+The **delete** element is a simple cross icon button used to remove or dismiss elements like notifications, modals, tags, and messages.
+
+## Basic Usage
+
+```html
+<button class="delete"></button>
+```
+
+## Sizes
+
+The delete button comes in four sizes:
+
+```html
+<button class="delete is-small"></button>
+<button class="delete"></button>
+<button class="delete is-medium"></button>
+<button class="delete is-large"></button>
+```
+
+## In Notifications
+
+```html
+<div class="notification is-primary">
+  <button class="delete"></button>
+  <p>This is a notification with a delete button.</p>
+</div>
+
+<div class="notification is-danger">
+  <button class="delete"></button>
+  <p>Click the X to dismiss this notification.</p>
+</div>
+```
+
+## In Messages
+
+```html
+<article class="message is-info">
+  <div class="message-header">
+    <p>Info</p>
+    <button class="delete"></button>
+  </div>
+  <div class="message-body">
+    This message can be dismissed using the delete button.
+  </div>
+</article>
+```
+
+## In Modals
+
+```html
+<div class="modal is-active">
+  <div class="modal-background"></div>
+  <div class="modal-content">
+    <div class="box">
+      <p>Modal content goes here</p>
+    </div>
+  </div>
+  <button class="modal-close is-large"></button>
+</div>
+```
+
+<Note>
+In modals, use `modal-close` instead of `delete` class, though they render the same visual element.
+</Note>
+
+## In Tags
+
+```html
+<div class="tags">
+  <span class="tag is-primary">
+    Tag Label
+    <button class="delete is-small"></button>
+  </span>
+  
+  <span class="tag is-info">
+    Another Tag
+    <button class="delete is-small"></button>
+  </span>
+</div>
+```
+
+## With JavaScript
+
+Add interactivity with JavaScript:
+
+```html
+<div class="notification is-warning" id="notification">
+  <button class="delete" onclick="closeNotification()"></button>
+  <p>Click the X to close this notification.</p>
+</div>
+
+<script>
+function closeNotification() {
+  document.getElementById('notification').style.display = 'none';
+}
+</script>
+```
+
+### Modern JavaScript Example
+
+```html
+<div class="notification is-success">
+  <button class="delete"></button>
+  <p>Success! Your changes have been saved.</p>
+</div>
+
+<script>
+document.querySelectorAll('.delete').forEach(button => {
+  button.addEventListener('click', () => {
+    button.closest('.notification').remove();
+  });
+});
+</script>
+```
+
+## Accessibility
+
+Add proper ARIA labels for screen readers:
+
+```html
+<button class="delete" aria-label="close"></button>
+
+<button class="delete" aria-label="dismiss notification"></button>
+
+<button class="delete" aria-label="remove tag"></button>
+```
+
+## Complete Examples
+
+### Dismissible Notification
+
+```html
+<div class="notification is-primary">
+  <button class="delete" aria-label="delete"></button>
+  <strong>Primary notification</strong>
+  <br>
+  This notification can be dismissed by clicking the delete button.
+</div>
+```
+
+### Multiple Dismissible Elements
+
+```html
+<div class="notification is-info">
+  <button class="delete"></button>
+  <p>First notification</p>
+</div>
+
+<div class="notification is-warning">
+  <button class="delete"></button>
+  <p>Second notification</p>
+</div>
+
+<div class="notification is-danger">
+  <button class="delete"></button>
+  <p>Third notification</p>
+</div>
+
+<script>
+document.querySelectorAll('.notification .delete').forEach(($delete) => {
+  const $notification = $delete.parentNode;
+  
+  $delete.addEventListener('click', () => {
+    $notification.remove();
+  });
+});
+</script>
+```
+
+## How It Works
+
+The delete element is created using CSS pseudo-elements (::before and ::after) to form the cross shape:
+
+- Circular background with border radius
+- Two perpendicular lines forming an X
+- Hover state for better user feedback
+- No text or icon fonts required
+
+<Tip>
+The delete button is purely visual CSS. You need to add your own JavaScript to handle the actual deletion or dismissal.
+</Tip>
+
+## CSS Variables
+
+While the delete element uses the global color scheme, you can customize specific instances:
+
+```css
+.custom-delete {
+  background-color: var(--bulma-danger);
+}
+
+.custom-delete::before,
+.custom-delete::after {
+  background-color: white;
+}
+```

@@ -1,0 +1,182 @@
+---
+title: Prefixed
+description: Use the prefixed version of Bulma to add the bulma- prefix to all class names and avoid CSS conflicts
+---
+
+The **prefixed** version of Bulma adds the `bulma-` prefix to all class names, helping you avoid CSS conflicts when using Bulma alongside other CSS frameworks or existing codebases.
+
+## Overview
+
+When integrating Bulma into an existing project or using it alongside other CSS frameworks, class name conflicts can occur. The prefixed version solves this by adding `bulma-` to the beginning of every Bulma class name.
+
+## File Structure
+
+The prefixed version is available as:
+
+```
+bulma-prefixed.scss
+```
+
+This file includes all Bulma features with the `bulma-` prefix:
+
+```scss
+@use "../sass" with (
+  $class-prefix: "bulma-"
+);
+```
+
+## How It Works
+
+The prefixed version uses Sass's `@use` rule with configuration to apply the prefix to all generated class names. This means every Bulma class will have the `bulma-` prefix.
+
+### Class Name Examples
+
+<CodeGroup>
+```html Standard Bulma
+<button class="button is-primary">
+  Click me
+</button>
+
+<div class="container">
+  <div class="columns">
+    <div class="column is-half">
+      Content
+    </div>
+  </div>
+</div>
+```
+
+```html Prefixed Bulma
+<button class="bulma-button bulma-is-primary">
+  Click me
+</button>
+
+<div class="bulma-container">
+  <div class="bulma-columns">
+    <div class="bulma-column bulma-is-half">
+      Content
+    </div>
+  </div>
+</div>
+```
+</CodeGroup>
+
+## Installation
+
+Import the prefixed version in your SCSS file:
+
+```scss
+@import "bulma/versions/bulma-prefixed";
+```
+
+Or reference the compiled CSS version in your HTML:
+
+```html
+<link rel="stylesheet" href="path/to/bulma-prefixed.css">
+```
+
+## Benefits
+
+<CardGroup cols={2}>
+  <Card title="No Conflicts" icon="shield">
+    Avoid class name conflicts with other CSS frameworks or existing styles.
+  </Card>
+  
+  <Card title="Clear Origin" icon="tag">
+    Easily identify which styles come from Bulma in your HTML.
+  </Card>
+  
+  <Card title="Safe Integration" icon="plug">
+    Safely integrate Bulma into legacy projects without breaking existing styles.
+  </Card>
+  
+  <Card title="Multiple Frameworks" icon="layer-group">
+    Use Bulma alongside Bootstrap, Tailwind, or other CSS frameworks.
+  </Card>
+</CardGroup>
+
+## When to Use
+
+Consider using the prefixed version when:
+
+- Integrating Bulma into an existing project with established CSS
+- Using multiple CSS frameworks in the same project
+- You have generic class names (like `.button`, `.container`) that conflict with Bulma
+- Working on a large codebase where clarity about style origins is important
+- Migrating gradually from another CSS framework to Bulma
+
+## Example Usage
+
+### Button Component
+
+```html
+<button class="bulma-button bulma-is-primary bulma-is-large">
+  Primary Button
+</button>
+```
+
+### Grid Layout
+
+```html
+<div class="bulma-container">
+  <div class="bulma-columns bulma-is-multiline">
+    <div class="bulma-column bulma-is-one-quarter">
+      <div class="bulma-box">
+        Card 1
+      </div>
+    </div>
+    <div class="bulma-column bulma-is-one-quarter">
+      <div class="bulma-box">
+        Card 2
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+### Form Elements
+
+```html
+<div class="bulma-field">
+  <label class="bulma-label">Username</label>
+  <div class="bulma-control">
+    <input class="bulma-input" type="text" placeholder="Enter username">
+  </div>
+</div>
+```
+
+## Considerations
+
+<Warning>
+  Using the prefixed version means you'll need to update all class names in your HTML. This includes:
+  - Component classes (e.g., `button` becomes `bulma-button`)
+  - Modifier classes (e.g., `is-primary` becomes `bulma-is-primary`)
+  - Layout classes (e.g., `container` becomes `bulma-container`)
+  - All helper classes (e.g., `has-text-centered` becomes `bulma-has-text-centered`)
+</Warning>
+
+<Info>
+  The prefix applies to **all** Bulma classes, including elements, components, layouts, and helpers.
+</Info>
+
+## Comparison
+
+| Feature | Standard Bulma | Prefixed Bulma |
+|---------|----------------|----------------|
+| All features | ✓ | ✓ |
+| Class prefix | None | `bulma-` |
+| Risk of conflicts | Higher | Lower |
+| Verbosity | Lower | Higher |
+| Integration ease | May conflict | Conflict-free |
+
+## Custom Prefix
+
+If you want to use a different prefix, you can create your own version by using Sass configuration:
+
+```scss
+@use "bulma/sass" with (
+  $class-prefix: "my-prefix-"
+);
+```
+
+This allows you to customize the prefix to match your project's naming conventions.

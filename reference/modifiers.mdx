@@ -1,0 +1,373 @@
+---
+title: Modifiers
+description: Complete guide to Bulma's modifier class system for styling components
+---
+
+Bulma's modifier system provides a powerful and intuitive way to style components. Modifiers are utility classes that change the appearance or behavior of elements without writing custom CSS.
+
+## Modifier Prefixes
+
+Bulma uses two main prefixes for modifier classes:
+
+| Prefix | Purpose | Example |
+|--------|---------|----------|
+| `is-*` | State or style modifiers | `is-primary`, `is-large`, `is-active` |
+| `has-*` | Helper modifiers | `has-text-centered`, `has-background-primary` |
+
+<Note>
+These prefixes can be customized using Sass variables: `$helpers-prefix` and `$helpers-has-prefix`.
+</Note>
+
+## State Modifiers (is-*)
+
+### Color Modifiers
+
+Apply semantic colors to components:
+
+```html
+<button class="button is-primary">Primary</button>
+<button class="button is-link">Link</button>
+<button class="button is-info">Info</button>
+<button class="button is-success">Success</button>
+<button class="button is-warning">Warning</button>
+<button class="button is-danger">Danger</button>
+<button class="button is-light">Light</button>
+<button class="button is-dark">Dark</button>
+```
+
+Color modifiers work across most components:
+
+```html
+<div class="notification is-warning">
+  Warning notification
+</div>
+
+<div class="tag is-success">Success Tag</div>
+
+<progress class="progress is-primary" value="60" max="100"></progress>
+```
+
+### Size Modifiers
+
+Control the size of components:
+
+```html
+<button class="button is-small">Small</button>
+<button class="button">Normal</button>
+<button class="button is-medium">Medium</button>
+<button class="button is-large">Large</button>
+```
+
+Available size modifiers:
+- `is-small` - Smaller than default
+- `is-normal` - Default size (usually not needed)
+- `is-medium` - Medium size
+- `is-large` - Larger than default
+
+### Style Modifiers
+
+#### Outlined
+
+```html
+<button class="button is-primary is-outlined">
+  Outlined Primary
+</button>
+```
+
+#### Inverted
+
+```html
+<button class="button is-primary is-inverted">
+  Inverted Primary
+</button>
+```
+
+#### Rounded
+
+```html
+<button class="button is-primary is-rounded">
+  Rounded Button
+</button>
+
+<input class="input is-rounded" type="text" placeholder="Rounded input">
+```
+
+#### Light
+
+```html
+<button class="button is-primary is-light">
+  Light Primary
+</button>
+
+<div class="notification is-danger is-light">
+  Light danger notification
+</div>
+```
+
+### State Modifiers
+
+#### Active
+
+```html
+<button class="button is-active">Active Button</button>
+<a class="navbar-item is-active">Active Link</a>
+```
+
+#### Loading
+
+```html
+<button class="button is-loading">Loading</button>
+<button class="button is-primary is-loading">Loading</button>
+```
+
+#### Disabled
+
+Use the HTML `disabled` attribute along with the class:
+
+```html
+<button class="button" disabled>Disabled</button>
+<input class="input" type="text" disabled>
+```
+
+#### Static
+
+For non-interactive elements styled as controls:
+
+```html
+<span class="button is-static">Static Button</span>
+```
+
+### Display Modifiers
+
+#### Fullwidth
+
+```html
+<button class="button is-fullwidth">Full Width Button</button>
+<input class="input is-fullwidth" type="text">
+```
+
+#### Hidden
+
+```html
+<div class="is-hidden">This is hidden</div>
+```
+
+#### Invisible
+
+```html
+<div class="is-invisible">This takes up space but is invisible</div>
+```
+
+#### Screen Reader Only
+
+```html
+<span class="is-sr-only">Only visible to screen readers</span>
+```
+
+## Helper Modifiers (has-*)
+
+### Text Alignment
+
+```html
+<p class="has-text-centered">Centered text</p>
+<p class="has-text-left">Left-aligned text</p>
+<p class="has-text-right">Right-aligned text</p>
+<p class="has-text-justified">Justified text</p>
+```
+
+### Text Color
+
+```html
+<p class="has-text-primary">Primary text color</p>
+<p class="has-text-link">Link text color</p>
+<p class="has-text-info">Info text color</p>
+<p class="has-text-success">Success text color</p>
+<p class="has-text-warning">Warning text color</p>
+<p class="has-text-danger">Danger text color</p>
+<p class="has-text-dark">Dark text color</p>
+<p class="has-text-grey">Grey text color</p>
+<p class="has-text-grey-light">Light grey text color</p>
+```
+
+### Text Weight
+
+```html
+<p class="has-text-weight-light">Light text (300)</p>
+<p class="has-text-weight-normal">Normal text (400)</p>
+<p class="has-text-weight-medium">Medium text (500)</p>
+<p class="has-text-weight-semibold">Semibold text (600)</p>
+<p class="has-text-weight-bold">Bold text (700)</p>
+```
+
+### Text Transform
+
+```html
+<p class="is-capitalized">capitalized text</p>
+<p class="is-lowercase">LOWERCASE TEXT</p>
+<p class="is-uppercase">uppercase text</p>
+<p class="is-italic">Italic text</p>
+```
+
+### Text Size
+
+```html
+<p class="is-size-1">Size 1 (3rem)</p>
+<p class="is-size-2">Size 2 (2.5rem)</p>
+<p class="is-size-3">Size 3 (2rem)</p>
+<p class="is-size-4">Size 4 (1.5rem)</p>
+<p class="is-size-5">Size 5 (1.25rem)</p>
+<p class="is-size-6">Size 6 (1rem)</p>
+<p class="is-size-7">Size 7 (0.75rem)</p>
+```
+
+### Background Color
+
+```html
+<div class="has-background-primary">Primary background</div>
+<div class="has-background-link">Link background</div>
+<div class="has-background-info">Info background</div>
+<div class="has-background-success">Success background</div>
+<div class="has-background-warning">Warning background</div>
+<div class="has-background-danger">Danger background</div>
+<div class="has-background-light">Light background</div>
+<div class="has-background-dark">Dark background</div>
+<div class="has-background-white">White background</div>
+<div class="has-background-black">Black background</div>
+```
+
+## Responsive Modifiers
+
+Most modifiers can be combined with breakpoint suffixes:
+
+### Responsive Text Alignment
+
+```html
+<p class="has-text-centered-mobile has-text-left-tablet">
+  Centered on mobile, left-aligned on tablet and up
+</p>
+```
+
+### Responsive Display
+
+```html
+<div class="is-hidden-mobile">Hidden on mobile</div>
+<div class="is-hidden-tablet-only">Hidden on tablet only</div>
+<div class="is-hidden-desktop">Hidden on desktop and up</div>
+```
+
+### Responsive Text Size
+
+```html
+<p class="is-size-4-mobile is-size-3-tablet is-size-2-desktop">
+  Size changes based on screen size
+</p>
+```
+
+## Combining Modifiers
+
+Modifiers can be combined for powerful styling:
+
+```html
+<button class="button is-primary is-large is-rounded is-outlined">
+  Combined Modifiers
+</button>
+
+<div class="notification is-warning is-light has-text-centered">
+  <p class="has-text-weight-bold">Warning!</p>
+  <p>This combines multiple modifiers.</p>
+</div>
+```
+
+## Component-Specific Modifiers
+
+Some modifiers are specific to certain components:
+
+### Columns
+
+```html
+<div class="columns is-mobile is-multiline is-centered">
+  <div class="column is-half">Column</div>
+</div>
+```
+
+### Navbar
+
+```html
+<nav class="navbar is-fixed-top is-primary">
+  <!-- navbar content -->
+</nav>
+```
+
+### Modal
+
+```html
+<div class="modal is-active">
+  <!-- modal content -->
+</div>
+```
+
+### Hero
+
+```html
+<section class="hero is-primary is-bold is-medium">
+  <!-- hero content -->
+</section>
+```
+
+## Modifier Pattern
+
+Bulma follows a consistent pattern for modifiers:
+
+```
+[component] [is-color] [is-size] [is-state] [has-helper]
+```
+
+Example:
+```html
+<button class="button is-primary is-large is-loading has-text-weight-bold">
+  Button
+</button>
+```
+
+## Custom Modifiers
+
+You can create custom modifiers by following Bulma's conventions:
+
+```scss
+.button {
+  &.is-custom {
+    background-color: #custom-color;
+    color: white;
+  }
+}
+```
+
+<Tip>
+When creating custom modifiers, use the `is-*` prefix for component-specific styles and `has-*` prefix for utility helpers to maintain consistency with Bulma's conventions.
+</Tip>
+
+## Accessibility
+
+Modifiers can help with accessibility:
+
+```html
+<!-- Screen reader only text -->
+<span class="is-sr-only">Additional context for screen readers</span>
+
+<!-- Skip link -->
+<a href="#main-content" class="button is-primary is-sr-only-focusable">
+  Skip to main content
+</a>
+```
+
+## Best Practices
+
+1. **Use semantic modifiers**: Choose color modifiers that match the meaning (e.g., `is-danger` for destructive actions)
+2. **Combine thoughtfully**: While modifiers can be combined, avoid over-complicating your markup
+3. **Responsive-first**: Use responsive modifiers to create adaptive layouts
+4. **Maintain consistency**: Use the same modifier patterns throughout your application
+5. **Leverage helpers**: Use `has-*` helpers instead of writing custom CSS for common utilities
+
+<Warning>
+Some modifier combinations may not work together or may produce unexpected results. Always test your modifier combinations.
+</Warning>

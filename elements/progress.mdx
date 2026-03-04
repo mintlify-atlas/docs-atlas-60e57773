@@ -1,0 +1,249 @@
+---
+title: Progress
+description: Native HTML progress bars in different colors and sizes
+---
+
+The **progress** element displays a progress indicator using the native HTML `<progress>` element with Bulma styling.
+
+## Basic Usage
+
+```html
+<progress class="progress" value="50" max="100">50%</progress>
+```
+
+## Progress Values
+
+```html
+<progress class="progress" value="0" max="100">0%</progress>
+<progress class="progress" value="25" max="100">25%</progress>
+<progress class="progress" value="50" max="100">50%</progress>
+<progress class="progress" value="75" max="100">75%</progress>
+<progress class="progress" value="100" max="100">100%</progress>
+```
+
+## Colors
+
+```html
+<progress class="progress is-primary" value="30" max="100">30%</progress>
+<progress class="progress is-link" value="40" max="100">40%</progress>
+<progress class="progress is-info" value="50" max="100">50%</progress>
+<progress class="progress is-success" value="60" max="100">60%</progress>
+<progress class="progress is-warning" value="70" max="100">70%</progress>
+<progress class="progress is-danger" value="80" max="100">80%</progress>
+```
+
+## Sizes
+
+```html
+<progress class="progress is-small" value="50" max="100">50%</progress>
+<progress class="progress" value="50" max="100">50%</progress>
+<progress class="progress is-medium" value="50" max="100">50%</progress>
+<progress class="progress is-large" value="50" max="100">50%</progress>
+```
+
+## Indeterminate State
+
+Show an animated indeterminate progress bar when the value is unknown:
+
+```html
+<progress class="progress" max="100">Loading...</progress>
+```
+
+### Indeterminate with Colors
+
+```html
+<progress class="progress is-primary" max="100">Loading...</progress>
+<progress class="progress is-info" max="100">Loading...</progress>
+<progress class="progress is-success" max="100">Loading...</progress>
+```
+
+## Practical Examples
+
+### File Upload Progress
+
+```html
+<div class="box">
+  <p><strong>Uploading: document.pdf</strong></p>
+  <progress class="progress is-primary" value="65" max="100">65%</progress>
+  <p class="has-text-grey">65% complete</p>
+</div>
+```
+
+### Multiple Progress Indicators
+
+```html
+<div class="content">
+  <p><strong>Profile Completion</strong></p>
+  
+  <div class="mb-4">
+    <p>Basic Information</p>
+    <progress class="progress is-success" value="100" max="100">100%</progress>
+  </div>
+  
+  <div class="mb-4">
+    <p>Contact Details</p>
+    <progress class="progress is-success" value="100" max="100">100%</progress>
+  </div>
+  
+  <div class="mb-4">
+    <p>Profile Picture</p>
+    <progress class="progress is-warning" value="50" max="100">50%</progress>
+  </div>
+  
+  <div class="mb-4">
+    <p>Security Settings</p>
+    <progress class="progress is-danger" value="20" max="100">20%</progress>
+  </div>
+</div>
+```
+
+### Loading States
+
+```html
+<!-- Downloading -->
+<div class="notification is-info is-light">
+  <p>Downloading update...</p>
+  <progress class="progress is-info" max="100">Loading...</progress>
+</div>
+
+<!-- Processing -->
+<div class="notification is-primary is-light">
+  <p>Processing your request...</p>
+  <progress class="progress is-primary" max="100">Loading...</progress>
+</div>
+```
+
+### Progress with Dynamic Update
+
+```html
+<div class="box">
+  <p><strong>Upload Progress</strong></p>
+  <progress class="progress is-primary" id="file-progress" value="0" max="100">0%</progress>
+  <p class="has-text-centered" id="progress-text">0%</p>
+  <button class="button is-primary" onclick="simulateUpload()">Start Upload</button>
+</div>
+
+<script>
+function simulateUpload() {
+  let progress = 0;
+  const progressBar = document.getElementById('file-progress');
+  const progressText = document.getElementById('progress-text');
+  
+  const interval = setInterval(() => {
+    progress += 5;
+    progressBar.value = progress;
+    progressText.textContent = progress + '%';
+    
+    if (progress >= 100) {
+      clearInterval(interval);
+      progressBar.classList.add('is-success');
+      progressText.textContent = 'Complete!';
+    }
+  }, 100);
+}
+</script>
+```
+
+### Skills Progress Bars
+
+```html
+<div class="content">
+  <h3>Technical Skills</h3>
+  
+  <p>HTML/CSS</p>
+  <progress class="progress is-primary" value="90" max="100">90%</progress>
+  
+  <p>JavaScript</p>
+  <progress class="progress is-primary" value="85" max="100">85%</progress>
+  
+  <p>React</p>
+  <progress class="progress is-primary" value="75" max="100">75%</progress>
+  
+  <p>Node.js</p>
+  <progress class="progress is-primary" value="70" max="100">70%</progress>
+</div>
+```
+
+### Goal Progress
+
+```html
+<div class="box">
+  <div class="level">
+    <div class="level-left">
+      <div class="level-item">
+        <strong>Monthly Sales Goal</strong>
+      </div>
+    </div>
+    <div class="level-right">
+      <div class="level-item">
+        <span class="tag is-success is-medium">$8,500 / $10,000</span>
+      </div>
+    </div>
+  </div>
+  <progress class="progress is-success is-large" value="85" max="100">85%</progress>
+</div>
+```
+
+## Browser Support
+
+The progress element is a native HTML5 element with excellent browser support. Bulma enhances its appearance while maintaining accessibility.
+
+## CSS Variables
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `--bulma-progress-border-radius` | `--bulma-radius-rounded` | Border radius |
+| `--bulma-progress-bar-background-color` | `--bulma-border-weak` | Background color |
+| `--bulma-progress-value-background-color` | `--bulma-text` | Progress value color |
+| `--bulma-progress-indeterminate-duration` | `1.5s` | Animation duration |
+
+### Custom Styling
+
+```css
+.custom-progress {
+  --bulma-progress-bar-background-color: hsl(0, 0%, 90%);
+  --bulma-progress-value-background-color: hsl(171, 100%, 41%);
+  height: 2rem;
+}
+```
+
+```html
+<progress class="progress custom-progress" value="60" max="100">60%</progress>
+```
+
+## Animation
+
+The indeterminate state uses a smooth sliding animation:
+
+```css
+@keyframes moveIndeterminate {
+  from {
+    background-position: 200% 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
+```
+
+<Tip>
+Always include the text content inside the progress element for accessibility. Screen readers will announce this value to users.
+</Tip>
+
+<Note>
+When using the indeterminate state, omit the `value` attribute but keep the `max` attribute. The inner text should describe the loading state.
+</Note>
+
+## Accessibility
+
+For better accessibility, include both the `value` and descriptive text:
+
+```html
+<progress class="progress is-primary" value="70" max="100" aria-label="Profile completion">70% complete</progress>
+```
+
+For indeterminate progress:
+
+```html
+<progress class="progress is-info" max="100" aria-label="Loading content">Loading...</progress>
+```

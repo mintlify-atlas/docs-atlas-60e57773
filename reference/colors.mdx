@@ -1,0 +1,200 @@
+---
+title: Colors
+description: Complete color palette and semantic color system in Bulma CSS framework
+---
+
+Bulma provides a comprehensive color system with semantic colors, base shades, and a flexible color palette that can be customized to match your brand.
+
+## Semantic Colors
+
+These colors convey meaning and are used throughout Bulma's components:
+
+| Color | Variable | HSL Value | Hex Equivalent | Usage |
+|-------|----------|-----------|----------------|-------|
+| <span style={{display: 'inline-block', width: '20px', height: '20px', backgroundColor: 'hsl(171, 100%, 41%)', verticalAlign: 'middle', marginRight: '8px'}}></span> Primary | `$primary` | `hsl(171, 100%, 41%)` | `#00d1b2` | Main brand color |
+| <span style={{display: 'inline-block', width: '20px', height: '20px', backgroundColor: 'hsl(233, 100%, 63%)', verticalAlign: 'middle', marginRight: '8px'}}></span> Link | `$link` | `hsl(233, 100%, 63%)` | `#4e5cff` | Links and interactive elements |
+| <span style={{display: 'inline-block', width: '20px', height: '20px', backgroundColor: 'hsl(198, 100%, 70%)', verticalAlign: 'middle', marginRight: '8px'}}></span> Info | `$info` | `hsl(198, 100%, 70%)` | `#66d9ff` | Informational messages |
+| <span style={{display: 'inline-block', width: '20px', height: '20px', backgroundColor: 'hsl(153, 53%, 53%)', verticalAlign: 'middle', marginRight: '8px'}}></span> Success | `$success` | `hsl(153, 53%, 53%)` | `#48c78e` | Success states |
+| <span style={{display: 'inline-block', width: '20px', height: '20px', backgroundColor: 'hsl(42, 100%, 53%)', verticalAlign: 'middle', marginRight: '8px'}}></span> Warning | `$warning` | `hsl(42, 100%, 53%)` | `#ffe03d` | Warning messages |
+| <span style={{display: 'inline-block', width: '20px', height: '20px', backgroundColor: 'hsl(348, 100%, 70%)', verticalAlign: 'middle', marginRight: '8px'}}></span> Danger | `$danger` | `hsl(348, 100%, 70%)` | `#ff5566` | Errors and destructive actions |
+
+### Usage Example
+
+```html
+<button class="button is-primary">Primary Button</button>
+<button class="button is-link">Link Button</button>
+<button class="button is-info">Info Button</button>
+<button class="button is-success">Success Button</button>
+<button class="button is-warning">Warning Button</button>
+<button class="button is-danger">Danger Button</button>
+```
+
+## Base Colors
+
+Bulma includes a set of base colors for general use:
+
+| Color | Variable | HSL Value | Usage |
+|-------|----------|-----------|-------|
+| <span style={{display: 'inline-block', width: '20px', height: '20px', backgroundColor: 'hsl(14, 100%, 53%)', verticalAlign: 'middle', marginRight: '8px'}}></span> Orange | `$orange` | `hsl(14, 100%, 53%)` | Accent color |
+| <span style={{display: 'inline-block', width: '20px', height: '20px', backgroundColor: 'hsl(42, 100%, 53%)', verticalAlign: 'middle', marginRight: '8px'}}></span> Yellow | `$yellow` | `hsl(42, 100%, 53%)` | Highlight color |
+| <span style={{display: 'inline-block', width: '20px', height: '20px', backgroundColor: 'hsl(153, 53%, 53%)', verticalAlign: 'middle', marginRight: '8px'}}></span> Green | `$green` | `hsl(153, 53%, 53%)` | Positive feedback |
+| <span style={{display: 'inline-block', width: '20px', height: '20px', backgroundColor: 'hsl(171, 100%, 41%)', verticalAlign: 'middle', marginRight: '8px'}}></span> Turquoise | `$turquoise` | `hsl(171, 100%, 41%)` | Primary color |
+| <span style={{display: 'inline-block', width: '20px', height: '20px', backgroundColor: 'hsl(198, 100%, 70%)', verticalAlign: 'middle', marginRight: '8px'}}></span> Cyan | `$cyan` | `hsl(198, 100%, 70%)` | Info color |
+| <span style={{display: 'inline-block', width: '20px', height: '20px', backgroundColor: 'hsl(233, 100%, 63%)', verticalAlign: 'middle', marginRight: '8px'}}></span> Blue | `$blue` | `hsl(233, 100%, 63%)` | Link color |
+| <span style={{display: 'inline-block', width: '20px', height: '20px', backgroundColor: 'hsl(271, 100%, 71%)', verticalAlign: 'middle', marginRight: '8px'}}></span> Purple | `$purple` | `hsl(271, 100%, 71%)` | Decorative color |
+| <span style={{display: 'inline-block', width: '20px', height: '20px', backgroundColor: 'hsl(348, 100%, 70%)', verticalAlign: 'middle', marginRight: '8px'}}></span> Red | `$red` | `hsl(348, 100%, 70%)` | Error color |
+
+## Grayscale Colors
+
+Bulma's grayscale palette is built on a consistent HSL foundation:
+
+### Dark Shades
+
+| Color | Variable | HSL Value | Lightness |
+|-------|----------|-----------|----------|
+| <span style={{display: 'inline-block', width: '20px', height: '20px', backgroundColor: 'hsl(221, 14%, 4%)', border: '1px solid #ccc', verticalAlign: 'middle', marginRight: '8px'}}></span> Black | `$black` | `hsl(221, 14%, 4%)` | 4% |
+| <span style={{display: 'inline-block', width: '20px', height: '20px', backgroundColor: 'hsl(221, 14%, 9%)', border: '1px solid #ccc', verticalAlign: 'middle', marginRight: '8px'}}></span> Black Bis | `$black-bis` | `hsl(221, 14%, 9%)` | 9% |
+| <span style={{display: 'inline-block', width: '20px', height: '20px', backgroundColor: 'hsl(221, 14%, 14%)', border: '1px solid #ccc', verticalAlign: 'middle', marginRight: '8px'}}></span> Black Ter | `$black-ter` | `hsl(221, 14%, 14%)` | 14% |
+
+### Grey Shades
+
+| Color | Variable | HSL Value | Lightness |
+|-------|----------|-----------|----------|
+| <span style={{display: 'inline-block', width: '20px', height: '20px', backgroundColor: 'hsl(221, 14%, 21%)', border: '1px solid #ccc', verticalAlign: 'middle', marginRight: '8px'}}></span> Grey Darker | `$grey-darker` | `hsl(221, 14%, 21%)` | 21% |
+| <span style={{display: 'inline-block', width: '20px', height: '20px', backgroundColor: 'hsl(221, 14%, 29%)', border: '1px solid #ccc', verticalAlign: 'middle', marginRight: '8px'}}></span> Grey Dark | `$grey-dark` | `hsl(221, 14%, 29%)` | 29% |
+| <span style={{display: 'inline-block', width: '20px', height: '20px', backgroundColor: 'hsl(221, 14%, 48%)', border: '1px solid #ccc', verticalAlign: 'middle', marginRight: '8px'}}></span> Grey | `$grey` | `hsl(221, 14%, 48%)` | 48% |
+| <span style={{display: 'inline-block', width: '20px', height: '20px', backgroundColor: 'hsl(221, 14%, 71%)', border: '1px solid #ccc', verticalAlign: 'middle', marginRight: '8px'}}></span> Grey Light | `$grey-light` | `hsl(221, 14%, 71%)` | 71% |
+| <span style={{display: 'inline-block', width: '20px', height: '20px', backgroundColor: 'hsl(221, 14%, 86%)', border: '1px solid #ccc', verticalAlign: 'middle', marginRight: '8px'}}></span> Grey Lighter | `$grey-lighter` | `hsl(221, 14%, 86%)` | 86% |
+| <span style={{display: 'inline-block', width: '20px', height: '20px', backgroundColor: 'hsl(221, 14%, 93%)', border: '1px solid #ccc', verticalAlign: 'middle', marginRight: '8px'}}></span> Grey Lightest | `$grey-lightest` | `hsl(221, 14%, 93%)` | 93% |
+
+### Light Shades
+
+| Color | Variable | HSL Value | Lightness |
+|-------|----------|-----------|----------|
+| <span style={{display: 'inline-block', width: '20px', height: '20px', backgroundColor: 'hsl(221, 14%, 96%)', border: '1px solid #ccc', verticalAlign: 'middle', marginRight: '8px'}}></span> White Ter | `$white-ter` | `hsl(221, 14%, 96%)` | 96% |
+| <span style={{display: 'inline-block', width: '20px', height: '20px', backgroundColor: 'hsl(221, 14%, 98%)', border: '1px solid #ccc', verticalAlign: 'middle', marginRight: '8px'}}></span> White Bis | `$white-bis` | `hsl(221, 14%, 98%)` | 98% |
+| <span style={{display: 'inline-block', width: '20px', height: '20px', backgroundColor: 'hsl(221, 14%, 100%)', border: '1px solid #ccc', verticalAlign: 'middle', marginRight: '8px'}}></span> White | `$white` | `hsl(221, 14%, 100%)` | 100% |
+
+<Note>
+All grayscale colors share the same hue (221°) and saturation (14%), varying only in lightness. This creates a harmonious, cohesive color scheme.
+</Note>
+
+## Color Scheme Foundation
+
+Bulma's color system is built on HSL (Hue, Saturation, Lightness) values:
+
+```scss
+$scheme-h: 221;        // Hue
+$scheme-s: 14%;        // Saturation
+$dark-l: 20%;          // Dark lightness threshold
+$light-l: 90%;         // Light lightness threshold
+```
+
+This approach allows for:
+- Consistent color relationships
+- Easy theme customization
+- Automatic color derivations
+- Support for light/dark modes
+
+## Using Colors
+
+### Background Colors
+
+```html
+<div class="has-background-primary">
+  Primary background
+</div>
+<div class="has-background-info">
+  Info background
+</div>
+<div class="has-background-success">
+  Success background
+</div>
+```
+
+### Text Colors
+
+```html
+<p class="has-text-primary">Primary text</p>
+<p class="has-text-danger">Danger text</p>
+<p class="has-text-grey">Grey text</p>
+<p class="has-text-grey-light">Light grey text</p>
+```
+
+### Component Colors
+
+Most Bulma components accept color modifiers:
+
+```html
+<div class="notification is-warning">
+  Warning notification
+</div>
+
+<article class="message is-info">
+  <div class="message-header">
+    <p>Info Message</p>
+  </div>
+  <div class="message-body">
+    Message content here.
+  </div>
+</article>
+
+<progress class="progress is-success" value="60" max="100">60%</progress>
+```
+
+## Customizing Colors
+
+You can customize Bulma's colors using Sass:
+
+```scss
+@use "bulma/bulma" with (
+  $primary: hsl(171, 100%, 41%),
+  $link: hsl(229, 53%, 53%),
+  $info: hsl(207, 61%, 53%),
+  $success: hsl(153, 53%, 53%),
+  $warning: hsl(44, 100%, 77%),
+  $danger: hsl(348, 86%, 61%)
+);
+```
+
+### Adding Custom Colors
+
+You can extend the color palette with custom colors:
+
+```scss
+@use "bulma/bulma" with (
+  $custom-colors: (
+    "twitter": (hsl(204, 88%, 53%), hsl(0, 0%, 100%)),
+    "facebook": (hsl(221, 44%, 41%), hsl(0, 0%, 100%)),
+    "github": (hsl(0, 0%, 13%), hsl(0, 0%, 100%))
+  )
+);
+```
+
+This makes the colors available as modifiers:
+
+```html
+<button class="button is-twitter">Twitter Button</button>
+<button class="button is-facebook">Facebook Button</button>
+```
+
+## Light and Dark Variants
+
+Bulma automatically generates light and dark variants for semantic colors:
+
+```html
+<div class="has-background-primary-light">
+  Light primary background
+</div>
+
+<div class="has-background-primary-dark">
+  Dark primary background
+</div>
+
+<p class="has-text-danger-light">Light danger text</p>
+<p class="has-text-danger-dark">Dark danger text</p>
+```
+
+<Tip>
+Use light variants for subtle backgrounds and dark variants for emphasis or dark mode themes.
+</Tip>
